@@ -16,6 +16,7 @@ TERMINAL = {'COMPLETED_EXTERNAL', 'COMPLETED_INTERNAL'}
 VERDICTS = {'NO_RESOLUTION_FOUND', 'PARTIAL_PROGRESS', 'CLAIMED_RESOLVED', 'RESOLVED_EXTERNAL', 'BLOCKED'}
 CATEGORIES = {'general', 'discipline', 'solution', 'criticism'}
 UTC = dt.timezone.utc
+PROBLEM_ID_RE = re.compile(r'(?:MATH|PHYS|BIO|CHEM|CS|STAT|MAT|ASTRO|EARTH|NEURO|ECON|ENG|MED|SOC|META)-\\d{3}')
 
 
 def require(condition: bool, message: str) -> None:

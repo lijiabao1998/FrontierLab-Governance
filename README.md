@@ -12,6 +12,17 @@
 | [FrontierPhysics](https://github.com/lijiabao1998/FrontierPhysics) | 10 | 可重現模型、極限檢查、觀測約束 |
 | [FrontierBiology](https://github.com/lijiabao1998/FrontierBiology) | 10 | 公開資料、跨資料集泛化、可識別性 |
 | [FrontierChemistry](https://github.com/lijiabao1998/FrontierChemistry) | 10 | 基準重現、計算誤差、條件外推 |
+| [FrontierComputerScience](https://github.com/lijiabao1998/FrontierComputerScience) | 10 | 可執行規格、形式驗證、系統與演算法基準 |
+| [FrontierStatistics](https://github.com/lijiabao1998/FrontierStatistics) | 10 | 識別、覆蓋、錯誤率、分布偏移 |
+| [FrontierMaterials](https://github.com/lijiabao1998/FrontierMaterials) | 10 | 穩定性、可合成性、跨尺度材料發現 |
+| [FrontierAstronomy](https://github.com/lijiabao1998/FrontierAstronomy) | 10 | 多信使、宇宙學、早期天體與系外行星 |
+| [FrontierEarth](https://github.com/lijiabao1998/FrontierEarth) | 10 | 氣候、地震、火山、海洋與地球觀測 |
+| [FrontierNeuroscience](https://github.com/lijiabao1998/FrontierNeuroscience) | 10 | 腦—行為模型、表徵、動力學與因果擾動 |
+| [FrontierEconomics](https://github.com/lijiabao1998/FrontierEconomics) | 10 | 生產力、企業、勞動、AI擴散與識別 |
+| [FrontierEngineering](https://github.com/lijiabao1998/FrontierEngineering) | 10 | 控制、數位孿生、韌性與跨域泛化 |
+| [FrontierMedicine](https://github.com/lijiabao1998/FrontierMedicine) | 10 | 外部驗證、臨床效用、試驗與監測 |
+| [FrontierSocialScience](https://github.com/lijiabao1998/FrontierSocialScience) | 10 | 網路、遷移、資訊擴散與因果設計 |
+| [FrontierMetaScience](https://github.com/lijiabao1998/FrontierMetaScience) | 10 | 重現性、同行評審、AI科學與研究治理 |
 
 ## 開始前必讀
 1. [AGENTS.md](AGENTS.md)：角色、分支、合併與停止規則。
@@ -20,7 +31,7 @@
 4. [SAFETY.md](SAFETY.md)：公開資料、安全與預算。
 
 ## 可執行入口
-Python 3.11+，僅標準函式庫。先把本治理倉庫放在研究倉庫旁邊，並 checkout 研究倉庫 `GOVERNANCE.lock.json` 記錄的 commit。
+Python 3.11+，僅標準函式庫。問題ID目前支援 MATH/PHYS/BIO/CHEM/CS/STAT/MAT/ASTRO/EARTH/NEURO/ECON/ENG/MED/SOC/META。先把本治理倉庫放在研究倉庫旁邊，並 checkout 研究倉庫 `GOVERNANCE.lock.json` 記錄的 commit。
 
 ```bash
 python3 -m unittest discover -s tests -v
