@@ -6,7 +6,7 @@
 ## 1. 四路新鮮檢索（每一輪、本輪開始後）
 至少四個不同的實際查詢：
 - general：問題全名、別名、作者及核心描述的廣域搜尋。
-- discipline：數學 arXiv/math、作者頁與正式期刊；物理 arXiv/APS/合作組；生物 PubMed/bioRxiv/正式期刊；化學 ChemRxiv/ACS/RSC/IUCr/正式期刊。這是來源類型，不要求被封鎖平台必須可用。
+- discipline：數學 arXiv/math、作者頁與正式期刊；物理 arXiv/APS/合作組；生物 PubMed/bioRxiv/正式期刊；化學 ChemRxiv/ACS/RSC/IUCr/正式期刊；其他學科用該領域的正式索引、預印本伺服器、資料庫與期刊。這是來源類型，不要求被封鎖平台必須可用。
 - solution：問題名加 proof/solved/resolved/counterexample/exact/improved bound 或同義詞，搜尋最新年份與不限日期兩種視角。
 - criticism：相關新論文加 correction/erratum/retraction/comment/failed replication；確認版本及適用範圍。
 
