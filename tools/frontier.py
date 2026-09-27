@@ -2,7 +2,9 @@
 """Dependency-free registry and per-round gate. It checks records, not scientific truth."""
 from __future__ import annotations
 import argparse
+from collections import defaultdict
 import datetime as dt
+import difflib
 import hashlib
 import json
 from pathlib import Path
@@ -20,6 +22,45 @@ VERDICTS = {'NO_RESOLUTION_FOUND', 'PARTIAL_PROGRESS', 'CLAIMED_RESOLVED', 'RESO
 CATEGORIES = {'general', 'discipline', 'solution', 'criticism'}
 UTC = dt.timezone.utc
 PROBLEM_ID_RE = re.compile(r'(?:MATH|PHYS|BIO|CHEM|CS|STAT|MAT|ASTRO|EARTH|NEURO|ECON|ENG|MED|SOC|META)-\d{3}')
+
+# GATE_CONTRACT.md §1: governance pin declarations. Only these positions are read; other SHAs are ignored.
+GOVERNANCE_REPO = 'lijiabao1998/FrontierLab-Governance'
+SHA_RE = re.compile(r'[0-9a-f]{40}')
+WORKFLOW_USES_RE = re.compile(r'uses:\s*["\']?([\w.-]+/FrontierLab-Governance)/\.github/workflows/[\w.-]+@([^\s"\'#]+)')
+WORKFLOW_REF_RE = re.compile(r'governance_ref:\s*["\']?([^\s"\'#]+)')
+DOC_URL_RE = re.compile(r'https://github\.com/lijiabao1998/FrontierLab-Governance/(?:tree|blob|commit)/([^/\s)\]>#?"\'`]+)')
+DOC_MARKER_RE = re.compile(r'<!--\s*governance-pin:\s*(\S+?)\s*-->')
+DOC_PROSE_RE = re.compile(r'(?:治理|(?i:governance))(?:[ \t]*(?:commit|pin|ref|版本))?[ \t:：`]*([0-9a-f]{7,40})(?![0-9A-Za-z])')
+
+# GATE_CONTRACT.md §2: protected problem specification.
+IMMUTABLE_FIELDS = frozenset({'id', 'domain'})
+STATUS_FIELDS = frozenset({'status', 'resolution'})
+KNOWLEDGE_FIELDS = frozenset({'known_result', 'open_gap'})
+PROVENANCE_FIELDS = frozenset({'sources', 'screening_queries', 'screening_note'})
+ROUND_FIELDS = KNOWLEDGE_FIELDS | PROVENANCE_FIELDS | {'first_task'}
+NON_SPEC_FIELDS = IMMUTABLE_FIELDS | STATUS_FIELDS | ROUND_FIELDS | {'checked_on', 'priority'}
+EDITORIAL_FIELDS = frozenset({'title', 'statement', 'evaluator', 'completion_criterion', 'validation_limits',
+                              'known_result', 'open_gap', 'first_task', 'screening_note'})
+HYGIENE_FIELDS = PROVENANCE_FIELDS | {'priority'}
+DECISION_KINDS = {'spec-change', 'editorial', 'hygiene', 'status-change', 'new-problem'}
+SPEC_IMPACTS = {'narrows', 'broadens', 'rescopes', 'clarifies'}
+DECISION_STATUS_TARGETS = {'OPEN', 'PARTIAL', 'PAUSED', 'RETRACTED', 'COMPLETED_INTERNAL'}
+EDITORIAL_MAX_CHARS = 12
+
+# GATE_CONTRACT.md §3: research path ownership.
+INFRA_FILES = frozenset({'README.md', 'AGENTS.md', 'CLAUDE.md', 'STATUS.md', 'VALIDATION.md', 'LICENSE', 'LICENSE.md',
+                         'CONTRIBUTING.md', 'CITATION.cff', '.gitignore', '.gitattributes', 'lab.json',
+                         'GOVERNANCE.lock.json', 'runs/README.md', 'decisions/README.md'})
+INFRA_PREFIXES = ('.github/',)
+DOMAIN_INFRA = {'math': frozenset({'lakefile.toml', 'lean-toolchain', 'lake-manifest.json', 'FrontierMath.lean',
+                                   'FrontierMath/Smoke.lean', 'claims.json', 'tools/audit_lean.py'})}
+PATH_RULES = (
+    ('problem', re.compile(rf'problems/({PROBLEM_ID_RE.pattern})/problem\.json')),
+    ('artifact', re.compile(rf'problems/({PROBLEM_ID_RE.pattern})/(?:experiments|proofs|results)/.+')),
+    ('round', re.compile(r'runs/([^/]+)/round\.json')),
+    ('attachment', re.compile(r'runs/([^/]+)/.+')),
+    ('decision', re.compile(r'decisions/([^/]+)/decision\.json')),
+)
 
 
 def require(condition: bool, message: str) -> None:
@@ -144,6 +185,107 @@ def validate_problem(p: dict) -> None:
         validate_resolution(p.get('resolution', {}), p['id'])
 
 
+def decision_may_change(kind: str, field: str) -> bool:
+    if field in IMMUTABLE_FIELDS or field == 'checked_on':
+        return False
+    if field in STATUS_FIELDS:
+        return kind == 'status-change'
+    return {'spec-change': True, 'editorial': field in EDITORIAL_FIELDS, 'hygiene': field in HYGIENE_FIELDS}.get(kind, False)
+
+
+def validate_decision(d: dict, decision_id: str | None = None) -> None:
+    nonempty(d, ('decision_id', 'problem_id', 'kind', 'author', 'rationale', 'base_sha', 'created_at'), 'decision')
+    require(decision_id is None or d['decision_id'] == decision_id, 'decision_id must match its directory name')
+    require(PROBLEM_ID_RE.fullmatch(d['problem_id']) is not None, 'decision: invalid problem id')
+    require(d['kind'] in DECISION_KINDS, f"decision: unknown kind {d['kind']!r}")
+    require(SHA_RE.fullmatch(d['base_sha']) is not None, 'decision: record exact base commit SHA')
+    stamp(d['created_at'])
+    for ref in d.get('sources', []):
+        source(ref)
+    if d['kind'] == 'new-problem':
+        return
+    fields = d.get('fields')
+    require(isinstance(fields, list) and bool(fields) and all(isinstance(x, str) for x in fields)
+            and len(set(fields)) == len(fields), 'decision: list the exact changed fields')
+    denied = sorted(x for x in fields if not decision_may_change(d['kind'], x))
+    require(not denied, f"decision kind {d['kind']} cannot authorize {denied} (GATE_CONTRACT.md §2.1)")
+    if d['kind'] == 'spec-change':
+        require(d.get('impact') in SPEC_IMPACTS, f'spec-change must declare impact: {sorted(SPEC_IMPACTS)}')
+    if d['kind'] == 'status-change':
+        require('status' in fields, 'status-change must list status')
+        require(d.get('from') in STATUSES and d.get('to') in DECISION_STATUS_TARGETS,
+                f'status-change needs from and to; decisions can target {sorted(DECISION_STATUS_TARGETS)}')
+        if d['to'] == 'COMPLETED_INTERNAL':
+            rounds = d.get('rounds')
+            require(isinstance(rounds, list) and bool(rounds) and all(isinstance(x, str) and x for x in rounds),
+                    'COMPLETED_INTERNAL needs the finished round ids')
+            nonempty(d, ('verifier',), 'decision')
+
+
+def workflow_pins(text: str) -> tuple[list[tuple[str, str]], list[str]]:
+    return WORKFLOW_USES_RE.findall(text), WORKFLOW_REF_RE.findall(text)
+
+
+def doc_pins(text: str) -> list[tuple[str, str]]:
+    return ([('url', x) for x in DOC_URL_RE.findall(text)] + [('marker', x) for x in DOC_MARKER_RE.findall(text)]
+            + [('prose', x) for x in DOC_PROSE_RE.findall(text)])
+
+
+def check_pins(root: Path) -> str:
+    """GATE_CONTRACT.md §1: lock, workflow, README and AGENTS must name the same governance commit."""
+    lock = load(root / 'GOVERNANCE.lock.json')
+    require(lock.get('repository') == GOVERNANCE_REPO, f'GOVERNANCE.lock.json: repository must be {GOVERNANCE_REPO}')
+    commit = lock.get('commit')
+    require(isinstance(commit, str) and SHA_RE.fullmatch(commit) is not None, 'GOVERNANCE.lock.json: commit must be a full 40-hex SHA')
+    errors = []
+    wf = root / '.github' / 'workflows' / 'research.yml'
+    uses, refs = workflow_pins(wf.read_text(encoding='utf-8')) if wf.is_file() else ([], [])
+    if not uses:
+        errors.append(f'{wf.relative_to(root)}: no uses: {GOVERNANCE_REPO}/.github/workflows/…@<commit>')
+    if not refs:
+        errors.append(f'{wf.relative_to(root)}: no governance_ref')
+    for repo, ref in uses:
+        if repo != GOVERNANCE_REPO:
+            errors.append(f'{wf.relative_to(root)}: uses {repo}, lock says {GOVERNANCE_REPO}')
+        if ref != commit:
+            errors.append(f'{wf.relative_to(root)}: uses @{ref}, lock says {commit}')
+    for ref in refs:
+        if ref != commit:
+            errors.append(f'{wf.relative_to(root)}: governance_ref {ref}, lock says {commit}')
+    for name in ('README.md', 'AGENTS.md'):
+        path = root / name
+        found = doc_pins(path.read_text(encoding='utf-8')) if path.is_file() else []
+        if not found:
+            errors.append(f'{name}: no governance pin declaration (GATE_CONTRACT.md §1)')
+        for kind, ref in found:
+            ok = commit.startswith(ref) if kind == 'prose' else ref == commit
+            if not ok:
+                errors.append(f'{name}: governance {kind} pin {ref}, lock says {commit}')
+    require(not errors, 'governance pin mismatch:\n  ' + '\n  '.join(errors))
+    return commit
+
+
+def classify(path: str, domain: str) -> tuple[str, str | None]:
+    """GATE_CONTRACT.md §3.1: every repository path has exactly one owner class."""
+    if path in INFRA_FILES or path.startswith(INFRA_PREFIXES) or path in DOMAIN_INFRA.get(domain, ()):
+        return 'infra', None
+    for kind, pattern in PATH_RULES:
+        m = pattern.fullmatch(path)
+        if m:
+            return kind, m.group(1)
+    return 'unregistered', None
+
+
+def tracked_files(root: Path) -> list[str]:
+    try:
+        top = git(root, 'rev-parse', '--show-toplevel')
+    except (subprocess.CalledProcessError, OSError):
+        top = None
+    if top and Path(top).resolve() == root.resolve():
+        return [x for x in git(root, 'ls-files', '-z').split('\0') if x]
+    return sorted(p.relative_to(root).as_posix() for p in root.rglob('*') if p.is_file() and '.git' not in p.relative_to(root).parts)
+
+
 def validate_repo(root: Path) -> None:
     lab = load(root / 'lab.json')
     for filename in ('README.md', 'AGENTS.md', 'STATUS.md'):
@@ -164,36 +306,240 @@ def validate_repo(root: Path) -> None:
         require(p['id'] not in seen and path.parent.name == p['id'], 'duplicate or mismatched problem id')
         require(p['domain'] == lab['domain'], 'cross-domain problem contamination')
         seen.add(p['id'])
+    admitted = {}
     for path in sorted((root / 'runs').glob('*/round.json')):
         r = load(path)
         require(r['problem_id'] in seen, 'round points to absent problem')
         if r.get('state') != 'DRAFT':
             validate_preflight(r)
-    print(f'PASS: {len(files)} problem records; metadata checks only, not proof of openness or discovery.')
+            admitted[path.parent.name] = r
+    commit = check_pins(root)
+    for path in sorted((root / 'decisions').glob('*/decision.json')):
+        d = load(path)
+        validate_decision(d, path.parent.name)
+        require(d['problem_id'] in seen, f'{path.relative_to(root)}: decision points to absent problem')
+    researched = {r['problem_id'] for r in admitted.values()}
+    errors = []
+    for rel in tracked_files(root):
+        kind, key = classify(rel, lab['domain'])
+        if kind == 'unregistered':
+            errors.append(f'{rel}: unregistered path (GATE_CONTRACT.md §3.1)')
+        elif kind == 'artifact' and key not in researched:
+            errors.append(f'{rel}: research artifact without an admitted {key} round in runs/')
+        elif kind == 'attachment' and key not in admitted:
+            errors.append(f'{rel}: runs/{key}/ has no admitted round.json')
+    require(not errors, 'path contract:\n  ' + '\n  '.join(errors))
+    print(f'PASS: {len(files)} problem records; governance pin {commit[:12]} consistent; paths registered. '
+          'Metadata checks only, not proof of openness or discovery.')
 
 
 def git(root: Path, *args: str) -> str:
     return subprocess.check_output(['git', '-C', str(root), *args], text=True).strip()
 
 
-def check_diff(root: Path, base: str, head: str) -> None:
-    changed = git(root, 'diff', '--name-only', f'{base}...{head}').splitlines()
-    affected = set()
-    for path in changed:
-        m = re.match(r'problems/((?:MATH|PHYS|BIO|CHEM|CS|STAT|MAT|ASTRO|EARTH|NEURO|ECON|ENG|MED|SOC|META)-\d{3})/(?:experiments|proofs|results)/', path)
-        if m:
-            affected.add(m.group(1))
-    rounds = [load(root / p) for p in changed if re.fullmatch(r'runs/[^/]+/round.json', p) and (root / p).is_file()]
-    for pid in affected:
-        eligible = []
-        for r in rounds:
-            if r.get('problem_id') != pid or r.get('state') == 'DRAFT':
+def show_json(root: Path, rev: str, path: str) -> dict | None:
+    run = subprocess.run(['git', '-C', str(root), 'show', f'{rev}:{path}'], capture_output=True, text=True, encoding='utf-8')
+    if run.returncode:
+        return None
+    try:
+        obj = json.loads(run.stdout)
+    except json.JSONDecodeError as e:
+        raise ValueError(f'{path}@{rev[:12]}: invalid JSON ({e})') from e
+    require(isinstance(obj, dict), f'{path}: expected JSON object')
+    return obj
+
+
+def edit_size(a: str, b: str) -> int:
+    ops = difflib.SequenceMatcher(None, a, b, autojunk=False).get_opcodes()
+    return sum(max(i2 - i1, j2 - j1) for tag, i1, i2, j1, j2 in ops if tag != 'equal')
+
+
+def dates_match(checked_on: object, checked_at: str) -> bool:
+    try:
+        day = dt.date.fromisoformat(checked_on)
+    except (TypeError, ValueError):
+        return False
+    return abs((day - stamp(checked_at).date()).days) <= 1
+
+
+def status_basis_errors(pid: str, old: dict, new: dict, rounds: list, decisions: list, root: Path, head: str) -> list[str]:
+    """GATE_CONTRACT.md §2.3: a status or resolution change must match the completion semantics."""
+    old_s, new_s = old.get('status'), new.get('status')
+    verdicts = {r['preflight']['verdict'] for r in rounds}
+    moves = [d for d in decisions if d['kind'] == 'status-change']
+    if new_s == 'COMPLETED_EXTERNAL':
+        if moves:
+            return [f'{pid}: external completion comes from a RESOLVED_EXTERNAL round, not a status-change decision']
+        if not any(r['preflight']['verdict'] == 'RESOLVED_EXTERNAL' and r.get('state') == 'CLOSED_EXTERNAL'
+                   and r['preflight'].get('resolution') == new.get('resolution') for r in rounds):
+            return [f'{pid}: COMPLETED_EXTERNAL needs a {pid} round in this change with verdict RESOLVED_EXTERNAL, '
+                    'state CLOSED_EXTERNAL and the same resolution as the card']
+        return []
+    if new_s == 'CLAIMED_RESOLVED':
+        return [] if 'CLAIMED_RESOLVED' in verdicts else [f'{pid}: CLAIMED_RESOLVED needs a {pid} round with that verdict']
+    if new_s == 'PARTIAL' and 'PARTIAL_PROGRESS' in verdicts and old.get('resolution') == new.get('resolution'):
+        return []
+    match = [d for d in moves if d.get('from') == old_s and d.get('to') == new_s]
+    if not match:
+        return [f'{pid}: status {old_s} -> {new_s} needs a status-change decision with from={old_s} to={new_s}']
+    if old.get('resolution') != new.get('resolution') and not any('resolution' in d['fields'] for d in match):
+        return [f'{pid}: resolution changed but the status-change decision does not list it']
+    if new_s != 'COMPLETED_INTERNAL':
+        return []
+    errors = []
+    try:
+        validate_problem(new)
+    except (ValueError, KeyError, TypeError) as e:
+        errors.append(f'{pid}: COMPLETED_INTERNAL card is incomplete: {e}')
+    for d in match:
+        agents = set()
+        for rid in d['rounds']:
+            r = show_json(root, head, f'runs/{rid}/round.json')
+            if r is None or r.get('problem_id') != pid or r.get('state') != 'FINISHED':
+                errors.append(f'{pid}: COMPLETED_INTERNAL cites runs/{rid}, which is not a FINISHED {pid} round')
                 continue
-            verdict = validate_preflight(r)
-            if verdict in {'NO_RESOLUTION_FOUND', 'PARTIAL_PROGRESS'}:
-                eligible.append(r)
-        require(bool(eligible), f'{pid}: research changes lack a completed per-round search record')
-    print(f'PASS: preflight coverage for {len(affected)} changed research scopes.')
+            try:
+                validate_preflight(r)
+            except (ValueError, KeyError, TypeError) as e:
+                errors.append(f'runs/{rid}/round.json: {e}')
+            agents.add(r.get('agent'))
+        if d['verifier'] in agents:
+            errors.append(f'{pid}: verifier {d["verifier"]} is also an author of the cited rounds')
+    return errors
+
+
+def problem_change_errors(pid: str, change: str, old: dict | None, new: dict | None, rounds: list, decisions: list,
+                          has_research: bool, root: Path, head: str, notes: list) -> list[str]:
+    """GATE_CONTRACT.md §2: which record may change which problem field."""
+    if change == 'D':
+        return [f'{pid}: problem cards are not deleted; retire with PAUSED/RETRACTED and a status-change decision']
+    if change == 'A':
+        if not any(d['kind'] == 'new-problem' for d in decisions):
+            return [f'{pid}: a new problem card needs a new-problem decision record']
+        return [] if new.get('status') == 'OPEN' else [f'{pid}: a new problem card must start OPEN']
+    changed = {k for k in set(old) | set(new) if old.get(k) != new.get(k)}
+    errors = [f'{pid}: new-problem decision on an existing card' for d in decisions if d['kind'] == 'new-problem']
+    if not changed:
+        return errors
+    errors += [f'{pid}: {k} is immutable' for k in sorted(changed & IMMUTABLE_FIELDS)]
+    spec = changed - NON_SPEC_FIELDS
+    status = changed & STATUS_FIELDS
+    if spec and has_research:
+        errors.append(f'{pid}: specification fields {sorted(spec)} changed together with {pid} research artifacts; split the PR')
+    if spec and status:
+        errors.append(f'{pid}: specification fields {sorted(spec)} and status changed in one change; split the PR')
+    live = [r for r in rounds if r['preflight']['verdict'] != 'BLOCKED']
+    covered = set(changed & ROUND_FIELDS) if live else set()
+    if 'checked_on' in changed:
+        if any(dates_match(new.get('checked_on'), r['preflight']['checked_at']) for r in live):
+            covered.add('checked_on')
+        else:
+            errors.append(f'{pid}: checked_on moves only with a {pid} round whose preflight.checked_at is that date')
+    for d in decisions:
+        declared = set(d.get('fields', []))
+        if declared - changed:
+            errors.append(f'{pid}: decision {d["decision_id"]} lists unchanged fields {sorted(declared - changed)}')
+        for field in sorted((declared & changed) - STATUS_FIELDS):
+            if d['kind'] == 'editorial':
+                a, b = old.get(field), new.get(field)
+                if not (isinstance(a, str) and isinstance(b, str)):
+                    errors.append(f'{pid}: editorial decision cannot change non-text field {field}')
+                    continue
+                size = edit_size(a, b)
+                if size > EDITORIAL_MAX_CHARS:
+                    errors.append(f'{pid}: editorial change to {field} is {size} chars (> {EDITORIAL_MAX_CHARS}); use spec-change')
+                    continue
+            covered.add(field)
+    if status:
+        basis = status_basis_errors(pid, old, new, rounds, decisions, root, head)
+        errors += basis
+        if not basis:
+            covered |= status
+    uncovered = changed - covered - IMMUTABLE_FIELDS - STATUS_FIELDS - {'checked_on'}  # those report their own errors
+    if uncovered:
+        errors.append(f'{pid}: {sorted(uncovered)} changed without a matching round or decision (GATE_CONTRACT.md §2.1)')
+    for field in sorted(spec):
+        notes.append(f'REVIEW {pid}.{field}:\n    - {old.get(field)!r}\n    + {new.get(field)!r}')
+    return errors
+
+
+def check_diff(root: Path, base: str, head: str) -> None:
+    """GATE_CONTRACT.md §2 and §3.3 for one change (PR base...head)."""
+    lab = show_json(root, head, 'lab.json')
+    require(lab is not None, 'lab.json missing at head')
+    if lab.get('domain') == 'governance':
+        print('SKIP: governance repository; research path and problem contracts do not apply (unit tests guard the gate).')
+        return
+    mb = git(root, 'merge-base', base, head)
+    raw = [x for x in git(root, 'diff', '--name-status', '--no-renames', '-z', f'{base}...{head}').split('\0') if x]
+    changes = list(zip(raw[0::2], raw[1::2]))
+    errors, notes = [], []
+    rounds, decisions, problems = {}, defaultdict(list), []
+    artifacts, attachments = defaultdict(list), defaultdict(list)
+    for change, path in changes:
+        kind, key = classify(path, lab['domain'])
+        if kind == 'infra' or (kind == 'unregistered' and change == 'D'):
+            continue
+        if kind == 'unregistered':
+            errors.append(f'{path}: unregistered path; research files belong in problems/<ID>/{{experiments,proofs,results}}/ '
+                          'or runs/<round_id>/ (GATE_CONTRACT.md §3.1)')
+        elif kind in ('round', 'attachment') and change == 'D':
+            errors.append(f'{path}: round records are append-only; do not delete')
+        elif kind == 'attachment':
+            attachments[key].append(path)
+        elif kind == 'artifact':
+            artifacts[key].append(path)
+        elif kind == 'problem':
+            problems.append((change, key, path))
+        elif kind == 'decision':
+            if change != 'A':
+                errors.append(f'{path}: decision records are immutable once merged')
+                continue
+            try:
+                d = show_json(root, head, path)
+                validate_decision(d, key)
+                decisions[d['problem_id']].append(d)
+            except (ValueError, KeyError, TypeError) as e:
+                errors.append(f'{path}: {e}')
+        elif kind == 'round':
+            try:
+                r = show_json(root, head, path)
+                require(r.get('round_id') == key, 'round_id must match its directory name')
+                if r.get('state') == 'DRAFT':
+                    continue
+                validate_preflight(r)
+                rounds[key] = r
+            except (ValueError, KeyError, TypeError, AttributeError) as e:
+                errors.append(f'{path}: {e}')
+    by_pid = defaultdict(list)
+    for r in rounds.values():
+        by_pid[r['problem_id']].append(r)
+    research = set(artifacts)
+    for rid, paths in attachments.items():
+        if rid in rounds:
+            research.add(rounds[rid]['problem_id'])
+        else:
+            errors.append(f'runs/{rid}/: {len(paths)} attachment(s) need runs/{rid}/round.json changed in this PR and admitted (not DRAFT)')
+    for pid, paths in sorted(artifacts.items()):
+        if show_json(root, head, f'problems/{pid}/problem.json') is None:
+            errors.append(f'{paths[0]}: research artifact for absent problem {pid}')
+        elif not any(r['preflight']['verdict'] in {'NO_RESOLUTION_FOUND', 'PARTIAL_PROGRESS'} for r in by_pid[pid]):
+            errors.append(f'{pid}: research changes lack a completed per-round search record ({len(paths)} file(s), e.g. {paths[0]})')
+    touched = set()
+    for change, pid, path in problems:
+        touched.add(pid)
+        try:
+            errors += problem_change_errors(pid, change, show_json(root, mb, path), show_json(root, head, path),
+                                            by_pid[pid], decisions[pid], pid in research, root, head, notes)
+        except (ValueError, KeyError, TypeError) as e:
+            errors.append(f'{path}: {e}')
+    for pid in sorted(set(decisions) - touched):
+        errors.append(f'{pid}: decision record(s) without a matching problem card change')
+    for note in notes:
+        print(note)
+    require(not errors, 'check-diff:\n  ' + '\n  '.join(errors))
+    print(f'PASS: {len(changes)} changed paths; {len(artifacts)} research scope(s), {len(problems)} problem card(s), '
+          f'{sum(map(len, decisions.values()))} decision(s), {len(rounds)} admitted round(s) checked.')
 
 
 def start(root: Path, pid: str, agent: str, topic: str = 'round') -> None:
@@ -237,6 +583,25 @@ def admit(root: Path, path: Path) -> None:
         print('ADMITTED: one budgeted round. Preserve code, seeds, checksums, stdout, failures and limitations.')
 
 
+def decide(root: Path, pid: str, kind: str, agent: str, fields: list[str], rationale: str, extra: dict) -> Path:
+    """Write a GATE_CONTRACT.md §2.2 decision record; the PR still needs owner review."""
+    require(re.fullmatch(r'[a-z0-9-]+', agent) is not None, 'use an agent slug')
+    current = load(problem_path(root, pid)) if kind != 'new-problem' else {}
+    now = dt.datetime.now(UTC)
+    did = now.strftime('%Y%m%dT%H%M%S%fZ') + '-' + agent + '-' + pid + '-' + kind
+    record = {'decision_id': did, 'problem_id': pid, 'kind': kind, 'fields': fields, 'author': agent,
+              'created_at': now.isoformat(), 'base_sha': git(root, 'rev-parse', 'HEAD'), 'rationale': rationale}
+    if kind == 'status-change':
+        record['from'] = current.get('status')
+    record.update({k: v for k, v in extra.items() if v})
+    validate_decision(record, did)
+    path = root / 'decisions' / did / 'decision.json'
+    save(path, record)
+    print(path)
+    print('Decision recorded on this branch. Edit the card in the same PR; CI checks that the listed fields changed.')
+    return path
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest='cmd', required=True)
@@ -244,12 +609,23 @@ def main() -> int:
     d = sub.add_parser('check-diff'); d.add_argument('root', type=Path); d.add_argument('base'); d.add_argument('head')
     s = sub.add_parser('start'); s.add_argument('root', type=Path); s.add_argument('problem'); s.add_argument('--agent', required=True); s.add_argument('--topic', default='round')
     a = sub.add_parser('admit'); a.add_argument('root', type=Path); a.add_argument('record', type=Path)
+    c = sub.add_parser('check-pins'); c.add_argument('root', type=Path)
+    k = sub.add_parser('decide'); k.add_argument('root', type=Path); k.add_argument('problem')
+    k.add_argument('--kind', required=True, choices=sorted(DECISION_KINDS)); k.add_argument('--agent', required=True)
+    k.add_argument('--fields', default='', help='comma-separated changed fields'); k.add_argument('--rationale', required=True)
+    k.add_argument('--impact', choices=sorted(SPEC_IMPACTS)); k.add_argument('--to', choices=sorted(DECISION_STATUS_TARGETS))
+    k.add_argument('--rounds', default='', help='COMPLETED_INTERNAL: comma-separated round ids'); k.add_argument('--verifier')
     args = parser.parse_args()
     try:
         if args.cmd == 'validate': validate_repo(args.root)
         elif args.cmd == 'check-diff': check_diff(args.root, args.base, args.head)
         elif args.cmd == 'start': start(args.root, args.problem, args.agent, args.topic)
         elif args.cmd == 'admit': admit(args.root, args.record)
+        elif args.cmd == 'check-pins': print(f'PASS: governance pin {check_pins(args.root)} consistent in lock, workflow, README and AGENTS.')
+        elif args.cmd == 'decide':
+            decide(args.root, args.problem, args.kind, args.agent, [x for x in args.fields.split(',') if x], args.rationale,
+                   {'impact': args.impact, 'to': args.to, 'verifier': args.verifier,
+                    'rounds': [x for x in args.rounds.split(',') if x]})
         return 0
     except (ValueError, KeyError, TypeError, AttributeError, OSError, subprocess.CalledProcessError) as e:
         print(f'BLOCKED: {e}', file=sys.stderr)
