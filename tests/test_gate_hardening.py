@@ -88,6 +88,10 @@ class Lab:
         for pid in pids:
             self.write(f'problems/{pid}/problem.json', card(pid, domain))
         self.git('init', '-q', '-b', 'main')
+        # Newer git (CI runners) runs auto-maintenance detached after commit; it can write into .git/objects while
+        # TemporaryDirectory.cleanup() is deleting it ("Directory not empty: 'objects'"). Fixtures never need it.
+        self.git('config', 'gc.auto', '0')
+        self.git('config', 'maintenance.auto', 'false')
         self.base = self.commit('base')
 
     def close(self):
