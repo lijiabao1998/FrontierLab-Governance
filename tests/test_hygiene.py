@@ -45,10 +45,17 @@ class Lab:
     def __init__(self, lock_version=f.PROTOCOL_VERSION):
         self.dir = tempfile.TemporaryDirectory()
         self.root = Path(self.dir.name)
-        for name in ('README.md', 'AGENTS.md', 'STATUS.md'):
-            (self.root / name).write_text('x\n', encoding='utf-8')
+        pin = '1' * 40
+        # A complete, contract-compliant lab: the pin declarations keep it valid when stricter gates are merged.
+        (self.root / 'README.md').write_text(f'每輪按治理 {pin} fresh search。\n', encoding='utf-8')
+        (self.root / 'AGENTS.md').write_text(f'讀治理 https://github.com/lijiabao1998/FrontierLab-Governance/tree/{pin} 。\n', encoding='utf-8')
+        (self.root / 'STATUS.md').write_text('x\n', encoding='utf-8')
+        workflow = self.root / '.github' / 'workflows' / 'research.yml'
+        workflow.parent.mkdir(parents=True)
+        workflow.write_text(f'jobs:\n  records:\n    uses: lijiabao1998/FrontierLab-Governance/.github/workflows/research.yml@{pin}\n'
+                            f'    with:\n      governance_ref: {pin}\n', encoding='utf-8')
         f.save(self.root / 'lab.json', {'domain': 'medicine', 'expected_problem_count': 1})
-        lock = {'repository': 'lijiabao1998/FrontierLab-Governance', 'commit': '1' * 40}
+        lock = {'repository': 'lijiabao1998/FrontierLab-Governance', 'commit': pin}
         if lock_version is not None:
             lock['protocol_version'] = lock_version
         f.save(self.root / 'GOVERNANCE.lock.json', lock)
