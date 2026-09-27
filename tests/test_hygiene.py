@@ -61,6 +61,9 @@ class Lab:
         f.save(self.root / 'GOVERNANCE.lock.json', lock)
         f.save(f.problem_path(self.root, 'MED-001'), card())
         subprocess.run(['git', '-C', str(self.root), 'init', '-q'], check=True)
+        # No detached auto-maintenance writing into .git/objects while TemporaryDirectory cleans up (newer git).
+        for key, value in (('gc.auto', '0'), ('maintenance.auto', 'false')):
+            subprocess.run(['git', '-C', str(self.root), 'config', key, value], check=True)
         subprocess.run(['git', '-C', str(self.root), '-c', 'user.name=f', '-c', 'user.email=f@invalid', 'commit', '-q',
                         '--allow-empty', '-m', 'base'], check=True)
 
