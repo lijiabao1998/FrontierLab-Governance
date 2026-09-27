@@ -16,7 +16,7 @@ TERMINAL = {'COMPLETED_EXTERNAL', 'COMPLETED_INTERNAL'}
 VERDICTS = {'NO_RESOLUTION_FOUND', 'PARTIAL_PROGRESS', 'CLAIMED_RESOLVED', 'RESOLVED_EXTERNAL', 'BLOCKED'}
 CATEGORIES = {'general', 'discipline', 'solution', 'criticism'}
 UTC = dt.timezone.utc
-PROBLEM_ID_RE = re.compile(r'(?:MATH|PHYS|BIO|CHEM|CS|STAT|MAT|ASTRO|EARTH|NEURO|ECON|ENG|MED|SOC|META)-\\d{3}')
+PROBLEM_ID_RE = re.compile(r'(?:MATH|PHYS|BIO|CHEM|CS|STAT|MAT|ASTRO|EARTH|NEURO|ECON|ENG|MED|SOC|META)-\d{3}')
 
 
 def require(condition: bool, message: str) -> None:
@@ -103,7 +103,7 @@ def validate_preflight(r: dict, fresh: bool = False) -> str:
 
 
 def problem_path(root: Path, problem_id: str) -> Path:
-    require(re.fullmatch(r'(MATH|PHYS|BIO|CHEM)-\d{3}', problem_id) is not None, 'invalid problem id')
+    require(PROBLEM_ID_RE.fullmatch(problem_id) is not None, 'invalid problem id')
     return root / 'problems' / problem_id / 'problem.json'
 
 
@@ -112,7 +112,8 @@ def validate_problem(p: dict) -> None:
     require(p['status'] in STATUSES, 'invalid problem status')
     require(p['priority'] in {'A', 'B', 'C'}, 'priority must be A/B/C')
     date = dt.date.fromisoformat(p['checked_on'])
-    require(date <= dt.datetime.now(UTC).date(), 'future literature check')
+    # checked_on is date-only and may be written in a local timezone ahead of UTC (for example UTC+08).
+    require(date <= dt.datetime.now(UTC).date() + dt.timedelta(days=1), 'future literature check')
     require(len(p.get('screening_queries', [])) >= 1, 'record bootstrap search query')
     require(len(p.get('sources', [])) >= 1, 'problem needs a source')
     for ref in p['sources']:
@@ -153,7 +154,7 @@ def check_diff(root: Path, base: str, head: str) -> None:
     changed = git(root, 'diff', '--name-only', f'{base}...{head}').splitlines()
     affected = set()
     for path in changed:
-        m = re.match(r'problems/((?:MATH|PHYS|BIO|CHEM)-\d{3})/(?:experiments|proofs|results)/', path)
+        m = re.match(r'problems/((?:MATH|PHYS|BIO|CHEM|CS|STAT|MAT|ASTRO|EARTH|NEURO|ECON|ENG|MED|SOC|META)-\d{3})/(?:experiments|proofs|results)/', path)
         if m:
             affected.add(m.group(1))
     rounds = [load(root / p) for p in changed if re.fullmatch(r'runs/[^/]+/round.json', p) and (root / p).is_file()]
