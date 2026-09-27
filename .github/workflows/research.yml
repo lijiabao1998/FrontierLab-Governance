@@ -1,0 +1,41 @@
+name: Research records
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      governance_ref:
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: records-${{ github.repository }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  records:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          path: subject
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: lijiabao1998/FrontierLab-Governance
+          ref: ${{ inputs.governance_ref || github.sha }}
+          path: control
+          persist-credentials: false
+      - name: Gate negative tests
+        run: python3 -m unittest discover -s control/tests -v
+      - name: Validate registry
+        run: python3 control/tools/frontier.py validate subject
+      - name: Match research edits to per-round search record
+        if: github.event_name == 'pull_request'
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+        run: python3 control/tools/frontier.py check-diff subject "$BASE" "$HEAD"
