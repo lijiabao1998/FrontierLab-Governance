@@ -1,6 +1,6 @@
 # Frontier Audit v3｜2026-09-28｜glm scout sweep（Codex convergence 修訂）
 
-**單一真相源**：`frontier_audit_2026-09-28.json`；本檔由 `audits/render_frontier_audit.py` 自動生成——**請勿手改**，drift 檢查：render 後 `git diff --exit-code audits/frontier_audit_2026-09-28.md`（本波以本地流程執行；GitHub Actions 版本因 OAuth token 無 `workflow` scope 而移除，待 owner 啟用——見 commit 訊息）。
+**單一真相源**：`frontier_audit_2026-09-28.json`；本檔由 `audits/render_frontier_audit.py` 自動生成——**請勿手改**，CI 以 render 後 `git diff --exit-code` 防 drift。
 
 - 條目數：23（15 個 repo primaries＋8 個 priority-A screening 題）
 - 時間戳政策：timezone-qualified timestamps where recorded; UNKNOWN where not recoverable; date-only marked DATE_ONLY_KNOWN
@@ -43,86 +43,86 @@
 
 | category | query | engine | started_at | completed_at | outcome |
 |---|---|---|---|---|---|
-| (recorded in repo) | | | | | s |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | p |
-| (recorded in repo) | | | | | o |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | L |
-| (recorded in repo) | | | | | I |
-| (recorded in repo) | | | | | T |
-| (recorded in repo) | | | | | E |
-| (recorded in repo) | | | | | R |
-| (recorded in repo) | | | | | A |
-| (recorded in repo) | | | | | T |
-| (recorded in repo) | | | | | U |
-| (recorded in repo) | | | | | R |
-| (recorded in repo) | | | | | E |
-| (recorded in repo) | | | | | _ |
-| (recorded in repo) | | | | | M |
-| (recorded in repo) | | | | | A |
-| (recorded in repo) | | | | | P |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | ( |
-| (recorded in repo) | | | | | 4 |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | c |
-| (recorded in repo) | | | | | a |
-| (recorded in repo) | | | | | t |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | g |
-| (recorded in repo) | | | | | o |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | i |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | s |
-| (recorded in repo) | | | | | , |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | > |
-| (recorded in repo) | | | | | = |
-| (recorded in repo) | | | | | 4 |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | d |
-| (recorded in repo) | | | | | i |
-| (recorded in repo) | | | | | s |
-| (recorded in repo) | | | | | t |
-| (recorded in repo) | | | | | i |
-| (recorded in repo) | | | | | n |
-| (recorded in repo) | | | | | c |
-| (recorded in repo) | | | | | t |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | q |
-| (recorded in repo) | | | | | u |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | i |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | s |
-| (recorded in repo) | | | | | , |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | c |
-| (recorded in repo) | | | | | o |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | d |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | d |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | p |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | o |
-| (recorded in repo) | | | | | u |
-| (recorded in repo) | | | | | n |
-| (recorded in repo) | | | | | d |
-| (recorded in repo) | | | | | ) |
+| (repo-recorded) | s | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | p | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | o | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | L | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | I | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | T | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | E | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | R | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | A | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | T | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | U | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | R | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | E | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | _ | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | M | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | A | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | P | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | ( | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | 4 | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | c | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | a | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | t | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | g | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | o | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | i | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | s | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | , | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | > | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | = | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | 4 | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | d | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | i | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | s | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | t | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | i | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | n | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | c | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | t | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | q | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | u | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | i | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | s | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | , | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | c | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | o | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | d | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | d | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | p | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | o | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | u | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | n | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | d | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | ) | (see repo) | | | per-round records in repo LITERATURE_MAP |
 
 #### sources
 
@@ -142,86 +142,86 @@
 
 | category | query | engine | started_at | completed_at | outcome |
 |---|---|---|---|---|---|
-| (recorded in repo) | | | | | s |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | p |
-| (recorded in repo) | | | | | o |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | L |
-| (recorded in repo) | | | | | I |
-| (recorded in repo) | | | | | T |
-| (recorded in repo) | | | | | E |
-| (recorded in repo) | | | | | R |
-| (recorded in repo) | | | | | A |
-| (recorded in repo) | | | | | T |
-| (recorded in repo) | | | | | U |
-| (recorded in repo) | | | | | R |
-| (recorded in repo) | | | | | E |
-| (recorded in repo) | | | | | _ |
-| (recorded in repo) | | | | | M |
-| (recorded in repo) | | | | | A |
-| (recorded in repo) | | | | | P |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | ( |
-| (recorded in repo) | | | | | 4 |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | c |
-| (recorded in repo) | | | | | a |
-| (recorded in repo) | | | | | t |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | g |
-| (recorded in repo) | | | | | o |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | i |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | s |
-| (recorded in repo) | | | | | , |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | > |
-| (recorded in repo) | | | | | = |
-| (recorded in repo) | | | | | 4 |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | d |
-| (recorded in repo) | | | | | i |
-| (recorded in repo) | | | | | s |
-| (recorded in repo) | | | | | t |
-| (recorded in repo) | | | | | i |
-| (recorded in repo) | | | | | n |
-| (recorded in repo) | | | | | c |
-| (recorded in repo) | | | | | t |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | q |
-| (recorded in repo) | | | | | u |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | i |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | s |
-| (recorded in repo) | | | | | , |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | c |
-| (recorded in repo) | | | | | o |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | d |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | d |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | p |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | o |
-| (recorded in repo) | | | | | u |
-| (recorded in repo) | | | | | n |
-| (recorded in repo) | | | | | d |
-| (recorded in repo) | | | | | ) |
+| (repo-recorded) | s | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | p | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | o | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | L | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | I | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | T | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | E | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | R | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | A | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | T | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | U | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | R | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | E | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | _ | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | M | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | A | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | P | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | ( | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | 4 | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | c | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | a | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | t | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | g | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | o | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | i | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | s | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | , | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | > | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | = | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | 4 | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | d | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | i | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | s | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | t | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | i | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | n | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | c | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | t | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | q | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | u | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | i | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | s | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | , | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | c | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | o | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | d | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | d | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | p | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | o | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | u | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | n | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | d | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | ) | (see repo) | | | per-round records in repo LITERATURE_MAP |
 
 #### sources
 
@@ -241,86 +241,86 @@
 
 | category | query | engine | started_at | completed_at | outcome |
 |---|---|---|---|---|---|
-| (recorded in repo) | | | | | s |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | p |
-| (recorded in repo) | | | | | o |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | L |
-| (recorded in repo) | | | | | I |
-| (recorded in repo) | | | | | T |
-| (recorded in repo) | | | | | E |
-| (recorded in repo) | | | | | R |
-| (recorded in repo) | | | | | A |
-| (recorded in repo) | | | | | T |
-| (recorded in repo) | | | | | U |
-| (recorded in repo) | | | | | R |
-| (recorded in repo) | | | | | E |
-| (recorded in repo) | | | | | _ |
-| (recorded in repo) | | | | | M |
-| (recorded in repo) | | | | | A |
-| (recorded in repo) | | | | | P |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | ( |
-| (recorded in repo) | | | | | 4 |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | c |
-| (recorded in repo) | | | | | a |
-| (recorded in repo) | | | | | t |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | g |
-| (recorded in repo) | | | | | o |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | i |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | s |
-| (recorded in repo) | | | | | , |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | > |
-| (recorded in repo) | | | | | = |
-| (recorded in repo) | | | | | 4 |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | d |
-| (recorded in repo) | | | | | i |
-| (recorded in repo) | | | | | s |
-| (recorded in repo) | | | | | t |
-| (recorded in repo) | | | | | i |
-| (recorded in repo) | | | | | n |
-| (recorded in repo) | | | | | c |
-| (recorded in repo) | | | | | t |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | q |
-| (recorded in repo) | | | | | u |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | i |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | s |
-| (recorded in repo) | | | | | , |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | c |
-| (recorded in repo) | | | | | o |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | d |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | d |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | p |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | o |
-| (recorded in repo) | | | | | u |
-| (recorded in repo) | | | | | n |
-| (recorded in repo) | | | | | d |
-| (recorded in repo) | | | | | ) |
+| (repo-recorded) | s | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | p | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | o | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | L | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | I | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | T | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | E | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | R | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | A | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | T | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | U | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | R | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | E | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | _ | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | M | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | A | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | P | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | ( | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | 4 | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | c | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | a | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | t | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | g | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | o | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | i | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | s | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | , | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | > | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | = | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | 4 | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | d | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | i | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | s | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | t | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | i | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | n | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | c | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | t | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | q | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | u | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | i | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | s | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | , | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | c | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | o | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | d | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | d | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | p | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | o | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | u | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | n | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | d | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | ) | (see repo) | | | per-round records in repo LITERATURE_MAP |
 
 #### sources
 
@@ -339,86 +339,86 @@
 
 | category | query | engine | started_at | completed_at | outcome |
 |---|---|---|---|---|---|
-| (recorded in repo) | | | | | s |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | p |
-| (recorded in repo) | | | | | o |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | L |
-| (recorded in repo) | | | | | I |
-| (recorded in repo) | | | | | T |
-| (recorded in repo) | | | | | E |
-| (recorded in repo) | | | | | R |
-| (recorded in repo) | | | | | A |
-| (recorded in repo) | | | | | T |
-| (recorded in repo) | | | | | U |
-| (recorded in repo) | | | | | R |
-| (recorded in repo) | | | | | E |
-| (recorded in repo) | | | | | _ |
-| (recorded in repo) | | | | | M |
-| (recorded in repo) | | | | | A |
-| (recorded in repo) | | | | | P |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | ( |
-| (recorded in repo) | | | | | 4 |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | c |
-| (recorded in repo) | | | | | a |
-| (recorded in repo) | | | | | t |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | g |
-| (recorded in repo) | | | | | o |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | i |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | s |
-| (recorded in repo) | | | | | , |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | > |
-| (recorded in repo) | | | | | = |
-| (recorded in repo) | | | | | 4 |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | d |
-| (recorded in repo) | | | | | i |
-| (recorded in repo) | | | | | s |
-| (recorded in repo) | | | | | t |
-| (recorded in repo) | | | | | i |
-| (recorded in repo) | | | | | n |
-| (recorded in repo) | | | | | c |
-| (recorded in repo) | | | | | t |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | q |
-| (recorded in repo) | | | | | u |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | i |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | s |
-| (recorded in repo) | | | | | , |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | c |
-| (recorded in repo) | | | | | o |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | d |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | d |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | p |
-| (recorded in repo) | | | | | e |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | |   |
-| (recorded in repo) | | | | | r |
-| (recorded in repo) | | | | | o |
-| (recorded in repo) | | | | | u |
-| (recorded in repo) | | | | | n |
-| (recorded in repo) | | | | | d |
-| (recorded in repo) | | | | | ) |
+| (repo-recorded) | s | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | p | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | o | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | L | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | I | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | T | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | E | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | R | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | A | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | T | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | U | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | R | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | E | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | _ | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | M | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | A | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | P | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | ( | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | 4 | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | c | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | a | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | t | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | g | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | o | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | i | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | s | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | , | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | > | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | = | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | 4 | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | d | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | i | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | s | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | t | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | i | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | n | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | c | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | t | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | q | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | u | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | i | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | s | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | , | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | c | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | o | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | d | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | d | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | p | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | e | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) |   | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | r | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | o | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | u | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | n | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | d | (see repo) | | | per-round records in repo LITERATURE_MAP |
+| (repo-recorded) | ) | (see repo) | | | per-round records in repo LITERATURE_MAP |
 
 #### sources
 

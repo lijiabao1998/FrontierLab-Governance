@@ -65,7 +65,10 @@ def render(a: dict) -> str:
                          f"| {qq.get('started_at')} | {qq.get('completed_at')} "
                          f"| {qq['outcome']} |")
             else:
-                L.append(f"| (recorded in repo) | | | | | {qq} |")
+                # string-form record (e.g. the four original primaries whose
+                # per-round query records live in their repo LITERATURE_MAPs):
+                # render ONE reference row, never character-iterate (Codex P2)
+                L.append(f"| (repo-recorded) | {qq} | (see repo) | | | per-round records in repo LITERATURE_MAP |")
         L.append("")
         L.append("#### sources")
         L.append("")
