@@ -14,96 +14,96 @@
       "ci_state": "GREEN",
       "manifest_state": "GREEN (verify_manifest.py 6/6)",
       "work_status": "AWAITING_REVIEW",
-      "last_completed_action": "live truth fetched",
-      "current_action": "durable checkpoint build",
-      "next_smallest_action": "full local reproduction + await Codex",
+      "last_completed_action": "durable checkpoint build",
+      "current_action": "awaiting Codex re-review on latest head",
+      "next_smallest_action": "if new head findings -> fix per SOP; else owner gate",
       "latest_push_sha": "this commit",
       "unresolved_blockers": [],
       "evidence_paths": [
         "convergence/live/*.json"
       ],
-      "last_updated_at": "2026-09-28T16:27:42+00:00"
+      "last_updated_at": "2026-09-28T16:43:53+00:00"
     },
     {
       "repo": "FrontierPhysics",
       "pr": 2,
-      "current_head_sha": "81c7c3723b98615c44990a58f438401bfb2dfcae",
+      "current_head_sha": "7219b6ab57ada9e324ddf1d508ea1d13e931f84c",
       "last_reviewed_sha": "81c7c372",
       "live_P1": 0,
-      "live_P2": 3,
+      "live_P2": 0,
       "ci_state": "GREEN",
       "manifest_state": "GREEN",
-      "work_status": "REVIEWING",
-      "last_completed_action": "3 P2 fixed: W3 geometric grid, raw rows persisted, full-precision bands + persisted-band judging; PASS maintained",
-      "current_action": "awaiting Codex re-review",
-      "next_smallest_action": "read new threads; iterate",
+      "work_status": "AWAITING_REVIEW",
+      "last_completed_action": "awaiting Codex re-review",
+      "current_action": "awaiting Codex re-review on latest head",
+      "next_smallest_action": "if new head findings -> fix per SOP; else owner gate",
       "latest_push_sha": "this commit",
       "unresolved_blockers": [],
       "evidence_paths": [
         "convergence/live/*.json"
       ],
-      "last_updated_at": "2026-09-28T16:29:44+00:00"
+      "last_updated_at": "2026-09-28T16:43:53+00:00"
     },
     {
       "repo": "FrontierChemistry",
       "pr": 1,
-      "current_head_sha": "6b7cf14dc5809a84e7c29e326d0e8b3ace4dd3ca",
+      "current_head_sha": "bdca66228bc05ac51a20404d3028c4cc05aa2079",
       "last_reviewed_sha": "6b7cf14d",
       "live_P1": 0,
       "live_P2": 0,
       "ci_state": "GREEN",
       "manifest_state": "GREEN",
       "work_status": "AWAITING_REVIEW",
-      "last_completed_action": "live truth fetched",
-      "current_action": "durable checkpoint build",
-      "next_smallest_action": "scaffold-semantics audit; verify no post-hoc split changes; Linux/macOS RDKit reproducibility note",
+      "last_completed_action": "durable checkpoint build",
+      "current_action": "awaiting Codex re-review on latest head",
+      "next_smallest_action": "if new head findings -> fix per SOP; else owner gate",
       "latest_push_sha": "this commit",
       "unresolved_blockers": [],
       "evidence_paths": [
         "convergence/live/*.json"
       ],
-      "last_updated_at": "2026-09-28T16:27:42+00:00"
+      "last_updated_at": "2026-09-28T16:43:53+00:00"
     },
     {
       "repo": "FrontierBiology",
       "pr": 1,
-      "current_head_sha": "500ecfa64f0abf1fdccab4199241601a7318fb12",
+      "current_head_sha": "4fdac6104e9c69273fe328c99df51fb83222d733",
       "last_reviewed_sha": "500ecfa6",
       "live_P1": 2,
-      "live_P2": 4,
+      "live_P2": 1,
       "ci_state": "GREEN",
       "manifest_state": "GREEN (verify_manifest.py)",
-      "work_status": "REVIEWING",
-      "last_completed_action": "E2 redesigned identical-cohort (770 rows), headline E2-only, verifier v3, manifest .gz",
-      "current_action": "awaiting Codex re-review",
-      "next_smallest_action": "read threads; if CLEAN-degeneracy rejected -> record E2 FAIL",
+      "work_status": "FIXING",
+      "last_completed_action": "awaiting Codex re-review",
+      "current_action": "awaiting Codex re-review on latest head",
+      "next_smallest_action": "if new head findings -> fix per SOP; else owner gate",
       "latest_push_sha": "this commit",
       "unresolved_blockers": [],
       "evidence_paths": [
         "convergence/live/*.json"
       ],
-      "last_updated_at": "2026-09-28T16:33:44+00:00"
+      "last_updated_at": "2026-09-28T16:43:53+00:00"
     },
     {
       "repo": "FrontierLab-Governance",
       "pr": 2,
-      "current_head_sha": "2cc7043862f0ad1a3e7a10fb2ac8c64af9002264",
+      "current_head_sha": "bba67544c236f557affc884867d5a8134b1a34c1",
       "last_reviewed_sha": "2cc70438",
       "live_P1": 0,
       "live_P2": 1,
       "ci_state": "GREEN",
       "manifest_state": "N/A",
       "work_status": "FIXING",
-      "last_completed_action": "live truth fetched",
-      "current_action": "durable checkpoint build",
-      "next_smallest_action": "normalize string queries to single reference rows; renderer must reproduce committed md exactly",
+      "last_completed_action": "durable checkpoint build",
+      "current_action": "awaiting Codex re-review on latest head",
+      "next_smallest_action": "if new head findings -> fix per SOP; else owner gate",
       "latest_push_sha": "this commit",
       "unresolved_blockers": [],
       "evidence_paths": [
         "convergence/live/*.json"
       ],
-      "last_updated_at": "2026-09-28T16:27:42+00:00"
+      "last_updated_at": "2026-09-28T16:43:53+00:00"
     }
   ],
-  "last_updated_at": "2026-09-28T16:33:44+00:00"
+  "last_updated_at": "2026-09-28T16:43:53+00:00"
 }
