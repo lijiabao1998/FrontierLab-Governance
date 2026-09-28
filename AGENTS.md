@@ -1,7 +1,7 @@
 # 多 Agent 協作規則 v1
 
 ## 權限與主線
-業主：`lijiabao1998`。2026-09-27 五庫 bootstrap 與 2026-09-28 十一庫擴充是業主當次明確授權的一次性初始化；此後 GPT、Claude、Codex、Gemini、DeepSeek、Grok、GLM、Kimi 及其他 agent **全部走自己的分支**：`<agent>/<problem-id>-<topic>-<round>`。`start` 會產生這個格式的預設分支；gate 至少要求 `<agent>/<problem-id>-<topic>`，agent 必須與輪次紀錄相同，topic 為小寫 slug。不因品牌給任意 agent 免驗證權。
+業主：`lijiabao1998`。2026-09-27 五庫 bootstrap 與 2026-09-28 十一庫擴充是業主當次明確授權的一次性初始化；此後 GPT、Claude、Codex、Gemini、DeepSeek、Grok、GLM、Kimi 及其他 agent **全部走自己的分支**：`<agent>/<problem-id>-<topic>-<round>`。`start` 會產生這個格式的預設分支；`admit` 要求新輪次至少符合 `<agent>/<problem-id>-<topic>`，agent 必須與輪次紀錄相同，topic 為小寫 slug。舊版工具已登記的輪次沿用原規則，不因升級治理版本而失效。不因品牌給任意 agent 免驗證權。
 
 `origin/main` 是已審核研究紀錄，不是自然界真相。開工 fetch，記錄 40 位 base SHA、治理 pin、open PR、當前題卡及失敗紀錄。一個工作目錄一個寫入者；並行 agent 用獨立 worktree/clone。不得 force main、改別人的分支、重寫或刪除失敗。
 

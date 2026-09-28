@@ -147,7 +147,7 @@ class BranchContractTests(unittest.TestCase):
                                    ('claude-code', 'CS-001', 'claude-code/CS-001-dependency-closure')):
             with self.subTest(branch=branch):
                 self.assertTrue(f.branch_ok(branch, agent, pid))
-                f.validate_preflight(record(pid, agent, branch))
+                f.validate_preflight(record(pid, agent, branch), fresh=True)
 
     def test_red_rejected_forms(self):
         for branch, why in (('main', 'main'),
@@ -164,11 +164,31 @@ class BranchContractTests(unittest.TestCase):
             with self.subTest(why=why):
                 self.assertFalse(f.branch_ok(branch, 'claude', 'MED-001'))
                 with self.assertRaisesRegex(ValueError, 'agent branch'):
-                    f.validate_preflight(record('MED-001', 'claude', branch))
+                    f.validate_preflight(record('MED-001', 'claude', branch), fresh=True)
 
     def test_red_agent_must_be_slug(self):
         with self.assertRaisesRegex(ValueError, 'agent must be a lowercase slug'):
-            f.validate_preflight(record('MED-001', 'Claude', 'Claude/MED-001-x'))
+            f.validate_preflight(record('MED-001', 'Claude', 'Claude/MED-001-x'), fresh=True)
+
+    def test_boundary_legacy_records_are_grandfathered(self):
+        # Records written by the previous `start` (<agent>/<lowercase-id>, no topic) stay valid when a repo
+        # revalidates history after a pin upgrade; only new admissions must follow the full contract.
+        legacy = record('MED-001', 'claude', 'claude/med-001')
+        f.validate_preflight(legacy)
+        with self.assertRaisesRegex(ValueError, 'agent branch <agent>/<problem-id>'):
+            f.validate_preflight(legacy, fresh=True)
+        lab = Lab()
+        self.addCleanup(lab.close)
+        legacy['state'], legacy['round_id'] = 'ADMITTED', 'legacy'
+        f.save(lab.root / 'runs' / 'legacy' / 'round.json', legacy)
+        f.validate_repo(lab.root)
+        run = cli('admit', lab.root, lab.root / 'runs' / 'legacy' / 'round.json')
+        self.assertEqual(run.returncode, 1)
+        self.assertTrue(run.stderr.startswith('BLOCKED: work on an agent branch <agent>/<problem-id>'), run.stderr)
+
+    def test_red_historical_record_still_needs_an_agent_branch(self):
+        with self.assertRaisesRegex(ValueError, 'work on an agent branch, not main'):
+            f.validate_preflight(record('MED-001', 'claude', 'main'))
 
     def test_start_generates_contract_branch_and_is_unique(self):
         lab = Lab()

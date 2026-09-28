@@ -12,7 +12,7 @@ import sys
 from urllib.parse import urlparse
 
 # Version of the research contract implemented by this commit; see PROTOCOL_VERSIONS.md.
-PROTOCOL_VERSION = '1.1.0'
+PROTOCOL_VERSION = '1.2.0'
 BRANCH_TOPIC_RE = re.compile(r'[a-z0-9]+(?:-[a-z0-9]+)*')
 STATUSES = {'OPEN', 'PARTIAL', 'CLAIMED_RESOLVED', 'COMPLETED_EXTERNAL', 'COMPLETED_INTERNAL', 'PAUSED', 'RETRACTED'}
 TERMINAL = {'COMPLETED_EXTERNAL', 'COMPLETED_INTERNAL'}
@@ -83,9 +83,14 @@ def validate_resolution(obj: dict, problem_id: str) -> None:
 
 def validate_preflight(r: dict, fresh: bool = False) -> str:
     nonempty(r, ('round_id', 'problem_id', 'agent', 'branch', 'base_sha', 'acceptance', 'not_done'), 'round')
-    require(re.fullmatch(r'[a-z0-9-]+', r['agent']) is not None, 'round: agent must be a lowercase slug')
-    require(branch_ok(r['branch'], r['agent'], r['problem_id']),
-            f"work on an agent branch <agent>/<problem-id>-<topic>[-<round>], not {r['branch']!r}")
+    if fresh:
+        # Admission of a new round follows the full branch contract. Records admitted by older tools keep the
+        # original rule below, so upgrading the governance pin does not invalidate existing history.
+        require(re.fullmatch(r'[a-z0-9-]+', r['agent']) is not None, 'round: agent must be a lowercase slug')
+        require(branch_ok(r['branch'], r['agent'], r['problem_id']),
+                f"work on an agent branch <agent>/<problem-id>-<topic>[-<round>], not {r['branch']!r}")
+    else:
+        require(re.fullmatch(r'[a-z0-9-]+/.+', r['branch']) is not None, 'work on an agent branch, not main')
     require(re.fullmatch(r'[0-9a-f]{40}', r['base_sha']) is not None, 'record exact base commit SHA')
     started = stamp(r.get('started_at'), 'round.started_at')
     p = r.get('preflight')
