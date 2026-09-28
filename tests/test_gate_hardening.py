@@ -79,7 +79,7 @@ class Lab:
         self.root = Path(self.dir.name)
         self.domain = domain
         self.write('lab.json', {'domain': domain, 'expected_problem_count': len(pids)})
-        self.write('GOVERNANCE.lock.json', {'repository': f.GOVERNANCE_REPO, 'commit': PIN, 'protocol_version': '1.1.0'})
+        self.write('GOVERNANCE.lock.json', {'repository': f.GOVERNANCE_REPO, 'commit': PIN, 'protocol_version': f.PROTOCOL_VERSION})
         self.write('.github/workflows/research.yml', WORKFLOW.format(uses=PIN, ref=PIN))
         self.write('README.md', f'# Lab\n每輪按治理 {PIN} fresh search。資料集 commit {OTHER} 不是治理 pin。\n')
         self.write('AGENTS.md', f'讀治理 https://github.com/lijiabao1998/FrontierLab-Governance/tree/{PIN} 。\n')

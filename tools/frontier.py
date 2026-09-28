@@ -14,7 +14,7 @@ import sys
 from urllib.parse import urlparse
 
 # Version of the research contract implemented by this commit; see PROTOCOL_VERSIONS.md.
-PROTOCOL_VERSION = '1.2.0'
+PROTOCOL_VERSION = '2.0.0'
 BRANCH_TOPIC_RE = re.compile(r'[a-z0-9]+(?:-[a-z0-9]+)*')
 STATUSES = {'OPEN', 'PARTIAL', 'CLAIMED_RESOLVED', 'COMPLETED_EXTERNAL', 'COMPLETED_INTERNAL', 'PAUSED', 'RETRACTED'}
 TERMINAL = {'COMPLETED_EXTERNAL', 'COMPLETED_INTERNAL'}

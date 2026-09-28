@@ -1,6 +1,6 @@
 # Gate 契約：治理 pin、受保護題目規格與研究路徑
 
-本文件定義 `tools/frontier.py` 的機器檢查範圍。它檢查紀錄、欄位與路徑，**不檢查科學真偽**，也不驗證搜尋內容是否誠實。每條守衛在 `tests/` 都至少有一個 GREEN、一個故意違規的 RED 和一個邊界案例；測試不會紅的守衛不算守衛。
+本文件定義 `tools/frontier.py` 的機器檢查範圍，屬 protocol 2.0.0（breaking，見 [PROTOCOL_VERSIONS.md](PROTOCOL_VERSIONS.md)）。它檢查紀錄、欄位與路徑，**不檢查科學真偽**，也不驗證搜尋內容是否誠實。每條守衛在 `tests/` 都至少有一個 GREEN、一個故意違規的 RED 和一個邊界案例；測試不會紅的守衛不算守衛。
 
 生效範圍：研究庫 CI 執行的是 `GOVERNANCE.lock.json` 固定的治理 commit。本契約只在某研究庫把 pin 升到包含本契約的治理 commit 之後，才會在該庫 CI 生效；升 pin 需業主批准，逐庫進行。
 
