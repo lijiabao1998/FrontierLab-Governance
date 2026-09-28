@@ -33,16 +33,16 @@
       "live_P2": 3,
       "ci_state": "GREEN",
       "manifest_state": "GREEN",
-      "work_status": "FIXING",
-      "last_completed_action": "live truth fetched",
-      "current_action": "durable checkpoint build",
-      "next_smallest_action": "fix cycle2 executable: geometric W3 per admitted rule or new admitted round; persist full raw rows; full-precision bands; Stage B loads persisted bands",
+      "work_status": "REVIEWING",
+      "last_completed_action": "3 P2 fixed: W3 geometric grid, raw rows persisted, full-precision bands + persisted-band judging; PASS maintained",
+      "current_action": "awaiting Codex re-review",
+      "next_smallest_action": "read new threads; iterate",
       "latest_push_sha": "this commit",
       "unresolved_blockers": [],
       "evidence_paths": [
         "convergence/live/*.json"
       ],
-      "last_updated_at": "2026-09-28T16:27:42+00:00"
+      "last_updated_at": "2026-09-28T16:29:44+00:00"
     },
     {
       "repo": "FrontierChemistry",
@@ -104,5 +104,6 @@
       ],
       "last_updated_at": "2026-09-28T16:27:42+00:00"
     }
-  ]
+  ],
+  "last_updated_at": "2026-09-28T16:29:44+00:00"
 }
