@@ -42,10 +42,11 @@ resolved 紀錄必填 `problem_id, scope_statement, scope_match, basis, confirme
 
 廣泛機制或能力問題不能只用 benchmark 分數、單一資料集、回溯擬合或模擬結果關閉。第一輪先把子任務、資料切分、誤差界和適用條件凍結；完成子任務只關子任務。需要新實驗、前瞻資料或介入研究才能辨識的假說標 EXPERIMENT_REQUIRED。計算研究仍可繼續，只是不能把計算結果冒充新實驗、因果結論或普遍機制。
 
-各學科常見的越界如下；完整規則以各研究庫的 VALIDATION.md 為準。
+各學科常見的越界如下；完整規則以各研究庫的 VALIDATION.md 為準。FrontierMath 沒有 VALIDATION.md：其數值實驗與有限搜尋適用 [EVIDENCE_POLICY.md](EVIDENCE_POLICY.md) 的「有限精確驗證」與「浮點模擬」兩列，以及 FrontierMath AGENTS.md 的「數學加嚴」規則。
 
 | 學科 | 不能由此推出 |
 |---|---|
+| 數學（數值實驗、有限搜尋） | 有限 n、窮舉或浮點構造 → 對所有 n 的定理；未附可檢查證書的 SAT UNSAT → 不存在 |
 | 物理、化學、材料 | 模擬、0 K 穩定性或擬合 → 自然界機制、可合成或新合成 |
 | 生物、神經 | 模型預測或高 decoding 分數 → 生物機制或神經機制 |
 | 醫學 | 回溯性能 → 臨床效益；需要前瞻或隨機設計 |
