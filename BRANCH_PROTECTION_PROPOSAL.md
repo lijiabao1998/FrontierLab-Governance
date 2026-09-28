@@ -71,7 +71,7 @@
 
 1. 給 agent 用的 token 只開 `Contents` 與 `Pull requests` 的寫入，不開 `Administration`。這樣 agent 不能修改或停用 ruleset；但仍能合併 PR，因為合併不需要 admin。
 2. 人工審查 `.github/`、`GOVERNANCE.lock.json`、`lab.json` 的改動：這些決定了 CI 跑什麼、跑哪個治理版本。
-3. 各 agent 的 PR 在標題或分支名標明 agent（現行 `<agent>/<ID>-<topic>` 分支契約已要求）；但這只是紀錄，不是身分驗證。
+3. 各 agent 依 AGENTS.md 的分支契約 `<agent>/<problem-id>-<topic>-<round>` 開分支，讓每個 PR 看得出是哪個 agent、哪一題、哪一輪；但這只是紀錄，不是身分驗證。
 
 ## 要真正區分業主與 agent，需要分開身分
 
