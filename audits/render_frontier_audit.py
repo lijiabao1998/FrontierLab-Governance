@@ -59,7 +59,10 @@ def render(a: dict) -> str:
         L.append("")
         L.append("| category | query | engine | started_at | completed_at | outcome |")
         L.append("|---|---|---|---|---|---|")
-        for qq in p.get("queries", []):
+        queries = p.get("queries", [])
+        if isinstance(queries, str):
+            queries = [queries]  # normalize string form to ONE record (Codex P2)
+        for qq in queries:
             if isinstance(qq, dict) and "category" in qq:
                 L.append(f"| {qq['category']} | `{qq['query']}` | {qq['engine']} "
                          f"| {qq.get('started_at')} | {qq.get('completed_at')} "
