@@ -109,6 +109,7 @@ python3 tools/frontier.py decide ../FrontierMedicine MED-001 --kind hygiene --fi
 | 輪次紀錄 | `runs/<round_id>/round.json` | 只增改，不刪 |
 | 輪次附件 | `runs/<round_id>/` 下其他檔案 | 本次變更必須同時新增或修改該輪 `round.json`，且非 DRAFT；只增改，不刪 |
 | 決策紀錄 | `decisions/<decision_id>/decision.json` | 只增，不改不刪 |
+| 登記的額外根路徑 | `lab.json` `artifact_roots` 的每個 `path` 之下（§3.4） | 等同該題研究產物 |
 | unregistered | 其他所有路徑，例如 `misc/`、`notes/`、`analysis/`、`problems/<ID>/analysis/`、`problems/<ID>/results.txt`、`Problems/…`、學科外的 `*.lean` | 新增或修改即 RED；刪除允許（清理舊檔） |
 
 分類只看路徑，不看副檔名：把結果改名成 `.md` 或搬到別的資料夾，只會變成「研究產物仍需輪次」或「unregistered」。README、文件修字與 CI 調整屬於第一類，不會被當成研究成果。
@@ -124,6 +125,21 @@ python3 tools/frontier.py decide ../FrontierMedicine MED-001 --kind hygiene --fi
 ### 3.3 變更檢查（`check-diff`）
 
 以 `git diff --name-status --no-renames <base>...<head>` 逐檔分類。改名視為「刪舊路徑 + 加新路徑」，兩端都要合規。新舊內容一律從 merge-base 與 head commit 讀取，不讀工作目錄。治理庫本身（`lab.json` domain 為 `governance`）跳過研究路徑檢查，改由 unit tests 把關。
+
+### 3.4 Repo 登記的額外研究根路徑（artifact roots）
+
+預設研究路徑是 `problems/<ID>/{experiments,proofs,results}/`。有些工具鏈要求程式放在特定位置，例如 Lake 只能 import 屬於 lib 命名空間的模組，`problems/MATH-001/proofs/` 不是合法的 Lean 模組路徑。這時 repo 可以在 `lab.json` 明確登記額外根路徑：
+
+```json
+"artifact_roots": [
+  {"path": "FrontierMath/Research/MATH001/", "problem_id": "MATH-001", "kind": "proofs"}
+]
+```
+
+- 每個 root 只對應一題、一種 artifact kind（`experiments`／`proofs`／`results`）。root 下的檔案一律視為該題的研究產物，受 §3.1 同一條輪次規則管理：本次變更需有同題、verdict 為 `NO_RESOLUTION_FOUND` 或 `PARTIAL_PROGRESS` 的輪次；整庫檢查時 repo 中要有同題已 admit 的輪次。
+- `path` 必須是相對目錄、以 `/` 結尾；每段以英數字或底線開頭（不接受 `..`、隱藏目錄、絕對路徑）；不得位於 `problems/`、`runs/`、`decisions/`、`.github/` 之下；不得包含任何基礎設施檔（例如 math 的 `FrontierMath/` 會包住 `FrontierMath/Smoke.lean`，所以不行）；root 之間不得互相巢狀。`problem_id` 必須是本庫存在的題。
+- `check-diff` 用 **merge base** 的 `lab.json` 決定 root。所以登記 root 與在 root 下交研究產物必須分成兩個 PR：同一個 PR 內新登記的 root，其下檔案仍算 unregistered（RED）。`lab.json` 的 root 改動會在 CI log 印出 `REVIEW lab.json artifact_roots`。
+- 移除 root 時，root 下仍被追蹤的檔案會在 `validate` 變成 unregistered（RED）。
 
 ## 4. 已知限制（需要業主或人工處理）
 

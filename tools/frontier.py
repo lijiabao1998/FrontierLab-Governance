@@ -61,6 +61,10 @@ PATH_RULES = (
     ('attachment', re.compile(r'runs/([^/]+)/.+')),
     ('decision', re.compile(r'decisions/([^/]+)/decision\.json')),
 )
+# GATE_CONTRACT.md §3.4: extra research roots a repo declares in lab.json (e.g. a Lake-importable Lean namespace).
+ARTIFACT_KINDS = ('experiments', 'proofs', 'results')
+RESERVED_ROOT_PREFIXES = ('problems/', 'runs/', 'decisions/', '.github/')
+ROOT_PATH_RE = re.compile(r'(?:[A-Za-z0-9_][A-Za-z0-9_.-]*/)+')
 
 
 def require(condition: bool, message: str) -> None:
@@ -265,7 +269,30 @@ def check_pins(root: Path) -> str:
     return commit
 
 
-def classify(path: str, domain: str) -> tuple[str, str | None]:
+def artifact_roots(lab: dict, known_ids: set | None = None) -> tuple[tuple[str, str, str], ...]:
+    """GATE_CONTRACT.md §3.4: validated (path, problem_id, kind) research roots declared in lab.json."""
+    raw = lab.get('artifact_roots', [])
+    require(isinstance(raw, list), 'lab.json artifact_roots must be a list')
+    infra = INFRA_FILES | DOMAIN_INFRA.get(lab.get('domain'), frozenset())
+    roots = []
+    for i, entry in enumerate(raw):
+        ctx = f'lab.json artifact_roots[{i}]'
+        require(isinstance(entry, dict), f'{ctx}: expected an object')
+        path, pid, kind = entry.get('path'), entry.get('problem_id'), entry.get('kind')
+        require(isinstance(path, str) and ROOT_PATH_RE.fullmatch(path) is not None,
+                f'{ctx}: path must be a relative directory ending in "/" (no "..", no hidden or absolute segments)')
+        require(not path.startswith(RESERVED_ROOT_PREFIXES), f'{ctx}: {path} overlaps a reserved directory')
+        require(not any(f.startswith(path) for f in infra), f'{ctx}: {path} would contain infrastructure files')
+        require(isinstance(pid, str) and PROBLEM_ID_RE.fullmatch(pid) is not None, f'{ctx}: invalid problem_id')
+        require(known_ids is None or pid in known_ids, f'{ctx}: {pid} is not a problem in this repository')
+        require(kind in ARTIFACT_KINDS, f'{ctx}: kind must be one of {list(ARTIFACT_KINDS)}')
+        for other, _, _ in roots:
+            require(not (path.startswith(other) or other.startswith(path)), f'{ctx}: {path} nests with {other}')
+        roots.append((path, pid, kind))
+    return tuple(roots)
+
+
+def classify(path: str, domain: str, roots: tuple = ()) -> tuple[str, str | None]:
     """GATE_CONTRACT.md §3.1: every repository path has exactly one owner class."""
     if path in INFRA_FILES or path.startswith(INFRA_PREFIXES) or path in DOMAIN_INFRA.get(domain, ()):
         return 'infra', None
@@ -273,6 +300,9 @@ def classify(path: str, domain: str) -> tuple[str, str | None]:
         m = pattern.fullmatch(path)
         if m:
             return kind, m.group(1)
+    for root, pid, _ in roots:
+        if path.startswith(root) and len(path) > len(root):
+            return 'artifact', pid
     return 'unregistered', None
 
 
@@ -319,9 +349,10 @@ def validate_repo(root: Path) -> None:
         validate_decision(d, path.parent.name)
         require(d['problem_id'] in seen, f'{path.relative_to(root)}: decision points to absent problem')
     researched = {r['problem_id'] for r in admitted.values()}
+    roots = artifact_roots(lab, seen)
     errors = []
     for rel in tracked_files(root):
-        kind, key = classify(rel, lab['domain'])
+        kind, key = classify(rel, lab['domain'], roots)
         if kind == 'unregistered':
             errors.append(f'{rel}: unregistered path (GATE_CONTRACT.md §3.1)')
         elif kind == 'artifact' and key not in researched:
@@ -471,18 +502,21 @@ def check_diff(root: Path, base: str, head: str) -> None:
         print('SKIP: governance repository; research path and problem contracts do not apply (unit tests guard the gate).')
         return
     mb = git(root, 'merge-base', base, head)
+    # Paths are classified by the roots declared at the merge base, so a root must be merged before work lands in it.
+    roots = artifact_roots(show_json(root, mb, 'lab.json') or {})
+    head_roots = artifact_roots(lab)
     raw = [x for x in git(root, 'diff', '--name-status', '--no-renames', '-z', f'{base}...{head}').split('\0') if x]
     changes = list(zip(raw[0::2], raw[1::2]))
     errors, notes = [], []
     rounds, decisions, problems = {}, defaultdict(list), []
     artifacts, attachments = defaultdict(list), defaultdict(list)
     for change, path in changes:
-        kind, key = classify(path, lab['domain'])
+        kind, key = classify(path, lab['domain'], roots)
         if kind == 'infra' or (kind == 'unregistered' and change == 'D'):
             continue
         if kind == 'unregistered':
-            errors.append(f'{path}: unregistered path; research files belong in problems/<ID>/{{experiments,proofs,results}}/ '
-                          'or runs/<round_id>/ (GATE_CONTRACT.md §3.1)')
+            errors.append(f'{path}: unregistered path; research files belong in problems/<ID>/{{experiments,proofs,results}}/, '
+                          'runs/<round_id>/, or a root declared in lab.json artifact_roots by an earlier PR (GATE_CONTRACT.md §3)')
         elif kind in ('round', 'attachment') and change == 'D':
             errors.append(f'{path}: round records are append-only; do not delete')
         elif kind == 'attachment':
@@ -535,6 +569,8 @@ def check_diff(root: Path, base: str, head: str) -> None:
             errors.append(f'{path}: {e}')
     for pid in sorted(set(decisions) - touched):
         errors.append(f'{pid}: decision record(s) without a matching problem card change')
+    if head_roots != roots:
+        notes.append(f'REVIEW lab.json artifact_roots:\n    - {list(roots)}\n    + {list(head_roots)}')
     for note in notes:
         print(note)
     require(not errors, 'check-diff:\n  ' + '\n  '.join(errors))

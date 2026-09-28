@@ -583,6 +583,115 @@ class MathPathTests(LabCase):
             f.check_diff(lab.root, lab.base, head)
 
 
+ROOT = 'FrontierMath/Research/MATH001/'
+
+
+class ArtifactRootTests(LabCase):
+    """GATE_CONTRACT.md §3.4: repo-declared research roots stay under the round provenance gate."""
+
+    def setUp(self):
+        self.lab = Lab('math', ('MATH-001', 'MATH-002'))
+        self.addCleanup(self.lab.close)
+
+    def declare(self, roots=None):
+        lab = self.lab.read('lab.json')
+        lab['artifact_roots'] = roots if roots is not None else [{'path': ROOT, 'problem_id': 'MATH-001', 'kind': 'proofs'}]
+        self.lab.write('lab.json', lab)
+
+    def declared_base(self):
+        self.declare()
+        self.lab.base = self.lab.commit('declare artifact root (separate, merged PR)')
+
+    def test_green_root_declaration_alone(self):
+        self.declare()
+        self.green()
+
+    def test_green_proof_in_root_with_round(self):
+        self.declared_base()
+        self.lab.add_round('MATH-001')
+        self.lab.write(ROOT + 'Probe.lean', 'theorem probe : True := trivial\n')
+        self.green()
+
+    def test_red_proof_in_root_without_round(self):
+        self.declared_base()
+        self.lab.write(ROOT + 'Probe.lean', 'theorem probe : True := trivial\n')
+        self.red(r'MATH-001: research changes lack a completed per-round search record')
+
+    def test_red_proof_in_root_with_other_problem_round(self):
+        self.declared_base()
+        self.lab.add_round('MATH-002')
+        self.lab.write(ROOT + 'Probe.lean', 'theorem probe : True := trivial\n')
+        self.red(r'MATH-001: research changes lack')
+
+    def test_red_root_declared_in_same_change_as_proof(self):
+        self.declare()
+        self.lab.add_round('MATH-001')
+        self.lab.write(ROOT + 'Probe.lean', 'theorem probe : True := trivial\n')
+        self.red(r'FrontierMath/Research/MATH001/Probe\.lean: unregistered path')
+
+    def test_boundary_sibling_prefix_is_not_inside_root(self):
+        self.declared_base()
+        self.lab.add_round('MATH-001')
+        self.lab.write('FrontierMath/Research/MATH0010/Probe.lean', 'theorem probe : True := trivial\n')
+        self.red(r'FrontierMath/Research/MATH0010/Probe\.lean: unregistered path')
+
+    def test_red_deleting_root_artifact_needs_round(self):
+        self.declared_base()
+        self.lab.add_round('MATH-001')
+        self.lab.write(ROOT + 'Probe.lean', 'theorem probe : True := trivial\n')
+        self.lab.base = self.lab.commit('merged proof')
+        self.lab.delete(ROOT + 'Probe.lean')
+        self.red(r'MATH-001: research changes lack')
+
+    def test_validate_tree_root_artifact(self):
+        self.declare()
+        self.lab.write(ROOT + 'Probe.lean', 'theorem probe : True := trivial\n')
+        self.lab.commit('direct push without a round')
+        with self.assertRaisesRegex(ValueError, r'Probe\.lean: research artifact without an admitted MATH-001 round'):
+            f.validate_repo(self.lab.root)
+        self.lab.add_round('MATH-001')
+        self.lab.commit('round')
+        f.validate_repo(self.lab.root)
+
+    def test_red_removed_root_leaves_unregistered_files(self):
+        self.declare()
+        self.lab.add_round('MATH-001')
+        self.lab.write(ROOT + 'Probe.lean', 'theorem probe : True := trivial\n')
+        self.lab.commit('root, round and proof')
+        f.validate_repo(self.lab.root)
+        self.declare([])
+        self.lab.commit('root removed')
+        with self.assertRaisesRegex(ValueError, r'Probe\.lean: unregistered path'):
+            f.validate_repo(self.lab.root)
+
+    def test_red_invalid_root_declarations(self):
+        good = {'path': ROOT, 'problem_id': 'MATH-001', 'kind': 'proofs'}
+        cases = (
+            ({**good, 'path': '../outside/'}, r'relative directory'),
+            ({**good, 'path': '/abs/'}, r'relative directory'),
+            ({**good, 'path': 'FrontierMath/Research/MATH001'}, r'relative directory'),
+            ({**good, 'path': '.hidden/'}, r'relative directory'),
+            ({**good, 'path': 'FrontierMath/../problems/'}, r'relative directory'),
+            ({**good, 'path': 'problems/MATH-001/lean/'}, r'reserved directory'),
+            ({**good, 'path': '.github/x/'}, r'relative directory'),
+            ({**good, 'path': 'runs/r/'}, r'reserved directory'),
+            ({**good, 'path': 'FrontierMath/'}, r'would contain infrastructure files'),
+            ({**good, 'problem_id': 'MATH-099'}, r'MATH-099 is not a problem in this repository'),
+            ({**good, 'problem_id': 'math-001'}, r'invalid problem_id'),
+            ({**good, 'kind': 'notes'}, r'kind must be one of'),
+        )
+        for entry, pattern in cases:
+            with self.subTest(entry=entry):
+                with self.assertRaisesRegex(ValueError, pattern):
+                    f.artifact_roots({'domain': 'math', 'artifact_roots': [entry]}, {'MATH-001', 'MATH-002'})
+        with self.assertRaisesRegex(ValueError, r'nests with'):
+            f.artifact_roots({'domain': 'math', 'artifact_roots': [
+                good, {'path': ROOT + 'Sub/', 'problem_id': 'MATH-002', 'kind': 'proofs'}]})
+        with self.assertRaisesRegex(ValueError, r'must be a list'):
+            f.artifact_roots({'domain': 'math', 'artifact_roots': good})
+        self.assertEqual(f.artifact_roots({'domain': 'math', 'artifact_roots': [good]}), ((ROOT, 'MATH-001', 'proofs'),))
+
+
 class GovernanceRepoTests(unittest.TestCase):
     def test_governance_repo_skips_research_contract(self):
         root = Path(__file__).resolve().parents[1]
