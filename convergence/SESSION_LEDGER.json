@@ -73,16 +73,16 @@
       "live_P2": 4,
       "ci_state": "GREEN",
       "manifest_state": "GREEN (verify_manifest.py)",
-      "work_status": "FIXING",
-      "last_completed_action": "live truth fetched",
-      "current_action": "durable checkpoint build",
-      "next_smallest_action": "E2 identical-test-set redesign first",
+      "work_status": "REVIEWING",
+      "last_completed_action": "E2 redesigned identical-cohort (770 rows), headline E2-only, verifier v3, manifest .gz",
+      "current_action": "awaiting Codex re-review",
+      "next_smallest_action": "read threads; if CLEAN-degeneracy rejected -> record E2 FAIL",
       "latest_push_sha": "this commit",
       "unresolved_blockers": [],
       "evidence_paths": [
         "convergence/live/*.json"
       ],
-      "last_updated_at": "2026-09-28T16:27:42+00:00"
+      "last_updated_at": "2026-09-28T16:33:44+00:00"
     },
     {
       "repo": "FrontierLab-Governance",
@@ -105,5 +105,5 @@
       "last_updated_at": "2026-09-28T16:27:42+00:00"
     }
   ],
-  "last_updated_at": "2026-09-28T16:29:44+00:00"
+  "last_updated_at": "2026-09-28T16:33:44+00:00"
 }
