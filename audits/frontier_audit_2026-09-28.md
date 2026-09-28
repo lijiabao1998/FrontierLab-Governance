@@ -1,49 +1,585 @@
-# Frontier Audit v2｜2026-09-28｜glm scout sweep（Codex review 修訂版）
+# Frontier Audit v3｜2026-09-28｜glm scout sweep（Codex convergence 修訂）
 
-**Scope（依 Codex P2-1 修正）**：涵蓋 registry 全部 **15 個 repo 的 primary problems**——原四庫（MATH-001、PHYS-001、BIO-001、CHEM-004，另有完整 LITERATURE_MAP 於各 repo）＋擴充 11 庫之 primary（CS-001、STAT-001、MAT-003、ASTRO-003、EARTH-003、NEURO-001、ECON-001、ENG-004、MED-001、SOC-008、META-001；來源：`EXPANSION-2026-09-28.md`）。
-**搜尋狀態**：四路完成＝MATH-001、PHYS-001、BIO-001、CHEM-004（完整輪次）、CS-001、STAT-001、META-001；**BLOCKED（四路檢索待做，不發佈結論）**＝MAT-003、ASTRO-003、EARTH-003、NEURO-001、ECON-001、ENG-004、MED-001、SOC-008。原 12 題 priority-A 掃描中 8 題僅 1-2 query——其結論降級為 screening-level，四路補齊列為待辦（Codex P2-2）。
-**不修改任何題卡狀態**；本次掃描無 candidate_for_resolution_review 觸發。
+**單一真相源**：`frontier_audit_2026-09-28.json`；本檔由 `audits/render_frontier_audit.py` 自動生成——**請勿手改**，drift 檢查：render 後 `git diff --exit-code audits/frontier_audit_2026-09-28.md`（本波以本地流程執行；GitHub Actions 版本因 OAuth token 無 `workflow` scope 而移除，待 owner 啟用——見 commit 訊息）。
 
-## 15 primaries 逐題（含完整檢索紀錄者標 ✎）
+- 條目數：23（15 個 repo primaries＋8 個 priority-A screening 題）
+- 時間戳政策：timezone-qualified timestamps where recorded; UNKNOWN where not recoverable; date-only marked DATE_ONLY_KNOWN
+- 狀態：no problem status modified; no candidate_for_resolution_review flags; 'no resolution found' appears ONLY on FOUR_WAY_COMPLETE entries
+- 四路完成定義：general/discipline/solution/criticism＋≥2 來源（含 ≥1 primary）；「no resolution found」僅出現在 FOUR_WAY_COMPLETE 條目。
 
-### ✎ CS-001｜Repository-scale 軟體形式驗證（FrontierComputerScience）
-- 檢索（2026-09-28T19:5xZ，zcode-websearch）：general=`repository-scale formal verification large Lean codebase proof automation 2026`；discipline=`arXiv 2602.18307 proof obligations dependencies`；solution=`VeriSoftBench Lean repository proof automation solved status limitations criticism`；criticism=`automated proof engineering repository scale unsolved challenges erratum retraction 2026`。
-- 來源：primary＝arXiv:2602.18307（VeriSoftBench，Xin/Chen/Durrett/Dillig，COLM 2026；經 COLM2026 HF dataset 引用核實）；secondary＝utopia-group/VeriSoftBench GitHub、APE-Bench (OpenReview)、Vero。
-- 判讀：open——repo 規模驗證對前沿模型仍未解（VeriSoftBench pass rate 遠低於 Mathlib-backed 基準之 ~90%）；無 erratum。批評線：數學 Lean 基準表現不能外推到真實 repo。
-- evaluator maturity：無（benchmark 已存在，題卡 evaluator 待建）。next-smallest-action：以 VeriSoftBench 子集建立本庫基線 pass-rate 重現。
-- priority：維持 primary。
+## 覆蓋總表
 
-### ✎ STAT-001｜Distribution shift 下的 conformal coverage（FrontierStatistics）
-- 檢索：general=`conformal prediction distribution shift coverage guarantee 2026 open problems`；discipline=`arXiv 2403.15025 covariate shift calibration`；solution=`conformal prediction shift robust methods comparison weighted quantile 2025 2026`；criticism=`conformal prediction shift miscalibration empirical failure overconfident`。
-- 來源：primary＝arXiv:2403.15025（Robust CP via Physics-Informed SCM，實證存在）；secondary＝arXiv:2602.14913（pseudo-calibrated CP）、Tibshirani et al. NeurIPS 2019（WCP，1200+ 引用）、Gibbs & Candès JMLR 2024（ACI）、ICML 2026 domain-shift-aware CP、arXiv 2601.00908（診斷 CP 失效）。
-- 判讀：open——shift 下 coverage 恢復為活躍未解方向；批評線：marginal≠conditional coverage、density-ratio 估計脆弱、long-tail 類內失衡。
-- next-smallest-action：WCP/ACI/split conformal 三基線在標準 covariate-shift 模擬之重現（stdlib 可行）。
-- priority：維持 primary。
-
-### ✎ META-001｜Agent-based experiment reproduction 的 execution bottleneck（FrontierMetaScience）
-- 檢索：general=`AI agent paper reproduction benchmark success rate environment setup execution failures 2026`；discipline=`arXiv 2609.11117`；solution=`PaperBench FIRE-Bench MLAgentBench RE-Bench approaches`；criticism=`agent benchmarks broken gameable flawed evaluation critique`。
-- 來源：primary＝arXiv:2609.11117（NLPCC 2026 Shared Task 11 overview；AgentActionBench，150 papers，**execution 為主要 bottleneck**——摘要層級）；secondary＝PaperBench（OpenAI, arXiv:2504.01848）、FIRE-Bench、「AI Agent Benchmarks are Broken」（Kang）、SWE-bench 污染批評線。
-- 判讀：open——執行/環境 setup 為公認主要失敗點；批評線：agent benchmark 本身有 gamability/contamination 問題（本庫 evaluator 設計須預防）。
-- next-smallest-action：以 AgentActionBench 公開子集做失敗階段分類重現（stdlib 可行部分：literature/metric matching 階段）。
-- priority：維持 primary。
-
-### BLOCKED 題（8）——僅列卡片元資料，不發佈結論
-| ID | repo | title | card source（未讀全文） | search_status |
+| problem_id | repo | search_status | claims_published | conclusion_scope |
 |---|---|---|---|---|
-| MAT-003 | FrontierMaterials | 虛擬穩定性到可合成性的落差 | nature.com s44160-026-01027-2 | BLOCKED |
-| ASTRO-003 | FrontierAstronomy | Little Red Dots 的物理本質 | nature.com s41550-026-02934-2 | BLOCKED |
-| EARTH-003 | FrontierEarth | 地震 forecast 與 early warning 校準 | nature.com collections/bfjaccgaaj | BLOCKED |
-| NEURO-001 | FrontierNeuroscience | 模型分歧設計可區分腦計算假說刺激 | nature.com s41583-026-01070-0 | BLOCKED |
-| ECON-001 | FrontierEconomics | AI 的 firm-level 因果生產力效果 | nber.org/papers/w34984 | BLOCKED |
-| ENG-004 | FrontierEngineering | Non-smooth hybrid systems 的 uncertainty transport | nature.com s41598-026-53809-5 | BLOCKED |
-| MED-001 | FrontierMedicine | 醫療 AI 跨機構 external validation | nature.com s41591-025-04184-7 | BLOCKED |
-| SOC-008 | FrontierSocialScience | Observational causal-claim validity | nature.com s41562-026-02553-x | BLOCKED |
-- BLOCKED 原因：本波 context/預算不足以對每題完成四路＋≥2 來源（含 primary）閱讀；依 RESEARCH_PROTOCOL 不在檢索不足下發佈結論。解除：下一波逐題四路（每題約 4 query＋primary 閱讀）。
+| MATH-001 | FrontierMath | FOUR_WAY_COMPLETE | True | no resolution found for the problem scope (four-way supported); details in repo LITERATURE |
+| PHYS-001 | FrontierPhysics | FOUR_WAY_COMPLETE | True | no resolution found for the problem scope (four-way supported); details in repo LITERATURE |
+| BIO-001 | FrontierBiology | FOUR_WAY_COMPLETE | True | no resolution found for the problem scope (four-way supported); details in repo LITERATURE |
+| CHEM-004 | FrontierChemistry | FOUR_WAY_COMPLETE | True | no resolution found for the problem scope (four-way supported); details in repo LITERATURE |
+| CS-001 | FrontierComputerScience | FOUR_WAY_COMPLETE | True | FOUR_WAY_COMPLETE: no same-scope resolution or erratum found; repo-scale verification unso |
+| STAT-001 | FrontierStatistics | FOUR_WAY_COMPLETE | True | FOUR_WAY_COMPLETE: no same-scope resolution; shift-robust coverage open with known critici |
+| META-001 | FrontierMetaScience | FOUR_WAY_COMPLETE | True | FOUR_WAY_COMPLETE: no same-scope resolution; execution bottleneck acknowledged; benchmark- |
+| MAT-003 | FrontierMaterials | BLOCKED | False | NO CONCLUSIONS PUBLISHED |
+| ASTRO-003 | FrontierAstronomy | BLOCKED | False | NO CONCLUSIONS PUBLISHED |
+| EARTH-003 | FrontierEarth | BLOCKED | False | NO CONCLUSIONS PUBLISHED |
+| NEURO-001 | FrontierNeuroscience | BLOCKED | False | NO CONCLUSIONS PUBLISHED |
+| ECON-001 | FrontierEconomics | BLOCKED | False | NO CONCLUSIONS PUBLISHED |
+| ENG-004 | FrontierEngineering | BLOCKED | False | NO CONCLUSIONS PUBLISHED |
+| MED-001 | FrontierMedicine | BLOCKED | False | NO CONCLUSIONS PUBLISHED |
+| SOC-008 | FrontierSocialScience | BLOCKED | False | NO CONCLUSIONS PUBLISHED |
+| MATH-004 | FrontierMath | SCREENING_ONLY | False | SCREENING OBSERVATIONS ONLY (1-2 queries; four-way pending; no erratum/resolution claims a |
+| MATH-006 | FrontierMath | SCREENING_ONLY | False | SCREENING OBSERVATIONS ONLY (1-2 queries; four-way pending; no erratum/resolution claims a |
+| MATH-010 | FrontierMath | SCREENING_ONLY | False | SCREENING OBSERVATIONS ONLY (1-2 queries; four-way pending; no erratum/resolution claims a |
+| PHYS-003 | FrontierPhysics | SCREENING_ONLY | False | SCREENING OBSERVATIONS ONLY (1-2 queries; four-way pending; no erratum/resolution claims a |
+| BIO-002 | FrontierBiology | SCREENING_ONLY | False | SCREENING OBSERVATIONS ONLY (1-2 queries; four-way pending; no erratum/resolution claims a |
+| BIO-010 | FrontierBiology | SCREENING_ONLY | False | SCREENING OBSERVATIONS ONLY (1-2 queries; four-way pending; no erratum/resolution claims a |
+| CHEM-003 | FrontierChemistry | SCREENING_ONLY | False | SCREENING OBSERVATIONS ONLY (1-2 queries; four-way pending; no erratum/resolution claims a |
+| CHEM-010 | FrontierChemistry | SCREENING_ONLY | False | SCREENING OBSERVATIONS ONLY (1-2 queries; four-way pending; no erratum/resolution claims a |
 
-## 原四庫 A 題（12）——狀態更新
-- 四 primary（MATH-001/PHYS-001/BIO-001/CHEM-004）：完整 LITERATURE_MAP 見各 repo runs/*；本次 Remediation wave 修正後數字以各 repo REMEDIATION.md 為準。
-- 其餘 8 題（MATH-004/006/010、PHYS-003、BIO-002/010、CHEM-003/010）：**search_status=screening_level（1-2 query）**；前版「low open-status uncertainty／no erratum」結論降級為「篩查層級觀察」，四路補齊前排程在 META-001 之後。逐題觀察與 next-smallest-action 詳見 v1 audit（本 repo 同目錄 json）。
+### MATH-001｜FrontierMath｜FOUR_WAY_COMPLETE
+
+- checked：2026-09-27（DATE_ONLY_KNOWN）；engine：zcode-websearch(web_search_prime)/zcode-webfetch/curl
+
+#### queries
+
+| category | query | engine | started_at | completed_at | outcome |
+|---|---|---|---|---|---|
+| (recorded in repo) | | | | | s |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | p |
+| (recorded in repo) | | | | | o |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | L |
+| (recorded in repo) | | | | | I |
+| (recorded in repo) | | | | | T |
+| (recorded in repo) | | | | | E |
+| (recorded in repo) | | | | | R |
+| (recorded in repo) | | | | | A |
+| (recorded in repo) | | | | | T |
+| (recorded in repo) | | | | | U |
+| (recorded in repo) | | | | | R |
+| (recorded in repo) | | | | | E |
+| (recorded in repo) | | | | | _ |
+| (recorded in repo) | | | | | M |
+| (recorded in repo) | | | | | A |
+| (recorded in repo) | | | | | P |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | ( |
+| (recorded in repo) | | | | | 4 |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | c |
+| (recorded in repo) | | | | | a |
+| (recorded in repo) | | | | | t |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | g |
+| (recorded in repo) | | | | | o |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | i |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | s |
+| (recorded in repo) | | | | | , |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | > |
+| (recorded in repo) | | | | | = |
+| (recorded in repo) | | | | | 4 |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | d |
+| (recorded in repo) | | | | | i |
+| (recorded in repo) | | | | | s |
+| (recorded in repo) | | | | | t |
+| (recorded in repo) | | | | | i |
+| (recorded in repo) | | | | | n |
+| (recorded in repo) | | | | | c |
+| (recorded in repo) | | | | | t |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | q |
+| (recorded in repo) | | | | | u |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | i |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | s |
+| (recorded in repo) | | | | | , |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | c |
+| (recorded in repo) | | | | | o |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | d |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | d |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | p |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | o |
+| (recorded in repo) | | | | | u |
+| (recorded in repo) | | | | | n |
+| (recorded in repo) | | | | | d |
+| (recorded in repo) | | | | | ) |
+
+#### sources
+
+| kind | title | url/doi | year | version | read_mode | supports |
+|---|---|---|---|---|---|---|
+| primary | arXiv:2602.07751 (Prellberg 2026, v1); Flammenkamp record page 2026-09-11 | null | 2026 | None | abstract-level+round-evidence | primary of the problem |
+
+- conclusion_scope：no resolution found for the problem scope (four-way supported); details in repo LITERATURE_MAP + REMEDIATION
+- newest_bound：2n for all n<=74 except 75; record n=76; smallest open n=75
+- note：full four-way maps in repo runs/*/LITERATURE_MAP.md; BLOCKED-on-frontier-configs retracted after dsk evidence: n=71-76 public configs available (431,008-file verified by glm), n=75 unique zero
+
+### PHYS-001｜FrontierPhysics｜FOUR_WAY_COMPLETE
+
+- checked：2026-09-27（DATE_ONLY_KNOWN）；engine：zcode-websearch(web_search_prime)/zcode-webfetch/curl
+
+#### queries
+
+| category | query | engine | started_at | completed_at | outcome |
+|---|---|---|---|---|---|
+| (recorded in repo) | | | | | s |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | p |
+| (recorded in repo) | | | | | o |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | L |
+| (recorded in repo) | | | | | I |
+| (recorded in repo) | | | | | T |
+| (recorded in repo) | | | | | E |
+| (recorded in repo) | | | | | R |
+| (recorded in repo) | | | | | A |
+| (recorded in repo) | | | | | T |
+| (recorded in repo) | | | | | U |
+| (recorded in repo) | | | | | R |
+| (recorded in repo) | | | | | E |
+| (recorded in repo) | | | | | _ |
+| (recorded in repo) | | | | | M |
+| (recorded in repo) | | | | | A |
+| (recorded in repo) | | | | | P |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | ( |
+| (recorded in repo) | | | | | 4 |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | c |
+| (recorded in repo) | | | | | a |
+| (recorded in repo) | | | | | t |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | g |
+| (recorded in repo) | | | | | o |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | i |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | s |
+| (recorded in repo) | | | | | , |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | > |
+| (recorded in repo) | | | | | = |
+| (recorded in repo) | | | | | 4 |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | d |
+| (recorded in repo) | | | | | i |
+| (recorded in repo) | | | | | s |
+| (recorded in repo) | | | | | t |
+| (recorded in repo) | | | | | i |
+| (recorded in repo) | | | | | n |
+| (recorded in repo) | | | | | c |
+| (recorded in repo) | | | | | t |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | q |
+| (recorded in repo) | | | | | u |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | i |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | s |
+| (recorded in repo) | | | | | , |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | c |
+| (recorded in repo) | | | | | o |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | d |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | d |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | p |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | o |
+| (recorded in repo) | | | | | u |
+| (recorded in repo) | | | | | n |
+| (recorded in repo) | | | | | d |
+| (recorded in repo) | | | | | ) |
+
+#### sources
+
+| kind | title | url/doi | year | version | read_mode | supports |
+|---|---|---|---|---|---|---|
+| primary | arXiv:2607.26896 (Mukherjee & Mukherjee 2026, v1) | null | 2026 | None | abstract-level+round-evidence | primary of the problem |
+
+- conclusion_scope：no resolution found for the problem scope (four-way supported); details in repo LITERATURE_MAP + REMEDIATION
+- newest_bound：K41 synthetic baseline calibrated (two-stage); triadic-suppression 2026-03 mechanism study
+- note：beta=3 slope is a window-dependent statistic, not a clean exponent (dsk audit)
+
+### BIO-001｜FrontierBiology｜FOUR_WAY_COMPLETE
+
+- checked：2026-09-27（DATE_ONLY_KNOWN）；engine：zcode-websearch(web_search_prime)/zcode-webfetch/curl
+
+#### queries
+
+| category | query | engine | started_at | completed_at | outcome |
+|---|---|---|---|---|---|
+| (recorded in repo) | | | | | s |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | p |
+| (recorded in repo) | | | | | o |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | L |
+| (recorded in repo) | | | | | I |
+| (recorded in repo) | | | | | T |
+| (recorded in repo) | | | | | E |
+| (recorded in repo) | | | | | R |
+| (recorded in repo) | | | | | A |
+| (recorded in repo) | | | | | T |
+| (recorded in repo) | | | | | U |
+| (recorded in repo) | | | | | R |
+| (recorded in repo) | | | | | E |
+| (recorded in repo) | | | | | _ |
+| (recorded in repo) | | | | | M |
+| (recorded in repo) | | | | | A |
+| (recorded in repo) | | | | | P |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | ( |
+| (recorded in repo) | | | | | 4 |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | c |
+| (recorded in repo) | | | | | a |
+| (recorded in repo) | | | | | t |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | g |
+| (recorded in repo) | | | | | o |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | i |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | s |
+| (recorded in repo) | | | | | , |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | > |
+| (recorded in repo) | | | | | = |
+| (recorded in repo) | | | | | 4 |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | d |
+| (recorded in repo) | | | | | i |
+| (recorded in repo) | | | | | s |
+| (recorded in repo) | | | | | t |
+| (recorded in repo) | | | | | i |
+| (recorded in repo) | | | | | n |
+| (recorded in repo) | | | | | c |
+| (recorded in repo) | | | | | t |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | q |
+| (recorded in repo) | | | | | u |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | i |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | s |
+| (recorded in repo) | | | | | , |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | c |
+| (recorded in repo) | | | | | o |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | d |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | d |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | p |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | o |
+| (recorded in repo) | | | | | u |
+| (recorded in repo) | | | | | n |
+| (recorded in repo) | | | | | d |
+| (recorded in repo) | | | | | ) |
+
+#### sources
+
+| kind | title | url/doi | year | version | read_mode | supports |
+|---|---|---|---|---|---|---|
+| primary | Wei et al. Nat Methods 2025; PerturbVAE leakage-aware benchmark | null | 2026 | None | abstract-level+round-evidence | primary of the problem |
+
+- conclusion_scope：no resolution found for the problem scope (four-way supported); details in repo LITERATURE_MAP + REMEDIATION
+- newest_bound：leakage gap quantified (PerturbVAE 0.522->0.257; glm synthetic 0.878)
+
+### CHEM-004｜FrontierChemistry｜FOUR_WAY_COMPLETE
+
+- checked：2026-09-27（DATE_ONLY_KNOWN）；engine：zcode-websearch(web_search_prime)/zcode-webfetch/curl
+
+#### queries
+
+| category | query | engine | started_at | completed_at | outcome |
+|---|---|---|---|---|---|
+| (recorded in repo) | | | | | s |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | p |
+| (recorded in repo) | | | | | o |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | L |
+| (recorded in repo) | | | | | I |
+| (recorded in repo) | | | | | T |
+| (recorded in repo) | | | | | E |
+| (recorded in repo) | | | | | R |
+| (recorded in repo) | | | | | A |
+| (recorded in repo) | | | | | T |
+| (recorded in repo) | | | | | U |
+| (recorded in repo) | | | | | R |
+| (recorded in repo) | | | | | E |
+| (recorded in repo) | | | | | _ |
+| (recorded in repo) | | | | | M |
+| (recorded in repo) | | | | | A |
+| (recorded in repo) | | | | | P |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | ( |
+| (recorded in repo) | | | | | 4 |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | c |
+| (recorded in repo) | | | | | a |
+| (recorded in repo) | | | | | t |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | g |
+| (recorded in repo) | | | | | o |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | i |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | s |
+| (recorded in repo) | | | | | , |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | > |
+| (recorded in repo) | | | | | = |
+| (recorded in repo) | | | | | 4 |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | d |
+| (recorded in repo) | | | | | i |
+| (recorded in repo) | | | | | s |
+| (recorded in repo) | | | | | t |
+| (recorded in repo) | | | | | i |
+| (recorded in repo) | | | | | n |
+| (recorded in repo) | | | | | c |
+| (recorded in repo) | | | | | t |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | q |
+| (recorded in repo) | | | | | u |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | i |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | s |
+| (recorded in repo) | | | | | , |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | c |
+| (recorded in repo) | | | | | o |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | d |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | d |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | p |
+| (recorded in repo) | | | | | e |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | |   |
+| (recorded in repo) | | | | | r |
+| (recorded in repo) | | | | | o |
+| (recorded in repo) | | | | | u |
+| (recorded in repo) | | | | | n |
+| (recorded in repo) | | | | | d |
+| (recorded in repo) | | | | | ) |
+
+#### sources
+
+| kind | title | url/doi | year | version | read_mode | supports |
+|---|---|---|---|---|---|---|
+| primary | Moore et al. JACS 2026 (abstract-level); FreeSolv v0.52 | null | 2026 | None | abstract-level+round-evidence | primary of the problem |
+
+- conclusion_scope：no resolution found for the problem scope (four-way supported); details in repo LITERATURE_MAP + REMEDIATION
+- newest_bound：GAFF calc-vs-exp MAE 1.114 kcal/mol reproduced; C4 passes under true Murcko split
+- note：FreeSolv CC BY 4.0 reviewed
+
+### CS-001｜FrontierComputerScience｜FOUR_WAY_COMPLETE
+
+- checked：2026-09-27（UNKNOWN）；engine：zcode-websearch(web_search_prime)
+
+#### queries
+
+| category | query | engine | started_at | completed_at | outcome |
+|---|---|---|---|---|---|
+| general | `repository-scale formal verification large Lean codebase proof automation 2026` | zcode-websearch | None | None | located VeriSoftBench/APE-Bench line of work |
+| discipline | `arXiv 2602.18307 proof obligations dependencies` | zcode-websearch | None | None | primary confirmed: VeriSoftBench 500 obligations/23 repos (COLM 2026) |
+| solution | `VeriSoftBench Lean repository proof automation solved status limitations criticism` | zcode-websearch | None | None | frontier models solve far fewer than mathlib-backed benchmarks; repo-scale unsolved |
+| criticism | `automated proof engineering repository scale unsolved challenges erratum retraction 2026` | zcode-websearch | None | None | no erratum/retraction found |
+
+#### sources
+
+| kind | title | url/doi | year | version | read_mode | supports |
+|---|---|---|---|---|---|---|
+| primary | VeriSoftBench: Repository-Scale Formal Verification Benchmarks for Lean | https://arxiv.org/abs/2602.18307 | 2026 | v1 | abstract-level | benchmark existence/scale/unsolved pass rates |
+| secondary | VeriSoftBench GitHub | https://github.com/utopia-group/VeriSoftBench | 2026 | None | abstract-level | dataset detail |
+
+- conclusion_scope：FOUR_WAY_COMPLETE: no same-scope resolution or erratum found; repo-scale verification unsolved for frontier models
+- next-smallest-action：baseline pass-rate reproduction on VeriSoftBench subset
+
+### STAT-001｜FrontierStatistics｜FOUR_WAY_COMPLETE
+
+- checked：2026-09-27（UNKNOWN）；engine：zcode-websearch(web_search_prime)
+
+#### queries
+
+| category | query | engine | started_at | completed_at | outcome |
+|---|---|---|---|---|---|
+| general | `conformal prediction distribution shift coverage guarantee 2026 open problems` | zcode-websearch | None | None | active open area; 2602.14913 pseudo-calibrated CP |
+| discipline | `arXiv 2403.15025 conformal prediction covariate shift calibration` | zcode-websearch | None | None | primary confirmed: Robust CP via Physics-Informed SCM |
+| solution | `conformal prediction shift robust methods comparison weighted quantile 2025 2026` | zcode-websearch | None | None | canonical baselines: Tibshirani WCP 2019, Gibbs-Candes ACI |
+| criticism | `conformal prediction shift miscalibration empirical failure overconfident` | zcode-websearch | None | None | marginal!=conditional; density-ratio fragility; long-tail imbalance |
+
+#### sources
+
+| kind | title | url/doi | year | version | read_mode | supports |
+|---|---|---|---|---|---|---|
+| primary | Robust Conformal Prediction under Distribution Shift via Physics-Informed SCM | https://arxiv.org/abs/2403.15025 | 2024 | v1 | abstract-level | card primary exists; SCM-robust CP |
+| secondary | Conformal Prediction Under Covariate Shift | https://arxiv.org/abs/1904.06019 | 2019 | None | abstract-level | canonical WCP baseline |
+
+- conclusion_scope：FOUR_WAY_COMPLETE: no same-scope resolution; shift-robust coverage open with known criticism lines
+- next-smallest-action：WCP/ACI/split-conformal reproduction on standard covariate-shift simulation
+
+### META-001｜FrontierMetaScience｜FOUR_WAY_COMPLETE
+
+- checked：2026-09-27（UNKNOWN）；engine：zcode-websearch(web_search_prime)
+
+#### queries
+
+| category | query | engine | started_at | completed_at | outcome |
+|---|---|---|---|---|---|
+| general | `AI agent paper reproduction benchmark success rate environment setup execution failures 2026` | zcode-websearch | None | None | PaperBench/FIRE-Bench landscape; low replication scores |
+| discipline | `arXiv 2609.11117 agent-based experiment reproduction bottleneck` | zcode-websearch | None | None | primary confirmed: AgentActionBench 150 papers; execution primary bottleneck |
+| solution | `PaperBench FIRE-Bench MLAgentBench RE-Bench approaches` | zcode-websearch | None | None | existing approaches and their scopes |
+| criticism | `agent benchmarks broken gameable flawed evaluation critique` | zcode-websearch | None | None | contamination/gamability critiques; SWE-bench issues |
+
+#### sources
+
+| kind | title | url/doi | year | version | read_mode | supports |
+|---|---|---|---|---|---|---|
+| primary | Overview of the NLPCC 2026 Shared Task 11: Agent-Based Experiment Reproduction | https://arxiv.org/abs/2609.11117 | 2026 | v1 | abstract-level | AgentActionBench; execution primary bottleneck |
+| secondary | PaperBench: Evaluating AI's Ability to Replicate AI Research | https://arxiv.org/abs/2504.01848 | 2025 | None | abstract-level | low replication scores for top agents |
+
+- conclusion_scope：FOUR_WAY_COMPLETE: no same-scope resolution; execution bottleneck acknowledged; benchmark-gamability critiques constrain evaluator design
+- next-smallest-action：failure-stage classification reproduction on public AgentActionBench subset
+
+### MAT-003｜FrontierMaterials｜BLOCKED
+
+- reason：four-way search + >=2 sources incl. primary not completed this wave (context budget)
+- 本條**不發佈任何結論**（claims_published=false）；卡片來源 URL 已登記待四路檢索。
+
+### ASTRO-003｜FrontierAstronomy｜BLOCKED
+
+- reason：four-way search + >=2 sources incl. primary not completed this wave (context budget)
+- 本條**不發佈任何結論**（claims_published=false）；卡片來源 URL 已登記待四路檢索。
+
+### EARTH-003｜FrontierEarth｜BLOCKED
+
+- reason：four-way search + >=2 sources incl. primary not completed this wave (context budget)
+- 本條**不發佈任何結論**（claims_published=false）；卡片來源 URL 已登記待四路檢索。
+
+### NEURO-001｜FrontierNeuroscience｜BLOCKED
+
+- reason：four-way search + >=2 sources incl. primary not completed this wave (context budget)
+- 本條**不發佈任何結論**（claims_published=false）；卡片來源 URL 已登記待四路檢索。
+
+### ECON-001｜FrontierEconomics｜BLOCKED
+
+- reason：four-way search + >=2 sources incl. primary not completed this wave (context budget)
+- 本條**不發佈任何結論**（claims_published=false）；卡片來源 URL 已登記待四路檢索。
+
+### ENG-004｜FrontierEngineering｜BLOCKED
+
+- reason：four-way search + >=2 sources incl. primary not completed this wave (context budget)
+- 本條**不發佈任何結論**（claims_published=false）；卡片來源 URL 已登記待四路檢索。
+
+### MED-001｜FrontierMedicine｜BLOCKED
+
+- reason：four-way search + >=2 sources incl. primary not completed this wave (context budget)
+- 本條**不發佈任何結論**（claims_published=false）；卡片來源 URL 已登記待四路檢索。
+
+### SOC-008｜FrontierSocialScience｜BLOCKED
+
+- reason：four-way search + >=2 sources incl. primary not completed this wave (context budget)
+- 本條**不發佈任何結論**（claims_published=false）；卡片來源 URL 已登記待四路檢索。
+
+### MATH-004｜FrontierMath｜SCREENING_ONLY
+
+- 篩查觀察（非結論）：cap set asymptotics; EG 2.756^n + Jiang sqrt(n) stand; no 2025-26 exponential improvement found
+- next-smallest-action：complete four-way search per RESEARCH_PROTOCOL
+
+### MATH-006｜FrontierMath｜SCREENING_ONLY
+
+- 篩查觀察（非結論）：Frankl union-closed; Gilmer 0.38 -> AHS 2024; 1/2 open
+- next-smallest-action：complete four-way search per RESEARCH_PROTOCOL
+
+### MATH-010｜FrontierMath｜SCREENING_ONLY
+
+- 篩查觀察（非結論）：Theta(C7) in [3.2596, 3.3177]; alpha(C7^5)=368
+- next-smallest-action：complete four-way search per RESEARCH_PROTOCOL
+
+### PHYS-003｜FrontierPhysics｜SCREENING_ONLY
+
+- 篩查觀察（非結論）：sign problem open; DQ2MC 2026-08; no generic unbiased sampler
+- next-smallest-action：complete four-way search per RESEARCH_PROTOCOL
+
+### BIO-002｜FrontierBiology｜SCREENING_ONLY
+
+- 篩查觀察（非結論）：GRN causal identifiability open (latent confounders/cycles/soft interventions)
+- next-smallest-action：complete four-way search per RESEARCH_PROTOCOL
+
+### BIO-010｜FrontierBiology｜SCREENING_ONLY
+
+- 篩查觀察（非結論）：random CV overoptimistic for SDM transfer; spatio-temporal CV (Koldasbayeva 2025)
+- next-smallest-action：complete four-way search per RESEARCH_PROTOCOL
+
+### CHEM-003｜FrontierChemistry｜SCREENING_ONLY
+
+- 篩查觀察（非結論）：liquid-phase barrier extrapolation: no consensus cross-condition evaluation
+- next-smallest-action：complete four-way search per RESEARCH_PROTOCOL
+
+### CHEM-010｜FrontierChemistry｜SCREENING_ONLY
+
+- 篩查觀察（非結論）：uMLIP false positives + DFT ~7%; prospective-validation gap
+- next-smallest-action：complete four-way search per RESEARCH_PROTOCOL
 
 ## 方法與限制
-- 所有 query 原字串、引擎、來源 URL/DOI、時間、kind、supports 已記錄於 `frontier_audit_2026-09-28.json`（v2）。
-- 檢索為有界；「無結果」非未解證明；摘要層級閱讀不等於全文審讀。
+
+- 有界檢索；「無結果」非未解證明；摘要層級閱讀不等於全文審讀。
+- 舊版搜尋之精確時戳不可恢復者記 timestamp_status=UNKNOWN，不猜測。
