@@ -228,6 +228,43 @@ class PinContractTests(LabCase):
         with self.assertRaisesRegex(ValueError, r'marker pin'):
             self.pins()
 
+    def test_red_quoted_operative_keys_with_commented_decoys(self):
+        # Review finding: quoted keys were ignored while matching declarations inside comments were accepted.
+        self.lab.write('.github/workflows/research.yml', f"""jobs:
+  records:
+    "uses": lijiabao1998/FrontierLab-Governance/.github/workflows/research.yml@main
+    with:
+      "governance_ref": main
+# uses: lijiabao1998/FrontierLab-Governance/.github/workflows/research.yml@{PIN}
+# governance_ref: {PIN}
+""")
+        with self.assertRaisesRegex(ValueError, r'uses @main(?s:.*)governance_ref main'):
+            self.pins()
+
+    def test_red_declarations_only_in_comments(self):
+        self.lab.write('.github/workflows/research.yml', f"""jobs: {{}}
+# uses: lijiabao1998/FrontierLab-Governance/.github/workflows/research.yml@{PIN}
+#   governance_ref: {PIN}
+""")
+        with self.assertRaisesRegex(ValueError, r'no uses:(?s:.*)no governance_ref'):
+            self.pins()
+
+    def test_green_quoted_keys_values_and_trailing_comments(self):
+        self.lab.write('.github/workflows/research.yml', f"""jobs:
+  records:
+    "uses": "lijiabao1998/FrontierLab-Governance/.github/workflows/research.yml@{PIN}"  # pinned
+    with:
+      'governance_ref': '{PIN}' # same commit
+""")
+        self.assertEqual(self.pins(), PIN)
+
+    def test_red_unrecognized_governance_reference(self):
+        # A reference the parser does not understand (here a flow mapping) fails closed instead of being skipped.
+        self.lab.write('.github/workflows/research.yml', WORKFLOW.format(uses=PIN, ref=PIN) +
+                       "  extra: {uses: lijiabao1998/FrontierLab-Governance/.github/workflows/research.yml@main}\n")
+        with self.assertRaisesRegex(ValueError, r'unrecognized governance reference'):
+            self.pins()
+
     def test_validate_runs_pin_contract(self):
         self.lab.write('README.md', f'每輪按治理 {OTHER} fresh search。\n')
         with self.assertRaisesRegex(ValueError, r'governance pin mismatch'):
@@ -445,6 +482,22 @@ class StatusTransitionTests(LabCase):
         self.lab.edit_card('MED-001', status='COMPLETED_INTERNAL', resolution=resolution('MED-001'))
         self.lab.add_decision('MED-001', 'status-change', ['status', 'resolution'],
                               **{'from': 'OPEN', 'to': 'COMPLETED_INTERNAL', 'rounds': [rid], 'verifier': verifier})
+
+    def test_green_resolution_only_correction_by_decision(self):
+        # Review finding: a status-change decision had to list status, so a resolution-only fix was impossible.
+        rid, _ = self.lab.add_round('MED-001', agent='gpt', state='FINISHED')
+        self.lab.edit_card('MED-001', status='COMPLETED_INTERNAL', resolution=resolution('MED-001'))
+        self.lab.base = self.lab.commit('completed internally earlier')
+        fixed = resolution('MED-001'); fixed['basis'] = 'corrected basis wording'
+        self.lab.edit_card('MED-001', resolution=fixed)
+        self.lab.add_decision('MED-001', 'status-change', ['resolution'],
+                              **{'from': 'COMPLETED_INTERNAL', 'to': 'COMPLETED_INTERNAL', 'rounds': [rid], 'verifier': 'claude-verifier'})
+        self.green()
+
+    def test_red_status_move_must_list_status(self):
+        self.lab.edit_card('MED-001', status='PAUSED', resolution=resolution('MED-001'))
+        self.lab.add_decision('MED-001', 'status-change', ['resolution'], **{'from': 'OPEN', 'to': 'PAUSED'})
+        self.red(r'status OPEN -> PAUSED: the status-change decision must list status')
 
     def test_green_completed_internal_with_independent_verifier(self):
         self.internal('claude-verifier')
@@ -690,6 +743,27 @@ class ArtifactRootTests(LabCase):
         with self.assertRaisesRegex(ValueError, r'must be a list'):
             f.artifact_roots({'domain': 'math', 'artifact_roots': good})
         self.assertEqual(f.artifact_roots({'domain': 'math', 'artifact_roots': [good]}), ((ROOT, 'MATH-001', 'proofs'),))
+
+
+class DomainIdentityTests(LabCase):
+    """Review finding: a research PR must not turn the gates off by declaring domain governance."""
+
+    def test_red_check_diff_domain_flip_to_governance(self):
+        lab = self.lab.read('lab.json'); lab['domain'] = 'governance'; lab['protocol_version'] = f.PROTOCOL_VERSION
+        self.lab.write('lab.json', lab)
+        self.lab.write('misc/result.csv', '1\n')
+        self.red(r'lab\.json: domain is immutable \(medicine -> governance\)')
+
+    def test_red_validate_research_repo_declaring_governance(self):
+        lab = self.lab.read('lab.json'); lab['domain'] = 'governance'; lab['protocol_version'] = f.PROTOCOL_VERSION
+        self.lab.write('lab.json', lab)
+        with self.assertRaisesRegex(ValueError, r'research repository .* cannot declare domain governance'):
+            f.validate_repo(self.lab.root)
+
+    def test_red_check_diff_domain_change_between_research_domains(self):
+        lab = self.lab.read('lab.json'); lab['domain'] = 'physics'
+        self.lab.write('lab.json', lab)
+        self.red(r'lab\.json: domain is immutable \(medicine -> physics\)')
 
 
 class GovernanceRepoTests(unittest.TestCase):

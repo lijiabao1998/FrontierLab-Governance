@@ -26,8 +26,8 @@ PROBLEM_ID_RE = re.compile(r'(?:MATH|PHYS|BIO|CHEM|CS|STAT|MAT|ASTRO|EARTH|NEURO
 # GATE_CONTRACT.md §1: governance pin declarations. Only these positions are read; other SHAs are ignored.
 GOVERNANCE_REPO = 'lijiabao1998/FrontierLab-Governance'
 SHA_RE = re.compile(r'[0-9a-f]{40}')
-WORKFLOW_USES_RE = re.compile(r'uses:\s*["\']?([\w.-]+/FrontierLab-Governance)/\.github/workflows/[\w.-]+@([^\s"\'#]+)')
-WORKFLOW_REF_RE = re.compile(r'governance_ref:\s*["\']?([^\s"\'#]+)')
+WORKFLOW_KEY_RE = re.compile(r'''\s*(?:-\s+)?(["']?)(uses|governance_ref)\1\s*:\s*(.*)''')
+WORKFLOW_USES_VALUE_RE = re.compile(r'([\w.-]+/FrontierLab-Governance)/\.github/workflows/[\w.-]+@(\S+)')
 DOC_URL_RE = re.compile(r'https://github\.com/lijiabao1998/FrontierLab-Governance/(?:tree|blob|commit)/([^/\s)\]>#?"\'`]+)')
 DOC_MARKER_RE = re.compile(r'<!--\s*governance-pin:\s*(\S+?)\s*-->')
 DOC_PROSE_RE = re.compile(r'(?:治理|(?i:governance))(?:[ \t]*(?:commit|pin|ref|版本))?[ \t:：`]*([0-9a-f]{7,40})(?![0-9A-Za-z])')
@@ -216,7 +216,6 @@ def validate_decision(d: dict, decision_id: str | None = None) -> None:
     if d['kind'] == 'spec-change':
         require(d.get('impact') in SPEC_IMPACTS, f'spec-change must declare impact: {sorted(SPEC_IMPACTS)}')
     if d['kind'] == 'status-change':
-        require('status' in fields, 'status-change must list status')
         require(d.get('from') in STATUSES and d.get('to') in DECISION_STATUS_TARGETS,
                 f'status-change needs from and to; decisions can target {sorted(DECISION_STATUS_TARGETS)}')
         if d['to'] == 'COMPLETED_INTERNAL':
@@ -226,8 +225,33 @@ def validate_decision(d: dict, decision_id: str | None = None) -> None:
             nonempty(d, ('verifier',), 'decision')
 
 
-def workflow_pins(text: str) -> tuple[list[tuple[str, str]], list[str]]:
-    return WORKFLOW_USES_RE.findall(text), WORKFLOW_REF_RE.findall(text)
+def strip_yaml_comment(line: str) -> str:
+    quote = None
+    for i, ch in enumerate(line):
+        if quote:
+            quote = None if ch == quote else quote
+        elif ch in '"\'':
+            quote = ch
+        elif ch == '#' and (i == 0 or line[i - 1].isspace()):
+            return line[:i].rstrip()
+    return line.rstrip()
+
+
+def workflow_pins(text: str) -> tuple[list[tuple[str, str]], list[str], list[int]]:
+    """Operative `uses:` / `governance_ref:` declarations (comments ignored, quoted keys and values accepted).
+    Any other non-comment line that mentions the governance workflow or governance_ref is returned as unknown."""
+    uses, refs, unknown = [], [], []
+    for n, raw in enumerate(text.splitlines(), 1):
+        line = strip_yaml_comment(raw)
+        m = WORKFLOW_KEY_RE.fullmatch(line)
+        value = m.group(3).strip().strip('"\'') if m else ''
+        if m and m.group(2) == 'governance_ref':
+            refs.append(value)
+        elif m and WORKFLOW_USES_VALUE_RE.fullmatch(value):
+            uses.append(WORKFLOW_USES_VALUE_RE.fullmatch(value).groups())
+        elif 'FrontierLab-Governance' in line or 'governance_ref' in line:
+            unknown.append(n)
+    return uses, refs, unknown
 
 
 def doc_pins(text: str) -> list[tuple[str, str]]:
@@ -243,7 +267,9 @@ def check_pins(root: Path) -> str:
     require(isinstance(commit, str) and SHA_RE.fullmatch(commit) is not None, 'GOVERNANCE.lock.json: commit must be a full 40-hex SHA')
     errors = []
     wf = root / '.github' / 'workflows' / 'research.yml'
-    uses, refs = workflow_pins(wf.read_text(encoding='utf-8')) if wf.is_file() else ([], [])
+    uses, refs, unknown = workflow_pins(wf.read_text(encoding='utf-8')) if wf.is_file() else ([], [], [])
+    for n in unknown:
+        errors.append(f'{wf.relative_to(root)}:{n}: unrecognized governance reference; use a plain `uses:` / `governance_ref:` line')
     if not uses:
         errors.append(f'{wf.relative_to(root)}: no uses: {GOVERNANCE_REPO}/.github/workflows/…@<commit>')
     if not refs:
@@ -321,6 +347,8 @@ def validate_repo(root: Path) -> None:
     for filename in ('README.md', 'AGENTS.md', 'STATUS.md'):
         require((root / filename).is_file(), f'missing {filename}')
     if lab['domain'] == 'governance':
+        require(not (root / 'problems').exists() and not (root / 'GOVERNANCE.lock.json').exists(),
+                'a research repository (problems/ or GOVERNANCE.lock.json present) cannot declare domain governance')
         require(lab.get('protocol_version') == PROTOCOL_VERSION, f'lab.json protocol_version must be {PROTOCOL_VERSION}')
         print('Governance documents present; run unit tests separately.')
         return
@@ -413,6 +441,8 @@ def status_basis_errors(pid: str, old: dict, new: dict, rounds: list, decisions:
     match = [d for d in moves if d.get('from') == old_s and d.get('to') == new_s]
     if not match:
         return [f'{pid}: status {old_s} -> {new_s} needs a status-change decision with from={old_s} to={new_s}']
+    if old_s != new_s and not any('status' in d['fields'] for d in match):
+        return [f'{pid}: status {old_s} -> {new_s}: the status-change decision must list status']
     if old.get('resolution') != new.get('resolution') and not any('resolution' in d['fields'] for d in match):
         return [f'{pid}: resolution changed but the status-change decision does not list it']
     if new_s != 'COMPLETED_INTERNAL':
@@ -498,12 +528,16 @@ def check_diff(root: Path, base: str, head: str) -> None:
     """GATE_CONTRACT.md §2 and §3.3 for one change (PR base...head)."""
     lab = show_json(root, head, 'lab.json')
     require(lab is not None, 'lab.json missing at head')
+    mb = git(root, 'merge-base', base, head)
+    base_lab = show_json(root, mb, 'lab.json')
+    # The domain decides which contract applies, so a change may not switch it (for example to skip the gates).
+    require(base_lab is None or base_lab.get('domain') == lab.get('domain'),
+            f"lab.json: domain is immutable ({(base_lab or {}).get('domain')} -> {lab.get('domain')})")
     if lab.get('domain') == 'governance':
         print('SKIP: governance repository; research path and problem contracts do not apply (unit tests guard the gate).')
         return
-    mb = git(root, 'merge-base', base, head)
     # Paths are classified by the roots declared at the merge base, so a root must be merged before work lands in it.
-    roots = artifact_roots(show_json(root, mb, 'lab.json') or {})
+    roots = artifact_roots(base_lab or {})
     head_roots = artifact_roots(lab)
     raw = [x for x in git(root, 'diff', '--name-status', '--no-renames', '-z', f'{base}...{head}').split('\0') if x]
     changes = list(zip(raw[0::2], raw[1::2]))

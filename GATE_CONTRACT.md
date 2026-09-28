@@ -25,6 +25,8 @@
 | 同上 | 顯式標記 `<!-- governance-pin: <40 hex> -->` | 完整等於 lock `commit` |
 | 同上 | 文字「治理」或 `governance`（不分大小寫），可接 `commit`／`pin`／`ref`／`版本`，再接空白、冒號或反引號，緊跟 7–40 位 hex | 必須是 lock `commit` 的前綴 |
 
+workflow 逐行解析：`#` 之後的 YAML 註解不算宣告；key 與值可加引號。任何非註解行若提到 `FrontierLab-Governance` 或 `governance_ref`，卻不是上述兩種寫法（例如 flow mapping），一律 RED，不跳過。
+
 `README.md` 與 `AGENTS.md` 各自至少要有一處宣告。缺宣告與宣告不一致都是 RED：onboarding 文件必須把 agent 指向 CI 實際使用的治理版本。
 
 ## 2. 受保護題目規格
@@ -64,7 +66,7 @@
 ```
 
 - `spec-change` 另需 `impact`：`narrows`／`broadens`／`rescopes`／`clarifies` 之一，強迫明說是否弱化或改寫題目。
-- `status-change` 另需 `from`、`to`；目標 `COMPLETED_INTERNAL` 還需 `rounds`（已存在的同題 `FINISHED` 輪次）與 `verifier`（不得是任何這些輪次的 agent）。
+- `status-change` 另需 `from`、`to`。狀態有改變時 `fields` 必須包含 `status`；只修正 `resolution` 時，`fields` 只列 `resolution`，`from` 與 `to` 都填目前狀態。目標 `COMPLETED_INTERNAL` 還需 `rounds`（已存在的同題 `FINISHED` 輪次）與 `verifier`（不得是任何這些輪次的 agent）。
 - `fields` 列了沒改的欄位是 RED（避免預先寫好萬用紀錄）；決策對應的題卡本次沒有改動也是 RED。
 - 可附 `sources`，格式同題卡來源。
 
@@ -123,6 +125,8 @@ python3 tools/frontier.py decide ../FrontierMedicine MED-001 --kind hygiene --fi
 這讓直接 push（沒有 PR diff）時也擋得住「產物放錯地方」和「沒有輪次的產物」。
 
 ### 3.3 變更檢查（`check-diff`）
+
+`lab.json` 的 `domain` 決定套用哪一份契約，所以不可改動：merge base 與 head 的 domain 不同即 RED（例如研究庫改成 `governance` 以跳過檢查）。`validate` 另外拒絕含 `problems/` 或 `GOVERNANCE.lock.json` 的 repo 宣告 domain 為 `governance`。
 
 以 `git diff --name-status --no-renames <base>...<head>` 逐檔分類。改名視為「刪舊路徑 + 加新路徑」，兩端都要合規。新舊內容一律從 merge-base 與 head commit 讀取，不讀工作目錄。治理庫本身（`lab.json` domain 為 `governance`）跳過研究路徑檢查，改由 unit tests 把關。
 
