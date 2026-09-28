@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T16:43:53+00:00",
+  "generated_at": "2026-09-28T17:35:22+00:00",
   "session": "convergence-2",
   "source": "fresh GitHub API fetch",
   "prs": [
@@ -12,7 +12,7 @@
       "unresolved_P2": 0,
       "ci_state": "GREEN",
       "manifest_state": "GREEN",
-      "state": "AWAITING_REVIEW",
+      "state": "READY_FOR_OWNER_REVIEW",
       "mergeable": "MERGEABLE"
     },
     {
@@ -36,7 +36,7 @@
       "unresolved_P2": 0,
       "ci_state": "GREEN",
       "manifest_state": "GREEN",
-      "state": "AWAITING_REVIEW",
+      "state": "READY_FOR_OWNER_REVIEW",
       "mergeable": "MERGEABLE"
     },
     {
@@ -48,7 +48,7 @@
       "unresolved_P2": 1,
       "ci_state": "GREEN",
       "manifest_state": "GREEN",
-      "state": "FIXING",
+      "state": "AWAITING_REVIEW",
       "mergeable": "MERGEABLE"
     },
     {
@@ -60,7 +60,7 @@
       "unresolved_P2": 1,
       "ci_state": "GREEN",
       "manifest_state": "N/A",
-      "state": "FIXING",
+      "state": "AWAITING_REVIEW",
       "mergeable": "MERGEABLE"
     }
   ]

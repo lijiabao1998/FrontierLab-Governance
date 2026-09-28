@@ -11,7 +11,7 @@
       "hash_manifest": "GREEN",
       "independent_verification": "per-repo REMEDIATION/verifier artifacts",
       "claim_scope_correct": true,
-      "verdict": "AWAITING_REVIEW"
+      "verdict": "READY_FOR_OWNER_REVIEW"
     },
     {
       "repo": "FrontierPhysics",
@@ -35,7 +35,7 @@
       "hash_manifest": "GREEN",
       "independent_verification": "per-repo REMEDIATION/verifier artifacts",
       "claim_scope_correct": true,
-      "verdict": "AWAITING_REVIEW"
+      "verdict": "READY_FOR_OWNER_REVIEW"
     },
     {
       "repo": "FrontierBiology",
@@ -47,7 +47,7 @@
       "hash_manifest": "GREEN",
       "independent_verification": "per-repo REMEDIATION/verifier artifacts",
       "claim_scope_correct": true,
-      "verdict": "HOLD_FOR_FIX"
+      "verdict": "AWAITING_REVIEW"
     },
     {
       "repo": "FrontierLab-Governance",
@@ -59,7 +59,8 @@
       "hash_manifest": "N/A",
       "independent_verification": "per-repo REMEDIATION/verifier artifacts",
       "claim_scope_correct": true,
-      "verdict": "HOLD_FOR_FIX"
+      "verdict": "AWAITING_REVIEW"
     }
-  ]
+  ],
+  "ready_promotion_note": "FM beaf842 and CHEM bdca662 reviewed clean (0/0) -> READY. PHYS 88c316c / BIO 9590a99 / Gov bba6754+ have unreviewed fix commits -> AWAITING_REVIEW. BIO third-review findings: E2 recorded FAILED/INCONCLUSIVE (preserved), verifier P1s fixed; Gov SESSION_LEDGER locators now resolvable (validator exit 0)."
 }
