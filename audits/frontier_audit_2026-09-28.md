@@ -89,7 +89,7 @@
 
 | kind | title | url/doi | year | version | read_mode | supports |
 |---|---|---|---|---|---|---|
-| primary | Wei et al. Nat Methods 2025; PerturbVAE leakage-aware benchmark | null | 2026 | None | abstract-level+round-evidence | primary of the problem |
+| primary | Wei et al. Nat Methods 2025 (published 2025); PerturbVAE 2026 | null | 2025 | None | abstract-level+round-evidence | primary of the problem |
 
 - conclusion_scope：no resolution found for the problem scope (four-way supported); details in repo LITERATURE_MAP + REMEDIATION
 - newest_bound：leakage gap quantified (PerturbVAE 0.522->0.257; glm synthetic 0.878)

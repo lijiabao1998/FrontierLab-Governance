@@ -10,19 +10,22 @@ fail = False
 for e in ledger["entries"]:
     repo = e["repo"]
     clone = WS / repo
+    # Codex P2: missing clones are validation FAILURES, not skips — a clean
+    # checkout or CI run must not report an unverified ledger as validated
     if not (clone / ".git").exists():
-        print(f"SKIP {repo}: no local clone"); continue
+        print(f"FAIL {repo}: sibling clone missing (git clone "
+              f"https://github.com/lijiabao1998/{repo}.git {clone})")
+        fail = True
+        continue
     for loc in e.get("evidence_paths", []):
         sha, path = loc["commit_sha"], loc["path"]
         if sha == "THIS_COMMIT":
             sha = "HEAD"
         if sha == "BRANCH_HEAD":
-            branch = subprocess.run(["git", "-C", str(clone), "rev-parse",
-                                     "--abbrev-ref", "HEAD"],
-                                    capture_output=True, text=True)
-            branch = branch.stdout.strip() or "HEAD"
-            sha = subprocess.run(["git", "-C", str(clone), "rev-parse", branch],
-                                 capture_output=True, text=True).stdout.strip()
+            # Codex P2: resolve from the ledger's recorded immutable
+            # current_head_sha — never from whatever branch the local clone
+            # happens to be on
+            sha = e.get("current_head_sha") or sha
         r = subprocess.run(["git", "-C", str(clone), "cat-file", "-e",
                             f"{sha}:{path}"], capture_output=True, text=True)
         ok = r.returncode == 0
