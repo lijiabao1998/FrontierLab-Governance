@@ -34,6 +34,23 @@
         ]
       },
       "timestamp": "2026-09-29T16:49:17+00:00"
+    },
+    {
+      "action": "MATH-006 r1 admitted+finished (new problem activation: second MATH problem with an evaluator)",
+      "evidence": [
+        {
+          "repo": "lijiabao1998/FrontierMath",
+          "commit_sha": "BRANCH_HEAD",
+          "path": "problems/MATH-006/results/MATH-006/r1/unionclosed_r1_results.json"
+        }
+      ],
+      "info_gained": "m≤4 窮舉 Frankl 全成立（2/13/121/4,959 UC 族）；Gilmer 式數值探索 min ratio 0.5079（200 trials, HYPOTHESIS_LEVEL）",
+      "new_unknowns": [
+        "m=5+ 結構化枚舉",
+        "族計數文獻對照",
+        "Gilmer 熵界之數值重現"
+      ],
+      "timestamp": "2026-09-29T17:04:24+00:00"
     }
   ]
 }

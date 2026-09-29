@@ -48,7 +48,7 @@
       "info_gain": "中",
       "cost": "低",
       "dependencies": "無",
-      "status": "ADMITTED候選",
+      "status": "RESULT — r1 complete (m≤4 exhaustive Frankl ALL pass; counts 2/13/121/4959; Gilmer numeric exploration HYPOTHESIS_LEVEL)",
       "rank": 5
     },
     {
