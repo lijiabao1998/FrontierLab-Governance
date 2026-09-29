@@ -23,7 +23,8 @@
       "hash_manifest": "GREEN",
       "independent_verification": "per-repo REMEDIATION/verifier artifacts",
       "claim_scope_correct": true,
-      "verdict": "AWAITING_REVIEW"
+      "verdict": "READY_FOR_OWNER_REVIEW",
+      "review_evidence": "Codex re-review returned 0 findings on head 51107b50 (fetched 2026-09-29T15:58:49+00:00)"
     },
     {
       "repo": "FrontierChemistry",
@@ -47,7 +48,8 @@
       "hash_manifest": "GREEN",
       "independent_verification": "per-repo REMEDIATION/verifier artifacts",
       "claim_scope_correct": true,
-      "verdict": "AWAITING_REVIEW"
+      "verdict": "READY_FOR_OWNER_REVIEW",
+      "review_evidence": "Codex re-review returned 0 findings on head 02392c43 (fetched 2026-09-29T15:58:49+00:00)"
     },
     {
       "repo": "FrontierLab-Governance",
@@ -59,8 +61,10 @@
       "hash_manifest": "N/A",
       "independent_verification": "per-repo REMEDIATION/verifier artifacts",
       "claim_scope_correct": true,
-      "verdict": "AWAITING_REVIEW"
+      "verdict": "READY_FOR_OWNER_REVIEW",
+      "review_evidence": "Codex re-review returned 0 findings on head bea6726f (fetched 2026-09-29T15:58:49+00:00)"
     }
   ],
-  "ready_promotion_note": "FM beaf842 and CHEM bdca662 reviewed clean (0/0) -> READY. PHYS 88c316c / BIO 9590a99 / Gov bba6754+ have unreviewed fix commits -> AWAITING_REVIEW. BIO third-review findings: E2 recorded FAILED/INCONCLUSIVE (preserved), verifier P1s fixed; Gov SESSION_LEDGER locators now resolvable (validator exit 0)."
+  "ready_promotion_note": "FM beaf842 and CHEM bdca662 reviewed clean (0/0) -> READY. PHYS 88c316c / BIO 9590a99 / Gov bba6754+ have unreviewed fix commits -> AWAITING_REVIEW. BIO third-review findings: E2 recorded FAILED/INCONCLUSIVE (preserved), verifier P1s fixed; Gov SESSION_LEDGER locators now resolvable (validator exit 0).",
+  "promotion_note": "PHYS/BIO/Gov promoted to READY: Codex re-review returned ZERO findings on current heads 51107b5 / 02392c4 / bea6726 respectively (live-fetched 2026-09-29). All six convergence PRs now READY_FOR_OWNER_REVIEW; merge decision rests with owner."
 }

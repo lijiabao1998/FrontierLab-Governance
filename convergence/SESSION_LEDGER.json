@@ -43,10 +43,10 @@
       "live_P2": 0,
       "ci_state": "GREEN",
       "manifest_state": "GREEN",
-      "work_status": "AWAITING_REVIEW",
-      "last_completed_action": "awaiting Codex re-review",
+      "work_status": "READY_FOR_OWNER_REVIEW",
+      "last_completed_action": "re-review returned 0 findings on 51107b50",
       "current_action": "awaiting Codex re-review on latest head",
-      "next_smallest_action": "if new head findings -> fix per SOP; else owner gate",
+      "next_smallest_action": "owner merge decision",
       "latest_push_sha": "this commit",
       "unresolved_blockers": [],
       "evidence_paths": [
@@ -61,7 +61,7 @@
           "path": "problems/PHYS-001/results/r2/hashes.txt"
         }
       ],
-      "last_updated_at": "2026-09-28T16:43:53+00:00",
+      "last_updated_at": "2026-09-29T15:58:49+00:00",
       "evidence_path_note": "BRANCH_HEAD = current head of the PR branch at ledger read time; resolve via git rev-parse origin/<branch> then git cat-file -e <sha>:<path>"
     },
     {
@@ -103,10 +103,10 @@
       "live_P2": 1,
       "ci_state": "GREEN",
       "manifest_state": "GREEN (verify_manifest.py)",
-      "work_status": "AWAITING_REVIEW",
-      "last_completed_action": "awaiting Codex re-review",
+      "work_status": "READY_FOR_OWNER_REVIEW",
+      "last_completed_action": "re-review returned 0 findings on 02392c43",
       "current_action": "awaiting Codex re-review on latest head",
-      "next_smallest_action": "if new head findings -> fix per SOP; else owner gate",
+      "next_smallest_action": "owner merge decision",
       "latest_push_sha": "this commit",
       "unresolved_blockers": [],
       "evidence_paths": [
@@ -126,7 +126,7 @@
           "path": "problems/BIO-001/results/r2/bio001_r2_ablation_results.json"
         }
       ],
-      "last_updated_at": "2026-09-28T16:43:53+00:00",
+      "last_updated_at": "2026-09-29T15:58:49+00:00",
       "evidence_path_note": "BRANCH_HEAD = current head of the PR branch at ledger read time; resolve via git rev-parse origin/<branch> then git cat-file -e <sha>:<path>"
     },
     {
@@ -138,10 +138,10 @@
       "live_P2": 1,
       "ci_state": "GREEN",
       "manifest_state": "N/A",
-      "work_status": "AWAITING_REVIEW",
-      "last_completed_action": "durable checkpoint build",
+      "work_status": "READY_FOR_OWNER_REVIEW",
+      "last_completed_action": "re-review returned 0 findings on bea6726f",
       "current_action": "awaiting Codex re-review on latest head",
-      "next_smallest_action": "if new head findings -> fix per SOP; else owner gate",
+      "next_smallest_action": "owner merge decision",
       "latest_push_sha": "this commit",
       "unresolved_blockers": [],
       "evidence_paths": [
@@ -156,7 +156,7 @@
           "path": "convergence/live/third_review_open_findings.json"
         }
       ],
-      "last_updated_at": "2026-09-28T16:43:53+00:00",
+      "last_updated_at": "2026-09-29T15:58:49+00:00",
       "evidence_path_note": "BRANCH_HEAD = current head of the PR branch at ledger read time; resolve via git rev-parse origin/<branch> then git cat-file -e <sha>:<path>"
     },
     {
@@ -184,7 +184,7 @@
       "last_updated_at": "2026-09-29T15:52:49+00:00"
     }
   ],
-  "last_updated_at": "2026-09-28T17:35:22+00:00",
+  "last_updated_at": "2026-09-29T15:58:49+00:00",
   "exploration_link": {
     "hypothesis_queue": "exploration/HYPOTHESIS_QUEUE.json",
     "frontier_map": "exploration/FRONTIER_MAP.md"

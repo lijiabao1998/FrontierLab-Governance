@@ -49,3 +49,6 @@ READY 僅在：head 已 review + P1=0 + P2=0 + CI 綠 + manifest 綠 + 無 stale
 - 新 admitted round 完成：MATH-004 r1（PR #9）——第一個 evaluator、窮舉 D(1)=2/D(2)=4、greedy LB 8/18/35/72、對抗式發現並修正 unwrapped-AP 定義 bug
 - exploration/ 目錄建置：FRONTIER_MAP、HYPOTHESIS_QUEUE（7 項排序）、NEGATIVE_RESULTS（10 項）、CROSS_REPO_LINKS（6 條）、EXPLORATION_LEDGER
 - 下一 session 建議：H-MATH-004 n=3 精確窮舉（含對稱剪枝）→ H-MATH-006 enum → PHYS Sabra → BIO 真資料
+
+## 全線 READY｜2026-09-29T15:58:49+00:00
+六 PR（FM#4 PHYS#2 CHEM#1 BIO#1 GOV#2 FM#9）之 current heads 經 Codex re-review 0 findings——全部 READY_FOR_OWNER_REVIEW，等 owner 合併決策。
