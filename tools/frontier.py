@@ -20,6 +20,11 @@ STATUSES = {'OPEN', 'PARTIAL', 'CLAIMED_RESOLVED', 'COMPLETED_EXTERNAL', 'COMPLE
 TERMINAL = {'COMPLETED_EXTERNAL', 'COMPLETED_INTERNAL'}
 VERDICTS = {'NO_RESOLUTION_FOUND', 'PARTIAL_PROGRESS', 'CLAIMED_RESOLVED', 'RESOLVED_EXTERNAL', 'BLOCKED'}
 CATEGORIES = {'general', 'discipline', 'solution', 'criticism'}
+RESEARCH_VERDICTS = frozenset({'NO_RESOLUTION_FOUND', 'PARTIAL_PROGRESS'})
+# Once a round has left DRAFT and been merged, these fields are its identity and its search; later changes may only
+# move its state or record results (GATE_CONTRACT.md §2.2).
+ROUND_FROZEN_FIELDS = ('round_id', 'problem_id', 'agent', 'branch', 'base_sha', 'started_at', 'admitted_at',
+                       'acceptance', 'budget', 'preflight')
 UTC = dt.timezone.utc
 PROBLEM_ID_RE = re.compile(r'(?:MATH|PHYS|BIO|CHEM|CS|STAT|MAT|ASTRO|EARTH|NEURO|ECON|ENG|MED|SOC|META)-\d{3}')
 
@@ -28,9 +33,12 @@ GOVERNANCE_REPO = 'lijiabao1998/FrontierLab-Governance'
 SHA_RE = re.compile(r'[0-9a-f]{40}')
 WORKFLOW_KEY_RE = re.compile(r'''\s*(?:-\s+)?(["']?)(uses|governance_ref)\1\s*:\s*(.*)''')
 WORKFLOW_USES_VALUE_RE = re.compile(r'([\w.-]+/FrontierLab-Governance)/\.github/workflows/[\w.-]+@(\S+)')
-DOC_URL_RE = re.compile(r'https://github\.com/lijiabao1998/FrontierLab-Governance/(?:tree|blob|commit)/([^/\s)\]>#?"\'`]+)')
+DOC_URL_RE = re.compile(r'https://(?:github\.com/lijiabao1998/FrontierLab-Governance/(?:tree|blob|commit|commits|raw)/'
+                        r'|raw\.githubusercontent\.com/lijiabao1998/FrontierLab-Governance/)([^/\s)\]>#?"\'`]+)', re.I)
 DOC_MARKER_RE = re.compile(r'<!--\s*governance-pin:\s*(\S+?)\s*-->')
-DOC_PROSE_RE = re.compile(r'(?:治理|(?i:governance))(?:[ \t]*(?:commit|pin|ref|版本))?[ \t:：`]*([0-9a-f]{7,40})(?![0-9A-Za-z])')
+DOC_PROSE_RE = re.compile(r'(?:治理|governance)(?:[ \t]*(?:commit|pin|ref|版本))?[ \t:：`]*([0-9a-f]{7,40})(?![0-9a-z])', re.I)
+# A YAML block scalar opener (`run: |`, `key: >-`); its body is data, never a pin declaration.
+BLOCK_SCALAR_RE = re.compile(r'(\s*).*:\s*[|>][-+1-9]*')
 
 # GATE_CONTRACT.md §2: protected problem specification.
 IMMUTABLE_FIELDS = frozenset({'id', 'domain'})
@@ -241,8 +249,18 @@ def workflow_pins(text: str) -> tuple[list[tuple[str, str]], list[str], list[int
     """Operative `uses:` / `governance_ref:` declarations (comments ignored, quoted keys and values accepted).
     Any other non-comment line that mentions the governance workflow or governance_ref is returned as unknown."""
     uses, refs, unknown = [], [], []
+    block = None  # indentation of the key that opened a block scalar
     for n, raw in enumerate(text.splitlines(), 1):
+        if block is not None:
+            if not raw.strip() or len(raw) - len(raw.lstrip()) > block:
+                if 'FrontierLab-Governance' in raw or 'governance_ref' in raw:
+                    unknown.append(n)
+                continue
+            block = None
         line = strip_yaml_comment(raw)
+        opener = BLOCK_SCALAR_RE.fullmatch(line)
+        if opener:
+            block = len(opener.group(1))
         m = WORKFLOW_KEY_RE.fullmatch(line)
         value = m.group(3).strip().strip('"\'') if m else ''
         if m and m.group(2) == 'governance_ref':
@@ -255,8 +273,8 @@ def workflow_pins(text: str) -> tuple[list[tuple[str, str]], list[str], list[int
 
 
 def doc_pins(text: str) -> list[tuple[str, str]]:
-    return ([('url', x) for x in DOC_URL_RE.findall(text)] + [('marker', x) for x in DOC_MARKER_RE.findall(text)]
-            + [('prose', x) for x in DOC_PROSE_RE.findall(text)])
+    return ([('url', x.lower()) for x in DOC_URL_RE.findall(text)] + [('marker', x) for x in DOC_MARKER_RE.findall(text)]
+            + [('prose', x.lower()) for x in DOC_PROSE_RE.findall(text)])
 
 
 def check_pins(root: Path) -> str:
@@ -376,7 +394,7 @@ def validate_repo(root: Path) -> None:
         d = load(path)
         validate_decision(d, path.parent.name)
         require(d['problem_id'] in seen, f'{path.relative_to(root)}: decision points to absent problem')
-    researched = {r['problem_id'] for r in admitted.values()}
+    researched = {r['problem_id'] for r in admitted.values() if r['preflight']['verdict'] in RESEARCH_VERDICTS}
     roots = artifact_roots(lab, seen)
     errors = []
     for rel in tracked_files(root):
@@ -384,7 +402,8 @@ def validate_repo(root: Path) -> None:
         if kind == 'unregistered':
             errors.append(f'{rel}: unregistered path (GATE_CONTRACT.md §3.1)')
         elif kind == 'artifact' and key not in researched:
-            errors.append(f'{rel}: research artifact without an admitted {key} round in runs/')
+            errors.append(f'{rel}: research artifact without an admitted {key} round in runs/ '
+                          f'(verdict {" or ".join(sorted(RESEARCH_VERDICTS))})')
         elif kind == 'attachment' and key not in admitted:
             errors.append(f'{rel}: runs/{key}/ has no admitted round.json')
     require(not errors, 'path contract:\n  ' + '\n  '.join(errors))
@@ -408,6 +427,10 @@ def show_json(root: Path, rev: str, path: str) -> dict | None:
     return obj
 
 
+def exists(root: Path, rev: str, path: str) -> bool:
+    return subprocess.run(['git', '-C', str(root), 'cat-file', '-e', f'{rev}:{path}'], capture_output=True).returncode == 0
+
+
 def edit_size(a: str, b: str) -> int:
     ops = difflib.SequenceMatcher(None, a, b, autojunk=False).get_opcodes()
     return sum(max(i2 - i1, j2 - j1) for tag, i1, i2, j1, j2 in ops if tag != 'equal')
@@ -421,12 +444,19 @@ def dates_match(checked_on: object, checked_at: str) -> bool:
     return abs((day - stamp(checked_at).date()).days) <= 1
 
 
-def status_basis_errors(pid: str, old: dict, new: dict, rounds: list, decisions: list, root: Path, head: str) -> list[str]:
+def status_basis_errors(pid: str, old: dict, new: dict, rounds: list, decisions: list, root: Path, mb: str,
+                        head: str) -> list[str]:
     """GATE_CONTRACT.md §2.3: a status or resolution change must match the completion semantics."""
     old_s, new_s = old.get('status'), new.get('status')
     verdicts = {r['preflight']['verdict'] for r in rounds}
     moves = [d for d in decisions if d['kind'] == 'status-change']
-    if new_s == 'COMPLETED_EXTERNAL':
+    # Every status-change record in the change must describe the transition that actually happens.
+    stray = [f'{pid}: status-change decision says {d.get("from")} -> {d.get("to")}, but the card moves {old_s} -> {new_s}'
+             for d in moves if (d.get('from'), d.get('to')) != (old_s, new_s)]
+    same_resolution = old.get('resolution') == new.get('resolution')
+    if old_s in TERMINAL and new_s != old_s:
+        pass  # leaving a completed status is a status-change decision, never a round verdict
+    elif new_s == 'COMPLETED_EXTERNAL':
         if moves:
             return [f'{pid}: external completion comes from a RESOLVED_EXTERNAL round, not a status-change decision']
         if not any(r['preflight']['verdict'] == 'RESOLVED_EXTERNAL' and r.get('state') == 'CLOSED_EXTERNAL'
@@ -434,10 +464,12 @@ def status_basis_errors(pid: str, old: dict, new: dict, rounds: list, decisions:
             return [f'{pid}: COMPLETED_EXTERNAL needs a {pid} round in this change with verdict RESOLVED_EXTERNAL, '
                     'state CLOSED_EXTERNAL and the same resolution as the card']
         return []
-    if new_s == 'CLAIMED_RESOLVED':
-        return [] if 'CLAIMED_RESOLVED' in verdicts else [f'{pid}: CLAIMED_RESOLVED needs a {pid} round with that verdict']
-    if new_s == 'PARTIAL' and 'PARTIAL_PROGRESS' in verdicts and old.get('resolution') == new.get('resolution'):
-        return []
+    elif new_s == 'CLAIMED_RESOLVED':
+        if 'CLAIMED_RESOLVED' not in verdicts:
+            return [f'{pid}: CLAIMED_RESOLVED needs a {pid} round with that verdict']
+        return stray if same_resolution else [f'{pid}: a round verdict does not change resolution']
+    elif new_s == 'PARTIAL' and 'PARTIAL_PROGRESS' in verdicts and same_resolution:
+        return stray
     match = [d for d in moves if d.get('from') == old_s and d.get('to') == new_s]
     if not match:
         return [f'{pid}: status {old_s} -> {new_s} needs a status-change decision with from={old_s} to={new_s}']
@@ -446,8 +478,8 @@ def status_basis_errors(pid: str, old: dict, new: dict, rounds: list, decisions:
     if old.get('resolution') != new.get('resolution') and not any('resolution' in d['fields'] for d in match):
         return [f'{pid}: resolution changed but the status-change decision does not list it']
     if new_s != 'COMPLETED_INTERNAL':
-        return []
-    errors = []
+        return stray
+    errors = list(stray)
     try:
         validate_problem(new)
     except (ValueError, KeyError, TypeError) as e:
@@ -459,6 +491,13 @@ def status_basis_errors(pid: str, old: dict, new: dict, rounds: list, decisions:
             if r is None or r.get('problem_id') != pid or r.get('state') != 'FINISHED':
                 errors.append(f'{pid}: COMPLETED_INTERNAL cites runs/{rid}, which is not a FINISHED {pid} round')
                 continue
+            if not exists(root, mb, f'runs/{rid}/round.json'):
+                errors.append(f'{pid}: COMPLETED_INTERNAL cites runs/{rid}, which is not merged yet; cite rounds reviewed earlier')
+                continue
+            verdict = (r.get('preflight') or {}).get('verdict')
+            if verdict not in RESEARCH_VERDICTS:
+                errors.append(f'{pid}: COMPLETED_INTERNAL cites runs/{rid}, whose verdict {verdict} is not a research verdict')
+                continue
             try:
                 validate_preflight(r)
             except (ValueError, KeyError, TypeError) as e:
@@ -466,11 +505,13 @@ def status_basis_errors(pid: str, old: dict, new: dict, rounds: list, decisions:
             agents.add(r.get('agent'))
         if d['verifier'] in agents:
             errors.append(f'{pid}: verifier {d["verifier"]} is also an author of the cited rounds')
+        if d['verifier'] == d['author']:
+            errors.append(f'{pid}: verifier {d["verifier"]} is the author of the decision')
     return errors
 
 
 def problem_change_errors(pid: str, change: str, old: dict | None, new: dict | None, rounds: list, decisions: list,
-                          has_research: bool, root: Path, head: str, notes: list) -> list[str]:
+                          has_research: bool, root: Path, mb: str, head: str, notes: list) -> list[str]:
     """GATE_CONTRACT.md §2: which record may change which problem field."""
     if change == 'D':
         return [f'{pid}: problem cards are not deleted; retire with PAUSED/RETRACTED and a status-change decision']
@@ -512,7 +553,7 @@ def problem_change_errors(pid: str, change: str, old: dict | None, new: dict | N
                     continue
             covered.add(field)
     if status:
-        basis = status_basis_errors(pid, old, new, rounds, decisions, root, head)
+        basis = status_basis_errors(pid, old, new, rounds, decisions, root, mb, head)
         errors += basis
         if not basis:
             covered |= status
@@ -522,6 +563,11 @@ def problem_change_errors(pid: str, change: str, old: dict | None, new: dict | N
     for field in sorted(spec):
         notes.append(f'REVIEW {pid}.{field}:\n    - {old.get(field)!r}\n    + {new.get(field)!r}')
     return errors
+
+
+def terminal_status(root: Path, rev: str, pid: str) -> str | None:
+    card = show_json(root, rev, f'problems/{pid}/problem.json') if PROBLEM_ID_RE.fullmatch(pid or '') else None
+    return card.get('status') if card and card.get('status') in TERMINAL else None
 
 
 def check_diff(root: Path, base: str, head: str) -> None:
@@ -534,14 +580,22 @@ def check_diff(root: Path, base: str, head: str) -> None:
     require(base_lab is None or base_lab.get('domain') == lab.get('domain'),
             f"lab.json: domain is immutable ({(base_lab or {}).get('domain')} -> {lab.get('domain')})")
     if lab.get('domain') == 'governance':
+        # Checked on the head tree itself, so it also holds when the merge base predates lab.json.
+        require(not exists(root, head, 'problems') and not exists(root, head, 'GOVERNANCE.lock.json'),
+                'a research repository (problems/ or GOVERNANCE.lock.json present) cannot declare domain governance')
         print('SKIP: governance repository; research path and problem contracts do not apply (unit tests guard the gate).')
         return
+    errors, notes = [], []
     # Paths are classified by the roots declared at the merge base, so a root must be merged before work lands in it.
-    roots = artifact_roots(base_lab or {})
+    # A base declaration that this gate rejects classifies nothing (fail closed) but must not block the PR fixing it.
+    try:
+        roots = artifact_roots(base_lab or {})
+    except ValueError as e:
+        roots = ()
+        notes.append(f'REVIEW lab.json artifact_roots at the merge base are invalid under this gate and classify nothing: {e}')
     head_roots = artifact_roots(lab)
     raw = [x for x in git(root, 'diff', '--name-status', '--no-renames', '-z', f'{base}...{head}').split('\0') if x]
     changes = list(zip(raw[0::2], raw[1::2]))
-    errors, notes = [], []
     rounds, decisions, problems = {}, defaultdict(list), []
     artifacts, attachments = defaultdict(list), defaultdict(list)
     for change, path in changes:
@@ -573,9 +627,17 @@ def check_diff(root: Path, base: str, head: str) -> None:
             try:
                 r = show_json(root, head, path)
                 require(r.get('round_id') == key, 'round_id must match its directory name')
+                old = show_json(root, mb, path) if change == 'M' else None
+                if old and old.get('state') != 'DRAFT':
+                    frozen = sorted(k for k in ROUND_FROZEN_FIELDS if old.get(k) != r.get(k))
+                    require(not frozen, f'an admitted round keeps its identity and search; changed {frozen}')
                 if r.get('state') == 'DRAFT':
                     continue
                 validate_preflight(r)
+                if change == 'A':
+                    base_status = terminal_status(root, mb, r['problem_id'])
+                    require(base_status is None, f"{r['problem_id']} is {base_status}; completed problems take no new rounds "
+                            '(admit refuses them): open a replication problem or retract first')
                 rounds[key] = r
             except (ValueError, KeyError, TypeError, AttributeError) as e:
                 errors.append(f'{path}: {e}')
@@ -589,16 +651,19 @@ def check_diff(root: Path, base: str, head: str) -> None:
         else:
             errors.append(f'runs/{rid}/: {len(paths)} attachment(s) need runs/{rid}/round.json changed in this PR and admitted (not DRAFT)')
     for pid, paths in sorted(artifacts.items()):
+        base_status = terminal_status(root, mb, pid)
         if show_json(root, head, f'problems/{pid}/problem.json') is None:
             errors.append(f'{paths[0]}: research artifact for absent problem {pid}')
-        elif not any(r['preflight']['verdict'] in {'NO_RESOLUTION_FOUND', 'PARTIAL_PROGRESS'} for r in by_pid[pid]):
+        elif base_status:
+            errors.append(f'{paths[0]}: {pid} is {base_status}; completed problems take no new research')
+        elif not any(r['preflight']['verdict'] in RESEARCH_VERDICTS for r in by_pid[pid]):
             errors.append(f'{pid}: research changes lack a completed per-round search record ({len(paths)} file(s), e.g. {paths[0]})')
     touched = set()
     for change, pid, path in problems:
         touched.add(pid)
         try:
             errors += problem_change_errors(pid, change, show_json(root, mb, path), show_json(root, head, path),
-                                            by_pid[pid], decisions[pid], pid in research, root, head, notes)
+                                            by_pid[pid], decisions[pid], pid in research, root, mb, head, notes)
         except (ValueError, KeyError, TypeError) as e:
             errors.append(f'{path}: {e}')
     for pid in sorted(set(decisions) - touched):

@@ -270,6 +270,44 @@ class PinContractTests(LabCase):
         with self.assertRaisesRegex(ValueError, r'governance pin mismatch'):
             f.validate_repo(self.lab.root)
 
+    def test_red_stale_pin_next_to_a_correct_one(self):
+        # Review finding: keyword case, uppercase hex and raw/owner-case URLs were not read, so one correct pin hid a stale one.
+        stale = 'ab' * 20
+        for text in (f'Governance Commit: {stale[:8]}', f'治理 PIN `{stale.upper()}`',
+                     f'https://raw.githubusercontent.com/lijiabao1998/FrontierLab-Governance/{stale}/AGENTS.md',
+                     f'https://github.com/LiJiaBao1998/frontierlab-governance/blob/{stale}/README.md'):
+            with self.subTest(text=text):
+                self.lab.write('README.md', f'每輪按治理 {PIN} fresh search。\n{text}\n')
+                with self.assertRaisesRegex(ValueError, r'README\.md: governance (prose|url) pin ab'):
+                    self.pins()
+
+    def test_boundary_uppercase_pin_matches_lock(self):
+        lock = 'ab' * 20
+        self.lab.write('GOVERNANCE.lock.json', {'repository': f.GOVERNANCE_REPO, 'commit': lock, 'protocol_version': f.PROTOCOL_VERSION})
+        self.lab.write('.github/workflows/research.yml', WORKFLOW.format(uses=lock, ref=lock))
+        self.lab.write('README.md', f'Governance commit {lock.upper()[:10]}\n')
+        self.lab.write('AGENTS.md', f'https://raw.githubusercontent.com/lijiabao1998/FrontierLab-Governance/{lock.upper()}/AGENTS.md\n')
+        self.assertEqual(self.pins(), lock)
+
+    def test_red_pins_inside_block_scalar_are_not_operative(self):
+        # Review finding: `uses:` / `governance_ref:` text inside a `run: |` block counted as the job's declaration.
+        self.lab.write('.github/workflows/research.yml', f"""jobs:
+  records:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          uses: lijiabao1998/FrontierLab-Governance/.github/workflows/research.yml@{PIN}
+          governance_ref: {PIN}
+          git clone https://github.com/lijiabao1998/FrontierLab-Governance && python3 FrontierLab-Governance/tools/frontier.py validate .
+""")
+        with self.assertRaisesRegex(ValueError, r'(?s)research\.yml:6: unrecognized.*research\.yml:7: unrecognized.*no uses:.*no governance_ref'):
+            self.pins()
+
+    def test_boundary_block_scalar_ends_at_dedent(self):
+        self.lab.write('.github/workflows/research.yml', WORKFLOW.format(uses=PIN, ref=PIN).replace(
+            '  records:\n', '      - run: >-\n          echo "no governance here"\n  records:\n'))
+        self.assertEqual(self.pins(), PIN)
+
 
 # ---------------------------------------------------------------- B2 protected specification
 class ProtectedSpecTests(LabCase):
@@ -513,6 +551,71 @@ class StatusTransitionTests(LabCase):
                               **{'from': 'OPEN', 'to': 'COMPLETED_INTERNAL', 'rounds': ['nope'], 'verifier': 'x'})
         self.red(r'cites runs/nope, which is not a FINISHED MED-001 round')
 
+    # Review findings (2026-09-29) on COMPLETED_INTERNAL, terminal states and contradictory decisions.
+    def test_red_completed_internal_cites_blocked_round(self):
+        rid, _ = self.lab.add_round('MED-001', agent='gpt', verdict='BLOCKED', state='FINISHED')
+        self.lab.base = self.lab.commit('blocked round merged earlier')
+        self.lab.edit_card('MED-001', status='COMPLETED_INTERNAL', resolution=resolution('MED-001'))
+        self.lab.add_decision('MED-001', 'status-change', ['status', 'resolution'],
+                              **{'from': 'OPEN', 'to': 'COMPLETED_INTERNAL', 'rounds': [rid], 'verifier': 'claude-verifier'})
+        self.red(rf'cites runs/{rid}, whose verdict BLOCKED is not a research verdict')
+
+    def test_red_completed_internal_cites_round_added_in_same_change(self):
+        rid, _ = self.lab.add_round('MED-001', agent='gpt', state='FINISHED')
+        self.lab.edit_card('MED-001', status='COMPLETED_INTERNAL', resolution=resolution('MED-001'))
+        self.lab.add_decision('MED-001', 'status-change', ['status', 'resolution'],
+                              **{'from': 'OPEN', 'to': 'COMPLETED_INTERNAL', 'rounds': [rid], 'verifier': 'claude-verifier'})
+        self.red(rf'cites runs/{rid}, which is not merged yet')
+
+    def test_red_completed_internal_verified_by_decision_author(self):
+        self.internal('claude')
+        self.red(r'verifier claude is the author of the decision')
+
+    def test_red_contradictory_decision_next_to_round_transition(self):
+        self.lab.edit_card('MED-001', status='PARTIAL')
+        self.lab.add_round('MED-001', verdict='PARTIAL_PROGRESS')
+        self.lab.add_decision('MED-001', 'status-change', ['status'], **{'from': 'PAUSED', 'to': 'OPEN'})
+        self.red(r'status-change decision says PAUSED -> OPEN, but the card moves OPEN -> PARTIAL')
+
+    def test_green_claimed_resolved_by_round(self):
+        self.lab.edit_card('MED-001', status='CLAIMED_RESOLVED')
+        self.lab.add_round('MED-001', verdict='CLAIMED_RESOLVED', state='PAUSED')
+        self.green()
+
+    def test_red_claimed_resolved_round_rewrites_resolution(self):
+        self.lab.edit_card('MED-001', status='CLAIMED_RESOLVED', resolution=resolution('MED-001'))
+        self.lab.base = self.lab.commit('claimed earlier')
+        forged = resolution('MED-001'); forged['scope_statement'] = 'a much broader scope'
+        self.lab.edit_card('MED-001', resolution=forged)
+        self.lab.add_round('MED-001', verdict='CLAIMED_RESOLVED', state='PAUSED')
+        self.red(r'MED-001: a round verdict does not change resolution')
+
+    def completed_external_base(self):
+        res = resolution('MED-001')
+        rid, r = self.lab.add_round('MED-001', verdict='RESOLVED_EXTERNAL', state='CLOSED_EXTERNAL')
+        r['preflight']['resolution'] = res
+        self.lab.write(f'runs/{rid}/round.json', r)
+        self.lab.edit_card('MED-001', status='COMPLETED_EXTERNAL', resolution=res)
+        self.lab.base = self.lab.commit('completed externally earlier')
+
+    def test_red_round_verdict_cannot_leave_terminal_status(self):
+        self.completed_external_base()
+        self.lab.edit_card('MED-001', status='CLAIMED_RESOLVED')
+        self.lab.add_round('MED-001', verdict='CLAIMED_RESOLVED', state='PAUSED')
+        self.red(r'(?s)MED-001 is COMPLETED_EXTERNAL.*status COMPLETED_EXTERNAL -> CLAIMED_RESOLVED needs a status-change decision')
+
+    def test_red_new_research_on_completed_problem(self):
+        self.completed_external_base()
+        self.lab.add_round('MED-001')
+        self.lab.write('problems/MED-001/results/r2/metrics.json', '{}')
+        self.red(r'(?s)runs/.*MED-001 is COMPLETED_EXTERNAL.*problems/MED-001/results/r2/metrics\.json: MED-001 is COMPLETED_EXTERNAL')
+
+    def test_green_retract_completed_problem_by_decision(self):
+        self.completed_external_base()
+        self.lab.edit_card('MED-001', status='RETRACTED')
+        self.lab.add_decision('MED-001', 'status-change', ['status'], **{'from': 'COMPLETED_EXTERNAL', 'to': 'RETRACTED'})
+        self.green()
+
 
 # ---------------------------------------------------------------- B3 research path ownership
 class PathContractTests(LabCase):
@@ -589,6 +692,48 @@ class PathContractTests(LabCase):
         self.lab.base = self.lab.commit('merged round')
         self.lab.delete(f'runs/{rid}/round.json')
         self.red(r'round records are append-only')
+
+    # Review finding (2026-09-29): a merged round could be rewritten into fresh authorization for another problem.
+    def test_red_merged_round_rewritten(self):
+        rid, r = self.lab.add_round('MED-001', verdict='BLOCKED', state='PAUSED')
+        self.lab.base = self.lab.commit('blocked round merged')
+        r['problem_id'] = 'MED-002'
+        r['preflight']['verdict'] = 'NO_RESOLUTION_FOUND'
+        r['state'] = 'ADMITTED'
+        self.lab.write(f'runs/{rid}/round.json', r)
+        self.lab.write('problems/MED-002/results/r1/metrics.json', '{}')
+        self.red(rf'runs/{rid}/round\.json: an admitted round keeps its identity and search; changed \[\'preflight\', \'problem_id\'\]')
+
+    def test_green_merged_round_finished_later(self):
+        rid, r = self.lab.add_round('MED-001')
+        self.lab.base = self.lab.commit('admitted round merged')
+        r.update(state='FINISHED', result={'summary': 'baseline reproduced'})
+        self.lab.write(f'runs/{rid}/round.json', r)
+        self.lab.write('problems/MED-001/results/r1/metrics.json', '{}')
+        self.green()
+
+    def test_green_merged_draft_round_admitted_later(self):
+        rid, r = self.lab.add_round('MED-001', state='DRAFT')
+        r['preflight'] = {'checked_at': None, 'verdict': 'BLOCKED', 'queries': [], 'sources': []}
+        self.lab.write(f'runs/{rid}/round.json', r)
+        self.lab.base = self.lab.commit('draft merged')
+        self.lab.add_round('MED-001', rid=rid)
+        self.lab.write('problems/MED-001/results/r1/metrics.json', '{}')
+        self.green()
+
+    def test_red_validate_blocked_round_does_not_cover_artifacts(self):
+        # Review finding: validate treated a PAUSED/BLOCKED round as research authorization; check-diff did not.
+        self.lab.add_round('MED-001', verdict='BLOCKED', state='PAUSED')
+        self.lab.write('problems/MED-001/results/r1/metrics.json', '{}')
+        self.lab.commit('direct push')
+        with self.assertRaisesRegex(ValueError, r'research artifact without an admitted MED-001 round'):
+            f.validate_repo(self.lab.root)
+
+    def test_green_validate_blocked_round_keeps_its_attachments(self):
+        rid, _ = self.lab.add_round('MED-001', verdict='BLOCKED', state='PAUSED')
+        self.lab.write(f'runs/{rid}/FAILURE_LOG.md', 'no network\n')
+        self.lab.commit('blocked round with its log')
+        f.validate_repo(self.lab.root)
 
     def test_boundary_deleting_legacy_unregistered_file_is_allowed(self):
         self.lab.write('misc/legacy.txt', 'x\n')
@@ -744,6 +889,28 @@ class ArtifactRootTests(LabCase):
             f.artifact_roots({'domain': 'math', 'artifact_roots': good})
         self.assertEqual(f.artifact_roots({'domain': 'math', 'artifact_roots': [good]}), ((ROOT, 'MATH-001', 'proofs'),))
 
+    # Review finding (2026-09-29): an invalid root at the merge base blocked every PR, including the one fixing it.
+    def invalid_base_root(self):
+        self.declare([{'path': ROOT, 'problem_id': 'MATH-001', 'kind': 'notes'}])
+        self.lab.base = self.lab.commit('root that a newer gate rejects')
+
+    def test_green_fixing_invalid_base_root(self):
+        self.invalid_base_root()
+        self.declare()
+        self.green()
+
+    def test_red_invalid_root_still_blocks_other_changes(self):
+        self.invalid_base_root()
+        self.lab.write('STATUS.md', 'status updated\n')
+        self.red(r'lab\.json artifact_roots\[0\]: kind must be one of')
+
+    def test_red_files_under_invalid_base_root_are_unregistered(self):
+        self.invalid_base_root()
+        self.declare()
+        self.lab.add_round('MATH-001')
+        self.lab.write(ROOT + 'Probe.lean', 'theorem probe : True := trivial\n')
+        self.red(r'FrontierMath/Research/MATH001/Probe\.lean: unregistered path')
+
 
 class DomainIdentityTests(LabCase):
     """Review finding: a research PR must not turn the gates off by declaring domain governance."""
@@ -764,6 +931,24 @@ class DomainIdentityTests(LabCase):
         lab = self.lab.read('lab.json'); lab['domain'] = 'physics'
         self.lab.write('lab.json', lab)
         self.red(r'lab\.json: domain is immutable \(medicine -> physics\)')
+
+    def test_red_governance_domain_when_merge_base_has_no_lab_json(self):
+        # Review finding (2026-09-29): with no lab.json at the merge base the immutability check had nothing to compare.
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            git = lambda *a: subprocess.run(['git', '-C', d, '-c', 'user.name=x', '-c', 'user.email=x@invalid', *a],
+                                            check=True, capture_output=True, text=True).stdout.strip()
+            git('init', '-q', '-b', 'main'); git('config', 'gc.auto', '0'); git('config', 'maintenance.auto', 'false')
+            git('commit', '-q', '--allow-empty', '-m', 'initial commit before bootstrap')
+            base = git('rev-parse', 'HEAD')
+            for rel in ('lab.json', 'GOVERNANCE.lock.json', 'README.md', 'AGENTS.md', 'STATUS.md', 'problems/MED-001/problem.json'):
+                (root / rel).parent.mkdir(parents=True, exist_ok=True)
+                (root / rel).write_bytes((self.lab.root / rel).read_bytes())
+            f.save(root / 'lab.json', {'domain': 'governance', 'protocol_version': f.PROTOCOL_VERSION})
+            (root / 'misc').mkdir(); (root / 'misc/result.csv').write_text('1\n')
+            git('add', '-A'); git('commit', '-q', '-m', 'research repo claiming governance')
+            with self.assertRaisesRegex(ValueError, r'research repository .* cannot declare domain governance'):
+                f.check_diff(root, base, git('rev-parse', 'HEAD'))
 
 
 class GovernanceRepoTests(unittest.TestCase):
