@@ -772,7 +772,8 @@ def main() -> int:
     k = sub.add_parser('decide'); k.add_argument('root', type=Path); k.add_argument('problem')
     k.add_argument('--kind', required=True, choices=sorted(DECISION_KINDS)); k.add_argument('--agent', required=True)
     k.add_argument('--fields', default='', help='comma-separated changed fields'); k.add_argument('--rationale', required=True)
-    k.add_argument('--impact', choices=sorted(SPEC_IMPACTS)); k.add_argument('--to', choices=sorted(DECISION_STATUS_TARGETS))
+    k.add_argument('--impact', choices=sorted(SPEC_IMPACTS)); k.add_argument('--to', choices=sorted(DECISION_STATUS_TARGETS | {'CLAIMED_RESOLVED'}),
+                   help='CLAIMED_RESOLVED only for a resolution-only correction of a CLAIMED_RESOLVED card')
     k.add_argument('--rounds', default='', help='COMPLETED_INTERNAL: comma-separated round ids'); k.add_argument('--verifier')
     args = parser.parse_args()
     try:

@@ -5,6 +5,7 @@ import importlib.util
 import json
 from pathlib import Path
 import subprocess
+import sys
 import tempfile
 import unittest
 
@@ -1064,6 +1065,28 @@ class DecideCommandTests(LabCase):
     def test_decide_refuses_unauthorized_field(self):
         with self.assertRaisesRegex(ValueError, r"cannot authorize \['statement'\]"):
             f.decide(self.lab.root, 'MED-001', 'hygiene', 'claude', ['statement'], 'r', {})
+
+    def cli(self, *args):
+        tool = Path(__file__).resolve().parents[1] / 'tools/frontier.py'
+        return subprocess.run([sys.executable, str(tool), 'decide', str(self.lab.root), 'MED-001', *args],
+                              capture_output=True, text=True)
+
+    def test_decide_cli_writes_claimed_resolved_resolution_fix(self):
+        # Third review: the CLI must be able to write the resolution-only correction the gate accepts.
+        self.lab.edit_card('MED-001', status='CLAIMED_RESOLVED', resolution=resolution('MED-001'))
+        self.lab.base = self.lab.commit('claimed earlier')
+        run = self.cli('--kind', 'status-change', '--fields', 'resolution', '--to', 'CLAIMED_RESOLVED', '--agent', 'claude',
+                       '--rationale', 'narrow the recorded claim to what the round showed')
+        self.assertEqual(run.returncode, 0, run.stderr)
+        fixed = resolution('MED-001'); fixed['scope_statement'] = 'the narrower scope actually claimed'
+        self.lab.edit_card('MED-001', resolution=fixed)
+        self.green()
+
+    def test_decide_cli_refuses_moving_to_claimed_resolved(self):
+        run = self.cli('--kind', 'status-change', '--fields', 'status', '--to', 'CLAIMED_RESOLVED', '--agent', 'claude',
+                       '--rationale', 'r')
+        self.assertEqual(run.returncode, 1)
+        self.assertIn('decisions can target', run.stderr)
 
 
 if __name__ == '__main__':
