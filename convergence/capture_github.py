@@ -58,7 +58,8 @@ def summarise(raw):
     for pr in data["pullRequests"]["nodes"]:
         head = pr["headRefOid"]
         reviews = pr["reviews"]["nodes"]
-        current = [r for r in reviews if r.get("commit", {}).get("oid") == head]
+        current = [r for r in reviews if (r.get("commit") or {}).get("oid") == head
+                   and r.get("submittedAt") and r.get("state") not in ("PENDING", "DISMISSED")]
         counts = {"P1": 0, "P2": 0}
         historic = 0
         findings = []

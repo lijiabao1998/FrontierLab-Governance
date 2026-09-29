@@ -32,14 +32,23 @@ def validate(data: dict, workspace: Path) -> list[str]:
         if entry.get("work_status") == "READY_FOR_OWNER_REVIEW":
             if (entry.get("last_reviewed_sha") != head
                     or entry.get("live_P1") != 0 or entry.get("live_P2") != 0
-                    or entry.get("ci_state") != "GREEN"):
-                errors.append(f"{repo}: READY requires current-head review, zero P1/P2 and green CI")
+                    or entry.get("ci_state") != "GREEN"
+                    or entry.get("manifest_state") not in ("GREEN", "N/A")
+                    or entry.get("unresolved_blockers")):
+                errors.append(f"{repo}: READY requires current-head review, zero P1/P2, green CI/manifest and no blockers")
         clone = workspace / repo
         probe = subprocess.run(["git", "-c", "core.quotepath=false", "-C", str(clone),
                                 "rev-parse", "--show-toplevel"],
                                capture_output=True, text=True, encoding="utf-8")
         if probe.returncode or Path(probe.stdout.strip()).resolve() != clone.resolve():
             errors.append(f"{repo}: missing local repository (validation incomplete)")
+            continue
+        def is_commit(sha):
+            result = subprocess.run(["git", "-C", str(clone), "cat-file", "-t", sha],
+                                    capture_output=True, text=True, encoding="utf-8")
+            return result.returncode == 0 and result.stdout.strip() == "commit"
+        if not is_commit(head):
+            errors.append(f"{repo}: recorded head does not identify an available commit")
             continue
         locations = entry.get("evidence_paths")
         if not isinstance(locations, list) or not locations:
@@ -57,6 +66,9 @@ def validate(data: dict, workspace: Path) -> list[str]:
                     or PurePosixPath(path).is_absolute()
                     or ".." in PurePosixPath(path).parts or "\\" in path or ":" in path):
                 errors.append(f"{repo}: invalid immutable locator {loc!r}")
+                continue
+            if not is_commit(sha):
+                errors.append(f"{repo}: evidence revision does not identify an available commit: {sha}")
                 continue
             result = subprocess.run(["git", "-C", str(clone), "cat-file", "-t", f"{sha}:{path}"],
                                     capture_output=True, text=True, encoding="utf-8")

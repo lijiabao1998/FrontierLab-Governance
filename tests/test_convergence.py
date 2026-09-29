@@ -18,6 +18,7 @@ def module(name, path):
 
 ledger = module("ledger", "convergence/validate_ledger.py")
 renderer = module("renderer", "audits/render_frontier_audit.py")
+capture = module("capture", "convergence/capture_github.py")
 
 
 class LedgerTests(unittest.TestCase):
@@ -69,10 +70,31 @@ class LedgerTests(unittest.TestCase):
     def test_ready_needs_current_review(self):
         entry = self.data["entries"][0]
         entry.update(work_status="READY_FOR_OWNER_REVIEW", last_reviewed_sha="pending",
-                     live_P1=0, live_P2=0, ci_state="GREEN")
+                     live_P1=0, live_P2=0, ci_state="GREEN", manifest_state="GREEN",
+                     unresolved_blockers=[])
         self.assertTrue(ledger.validate(self.data, self.workspace))
         entry["last_reviewed_sha"] = self.head
         self.assertEqual(ledger.validate(self.data, self.workspace), [])
+
+    def test_ready_rejects_known_manifest_failure_or_blockers(self):
+        entry = self.data["entries"][0]
+        entry.update(work_status="READY_FOR_OWNER_REVIEW", last_reviewed_sha=self.head,
+                     live_P1=0, live_P2=0, ci_state="GREEN", manifest_state="FAIL_COMMITTED_BYTES",
+                     unresolved_blockers=[])
+        self.assertTrue(ledger.validate(self.data, self.workspace))
+        entry.update(manifest_state="GREEN", unresolved_blockers=["unresolved independent verifier mismatch"])
+        self.assertTrue(ledger.validate(self.data, self.workspace))
+
+    def test_heads_and_locator_revisions_must_be_existing_commits(self):
+        tree = self.git("rev-parse", "HEAD^{tree}")
+        for bad in ("f" * 40, tree):
+            data = copy.deepcopy(self.data)
+            data["entries"][0]["current_head_sha"] = bad
+            data["entries"][0]["evidence_paths"][0]["commit_sha"] = self.head
+            self.assertTrue(ledger.validate(data, self.workspace))
+            data["entries"][0]["current_head_sha"] = self.head
+            data["entries"][0]["evidence_paths"][0]["commit_sha"] = bad
+            self.assertTrue(ledger.validate(data, self.workspace))
 
     def test_invalid_or_mutable_locators_fail(self):
         for field, value in [("commit_sha", "HEAD"), ("commit_sha", "THIS_COMMIT"),
@@ -87,6 +109,16 @@ class LedgerTests(unittest.TestCase):
 
 
 class AuditTests(unittest.TestCase):
+    def test_pending_and_dismissed_reviews_are_not_current_head_reviews(self):
+        path = next((ROOT / "convergence/snapshots").glob("*/FrontierBiology.json"))
+        raw = json.loads(path.read_text(encoding="utf-8"))
+        prs = raw["response"]["data"]["repository"]["pullRequests"]["nodes"]
+        for pr in prs:
+            pr["reviews"]["nodes"] = [
+                {"commit": {"oid": pr["headRefOid"]}, "state": "PENDING", "submittedAt": None},
+                {"commit": {"oid": pr["headRefOid"]}, "state": "DISMISSED", "submittedAt": "2026-09-29T00:00:00Z"}]
+        self.assertTrue(all(not row["current_head_reviews"] for row in capture.summarise(raw)))
+
     def test_committed_markdown_matches_renderer(self):
         data = json.loads(renderer.JSON_PATH.read_text(encoding="utf-8"))
         self.assertEqual(renderer.render(data), renderer.MD_PATH.read_text(encoding="utf-8"))
