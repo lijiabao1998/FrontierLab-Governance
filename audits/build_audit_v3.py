@@ -27,9 +27,9 @@ for pid, repo, pm, extra in [
      {"newest_bound": "K41 synthetic baseline calibrated (two-stage); triadic-suppression 2026-03 mechanism study",
       "note": "beta=3 slope is a window-dependent statistic, not a clean exponent (dsk audit)"}),
     ("BIO-001", "FrontierBiology", "Wei et al. Nat Methods 2025; PerturbVAE leakage-aware benchmark",
-     {"newest_bound": "leakage gap quantified (PerturbVAE 0.522->0.257; glm synthetic 0.878)", "note": ""}),
+     {"newest_bound": "Historical literature/synthetic observations only; r1 E2 is INCONCLUSIVE and r2 is exploratory; see current convergence status", "note": ""}),
     ("CHEM-004", "FrontierChemistry", "Moore et al. JACS 2026 (abstract-level); FreeSolv v0.52",
-     {"newest_bound": "GAFF calc-vs-exp MAE 1.114 kcal/mol reproduced; C4 passes under true Murcko split",
+     {"newest_bound": "GAFF calc-vs-exp MAE 1.114 kcal/mol recorded; C4 degradation claims withdrawn, v4 key post-hoc; C5 fails",
       "note": "FreeSolv CC BY 4.0 reviewed"})]:
     problems.append({
         "problem_id": pid, "repo": repo, "search_status": "FOUR_WAY_COMPLETE",
@@ -38,7 +38,7 @@ for pid, repo, pm, extra in [
         "engine": "zcode-websearch(web_search_prime)/zcode-webfetch/curl",
         "queries": "see repo LITERATURE_MAP (4 categories, >=4 distinct queries, recorded per round)",
         "sources": [{"url": None, "doi": None, "title": pm, "authors": None,
-                     "year": 2026, "version": None, "kind": "primary",
+                     "year": 2025 if pid == "BIO-001" else 2026, "version": None, "kind": "primary",
                      "accessed_at": None, "accessed_on_date": "2026-09-27",
                      "read_mode": "abstract-level+round-evidence",
                      "revision_status": "checked v1-only (MATH/PHYS)",
@@ -135,12 +135,22 @@ for pid, repo, note in screen:
         "screening_note": note, "claims_published": False,
         "next_smallest_action": "complete four-way search per RESEARCH_PROTOCOL"})
 
+# Preserve the original search assertions without promoting incomplete historical
+# timestamps/reference-only records into a fresh admission for this wave.
+for problem in problems:
+    if problem["search_status"] == "FOUR_WAY_COMPLETE":
+        problem["recorded_search_status"] = problem["search_status"]
+        problem["historical_conclusion_scope"] = problem["conclusion_scope"]
+        problem["search_status"] = "HISTORICAL_UNVERIFIED"
+        problem["claims_published"] = False
+        problem["conclusion_scope"] = "Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave"
+
 audit = {"version": 3, "generated_by": "glm",
          "wave": "scout-sweep (convergence revision)",
          "single_truth_source": "audits/frontier_audit_2026-09-28.json (markdown is RENDERED, do not hand-edit)",
          "renderer": "audits/render_frontier_audit.py",
          "timestamp_policy": "timezone-qualified timestamps where recorded; UNKNOWN where not recoverable; date-only marked DATE_ONLY_KNOWN",
-         "status_note": "no problem status modified; no candidate_for_resolution_review flags; 'no resolution found' appears ONLY on FOUR_WAY_COMPLETE entries",
+         "status_note": "Historical 2026-09-27/28 source records, not a new literature search. Incomplete timestamps remain unknown; no current scientific status is inferred.",
          "problems": problems}
 json.dump(audit, open("audits/frontier_audit_2026-09-28.json", "w", encoding="utf-8"),
           ensure_ascii=False, indent=2)

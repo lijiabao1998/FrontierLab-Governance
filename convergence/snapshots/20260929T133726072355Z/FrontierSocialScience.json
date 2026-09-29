@@ -1,0 +1,81 @@
+{
+  "acquired_started_at": "2026-09-29T13:37:32.490185+00:00",
+  "acquired_completed_at": "2026-09-29T13:37:34.234853+00:00",
+  "repository": "FrontierSocialScience",
+  "response": {
+    "data": {
+      "repository": {
+        "name": "FrontierSocialScience",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "f2a2c8fc70aaa409fd18092ad5628df432ed766f"
+          }
+        },
+        "pullRequests": {
+          "pageInfo": {
+            "hasNextPage": false
+          },
+          "nodes": [
+            {
+              "number": 1,
+              "title": "Fix onboarding governance pin in README/AGENTS (091d6a26 → lock f40beb16)",
+              "url": "https://github.com/lijiabao1998/FrontierSocialScience/pull/1",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "claude/frontiersocialscience-governance-pin-fix",
+              "headRefOid": "7a26dac458fe93775f8fc38978a4f54c3ed164af",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-27T19:44:09Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierSocialScience/actions/runs/36345266256/job/108693049568"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierSocialScience/actions/runs/36342600310/job/108685486200"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": []
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": []
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

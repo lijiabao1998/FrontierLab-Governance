@@ -1,164 +1,179 @@
 {
-  "session_id": "glm-convergence-2",
-  "started_at": "2026-09-28T16:27:42+00:00",
+  "session_id": "gpt-convergence-20260929",
+  "started_at": "2026-09-29T13:37:35.087618+00:00",
   "governance_pin": "07d2b13051b83215182e411e1612f92f1912d8fb",
-  "owner_override": "full token budget; continuous fix-review loop; no early exit; no merge; no force-push main",
+  "owner_override": "2026-09-29 owner delegated merge decisions to GPT; independent review and evidence required",
   "entries": [
     {
       "repo": "FrontierMath",
       "pr": 4,
       "current_head_sha": "beaf8427afe541361a577d21428edbafafdec0d9",
-      "last_reviewed_sha": "beaf8427",
+      "last_reviewed_sha": null,
       "live_P1": 0,
       "live_P2": 0,
       "ci_state": "GREEN",
-      "manifest_state": "GREEN (verify_manifest.py 6/6)",
-      "work_status": "READY_FOR_OWNER_REVIEW",
-      "last_completed_action": "durable checkpoint build",
-      "current_action": "awaiting Codex re-review on latest head",
-      "next_smallest_action": "if new head findings -> fix per SOP; else owner gate",
-      "latest_push_sha": "this commit",
+      "manifest_state": "NOT_RECHECKED_THIS_CAPTURE",
+      "work_status": "REVIEW_REQUIRED",
+      "last_completed_action": "GitHub API snapshot captured",
+      "current_action": "GPT isolated convergence repair; no merge approval from this snapshot",
+      "next_smallest_action": "independent review of repair branch, full commit-byte verification, then merge decision",
+      "latest_push_sha": "beaf8427afe541361a577d21428edbafafdec0d9",
       "unresolved_blockers": [],
       "evidence_paths": [
         {
           "repo": "lijiabao1998/FrontierMath",
-          "commit_sha": "BRANCH_HEAD",
+          "commit_sha": "beaf8427afe541361a577d21428edbafafdec0d9",
           "path": "problems/MATH-001/results/r2/n75_bench_results.json"
         },
         {
           "repo": "lijiabao1998/FrontierMath",
-          "commit_sha": "BRANCH_HEAD",
+          "commit_sha": "beaf8427afe541361a577d21428edbafafdec0d9",
           "path": "problems/MATH-001/results/r2/hashes.txt"
         }
       ],
-      "last_updated_at": "2026-09-28T16:43:53+00:00",
-      "evidence_path_note": "BRANCH_HEAD = current head of the PR branch at ledger read time; resolve via git rev-parse origin/<branch> then git cat-file -e <sha>:<path>"
+      "last_updated_at": "2026-09-29T13:37:35.087618+00:00",
+      "evidence_path_note": "All locators are immutable full SHAs; path existence is not scientific verification."
     },
     {
       "repo": "FrontierPhysics",
       "pr": 2,
-      "current_head_sha": "7219b6ab57ada9e324ddf1d508ea1d13e931f84c",
-      "last_reviewed_sha": "81c7c372",
+      "current_head_sha": "88c316ce666af63c7e6b9eedbb975e3dbf6dc20e",
+      "last_reviewed_sha": "88c316ce666af63c7e6b9eedbb975e3dbf6dc20e",
       "live_P1": 0,
-      "live_P2": 0,
+      "live_P2": 3,
       "ci_state": "GREEN",
-      "manifest_state": "GREEN",
-      "work_status": "AWAITING_REVIEW",
-      "last_completed_action": "awaiting Codex re-review",
-      "current_action": "awaiting Codex re-review on latest head",
-      "next_smallest_action": "if new head findings -> fix per SOP; else owner gate",
-      "latest_push_sha": "this commit",
-      "unresolved_blockers": [],
+      "manifest_state": "NOT_RECHECKED_THIS_CAPTURE",
+      "work_status": "HOLD_FINDINGS",
+      "last_completed_action": "GitHub API snapshot captured",
+      "current_action": "GPT isolated convergence repair; no merge approval from this snapshot",
+      "next_smallest_action": "independent review of repair branch, full commit-byte verification, then merge decision",
+      "latest_push_sha": "88c316ce666af63c7e6b9eedbb975e3dbf6dc20e",
+      "unresolved_blockers": [
+        "https://github.com/lijiabao1998/FrontierPhysics/pull/2#discussion_r4125130911",
+        "https://github.com/lijiabao1998/FrontierPhysics/pull/2#discussion_r4125130921",
+        "https://github.com/lijiabao1998/FrontierPhysics/pull/2#discussion_r4125244378"
+      ],
       "evidence_paths": [
         {
           "repo": "lijiabao1998/FrontierPhysics",
-          "commit_sha": "BRANCH_HEAD",
+          "commit_sha": "88c316ce666af63c7e6b9eedbb975e3dbf6dc20e",
           "path": "problems/PHYS-001/results/r2/r2_cycle2_results.json"
         },
         {
           "repo": "lijiabao1998/FrontierPhysics",
-          "commit_sha": "BRANCH_HEAD",
+          "commit_sha": "88c316ce666af63c7e6b9eedbb975e3dbf6dc20e",
           "path": "problems/PHYS-001/results/r2/hashes.txt"
         }
       ],
-      "last_updated_at": "2026-09-28T16:43:53+00:00",
-      "evidence_path_note": "BRANCH_HEAD = current head of the PR branch at ledger read time; resolve via git rev-parse origin/<branch> then git cat-file -e <sha>:<path>"
+      "last_updated_at": "2026-09-29T13:37:35.087618+00:00",
+      "evidence_path_note": "All locators are immutable full SHAs; path existence is not scientific verification."
     },
     {
       "repo": "FrontierChemistry",
       "pr": 1,
       "current_head_sha": "bdca66228bc05ac51a20404d3028c4cc05aa2079",
-      "last_reviewed_sha": "6b7cf14d",
+      "last_reviewed_sha": null,
       "live_P1": 0,
       "live_P2": 0,
       "ci_state": "GREEN",
-      "manifest_state": "GREEN",
-      "work_status": "READY_FOR_OWNER_REVIEW",
-      "last_completed_action": "durable checkpoint build",
-      "current_action": "awaiting Codex re-review on latest head",
-      "next_smallest_action": "if new head findings -> fix per SOP; else owner gate",
-      "latest_push_sha": "this commit",
+      "manifest_state": "FAIL_COMMITTED_BYTES",
+      "work_status": "REVIEW_REQUIRED",
+      "last_completed_action": "GitHub API snapshot captured",
+      "current_action": "GPT isolated convergence repair; no merge approval from this snapshot",
+      "next_smallest_action": "independent review of repair branch, full commit-byte verification, then merge decision",
+      "latest_push_sha": "bdca66228bc05ac51a20404d3028c4cc05aa2079",
       "unresolved_blockers": [],
       "evidence_paths": [
         {
           "repo": "lijiabao1998/FrontierChemistry",
-          "commit_sha": "BRANCH_HEAD",
+          "commit_sha": "bdca66228bc05ac51a20404d3028c4cc05aa2079",
           "path": "problems/CHEM-004/results/r1/chem004_r1_results.json"
         },
         {
           "repo": "lijiabao1998/FrontierChemistry",
-          "commit_sha": "BRANCH_HEAD",
+          "commit_sha": "bdca66228bc05ac51a20404d3028c4cc05aa2079",
           "path": "problems/CHEM-004/experiments/chem004_r1/SCAFFOLD_AUDIT.md"
         }
       ],
-      "last_updated_at": "2026-09-28T16:43:53+00:00",
-      "evidence_path_note": "BRANCH_HEAD = current head of the PR branch at ledger read time; resolve via git rev-parse origin/<branch> then git cat-file -e <sha>:<path>"
+      "last_updated_at": "2026-09-29T13:37:35.087618+00:00",
+      "evidence_path_note": "All locators are immutable full SHAs; path existence is not scientific verification."
     },
     {
       "repo": "FrontierBiology",
       "pr": 1,
-      "current_head_sha": "4fdac6104e9c69273fe328c99df51fb83222d733",
-      "last_reviewed_sha": "500ecfa6",
-      "live_P1": 2,
+      "current_head_sha": "9590a99939b7e54f48f6aa3f8e31c540e6fe1c4f",
+      "last_reviewed_sha": "9590a99939b7e54f48f6aa3f8e31c540e6fe1c4f",
+      "live_P1": 4,
       "live_P2": 1,
       "ci_state": "GREEN",
-      "manifest_state": "GREEN (verify_manifest.py)",
-      "work_status": "AWAITING_REVIEW",
-      "last_completed_action": "awaiting Codex re-review",
-      "current_action": "awaiting Codex re-review on latest head",
-      "next_smallest_action": "if new head findings -> fix per SOP; else owner gate",
-      "latest_push_sha": "this commit",
-      "unresolved_blockers": [],
+      "manifest_state": "NOT_RECHECKED_THIS_CAPTURE",
+      "work_status": "HOLD_FINDINGS",
+      "last_completed_action": "GitHub API snapshot captured",
+      "current_action": "GPT isolated convergence repair; no merge approval from this snapshot",
+      "next_smallest_action": "independent review of repair branch, full commit-byte verification, then merge decision",
+      "latest_push_sha": "9590a99939b7e54f48f6aa3f8e31c540e6fe1c4f",
+      "unresolved_blockers": [
+        "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4125243861",
+        "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4125243872",
+        "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4125243883",
+        "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4125243893",
+        "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4125243905"
+      ],
       "evidence_paths": [
         {
           "repo": "lijiabao1998/FrontierBiology",
-          "commit_sha": "BRANCH_HEAD",
+          "commit_sha": "9590a99939b7e54f48f6aa3f8e31c540e6fe1c4f",
           "path": "problems/BIO-001/results/r1/bio001_r1_results.json"
         },
         {
           "repo": "lijiabao1998/FrontierBiology",
-          "commit_sha": "BRANCH_HEAD",
+          "commit_sha": "9590a99939b7e54f48f6aa3f8e31c540e6fe1c4f",
           "path": "problems/BIO-001/results/r1/hashes.txt"
         },
         {
           "repo": "lijiabao1998/FrontierBiology",
-          "commit_sha": "BRANCH_HEAD",
+          "commit_sha": "9590a99939b7e54f48f6aa3f8e31c540e6fe1c4f",
           "path": "problems/BIO-001/results/r2/bio001_r2_ablation_results.json"
         }
       ],
-      "last_updated_at": "2026-09-28T16:43:53+00:00",
-      "evidence_path_note": "BRANCH_HEAD = current head of the PR branch at ledger read time; resolve via git rev-parse origin/<branch> then git cat-file -e <sha>:<path>"
+      "last_updated_at": "2026-09-29T13:37:35.087618+00:00",
+      "evidence_path_note": "All locators are immutable full SHAs; path existence is not scientific verification."
     },
     {
       "repo": "FrontierLab-Governance",
       "pr": 2,
-      "current_head_sha": "bba67544c236f557affc884867d5a8134b1a34c1",
-      "last_reviewed_sha": "2cc70438",
+      "current_head_sha": "2f90d22bd07050754fe53752ca075c326d7fbfeb",
+      "last_reviewed_sha": "2f90d22bd07050754fe53752ca075c326d7fbfeb",
       "live_P1": 0,
-      "live_P2": 1,
+      "live_P2": 4,
       "ci_state": "GREEN",
-      "manifest_state": "N/A",
-      "work_status": "AWAITING_REVIEW",
-      "last_completed_action": "durable checkpoint build",
-      "current_action": "awaiting Codex re-review on latest head",
-      "next_smallest_action": "if new head findings -> fix per SOP; else owner gate",
-      "latest_push_sha": "this commit",
-      "unresolved_blockers": [],
+      "manifest_state": "NOT_RECHECKED_THIS_CAPTURE",
+      "work_status": "HOLD_FINDINGS",
+      "last_completed_action": "GitHub API snapshot captured",
+      "current_action": "GPT isolated convergence repair; no merge approval from this snapshot",
+      "next_smallest_action": "independent review of repair branch, full commit-byte verification, then merge decision",
+      "latest_push_sha": "2f90d22bd07050754fe53752ca075c326d7fbfeb",
+      "unresolved_blockers": [
+        "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#discussion_r4125236829",
+        "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#discussion_r4125236844",
+        "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#discussion_r4125236849",
+        "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#discussion_r4125236860"
+      ],
       "evidence_paths": [
         {
           "repo": "lijiabao1998/FrontierLab-Governance",
-          "commit_sha": "THIS_COMMIT",
+          "commit_sha": "2f90d22bd07050754fe53752ca075c326d7fbfeb",
           "path": "convergence/SESSION_LEDGER.json"
         },
         {
           "repo": "lijiabao1998/FrontierLab-Governance",
-          "commit_sha": "THIS_COMMIT",
+          "commit_sha": "2f90d22bd07050754fe53752ca075c326d7fbfeb",
           "path": "convergence/live/third_review_open_findings.json"
         }
       ],
-      "last_updated_at": "2026-09-28T16:43:53+00:00",
-      "evidence_path_note": "BRANCH_HEAD = current head of the PR branch at ledger read time; resolve via git rev-parse origin/<branch> then git cat-file -e <sha>:<path>"
+      "last_updated_at": "2026-09-29T13:37:35.087618+00:00",
+      "evidence_path_note": "All locators are immutable full SHAs; path existence is not scientific verification."
     }
   ],
-  "last_updated_at": "2026-09-28T17:35:22+00:00"
+  "last_updated_at": "2026-09-29T13:37:35.087618+00:00"
 }

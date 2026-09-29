@@ -1,23 +1,23 @@
 # Frontier Audit v3｜2026-09-28｜glm scout sweep（Codex convergence 修訂）
 
-**單一真相源**：`frontier_audit_2026-09-28.json`；本檔由 `audits/render_frontier_audit.py` 自動生成——**請勿手改**，CI 以 render 後 `git diff --exit-code` 防 drift。
+**單一真相源**：`frontier_audit_2026-09-28.json`；本檔由 `audits/render_frontier_audit.py` 自動生成——**請勿手改**，治理 CI 的 `test_committed_markdown_matches_renderer` 比對生成內容；本表是歷史搜尋紀錄，不是本輪新檢索。
 
 - 條目數：23（15 個 repo primaries＋8 個 priority-A screening 題）
 - 時間戳政策：timezone-qualified timestamps where recorded; UNKNOWN where not recoverable; date-only marked DATE_ONLY_KNOWN
-- 狀態：no problem status modified; no candidate_for_resolution_review flags; 'no resolution found' appears ONLY on FOUR_WAY_COMPLETE entries
+- 狀態：Historical 2026-09-27/28 source records, not a new literature search. Incomplete timestamps remain unknown; no current scientific status is inferred.
 - 四路完成定義：general/discipline/solution/criticism＋≥2 來源（含 ≥1 primary）；「no resolution found」僅出現在 FOUR_WAY_COMPLETE 條目。
 
 ## 覆蓋總表
 
 | problem_id | repo | search_status | claims_published | conclusion_scope |
 |---|---|---|---|---|
-| MATH-001 | FrontierMath | FOUR_WAY_COMPLETE | True | no resolution found for the problem scope (four-way supported); details in repo LITERATURE |
-| PHYS-001 | FrontierPhysics | FOUR_WAY_COMPLETE | True | no resolution found for the problem scope (four-way supported); details in repo LITERATURE |
-| BIO-001 | FrontierBiology | FOUR_WAY_COMPLETE | True | no resolution found for the problem scope (four-way supported); details in repo LITERATURE |
-| CHEM-004 | FrontierChemistry | FOUR_WAY_COMPLETE | True | no resolution found for the problem scope (four-way supported); details in repo LITERATURE |
-| CS-001 | FrontierComputerScience | FOUR_WAY_COMPLETE | True | FOUR_WAY_COMPLETE: no same-scope resolution or erratum found; repo-scale verification unso |
-| STAT-001 | FrontierStatistics | FOUR_WAY_COMPLETE | True | FOUR_WAY_COMPLETE: no same-scope resolution; shift-robust coverage open with known critici |
-| META-001 | FrontierMetaScience | FOUR_WAY_COMPLETE | True | FOUR_WAY_COMPLETE: no same-scope resolution; execution bottleneck acknowledged; benchmark- |
+| MATH-001 | FrontierMath | HISTORICAL_UNVERIFIED | False | Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave |
+| PHYS-001 | FrontierPhysics | HISTORICAL_UNVERIFIED | False | Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave |
+| BIO-001 | FrontierBiology | HISTORICAL_UNVERIFIED | False | Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave |
+| CHEM-004 | FrontierChemistry | HISTORICAL_UNVERIFIED | False | Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave |
+| CS-001 | FrontierComputerScience | HISTORICAL_UNVERIFIED | False | Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave |
+| STAT-001 | FrontierStatistics | HISTORICAL_UNVERIFIED | False | Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave |
+| META-001 | FrontierMetaScience | HISTORICAL_UNVERIFIED | False | Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave |
 | MAT-003 | FrontierMaterials | BLOCKED | False | NO CONCLUSIONS PUBLISHED |
 | ASTRO-003 | FrontierAstronomy | BLOCKED | False | NO CONCLUSIONS PUBLISHED |
 | EARTH-003 | FrontierEarth | BLOCKED | False | NO CONCLUSIONS PUBLISHED |
@@ -35,7 +35,7 @@
 | CHEM-003 | FrontierChemistry | SCREENING_ONLY | False | SCREENING OBSERVATIONS ONLY (1-2 queries; four-way pending; no erratum/resolution claims a |
 | CHEM-010 | FrontierChemistry | SCREENING_ONLY | False | SCREENING OBSERVATIONS ONLY (1-2 queries; four-way pending; no erratum/resolution claims a |
 
-### MATH-001｜FrontierMath｜FOUR_WAY_COMPLETE
+### MATH-001｜FrontierMath｜HISTORICAL_UNVERIFIED
 
 - checked：2026-09-27（DATE_ONLY_KNOWN）；engine：zcode-websearch(web_search_prime)/zcode-webfetch/curl
 
@@ -51,11 +51,11 @@
 |---|---|---|---|---|---|---|
 | primary | arXiv:2602.07751 (Prellberg 2026, v1); Flammenkamp record page 2026-09-11 | null | 2026 | None | abstract-level+round-evidence | primary of the problem |
 
-- conclusion_scope：no resolution found for the problem scope (four-way supported); details in repo LITERATURE_MAP + REMEDIATION
+- conclusion_scope：Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave
 - newest_bound：2n for all n<=74 except 75; record n=76; smallest open n=75
 - note：full four-way maps in repo runs/*/LITERATURE_MAP.md; BLOCKED-on-frontier-configs retracted after dsk evidence: n=71-76 public configs available (431,008-file verified by glm), n=75 unique zero
 
-### PHYS-001｜FrontierPhysics｜FOUR_WAY_COMPLETE
+### PHYS-001｜FrontierPhysics｜HISTORICAL_UNVERIFIED
 
 - checked：2026-09-27（DATE_ONLY_KNOWN）；engine：zcode-websearch(web_search_prime)/zcode-webfetch/curl
 
@@ -71,11 +71,11 @@
 |---|---|---|---|---|---|---|
 | primary | arXiv:2607.26896 (Mukherjee & Mukherjee 2026, v1) | null | 2026 | None | abstract-level+round-evidence | primary of the problem |
 
-- conclusion_scope：no resolution found for the problem scope (four-way supported); details in repo LITERATURE_MAP + REMEDIATION
+- conclusion_scope：Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave
 - newest_bound：K41 synthetic baseline calibrated (two-stage); triadic-suppression 2026-03 mechanism study
 - note：beta=3 slope is a window-dependent statistic, not a clean exponent (dsk audit)
 
-### BIO-001｜FrontierBiology｜FOUR_WAY_COMPLETE
+### BIO-001｜FrontierBiology｜HISTORICAL_UNVERIFIED
 
 - checked：2026-09-27（DATE_ONLY_KNOWN）；engine：zcode-websearch(web_search_prime)/zcode-webfetch/curl
 
@@ -89,12 +89,12 @@
 
 | kind | title | url/doi | year | version | read_mode | supports |
 |---|---|---|---|---|---|---|
-| primary | Wei et al. Nat Methods 2025; PerturbVAE leakage-aware benchmark | null | 2026 | None | abstract-level+round-evidence | primary of the problem |
+| primary | Wei et al. Nat Methods 2025; PerturbVAE leakage-aware benchmark | null | 2025 | None | abstract-level+round-evidence | primary of the problem |
 
-- conclusion_scope：no resolution found for the problem scope (four-way supported); details in repo LITERATURE_MAP + REMEDIATION
-- newest_bound：leakage gap quantified (PerturbVAE 0.522->0.257; glm synthetic 0.878)
+- conclusion_scope：Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave
+- newest_bound：Historical literature/synthetic observations only; r1 E2 is INCONCLUSIVE and r2 is exploratory; see current convergence status
 
-### CHEM-004｜FrontierChemistry｜FOUR_WAY_COMPLETE
+### CHEM-004｜FrontierChemistry｜HISTORICAL_UNVERIFIED
 
 - checked：2026-09-27（DATE_ONLY_KNOWN）；engine：zcode-websearch(web_search_prime)/zcode-webfetch/curl
 
@@ -110,11 +110,11 @@
 |---|---|---|---|---|---|---|
 | primary | Moore et al. JACS 2026 (abstract-level); FreeSolv v0.52 | null | 2026 | None | abstract-level+round-evidence | primary of the problem |
 
-- conclusion_scope：no resolution found for the problem scope (four-way supported); details in repo LITERATURE_MAP + REMEDIATION
-- newest_bound：GAFF calc-vs-exp MAE 1.114 kcal/mol reproduced; C4 passes under true Murcko split
+- conclusion_scope：Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave
+- newest_bound：GAFF calc-vs-exp MAE 1.114 kcal/mol recorded; C4 degradation claims withdrawn, v4 key post-hoc; C5 fails
 - note：FreeSolv CC BY 4.0 reviewed
 
-### CS-001｜FrontierComputerScience｜FOUR_WAY_COMPLETE
+### CS-001｜FrontierComputerScience｜HISTORICAL_UNVERIFIED
 
 - checked：2026-09-27（UNKNOWN）；engine：zcode-websearch(web_search_prime)
 
@@ -134,10 +134,10 @@
 | primary | VeriSoftBench: Repository-Scale Formal Verification Benchmarks for Lean | https://arxiv.org/abs/2602.18307 | 2026 | v1 | abstract-level | benchmark existence/scale/unsolved pass rates |
 | secondary | VeriSoftBench GitHub | https://github.com/utopia-group/VeriSoftBench | 2026 | None | abstract-level | dataset detail |
 
-- conclusion_scope：FOUR_WAY_COMPLETE: no same-scope resolution or erratum found; repo-scale verification unsolved for frontier models
+- conclusion_scope：Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave
 - next-smallest-action：baseline pass-rate reproduction on VeriSoftBench subset
 
-### STAT-001｜FrontierStatistics｜FOUR_WAY_COMPLETE
+### STAT-001｜FrontierStatistics｜HISTORICAL_UNVERIFIED
 
 - checked：2026-09-27（UNKNOWN）；engine：zcode-websearch(web_search_prime)
 
@@ -157,10 +157,10 @@
 | primary | Robust Conformal Prediction under Distribution Shift via Physics-Informed SCM | https://arxiv.org/abs/2403.15025 | 2024 | v1 | abstract-level | card primary exists; SCM-robust CP |
 | secondary | Conformal Prediction Under Covariate Shift | https://arxiv.org/abs/1904.06019 | 2019 | None | abstract-level | canonical WCP baseline |
 
-- conclusion_scope：FOUR_WAY_COMPLETE: no same-scope resolution; shift-robust coverage open with known criticism lines
+- conclusion_scope：Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave
 - next-smallest-action：WCP/ACI/split-conformal reproduction on standard covariate-shift simulation
 
-### META-001｜FrontierMetaScience｜FOUR_WAY_COMPLETE
+### META-001｜FrontierMetaScience｜HISTORICAL_UNVERIFIED
 
 - checked：2026-09-27（UNKNOWN）；engine：zcode-websearch(web_search_prime)
 
@@ -180,7 +180,7 @@
 | primary | Overview of the NLPCC 2026 Shared Task 11: Agent-Based Experiment Reproduction | https://arxiv.org/abs/2609.11117 | 2026 | v1 | abstract-level | AgentActionBench; execution primary bottleneck |
 | secondary | PaperBench: Evaluating AI's Ability to Replicate AI Research | https://arxiv.org/abs/2504.01848 | 2025 | None | abstract-level | low replication scores for top agents |
 
-- conclusion_scope：FOUR_WAY_COMPLETE: no same-scope resolution; execution bottleneck acknowledged; benchmark-gamability critiques constrain evaluator design
+- conclusion_scope：Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave
 - next-smallest-action：failure-stage classification reproduction on public AgentActionBench subset
 
 ### MAT-003｜FrontierMaterials｜BLOCKED

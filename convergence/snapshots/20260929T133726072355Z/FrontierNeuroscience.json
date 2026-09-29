@@ -1,0 +1,81 @@
+{
+  "acquired_started_at": "2026-09-29T13:37:31.059104+00:00",
+  "acquired_completed_at": "2026-09-29T13:37:32.265509+00:00",
+  "repository": "FrontierNeuroscience",
+  "response": {
+    "data": {
+      "repository": {
+        "name": "FrontierNeuroscience",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "1d8b2d6ce7a35797a3949f8258cc4eae31aacfba"
+          }
+        },
+        "pullRequests": {
+          "pageInfo": {
+            "hasNextPage": false
+          },
+          "nodes": [
+            {
+              "number": 1,
+              "title": "Fix onboarding governance pin in README/AGENTS (091d6a26 → lock f40beb16)",
+              "url": "https://github.com/lijiabao1998/FrontierNeuroscience/pull/1",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "claude/frontierneuroscience-governance-pin-fix",
+              "headRefOid": "cfd7cf61d6150b70446431b7326b9cd512a1e137",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-27T19:43:02Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierNeuroscience/actions/runs/36345242938/job/108692982115"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierNeuroscience/actions/runs/36342589494/job/108685457505"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": []
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": []
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

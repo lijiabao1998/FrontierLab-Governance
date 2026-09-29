@@ -1,0 +1,909 @@
+{
+  "acquired_started_at": "2026-09-29T13:37:28.791643+00:00",
+  "acquired_completed_at": "2026-09-29T13:37:31.304504+00:00",
+  "repository": "FrontierLab-Governance",
+  "response": {
+    "data": {
+      "repository": {
+        "name": "FrontierLab-Governance",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "1ead14305810f3d353ffcb3b9a85822f0a56f837"
+          }
+        },
+        "pullRequests": {
+          "pageInfo": {
+            "hasNextPage": false
+          },
+          "nodes": [
+            {
+              "number": 2,
+              "title": "Frontier scout sweep 2026-09-28 (glm): audit of 12 priority-A problems",
+              "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "glm/scout-sweep-20260928",
+              "headRefOid": "2f90d22bd07050754fe53752ca075c326d7fbfeb",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-28T17:39:08Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierLab-Governance/actions/runs/36459210022/job/109053220010"
+                            },
+                            {
+                              "name": "records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierLab-Governance/actions/runs/36459201224/job/109053191867"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": [
+                  {
+                    "id": "PRR_kwDOUukWy88AAAABPcyBGQ",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-27T19:49:04Z",
+                    "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#pullrequestreview-5331779865",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `390901eb35`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "390901eb353457d1d7208c0871e5d3d8a3ebd119"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWy88AAAABPc_Bbg",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-27T20:43:24Z",
+                    "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#pullrequestreview-5331992942",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `83b909565d`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "83b909565ddcd53603132bd7ba36685974fd40a6"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWy88AAAABPgEDTw",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T07:28:06Z",
+                    "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#pullrequestreview-5335221071",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `2cc7043862`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "2cc7043862f0ad1a3e7a10fb2ac8c64af9002264"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWy88AAAABPmUOyw",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T16:38:43Z",
+                    "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#pullrequestreview-5341777611",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `bba67544c2`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "bba67544c236f557affc884867d5a8134b1a34c1"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWy88AAAABPm_ZpA",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T17:39:01Z",
+                    "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#pullrequestreview-5342484900",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `2f90d22bd0`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "2f90d22bd07050754fe53752ca075c326d7fbfeb"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  }
+                ]
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": [
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#discussion_r4116699664",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Expand the sweep to every repository primary**\n\nThe parent commit's `EXPANSION-2026-09-28.md` records 15 repositories and explicitly lists primary IDs for the 11 newly added repositories, but this audit covers only Math, Physics, Biology, and Chemistry. Consequently, the claim that it includes “各庫 primary problems” silently omits entries such as CS-001, STAT-001, MAT-003, and the other new primaries, causing consumers to mistake a four-repository sweep for a registry-wide audit. Include those primaries or explicitly limit the stated scope to the original four repositories.\n\nAGENTS.md reference: [AGENTS.md:L8-L8](https://github.com/lijiabao1998/FrontierLab-Governance/blob/390901eb353457d1d7208c0871e5d3d8a3ebd119/AGENTS.md#L8-L8)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T19:49:04Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWy88AAAABPcyBGQ",
+                            "commit": {
+                              "oid": "390901eb353457d1d7208c0871e5d3d8a3ebd119"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#discussion_r4116699672",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Run the required four-way search before drawing conclusions**\n\nFor the eight newly scanned problems, this records only 1–2 queries and abstract-level reading, while `RESEARCH_PROTOCOL.md` requires distinct general, discipline, solution, and criticism searches plus reading at least two sources, including a primary source. Under this limited search, conclusions such as low open-status uncertainty and no resolution or erratum found are not supported by the repository's required process; complete the four search routes or mark these assessments as blocked rather than publishing them as audit conclusions.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierLab-Governance/blob/390901eb353457d1d7208c0871e5d3d8a3ebd119/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T19:49:04Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWy88AAAABPcyBGQ",
+                            "commit": {
+                              "oid": "390901eb353457d1d7208c0871e5d3d8a3ebd119"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#discussion_r4116699674",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Include reproducible source and query records**\n\nNeither new audit file records the actual query strings, source URLs/DOIs, access timestamps, source kind, or the scope each source supports; it contains only abbreviated labels such as author names and years. This prevents reviewers from reproducing the sweep or checking the many newest-bound and no-erratum assertions, and it omits the source metadata required by `EVIDENCE_POLICY.md`. Add per-problem query and source records rather than only the method summary.\n\nAGENTS.md reference: [AGENTS.md:L16-L16](https://github.com/lijiabao1998/FrontierLab-Governance/blob/390901eb353457d1d7208c0871e5d3d8a3ebd119/AGENTS.md#L16-L16)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T19:49:04Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWy88AAAABPcyBGQ",
+                            "commit": {
+                              "oid": "390901eb353457d1d7208c0871e5d3d8a3ebd119"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#discussion_r4116880741",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Record the actual search timestamp**\n\nThe only engine/time record uses `2026-09-28T19:5xZ`, which is not valid ISO 8601 and is nearly 23 hours later than this commit's `2026-09-27T20:41:15Z` timestamp; the JSON further reduces this to a date-only `checked_at`. Consequently the `four_way_complete` designation cannot establish when these searches actually occurred or that they were fresh for this sweep. Replace the placeholder with the real timezone-qualified search times.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierLab-Governance/blob/83b909565ddcd53603132bd7ba36685974fd40a6/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:43:24Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWy88AAAABPc_Bbg",
+                            "commit": {
+                              "oid": "83b909565ddcd53603132bd7ba36685974fd40a6"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#discussion_r4116880744",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Include blocked primaries in the machine-readable scope**\n\nThis scope note says all 15 repositories are covered and all 11 new primaries are listed with a search status, but the `problems` array contains only seven repositories and omits MAT-003, ASTRO-003, EARTH-003, NEURO-001, ECON-001, ENG-004, MED-001, and SOC-008 entirely. The revised Markdown now lists these as BLOCKED, which is fresh evidence that the attempted scope fix was not carried into the JSON; consumers of the machine-readable audit will still interpret these repositories as unassessed rather than explicitly blocked.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:43:24Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWy88AAAABPc_Bbg",
+                            "commit": {
+                              "oid": "83b909565ddcd53603132bd7ba36685974fd40a6"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#discussion_r4116880747",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Do not claim that all provenance is recorded in JSON**\n\nThis new v2 assertion is false: the JSON contains query strings and source arrays only for CS-001, STAT-001, and META-001, while the other 12 entries lack them entirely; even those three omit per-query results, source titles/versions, read dates/modes, revision status, and valid timezone-qualified times, and no engine is recorded there. This blanket assertion is fresh evidence that the previously reported provenance gap remains after remediation, and it prevents reviewers from distinguishing available evidence from references that exist only in prose or external repositories.\n\nAGENTS.md reference: [AGENTS.md:L16-L16](https://github.com/lijiabao1998/FrontierLab-Governance/blob/83b909565ddcd53603132bd7ba36685974fd40a6/AGENTS.md#L16-L16)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:43:24Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWy88AAAABPc_Bbg",
+                            "commit": {
+                              "oid": "83b909565ddcd53603132bd7ba36685974fd40a6"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#discussion_r4119575913",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Handle string-form query records as one entry**\n\nWhen a `FOUR_WAY_COMPLETE` record uses the string form found in MATH-001, PHYS-001, BIO-001, and CHEM-004, this loop iterates over individual characters rather than query records. The committed Markdown consequently contains about 80 rows per problem with outcomes such as `s`, `e`, `e`, making the query sections unusable; normalize these values to a list or render the string as one reference row.\n\nAGENTS.md reference: [AGENTS.md:L16-L16](https://github.com/lijiabao1998/FrontierLab-Governance/blob/2cc7043862f0ad1a3e7a10fb2ac8c64af9002264/AGENTS.md#L16-L16)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:28:06Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWy88AAAABPgEDTw",
+                            "commit": {
+                              "oid": "2cc7043862f0ad1a3e7a10fb2ac8c64af9002264"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#discussion_r4119575921",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Make the renderer reproduce the committed header**\n\nOn a clean checkout of this commit, running the documented `python3 audits/render_frontier_audit.py` command rewrites the Markdown header because the renderer emits this CI claim while the committed file says the check is local and GitHub Actions was removed. The subsequent documented `git diff --exit-code` therefore always fails even before any audit data changes, so the generated-file drift check cannot be used until the renderer and committed output agree.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:28:06Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWy88AAAABPgEDTw",
+                            "commit": {
+                              "oid": "2cc7043862f0ad1a3e7a10fb2ac8c64af9002264"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#discussion_r4124703278",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Commit the evidence referenced by the ledger**\n\nWhen a reviewer follows this evidence path to verify the recorded PR heads, CI states, and review counts, it matches no file: a repo-wide tree search at this target finds only the four top-level `convergence` documents and no `convergence/live` directory. Commit the raw API results or point each entry to evidence that actually exists so these governance snapshots are reproducible.\n\nAGENTS.md reference: [AGENTS.md:L16-L16](https://github.com/lijiabao1998/FrontierLab-Governance/blob/bba67544c236f557affc884867d5a8134b1a34c1/AGENTS.md#L16-L16)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T16:38:43Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWy88AAAABPmUOyw",
+                            "commit": {
+                              "oid": "bba67544c236f557affc884867d5a8134b1a34c1"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#discussion_r4124703290",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Update the ledger after completing the renderer fix**\n\nThis target already normalizes string-form queries in `render_frontier_audit.py` and commits the correctly rendered four reference rows, but the supposedly current governance entry still reports one live P2, marks the work as `FIXING`, points at the pre-fix `2cc7043` head, and prescribes normalization as the next action. A coordinator consuming this durable ledger will treat completed work as blocked or repeat it; update this entry and the corresponding convergence status to the post-fix state.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T16:38:43Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWy88AAAABPmUOyw",
+                            "commit": {
+                              "oid": "bba67544c236f557affc884867d5a8134b1a34c1"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#discussion_r4124703299",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Remove the unenforced CI drift guarantee**\n\nFresh evidence after the earlier header mismatch is that both the renderer and generated Markdown now assert this CI guarantee, but the target's only workflow, `.github/workflows/research.yml`, runs unit tests, registry validation, and `check-diff` without invoking this renderer or `git diff --exit-code`. Hand-edited or stale Markdown can therefore pass CI despite the published guarantee; add the documented workflow step or describe this as a local check.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T16:38:43Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWy88AAAABPmUOyw",
+                            "commit": {
+                              "oid": "bba67544c236f557affc884867d5a8134b1a34c1"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#discussion_r4125236829",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Treat missing clones as validation failures**\n\nOn a clean checkout or in CI, the sibling research repositories are normally absent, so this branch prints `SKIP` for every external locator and still exits successfully. That makes the documented “exit != 0 on any failure” guarantee ineffective and allows an unverified ledger to be reported as fully validated; missing clones, including linked worktrees whose `.git` is a file, should make validation fail or explicitly produce an incomplete result.\n\nAGENTS.md reference: [AGENTS.md:L16-L16](https://github.com/lijiabao1998/FrontierLab-Governance/blob/2f90d22bd07050754fe53752ca075c326d7fbfeb/AGENTS.md#L16-L16)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T17:39:01Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWy88AAAABPm_ZpA",
+                            "commit": {
+                              "oid": "2f90d22bd07050754fe53752ca075c326d7fbfeb"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#discussion_r4125236844",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Validate artifacts at the ledger's recorded head**\n\nWhen a sibling clone is present but checked out on any branch other than the PR branch, `git rev-parse --abbrev-ref HEAD` resolves that arbitrary local branch rather than the entry's exact `current_head_sha`. An evidence path can therefore pass because it exists on an unrelated or newer commit while being absent from the head whose CI and review state the ledger records; resolve `BRANCH_HEAD` from the recorded immutable SHA instead.\n\nAGENTS.md reference: [AGENTS.md:L16-L16](https://github.com/lijiabao1998/FrontierLab-Governance/blob/2f90d22bd07050754fe53752ca075c326d7fbfeb/AGENTS.md#L16-L16)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T17:39:02Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWy88AAAABPm_ZpA",
+                            "commit": {
+                              "oid": "2f90d22bd07050754fe53752ca075c326d7fbfeb"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#discussion_r4125236849",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Keep pending re-reviews out of READY state**\n\nFor FrontierMath, this snapshot records `last_reviewed_sha` as `pending (re-review triggered)` but simultaneously marks the PR `READY_FOR_OWNER_REVIEW`; FrontierChemistry has the same contradiction. The committed `HANDOFF.md` explicitly says that a missing reviewer response must remain `AWAITING_REVIEW`, so an owner relying on this machine-readable state can be directed to review or merge a head that the convergence process still considers unreviewed.\n\nAGENTS.md reference: [AGENTS.md:L15-L15](https://github.com/lijiabao1998/FrontierLab-Governance/blob/2f90d22bd07050754fe53752ca075c326d7fbfeb/AGENTS.md#L15-L15)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T17:39:02Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWy88AAAABPm_ZpA",
+                            "commit": {
+                              "oid": "2f90d22bd07050754fe53752ca075c326d7fbfeb"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#discussion_r4125236860",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Preserve per-source publication years**\n\nThe shared source constructor hardcodes every original-primary entry to 2026, although the BIO-001 title immediately identifies Wei et al. as a 2025 publication. Regenerating the JSON therefore persists false source metadata, which can mislead machine consumers performing chronology or freshness checks; pass the source year per problem instead of assigning one value to the entire loop.\n\nAGENTS.md reference: [AGENTS.md:L16-L16](https://github.com/lijiabao1998/FrontierLab-Governance/blob/2f90d22bd07050754fe53752ca075c326d7fbfeb/AGENTS.md#L16-L16)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T17:39:02Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWy88AAAABPm_ZpA",
+                            "commit": {
+                              "oid": "2f90d22bd07050754fe53752ca075c326d7fbfeb"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "number": 5,
+              "title": "[stacked on #1] Gate hardening: pin contract, protected problem specs, path ownership, artifact roots (protocol 2.0.0)",
+              "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/5",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "claude/governance-gate-hardening",
+              "headRefOid": "471739a00303b8be491314889f6a889ec0503550",
+              "baseRefName": "claude/governance-hygiene",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-28T08:49:02Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierLab-Governance/actions/runs/36399544300/job/108853879168"
+                            },
+                            {
+                              "name": "records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierLab-Governance/actions/runs/36399538307/job/108853861393"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": [
+                  {
+                    "id": "PRR_kwDOUukWy88AAAABPg2eKg",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T08:43:04Z",
+                    "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/5#pullrequestreview-5336047146",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `d12d89e65b`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "d12d89e65b10a9e066a058f7834706afb6a73f67"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWy88AAAABPg5l2A",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T08:48:17Z",
+                    "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/5#pullrequestreview-5336098264",
+                    "body": "",
+                    "commit": {
+                      "oid": "471739a00303b8be491314889f6a889ec0503550"
+                    },
+                    "author": {
+                      "login": "lijiabao1998"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWy88AAAABPg5new",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T08:48:20Z",
+                    "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/5#pullrequestreview-5336098683",
+                    "body": "",
+                    "commit": {
+                      "oid": "471739a00303b8be491314889f6a889ec0503550"
+                    },
+                    "author": {
+                      "login": "lijiabao1998"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWy88AAAABPg5pGg",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T08:48:23Z",
+                    "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/5#pullrequestreview-5336099098",
+                    "body": "",
+                    "commit": {
+                      "oid": "471739a00303b8be491314889f6a889ec0503550"
+                    },
+                    "author": {
+                      "login": "lijiabao1998"
+                    }
+                  }
+                ]
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": [
+                  {
+                    "isResolved": true,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/5#discussion_r4120155919",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Reject mutable domain changes before skipping the gates**\n\nWhen a research PR changes `lab.json` to `{\"domain\":\"governance\",\"protocol_version\":\"2.0.0\"}`, this branch skips the entire protected-spec and path check; `validate_repo` also returns early for the same mutable value, so the PR can simultaneously add unregistered artifacts, alter protected cards, or break governance pins and still pass both workflow commands. Determine the governance repository from an immutable repository identity, or reject transitions to the `governance` domain before this skip.\n\nAGENTS.md reference: [AGENTS.md:L31-L31](https://github.com/lijiabao1998/FrontierLab-Governance/blob/d12d89e65b10a9e066a058f7834706afb6a73f67/AGENTS.md#L31-L31)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T08:43:04Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWy88AAAABPg2eKg",
+                            "commit": {
+                              "oid": "d12d89e65b10a9e066a058f7834706afb6a73f67"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": true,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/5#discussion_r4120155926",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Parse active workflow declarations instead of comments**\n\nWhen a valid workflow quotes its YAML keys, such as `\"uses\": ...@main` and `\"governance_ref\": main`, these regexes ignore the operative declarations; because they are not anchored or comment-aware, matching locked-SHA declarations placed in comments are accepted instead. `check_pins` therefore reports success while CI actually executes a floating or mismatched governance revision, defeating the pin contract.\n\nAGENTS.md reference: [AGENTS.md:L31-L31](https://github.com/lijiabao1998/FrontierLab-Governance/blob/d12d89e65b10a9e066a058f7834706afb6a73f67/AGENTS.md#L31-L31)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T08:43:04Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWy88AAAABPg2eKg",
+                            "commit": {
+                              "oid": "d12d89e65b10a9e066a058f7834706afb6a73f67"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": true,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/5#discussion_r4120155934",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Allow decisions that change only resolution**\n\nFor a card whose `resolution` changes while `status` stays unchanged, the contract requires the same transition evidence, but every `status-change` decision is forced to list `status`. Listing only `resolution` is rejected here, while listing `status` too is later rejected because `fields` contains an unchanged field, so states that rely on a status decision (for example `PAUSED` or `COMPLETED_INTERNAL`) have no valid way to correct only their resolution.\n\nAGENTS.md reference: [AGENTS.md:L31-L31](https://github.com/lijiabao1998/FrontierLab-Governance/blob/d12d89e65b10a9e066a058f7834706afb6a73f67/AGENTS.md#L31-L31)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T08:43:04Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWy88AAAABPg2eKg",
+                            "commit": {
+                              "oid": "d12d89e65b10a9e066a058f7834706afb6a73f67"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "number": 4,
+              "title": "Proposal: branch protection rulesets for all 16 repos (not enabled)",
+              "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/4",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "claude/governance-ruleset-proposal",
+              "headRefOid": "a61a614f6e57ea643f61802208754234c148310e",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-28T03:37:15Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierLab-Governance/actions/runs/36374376128/job/108777081448"
+                            },
+                            {
+                              "name": "records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierLab-Governance/actions/runs/36374373112/job/108777071759"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": [
+                  {
+                    "id": "PRR_kwDOUukWy88AAAABPeoTkA",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T03:35:50Z",
+                    "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/4#pullrequestreview-5333717904",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `1969cdc077`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "1969cdc077a49a0b82e85a10ccfca4b4677f22c0"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWy88AAAABPeoeJQ",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T03:36:25Z",
+                    "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/4#pullrequestreview-5333720613",
+                    "body": "",
+                    "commit": {
+                      "oid": "a61a614f6e57ea643f61802208754234c148310e"
+                    },
+                    "author": {
+                      "login": "lijiabao1998"
+                    }
+                  }
+                ]
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": [
+                  {
+                    "isResolved": true,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/4#discussion_r4118342557",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Use the full required branch-name contract**\n\nWhen agents follow the branch pattern documented here, they will omit the mandatory problem-id/topic/round structure—especially the round suffix—and can reuse ambiguous branch names across rounds. The repository contract specifies `<agent>/<problem-id>-<topic>-<round>`, so this proposal should reproduce that exact pattern rather than `<agent>/<ID>-<topic>`.\n\nAGENTS.md reference: [AGENTS.md:L4-L4](https://github.com/lijiabao1998/FrontierLab-Governance/blob/1969cdc077a49a0b82e85a10ccfca4b4677f22c0/AGENTS.md#L4-L4)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T03:35:50Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWy88AAAABPeoTkA",
+                            "commit": {
+                              "oid": "1969cdc077a49a0b82e85a10ccfca4b4677f22c0"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "number": 3,
+              "title": "Policy: generalize RESEARCH_PROTOCOL §5 completion boundaries to all empirical labs",
+              "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/3",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "claude/governance-empirical-completion-policy",
+              "headRefOid": "48dc5ffffdf4b750dead58e407138d6b5424e75a",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-28T03:36:00Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierLab-Governance/actions/runs/36374329944/job/108776945859"
+                            },
+                            {
+                              "name": "records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierLab-Governance/actions/runs/36374326974/job/108776937180"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": [
+                  {
+                    "id": "PRR_kwDOUukWy88AAAABPen2XA",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T03:34:12Z",
+                    "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/3#pullrequestreview-5333710428",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `3536a84067`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "3536a840676d8bcbc231d21972a6eb3b2117ce2f"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWy88AAAABPeoRvw",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T03:35:44Z",
+                    "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/3#pullrequestreview-5333717439",
+                    "body": "",
+                    "commit": {
+                      "oid": "48dc5ffffdf4b750dead58e407138d6b5424e75a"
+                    },
+                    "author": {
+                      "login": "lijiabao1998"
+                    }
+                  }
+                ]
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": [
+                  {
+                    "isResolved": true,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/3#discussion_r4118336843",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Supply the promised validation contract for numerical mathematics**\n\nWhen §5 is applied to numerical experiments or finite-search work in FrontierMath, line 41 explicitly includes that work, but this line directs reviewers to a per-repository `VALIDATION.md` that FrontierMath does not have—the repository inventory distinguishes the physics/biology/chemistry validation contracts from FrontierMath's Lean-only setup (`BOOTSTRAP-REPORT.md:21`). Either add a mathematics validation contract or direct this case to the applicable rules in `EVIDENCE_POLICY.md`; otherwise the newly included work has no source for the stated “complete rules.”\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T03:34:13Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWy88AAAABPen2XA",
+                            "commit": {
+                              "oid": "3536a840676d8bcbc231d21972a6eb3b2117ce2f"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "number": 1,
+              "title": "Governance hygiene: clean BLOCKED errors, branch contract, protocol 1.2.0, current-architecture docs",
+              "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/1",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "claude/governance-hygiene",
+              "headRefOid": "491631c950907cd575036e9ec1d4b22eeace46c6",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-28T03:25:23Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierLab-Governance/actions/runs/36373627409/job/108774895025"
+                            },
+                            {
+                              "name": "records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierLab-Governance/actions/runs/36373624348/job/108774886604"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": [
+                  {
+                    "id": "PRR_kwDOUukWy88AAAABPcw7KA",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-27T19:44:36Z",
+                    "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/1#pullrequestreview-5331761960",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `a2c621ad60`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "a2c621ad60f99b5b7dcd9d8101cc6e8ea721df3d"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWy88AAAABPek58Q",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T03:25:03Z",
+                    "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/1#pullrequestreview-5333662193",
+                    "body": "",
+                    "commit": {
+                      "oid": "491631c950907cd575036e9ec1d4b22eeace46c6"
+                    },
+                    "author": {
+                      "login": "lijiabao1998"
+                    }
+                  }
+                ]
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": [
+                  {
+                    "isResolved": true,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/1#discussion_r4116681515",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Version the stricter branch contract as a breaking change**\n\nWhen a research repository upgrades its governance pin to this commit, `validate_repo()` revalidates every non-DRAFT historical round, and this new check rejects records generated by the previous `start` implementation (`<agent>/<lowercase-id>` with no topic). However, the commit still declares protocol 1.1.0, while `PROTOCOL_VERSIONS.md` defines a change that invalidates previously compliant records as major; repositories with such rounds therefore cannot adopt this purportedly compatible 1.1.0 checkout without rewriting history. Either assign a new breaking protocol version or grandfather legacy branch records while enforcing the new contract for new rounds.\n\nAGENTS.md reference: [AGENTS.md:L4-L4](https://github.com/lijiabao1998/FrontierLab-Governance/blob/a2c621ad60f99b5b7dcd9d8101cc6e8ea721df3d/AGENTS.md#L4-L4)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T19:44:36Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWy88AAAABPcw7KA",
+                            "commit": {
+                              "oid": "a2c621ad60f99b5b7dcd9d8101cc6e8ea721df3d"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

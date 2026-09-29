@@ -5,12 +5,12 @@
   "single_truth_source": "audits/frontier_audit_2026-09-28.json (markdown is RENDERED, do not hand-edit)",
   "renderer": "audits/render_frontier_audit.py",
   "timestamp_policy": "timezone-qualified timestamps where recorded; UNKNOWN where not recoverable; date-only marked DATE_ONLY_KNOWN",
-  "status_note": "Historical 2026-09-27/28 source records, not a new literature search. Incomplete timestamps remain unknown; no current scientific status is inferred.",
+  "status_note": "no problem status modified; no candidate_for_resolution_review flags; 'no resolution found' appears ONLY on FOUR_WAY_COMPLETE entries",
   "problems": [
     {
       "problem_id": "MATH-001",
       "repo": "FrontierMath",
-      "search_status": "HISTORICAL_UNVERIFIED",
+      "search_status": "FOUR_WAY_COMPLETE",
       "checked_at": null,
       "checked_date": "2026-09-27",
       "timestamp_status": "DATE_ONLY_KNOWN",
@@ -33,19 +33,17 @@
           "license_if_relevant": null
         }
       ],
-      "conclusion_scope": "Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave",
-      "claims_published": false,
+      "conclusion_scope": "no resolution found for the problem scope (four-way supported); details in repo LITERATURE_MAP + REMEDIATION",
+      "claims_published": true,
       "extra": {
         "newest_bound": "2n for all n<=74 except 75; record n=76; smallest open n=75",
         "note": "full four-way maps in repo runs/*/LITERATURE_MAP.md; BLOCKED-on-frontier-configs retracted after dsk evidence: n=71-76 public configs available (431,008-file verified by glm), n=75 unique zero"
-      },
-      "recorded_search_status": "FOUR_WAY_COMPLETE",
-      "historical_conclusion_scope": "no resolution found for the problem scope (four-way supported); details in repo LITERATURE_MAP + REMEDIATION"
+      }
     },
     {
       "problem_id": "PHYS-001",
       "repo": "FrontierPhysics",
-      "search_status": "HISTORICAL_UNVERIFIED",
+      "search_status": "FOUR_WAY_COMPLETE",
       "checked_at": null,
       "checked_date": "2026-09-27",
       "timestamp_status": "DATE_ONLY_KNOWN",
@@ -68,19 +66,17 @@
           "license_if_relevant": null
         }
       ],
-      "conclusion_scope": "Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave",
-      "claims_published": false,
+      "conclusion_scope": "no resolution found for the problem scope (four-way supported); details in repo LITERATURE_MAP + REMEDIATION",
+      "claims_published": true,
       "extra": {
         "newest_bound": "K41 synthetic baseline calibrated (two-stage); triadic-suppression 2026-03 mechanism study",
         "note": "beta=3 slope is a window-dependent statistic, not a clean exponent (dsk audit)"
-      },
-      "recorded_search_status": "FOUR_WAY_COMPLETE",
-      "historical_conclusion_scope": "no resolution found for the problem scope (four-way supported); details in repo LITERATURE_MAP + REMEDIATION"
+      }
     },
     {
       "problem_id": "BIO-001",
       "repo": "FrontierBiology",
-      "search_status": "HISTORICAL_UNVERIFIED",
+      "search_status": "FOUR_WAY_COMPLETE",
       "checked_at": null,
       "checked_date": "2026-09-27",
       "timestamp_status": "DATE_ONLY_KNOWN",
@@ -92,7 +88,7 @@
           "doi": null,
           "title": "Wei et al. Nat Methods 2025; PerturbVAE leakage-aware benchmark",
           "authors": null,
-          "year": 2025,
+          "year": 2026,
           "version": null,
           "kind": "primary",
           "accessed_at": null,
@@ -103,19 +99,17 @@
           "license_if_relevant": null
         }
       ],
-      "conclusion_scope": "Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave",
-      "claims_published": false,
+      "conclusion_scope": "no resolution found for the problem scope (four-way supported); details in repo LITERATURE_MAP + REMEDIATION",
+      "claims_published": true,
       "extra": {
-        "newest_bound": "Historical literature/synthetic observations only; r1 E2 is INCONCLUSIVE and r2 is exploratory; see current convergence status",
+        "newest_bound": "leakage gap quantified (PerturbVAE 0.522->0.257; glm synthetic 0.878)",
         "note": ""
-      },
-      "recorded_search_status": "FOUR_WAY_COMPLETE",
-      "historical_conclusion_scope": "no resolution found for the problem scope (four-way supported); details in repo LITERATURE_MAP + REMEDIATION"
+      }
     },
     {
       "problem_id": "CHEM-004",
       "repo": "FrontierChemistry",
-      "search_status": "HISTORICAL_UNVERIFIED",
+      "search_status": "FOUR_WAY_COMPLETE",
       "checked_at": null,
       "checked_date": "2026-09-27",
       "timestamp_status": "DATE_ONLY_KNOWN",
@@ -138,19 +132,17 @@
           "license_if_relevant": null
         }
       ],
-      "conclusion_scope": "Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave",
-      "claims_published": false,
+      "conclusion_scope": "no resolution found for the problem scope (four-way supported); details in repo LITERATURE_MAP + REMEDIATION",
+      "claims_published": true,
       "extra": {
-        "newest_bound": "GAFF calc-vs-exp MAE 1.114 kcal/mol recorded; C4 degradation claims withdrawn, v4 key post-hoc; C5 fails",
+        "newest_bound": "GAFF calc-vs-exp MAE 1.114 kcal/mol reproduced; C4 passes under true Murcko split",
         "note": "FreeSolv CC BY 4.0 reviewed"
-      },
-      "recorded_search_status": "FOUR_WAY_COMPLETE",
-      "historical_conclusion_scope": "no resolution found for the problem scope (four-way supported); details in repo LITERATURE_MAP + REMEDIATION"
+      }
     },
     {
       "problem_id": "CS-001",
       "repo": "FrontierComputerScience",
-      "search_status": "HISTORICAL_UNVERIFIED",
+      "search_status": "FOUR_WAY_COMPLETE",
       "checked_at": null,
       "checked_date": "2026-09-27",
       "timestamp_status": "UNKNOWN",
@@ -227,17 +219,15 @@
           "license_if_relevant": null
         }
       ],
-      "conclusion_scope": "Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave",
-      "claims_published": false,
+      "conclusion_scope": "FOUR_WAY_COMPLETE: no same-scope resolution or erratum found; repo-scale verification unsolved for frontier models",
+      "claims_published": true,
       "evaluator_maturity": "none",
-      "next_smallest_action": "baseline pass-rate reproduction on VeriSoftBench subset",
-      "recorded_search_status": "FOUR_WAY_COMPLETE",
-      "historical_conclusion_scope": "FOUR_WAY_COMPLETE: no same-scope resolution or erratum found; repo-scale verification unsolved for frontier models"
+      "next_smallest_action": "baseline pass-rate reproduction on VeriSoftBench subset"
     },
     {
       "problem_id": "STAT-001",
       "repo": "FrontierStatistics",
-      "search_status": "HISTORICAL_UNVERIFIED",
+      "search_status": "FOUR_WAY_COMPLETE",
       "checked_at": null,
       "checked_date": "2026-09-27",
       "timestamp_status": "UNKNOWN",
@@ -314,17 +304,15 @@
           "license_if_relevant": null
         }
       ],
-      "conclusion_scope": "Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave",
-      "claims_published": false,
+      "conclusion_scope": "FOUR_WAY_COMPLETE: no same-scope resolution; shift-robust coverage open with known criticism lines",
+      "claims_published": true,
       "evaluator_maturity": "none",
-      "next_smallest_action": "WCP/ACI/split-conformal reproduction on standard covariate-shift simulation",
-      "recorded_search_status": "FOUR_WAY_COMPLETE",
-      "historical_conclusion_scope": "FOUR_WAY_COMPLETE: no same-scope resolution; shift-robust coverage open with known criticism lines"
+      "next_smallest_action": "WCP/ACI/split-conformal reproduction on standard covariate-shift simulation"
     },
     {
       "problem_id": "META-001",
       "repo": "FrontierMetaScience",
-      "search_status": "HISTORICAL_UNVERIFIED",
+      "search_status": "FOUR_WAY_COMPLETE",
       "checked_at": null,
       "checked_date": "2026-09-27",
       "timestamp_status": "UNKNOWN",
@@ -401,12 +389,10 @@
           "license_if_relevant": null
         }
       ],
-      "conclusion_scope": "Historical search report; not refreshed or admitted by the 2026-09-29 maintenance wave",
-      "claims_published": false,
+      "conclusion_scope": "FOUR_WAY_COMPLETE: no same-scope resolution; execution bottleneck acknowledged; benchmark-gamability critiques constrain evaluator design",
+      "claims_published": true,
       "evaluator_maturity": "none",
-      "next_smallest_action": "failure-stage classification reproduction on public AgentActionBench subset",
-      "recorded_search_status": "FOUR_WAY_COMPLETE",
-      "historical_conclusion_scope": "FOUR_WAY_COMPLETE: no same-scope resolution; execution bottleneck acknowledged; benchmark-gamability critiques constrain evaluator design"
+      "next_smallest_action": "failure-stage classification reproduction on public AgentActionBench subset"
     },
     {
       "problem_id": "MAT-003",

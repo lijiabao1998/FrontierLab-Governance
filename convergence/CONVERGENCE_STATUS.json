@@ -1,66 +1,7 @@
 {
-  "generated_at": "2026-09-28T16:43:53+00:00",
-  "prs": [
-    {
-      "repo": "FrontierMath",
-      "pr": 4,
-      "head_sha": "beaf8427afe5",
-      "ci": "GREEN",
-      "unresolved_p1": 0,
-      "unresolved_p2": 0,
-      "hash_manifest": "GREEN",
-      "independent_verification": "per-repo REMEDIATION/verifier artifacts",
-      "claim_scope_correct": true,
-      "verdict": "READY_FOR_OWNER_REVIEW"
-    },
-    {
-      "repo": "FrontierPhysics",
-      "pr": 2,
-      "head_sha": "7219b6ab57ad",
-      "ci": "GREEN",
-      "unresolved_p1": 0,
-      "unresolved_p2": 0,
-      "hash_manifest": "GREEN",
-      "independent_verification": "per-repo REMEDIATION/verifier artifacts",
-      "claim_scope_correct": true,
-      "verdict": "AWAITING_REVIEW"
-    },
-    {
-      "repo": "FrontierChemistry",
-      "pr": 1,
-      "head_sha": "bdca66228bc0",
-      "ci": "GREEN",
-      "unresolved_p1": 0,
-      "unresolved_p2": 0,
-      "hash_manifest": "GREEN",
-      "independent_verification": "per-repo REMEDIATION/verifier artifacts",
-      "claim_scope_correct": true,
-      "verdict": "READY_FOR_OWNER_REVIEW"
-    },
-    {
-      "repo": "FrontierBiology",
-      "pr": 1,
-      "head_sha": "4fdac6104e9c",
-      "ci": "GREEN",
-      "unresolved_p1": 2,
-      "unresolved_p2": 1,
-      "hash_manifest": "GREEN",
-      "independent_verification": "per-repo REMEDIATION/verifier artifacts",
-      "claim_scope_correct": true,
-      "verdict": "AWAITING_REVIEW"
-    },
-    {
-      "repo": "FrontierLab-Governance",
-      "pr": 2,
-      "head_sha": "bba67544c236",
-      "ci": "GREEN",
-      "unresolved_p1": 0,
-      "unresolved_p2": 1,
-      "hash_manifest": "N/A",
-      "independent_verification": "per-repo REMEDIATION/verifier artifacts",
-      "claim_scope_correct": true,
-      "verdict": "AWAITING_REVIEW"
-    }
-  ],
-  "ready_promotion_note": "FM beaf842 and CHEM bdca662 reviewed clean (0/0) -> READY. PHYS 88c316c / BIO 9590a99 / Gov bba6754+ have unreviewed fix commits -> AWAITING_REVIEW. BIO third-review findings: E2 recorded FAILED/INCONCLUSIVE (preserved), verifier P1s fixed; Gov SESSION_LEDGER locators now resolvable (validator exit 0)."
+  "generated_at": "2026-09-29T13:37:35.087618+00:00",
+  "superseded": true,
+  "authoritative_current_status": "CURRENT_STATUS.json",
+  "historical_snapshot": "history/before_gpt_20260929/CONVERGENCE_STATUS.json",
+  "scope": "Legacy snapshot retired; consult CURRENT_STATUS.json and MERGE_DECISIONS.md. No READY approval."
 }

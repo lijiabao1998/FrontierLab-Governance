@@ -1,0 +1,1763 @@
+{
+  "acquired_started_at": "2026-09-29T13:37:26.073728+00:00",
+  "acquired_completed_at": "2026-09-29T13:37:30.073208+00:00",
+  "repository": "FrontierMath",
+  "response": {
+    "data": {
+      "repository": {
+        "name": "FrontierMath",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "cd1e4eadc177920b95332ebe08c2498e52c3ce56"
+          }
+        },
+        "pullRequests": {
+          "pageInfo": {
+            "hasNextPage": false
+          },
+          "nodes": [
+            {
+              "number": 6,
+              "title": "MATH-001 canonical evidence (dsk): finite-frontier facts, third independent verifier, small-n ground truth, 431,008-database verification, superseded-claim register",
+              "url": "https://github.com/lijiabao1998/FrontierMath/pull/6",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "dsk/MATH-001-canonical-evidence",
+              "headRefOid": "d90aa6410a89e2c88c85bdb4f8b3e4f5b9ee4f35",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-28T08:30:19Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "lean",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36397282444/job/108846556306"
+                            },
+                            {
+                              "name": "lean",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36397275933/job/108846535873"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36397283140/job/108846559373"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36397276670/job/108846538248"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": [
+                  {
+                    "id": "PRR_kwDOUukVxs8AAAABPgME1A",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T07:42:21Z",
+                    "url": "https://github.com/lijiabao1998/FrontierMath/pull/6#pullrequestreview-5335352532",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `1cb64019f5`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "1cb64019f5e96eb7dac1895b770dc185ceabf3e4"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukVxs8AAAABPgcRWg",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T08:05:47Z",
+                    "url": "https://github.com/lijiabao1998/FrontierMath/pull/6#pullrequestreview-5335617882",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `553c2075f9`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "553c2075f94203f935c0cd01029e6432da712bc0"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukVxs8AAAABPgtm9w",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T08:30:14Z",
+                    "url": "https://github.com/lijiabao1998/FrontierMath/pull/6#pullrequestreview-5335901943",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `d90aa6410a`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "d90aa6410a89e2c88c85bdb4f8b3e4f5b9ee4f35"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  }
+                ]
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": [
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/6#discussion_r4119679420",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Import the verifier from its sibling directory**\n\nWhen `database/audit_r1_artifacts.py` is run as documented from this tree, `sys.path` contains the `database` directory, but `ntil_verify.py` is under sibling directory `verifier`; the script therefore immediately raises `ModuleNotFoundError` before auditing anything. Add the sibling verifier directory to the import path or package these modules so the claimed corpus reproduction can actually run.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierMath/blob/1cb64019f5e96eb7dac1895b770dc185ceabf3e4/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:42:21Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPgME1A",
+                            "commit": {
+                              "oid": "1cb64019f5e96eb7dac1895b770dc185ceabf3e4"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/6#discussion_r4119679430",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Read the audit corpus from the fetched provenance path**\n\nAfter the import is repaired (or when `PYTHONPATH` is supplied), this audit still looks for `canonical_evidence/lit_data/known_solutions_1997.txt`, while `fetch_third_party.py` writes it to `canonical_evidence/provenance/known_solutions_1997.txt`. Because there is no corpus-path option, a normal fetched checkout takes the skip branch and ultimately exits 0, so the C3 statement that the corpus portion is reproducible with this script is false and an omitted audit can appear successful.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierMath/blob/1cb64019f5e96eb7dac1895b770dc185ceabf3e4/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:42:21Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPgME1A",
+                            "commit": {
+                              "oid": "1cb64019f5e96eb7dac1895b770dc185ceabf3e4"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/6#discussion_r4119679443",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Commit the five retrieval-path cross-check reports**\n\nThe cited evidence does not contain the asserted cross-check results: `record_symmetries_ge65.json` only records symmetry analyses, while `all_known_solutions_verification.json` only records aggregate corpus verification; neither contains `paths_agree`, `path_a`/`path_b`, or the claimed per-record `code_sha256` values. Consequently an offline reviewer cannot verify the five identical-point-set claims, and rerunning against the mutable CGI endpoint is not evidence from this same committed tree; commit the five generated JSON reports or narrow this claim.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierMath/blob/1cb64019f5e96eb7dac1895b770dc185ceabf3e4/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:42:21Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPgME1A",
+                            "commit": {
+                              "oid": "1cb64019f5e96eb7dac1895b770dc185ceabf3e4"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/6#discussion_r4119866490",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Fail the audit on every failed check**\n\nFresh evidence after the missing-corpus fix: with a present corpus containing a decode error, this command prints the error but still exits 0, because the return value considers only `missing_corpus`. The same successful exit occurs for corpus verification failures, failed self-certificates, or a vacuous/weak mutation test, so an automated reproduction gate can still report success without reproducing the cited result; derive the exit status from all required audit outcomes and cover them with deliberate failure tests.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierMath/blob/553c2075f94203f935c0cd01029e6432da712bc0/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T08:05:47Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPgcRWg",
+                            "commit": {
+                              "oid": "553c2075f94203f935c0cd01029e6432da712bc0"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/6#discussion_r4119866504",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Preserve the compared data for offline checking**\n\nFresh evidence in the newly committed reports shows that they contain only point counts, a hash of path A, empty difference summaries, and the same process's `paths_agree` verdict; they contain neither point set, the coded record, nor the CGI response/hash. An offline reviewer therefore cannot check that the sets are identical and must trust the unrepeatable live-CGI computation, contrary to this sentence; preserve both inputs or decoded sets, or narrow the claim to say only that the reports record the earlier result.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierMath/blob/553c2075f94203f935c0cd01029e6432da712bc0/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T08:05:47Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPgcRWg",
+                            "commit": {
+                              "oid": "553c2075f94203f935c0cd01029e6432da712bc0"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/6#discussion_r4119866509",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Point default corpus paths at provenance**\n\nAfter the documented fetch, the corpus is stored under `provenance/dl/`, but this script's default still points to the nonexistent `lit_data/dl/`. Consequently its advertised `python symmetry_probe.py [--json ...]` invocation fails with `FileNotFoundError` unless the caller discovers and supplies `--file`; `cross_check_database.py` has the same stale default at line 99. Use the provenance location so the scripts reproduce against the fetched layout by default.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierMath/blob/553c2075f94203f935c0cd01029e6432da712bc0/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T08:05:47Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPgcRWg",
+                            "commit": {
+                              "oid": "553c2075f94203f935c0cd01029e6432da712bc0"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/6#discussion_r4120055348",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Include self-certificate failures in the exit gate**\n\nFresh evidence after `d90aa64` shows the new `reasons` gate still never reads `self_audit[\"all_pass\"]`: when `--r1` contains a certificate that `verify()` rejects, the script prints `all_pass=False` but returns 0 if the corpus checks pass. This leaves one of the audit's advertised inputs able to fail without failing an automated reproduction, so append a reason for failed self-certificates (and preferably for an unexpectedly empty required set).\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierMath/blob/d90aa6410a89e2c88c85bdb4f8b3e4f5b9ee4f35/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T08:30:14Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPgtm9w",
+                            "commit": {
+                              "oid": "d90aa6410a89e2c88c85bdb4f8b3e4f5b9ee4f35"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/6#discussion_r4120055372",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Reject empty or undecodable database inputs**\n\nWhen `--file` is empty, or contains only malformed odd-length records such as `abc`, `total == passed == 0` and `decode_errors` remains empty because `decode()` returns `None`; the advertised full-database verifier therefore exits 0 after verifying no configurations. Require every nonblank input line to decode and, outside sample mode, require the expected 431,008 decoded records so a truncated or wrong corpus cannot be certified as successful.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierMath/blob/d90aa6410a89e2c88c85bdb4f8b3e4f5b9ee4f35/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T08:30:14Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPgtm9w",
+                            "commit": {
+                              "oid": "d90aa6410a89e2c88c85bdb4f8b3e4f5b9ee4f35"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/6#discussion_r4120055381",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Regenerate the audit evidence with the current script**\n\nThe committed `evidence/r1_artifact_verification.json` cannot have been regenerated by the current script as claimed here: `audit_r1_artifacts.py` unconditionally adds `exit_reasons` before writing JSON, but the committed report ends after `self_certs` and has no such field. Consequently the evidence does not record the new fail-closed gate or its reasons; rerun the current script and commit its output so the artifact is tied to the reviewed implementation.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierMath/blob/d90aa6410a89e2c88c85bdb4f8b3e4f5b9ee4f35/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T08:30:14Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPgtm9w",
+                            "commit": {
+                              "oid": "d90aa6410a89e2c88c85bdb4f8b3e4f5b9ee4f35"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "number": 5,
+              "title": "MATH-001 independent verification (dsk): admitted round with in-round re-execution — 3rd verifier, 431,008-config corpus verified, n=71..76 records verified, n=75 bench + compute protocol",
+              "url": "https://github.com/lijiabao1998/FrontierMath/pull/5",
+              "state": "CLOSED",
+              "isDraft": false,
+              "headRefName": "dsk/MATH-001-independent-verifier-r1",
+              "headRefOid": "15a2f887fa57b8d336bfdbff7026d3f0294ed009",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-28T07:37:34Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "lean",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36392648864/job/108831725658"
+                            },
+                            {
+                              "name": "lean",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36392643853/job/108831709864"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36392649533/job/108831728472"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36392644972/job/108831711829"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": [
+                  {
+                    "id": "PRR_kwDOUukVxs8AAAABPc10oA",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-27T20:06:01Z",
+                    "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#pullrequestreview-5331842208",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `bb3bdd883d`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "bb3bdd883d2ee0bfe3ebf1b97f5d68a8c58214c4"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukVxs8AAAABPfThCw",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T05:41:59Z",
+                    "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#pullrequestreview-5334425867",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `422bc2a68f`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "422bc2a68f6569735bc715fea9976a9d52189b1c"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukVxs8AAAABPflDyg",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T06:23:45Z",
+                    "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#pullrequestreview-5334713290",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `b3136028c2`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "b3136028c2ca708fde9c6543731019e87e9db785"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukVxs8AAAABPfpQOg",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T06:34:08Z",
+                    "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#pullrequestreview-5334782010",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `d81bfcebad`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "d81bfcebad162e7c3ef9b2b2573ba76b7e7da564"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukVxs8AAAABPfuWlw",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T06:45:16Z",
+                    "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#pullrequestreview-5334865559",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `9959240df3`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "9959240df353196bae215d5b10fe88d6e33a027c"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukVxs8AAAABPfzCKQ",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T06:54:51Z",
+                    "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#pullrequestreview-5334942249",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `7d8443f1d8`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "7d8443f1d840b14999f1e60d1be8d4a3cd38605c"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukVxs8AAAABPf3lYA",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T07:03:52Z",
+                    "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#pullrequestreview-5335016800",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `7d8443f1d8`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "7d8443f1d840b14999f1e60d1be8d4a3cd38605c"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  }
+                ]
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": [
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4116759241",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Admit this research round before recording results**\n\nThis change explicitly records an independent verification and a new attack bench while bypassing `frontier.py start`/`admit`, and the commit adds no `runs/<id>/round.json`. That omits the required base SHA, search/admission evidence, budgets, and retained failure record for this round; create and admit the required round record rather than treating review work as exempt.\n\nAGENTS.md reference: [AGENTS.md:L14-L14](https://github.com/lijiabao1998/FrontierMath/blob/bb3bdd883d2ee0bfe3ebf1b97f5d68a8c58214c4/AGENTS.md#L14-L14)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:06:01Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPc10oA",
+                            "commit": {
+                              "oid": "bb3bdd883d2ee0bfe3ebf1b97f5d68a8c58214c4"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4116759244",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Fail --check when a required source is missing**\n\nWhen `--check` is set, the outer branch is always entered, but a missing file sets `ok = False` only when `not args.check`; consequently `--check` prints `MISSING` and still exits 0 with “all present and verified.” This is reproducible with `--check --code-inputs-only` when both corpus files are absent, so the documented provenance check can certify sources that were never read.\n\nAGENTS.md reference: [AGENTS.md:L8-L8](https://github.com/lijiabao1998/FrontierMath/blob/bb3bdd883d2ee0bfe3ebf1b97f5d68a8c58214c4/AGENTS.md#L8-L8)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:06:01Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPc10oA",
+                            "commit": {
+                              "oid": "bb3bdd883d2ee0bfe3ebf1b97f5d68a8c58214c4"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4116759246",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Require every collinear triple in the CNF audit**\n\nFor a line containing more than three cells, finding one negative triple clause does not establish the required at-most-two constraint, because any other triple on that line may still be selected. For example, retaining only one of the ten diagonal triple clauses in the generated n=5 CNF still makes this function report `covers_all_lines: true`; therefore G2 can approve an underconstrained formula and make a later UNSAT result meaningless.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierMath/blob/bb3bdd883d2ee0bfe3ebf1b97f5d68a8c58214c4/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:06:01Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPc10oA",
+                            "commit": {
+                              "oid": "bb3bdd883d2ee0bfe3ebf1b97f5d68a8c58214c4"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4116759250",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Return success only after a proof is checked**\n\nThe exit condition is reversed: the current blocked state (`emitted` is nonempty and `with_proof` is empty) returns 0, while provisioning a working pipeline that produces any `SOLVED_WITH_CHECKED_PROOF` result makes the script return 1. Any shell or CI gate using the exit status therefore treats an uncertifiable UNSAT pipeline as successful and the repaired pipeline as failed; base success on the required checked-proof outcome instead.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierMath/blob/bb3bdd883d2ee0bfe3ebf1b97f5d68a8c58214c4/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:06:01Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPc10oA",
+                            "commit": {
+                              "oid": "bb3bdd883d2ee0bfe3ebf1b97f5d68a8c58214c4"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4118935842",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Reject vacuous semantic line audits**\n\nWhen the DIMACS contains any unrelated contradiction, unit propagation on the entire formula reports a conflict for every assumed triple; the SAT fallback is equally vacuous because it also checks the entire formula. I reproduced this by deleting all ten n=5 diagonal constraints and adding `[1]` and `[-1]`, after which the audit still returned `complete: true`. This can certify a malformed UNSAT instance, so validate the relevant cardinality encoding independently or first establish that the remaining formula is satisfiable.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierMath/blob/422bc2a68f6569735bc715fea9976a9d52189b1c/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T05:41:59Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPfThCw",
+                            "commit": {
+                              "oid": "422bc2a68f6569735bc715fea9976a9d52189b1c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4118935846",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Enforce the frozen A3 acceptance criterion**\n\nThe admitted criterion requires every decode-preserving mutation to become illegal, but this gate accepts a 90% rate from at most 400 randomly sampled lines and one random swap per line. Thus a run with known surviving mutations can still pass, and even the recorded `1.0` does not cover every mutation over the 36,912-line corpus, so `all_criteria_passed` does not establish the frozen criterion; either perform the exhaustive check or record A3 as failed and rerun under a prospectively revised criterion.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierMath/blob/422bc2a68f6569735bc715fea9976a9d52189b1c/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T05:41:59Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPfThCw",
+                            "commit": {
+                              "oid": "422bc2a68f6569735bc715fea9976a9d52189b1c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4118935858",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Audit the actual n=75 formula at G2**\n\nFresh evidence after the earlier completeness finding is that G2 still documents the old “at least one clause” rule and suggests running `benchmark.py`, but that script only calls `negative_controls(5)` and never audits the generated n=75 DIMACS. Following this protocol can therefore mark G2 complete without checking the target formula, and the stated one-clause condition remains insufficient for lines longer than three cells; require the complete audit on the exact hashed n=75 instance.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierMath/blob/422bc2a68f6569735bc715fea9976a9d52189b1c/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T05:41:59Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPfThCw",
+                            "commit": {
+                              "oid": "422bc2a68f6569735bc715fea9976a9d52189b1c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4118935865",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Separate verifier changes from their recorded results**\n\nThis commit simultaneously introduces the certificate verifier, regression gates and acceptance thresholds and commits the `ROUND_FINISHED` reports that those new components approve. Marking the round admitted immediately before executing them does not provide the required independently reviewed, frozen verifier/gate boundary; land the verifier and deliberate-break tests first, then execute and record results in a later PR.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierMath/blob/422bc2a68f6569735bc715fea9976a9d52189b1c/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T05:42:00Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPfThCw",
+                            "commit": {
+                              "oid": "422bc2a68f6569735bc715fea9976a9d52189b1c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4119167001",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Audit orbit variables with the orbit mapping**\n\nThe documented G2 command generates an orbit formulation, but this call omits `var_of_cell`, so `audit_cnf_covers_lines` assumes that each cell is represented by its row-major variable ID. In `encode_orbits`, cells instead share `y[o]` variables and the weighted line constraints use those orbit IDs; the audit also incorrectly classifies lines according to the cell encoder's explicit/network threshold. Consequently a valid orbit CNF is reported incomplete—I reproduced this with an intact `n=3, group=rot2` instance, where 7 of 8 lines were reported missing—so the required n=75 G2 command cannot validate the target formula.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:23:45Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPflDyg",
+                            "commit": {
+                              "oid": "b3136028c2ca708fde9c6543731019e87e9db785"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4119167012",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Avoid solving the target formula as the vacuity guard**\n\nWhen the target formula is genuinely UNSAT—the outcome this pipeline is meant to investigate—this guard necessarily marks G2 vacuous and incomplete, so the protocol can never proceed to or certify that outcome. It also requires solving the 36-million-clause n=75 instance synchronously before the compute phase, and treats an unchecked solver `False` as sufficient to classify it UNSAT. The guard must instead validate the relevant encoding independently, such as by checking each line gadget in isolation or after removing the target constraints whose satisfiability is under investigation.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierMath/blob/b3136028c2ca708fde9c6543731019e87e9db785/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:23:45Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPflDyg",
+                            "commit": {
+                              "oid": "b3136028c2ca708fde9c6543731019e87e9db785"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4119224712",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Replace the per-line full-DIMACS scan in G2**\n\nFor the documented n=75 G2 command, this comprehension scans all 36,418,316 clauses once for each of 1,336,828 maximal lines—about 4.9e13 clause visits before any SAT calls—and the subsequent loop creates still more solver instances. The mandatory pre-compute audit therefore cannot realistically finish within the research budget; index clauses by primary variable once, or directly audit the orbit encoder's explicit pair/triple clauses instead.\n\nAGENTS.md reference: [AGENTS.md:L14-L14](https://github.com/lijiabao1998/FrontierMath/blob/d81bfcebad162e7c3ef9b2b2573ba76b7e7da564/AGENTS.md#L14-L14)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:34:08Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPfpQOg",
+                            "commit": {
+                              "oid": "d81bfcebad162e7c3ef9b2b2573ba76b7e7da564"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4119224717",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Reject satisfiable but overconstrained orbit formulas**\n\nLocal satisfiability does not prevent this semantic check from approving an unrelated stronger constraint: a DIMACS containing only one negative unit `-y_o` for every orbit variable is locally satisfiable with all variables false, makes every violating selection UNSAT, and causes `audit_orbit_cnf(3, ..., \"rot2\")` to return `complete: true` despite containing none of the intended line gadgets or target-size encoding. Such an overconstrained formula can produce a meaningless UNSAT result, so G2 must verify the intended clauses/equivalence rather than only existence of one local model plus rejection of violations.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierMath/blob/d81bfcebad162e7c3ef9b2b2573ba76b7e7da564/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:34:09Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPfpQOg",
+                            "commit": {
+                              "oid": "d81bfcebad162e7c3ef9b2b2573ba76b7e7da564"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4119224724",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Invoke the provisioned independent proof checker**\n\nWhen a standalone checker is later installed and a solver emits a closing proof, this constant still leaves `independent_checker` false, so `compute_final_status` can never return `SOLVED_WITH_CHECKED_PROOF`. That contradicts the compute protocol's prescribed way to unblock G4 and permanently prevents a genuinely checked pipeline from becoming green; detect and actually run the independent checker, then derive this flag from its result.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierMath/blob/d81bfcebad162e7c3ef9b2b2573ba76b7e7da564/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:34:09Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPfpQOg",
+                            "commit": {
+                              "oid": "d81bfcebad162e7c3ef9b2b2573ba76b7e7da564"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4119224730",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Mark the split round execution as not run**\n\nFresh evidence after the results-splitting fix is that the authoritative `round.json` now says `executed_in_this_pr: false`, and the referenced results directory and `RERUN_EVIDENCE.json` are absent, yet this report still says the round was executed and all A0–A8 criteria passed. This preserves the exact unsupported result claim that splitting was meant to remove; describe these checks as not run until the follow-up commits their evidence.\n\nAGENTS.md reference: [AGENTS.md:L14-L14](https://github.com/lijiabao1998/FrontierMath/blob/d81bfcebad162e7c3ef9b2b2573ba76b7e7da564/AGENTS.md#L14-L14)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:34:09Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPfpQOg",
+                            "commit": {
+                              "oid": "d81bfcebad162e7c3ef9b2b2573ba76b7e7da564"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4119291937",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Build the clause lookup only once**\n\nFresh evidence after the earlier full-DIMACS-scan finding is that this new containment check rebuilds and sorts a set of all 36,418,316 clauses inside the loop over 1,336,828 lines. Thus the documented n=75 G2 audit still performs roughly 4.9e13 clause visits and cannot realistically finish within the round budget; construct the normalized clause set once before entering the line loop.\n\nAGENTS.md reference: [AGENTS.md:L14-L14](https://github.com/lijiabao1998/FrontierMath/blob/9959240df353196bae215d5b10fe88d6e33a027c/AGENTS.md#L14-L14)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:45:16Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPfuWlw",
+                            "commit": {
+                              "oid": "9959240df353196bae215d5b10fe88d6e33a027c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4119291943",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Reject extra constraints beyond the manifested gadgets**\n\nFresh evidence for the over-constrained-formula issue is that containment only detects missing clauses: a DIMACS consisting of every clause from the genuine per-line manifest plus a negative unit for every orbit variable, while omitting the B3 target-cardinality encoding, still returns `complete: true`. All manifested clauses are present, each local formula is satisfiable with all variables false, and every violation is refuted; because current line gadgets contain no auxiliary variables, the later selectability branch also never runs. Verify the complete expected encoding or otherwise reject such extra constraints before G2 can certify the formula.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierMath/blob/9959240df353196bae215d5b10fe88d6e33a027c/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:45:16Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPfuWlw",
+                            "commit": {
+                              "oid": "9959240df353196bae215d5b10fe88d6e33a027c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4119291948",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Persist the CNF and proof where the parent checks them**\n\nFresh evidence after the hardcoded-checker finding is that the repaired path remains unreachable when a checker is installed: `run_case` writes only a `.drat` file and never writes the corresponding `.cnf`, while the child writes artifacts beside its temporary JSON rather than in the parent's `json_dir`. Consequently this existence check is always false for newly emitted traces, so the independent checker is never invoked and `SOLVED_WITH_CHECKED_PROOF` remains unattainable.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierMath/blob/9959240df353196bae215d5b10fe88d6e33a027c/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:45:16Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPfuWlw",
+                            "commit": {
+                              "oid": "9959240df353196bae215d5b10fe88d6e33a027c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4119291952",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Require checker success instead of matching `VERIFIED`**\n\nWhen an independent checker rejects a proof with output such as `s NOT VERIFIED`, this substring test sets `verified` to true even if the checker exits nonzero. I reproduced the resulting `SOLVED_WITH_CHECKED_PROOF` status with a checker returning 1 and printing that message, so a failed proof check can be promoted to certification; require the checker's documented success exit code and an unambiguous positive verdict.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierMath/blob/9959240df353196bae215d5b10fe88d6e33a027c/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:45:17Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPfuWlw",
+                            "commit": {
+                              "oid": "9959240df353196bae215d5b10fe88d6e33a027c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4119291961",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Pass the required manifest in the frozen G2 commands**\n\nAfter the audit was changed to fail closed without a gadget manifest, the frozen protocol still generates no manifest and supplies none to `benchmark.py`. Following these mandatory commands therefore makes every orbit line report the missing-manifest error and G2 always exits nonzero; add matching `--gadget-manifest` arguments to both commands so the prescribed pre-compute gate can actually be satisfied.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:45:17Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPfuWlw",
+                            "commit": {
+                              "oid": "9959240df353196bae215d5b10fe88d6e33a027c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4119352374",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Require the manifest's full clause list**\n\nWhen `--gadget-manifest` points to a previous-format or truncated manifest containing `gadgets` but no `clauses`, `benchmark.py` passes `None` here and the exact multiset comparison is silently skipped. I reproduced the old overconstraint bug with a gadget-only manifest: the manifested line clauses plus negative units for every orbit variable returned `complete: true`, while supplying the canonical clause list correctly returned false. Fail closed unless `manifest_clauses` is present and validated.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierMath/blob/7d8443f1d840b14999f1e60d1be8d4a3cd38605c/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:54:51Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPfzCKQ",
+                            "commit": {
+                              "oid": "7d8443f1d840b14999f1e60d1be8d4a3cd38605c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4119352384",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Persist the DIMACS in the checker artifact directory**\n\nFresh evidence in this revision is that `--artifact-dir` now routes the child into the parent's directory, but `run_case` still writes only `<case>.drat` and never writes `<case>.cnf`; the parent later requires that CNF at lines 533–541. Thus, whenever a checker is provisioned and a trace is emitted, `os.path.exists(cnf_path)` remains false and the independent checker is never invoked, so G4 cannot become green.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierMath/blob/7d8443f1d840b14999f1e60d1be8d4a3cd38605c/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:54:51Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPfzCKQ",
+                            "commit": {
+                              "oid": "7d8443f1d840b14999f1e60d1be8d4a3cd38605c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4119352392",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Select an actually emitted trace for independent checking**\n\nWhen an earlier root-refuted control has `proof_lines == 0` and a later case emits a valid proof, `emitted` is nonempty but this search still selects the earlier control because `run_case` assigns `drat_path` even for an empty trace. In the current case ordering that makes the checker inspect an empty control proof instead of the emitted proof, so provisioning a working checker still cannot certify the later case; select from `emitted` or check every emitted trace.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierMath/blob/7d8443f1d840b14999f1e60d1be8d4a3cd38605c/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:54:51Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPfzCKQ",
+                            "commit": {
+                              "oid": "7d8443f1d840b14999f1e60d1be8d4a3cd38605c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4119409707",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Reject manifests without clause lists**\n\nFresh evidence in `404748e` is that the claimed fail-closed fix is absent: `man.get(\"clauses\")` still accepts a gadget-only or truncated manifest, and `audit_orbit_cnf` performs exact multiset validation only when that value is non-`None`. Such a manifest therefore restores the previously demonstrated path where extra constraints can be certified; require and validate the `clauses` key before dispatching the audit.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierMath/blob/7d8443f1d840b14999f1e60d1be8d4a3cd38605c/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:03:52Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPf3lYA",
+                            "commit": {
+                              "oid": "7d8443f1d840b14999f1e60d1be8d4a3cd38605c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4119409713",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Persist the CNF beside each emitted proof**\n\nFresh evidence in `404748e` is that `run_case` still writes only `<case>.drat`; a repository-wide search found no corresponding `<case>.cnf` write in this function, while the parent requires that exact file before invoking the independent checker. Thus a provisioned checker remains unreachable for every newly emitted trace; serialize `cnf.dimacs()` into the artifact directory as well.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierMath/blob/7d8443f1d840b14999f1e60d1be8d4a3cd38605c/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:03:52Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPf3lYA",
+                            "commit": {
+                              "oid": "7d8443f1d840b14999f1e60d1be8d4a3cd38605c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4119409719",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Choose traces only from the emitted set**\n\nFresh evidence in `404748e` is that the claimed empty-trace filtering is not present: although `emitted` excludes zero-line proofs, this lookup still scans all `results`, and `run_case` assigns `drat_path` before returning `NO_TRACE_ROOT_LEVEL_REFUTATION`. If an early control has an empty trace and a later case emits a valid proof, only the empty trace is checked and the valid one is ignored; select from `emitted` or check every emitted trace.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierMath/blob/7d8443f1d840b14999f1e60d1be8d4a3cd38605c/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:03:52Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPf3lYA",
+                            "commit": {
+                              "oid": "7d8443f1d840b14999f1e60d1be8d4a3cd38605c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4119409721",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Avoid millions of per-line SAT solver constructions**\n\nFor the mandatory n=75 G2 command, the protocol records 1,336,828 maximal lines, and this loop constructs a fresh CaDiCaL instance for every one; line 725 then constructs another instance for every minimal violating selection, numbering in the millions for this encoding. Consequently the supposedly repaired audit still cannot realistically complete within the research budget, even though exact manifest equality has already established the emitted clauses; validate the explicit gadgets directly or reuse an indexed/long-lived solver rather than rebuilding it per line and violation.\n\nAGENTS.md reference: [AGENTS.md:L14-L14](https://github.com/lijiabao1998/FrontierMath/blob/7d8443f1d840b14999f1e60d1be8d4a3cd38605c/AGENTS.md#L14-L14)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:03:52Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPf3lYA",
+                            "commit": {
+                              "oid": "7d8443f1d840b14999f1e60d1be8d4a3cd38605c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/5#discussion_r4119409729",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Accept independently checked RAT proofs**\n\nWhen a solver emits a valid DRAT trace containing a RAT step, the local RUP-only checker intentionally labels it unchecked, so `checked` is empty even if the independent DRAT checker verifies that same trace. This condition still requires `n_checked`, causing the repaired pipeline to return `PROOF_TRACE_DID_NOT_CLOSE` instead of green for a genuinely certified proof; derive success from the independent checker's verified trace, or implement full DRAT checking locally.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierMath/blob/7d8443f1d840b14999f1e60d1be8d4a3cd38605c/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:03:52Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPf3lYA",
+                            "commit": {
+                              "oid": "7d8443f1d840b14999f1e60d1be8d4a3cd38605c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "number": 7,
+              "title": "MATH-001 compute tooling (dsk): encoders, CNF/orbit audits, DRAT tooling and proof-checker integration, compute-phase protocol [follow-up] (draft: not merge-blocking)",
+              "url": "https://github.com/lijiabao1998/FrontierMath/pull/7",
+              "state": "OPEN",
+              "isDraft": true,
+              "headRefName": "dsk/MATH-001-compute-tooling",
+              "headRefOid": "7d8443f1d840b14999f1e60d1be8d4a3cd38605c",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-28T07:35:08Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "lean",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36388353319/job/108818478539"
+                            },
+                            {
+                              "name": "lean",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36392450737/job/108831113757"
+                            },
+                            {
+                              "name": "lean",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36388347848/job/108818461253"
+                            },
+                            {
+                              "name": "lean",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36392408466/job/108830987142"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36388353992/job/108818480990"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36392451469/job/108831117227"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36388348420/job/108818464227"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36392409034/job/108830988920"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": []
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": []
+              }
+            },
+            {
+              "number": 4,
+              "title": "MATH-001 r2 (glm): n=75 SAT attack bench (BENCH_SOUND) + frontier-config BLOCKED documentation",
+              "url": "https://github.com/lijiabao1998/FrontierMath/pull/4",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "glm/MATH-001-n75-bench-r2",
+              "headRefOid": "beaf8427afe541361a577d21428edbafafdec0d9",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-28T07:33:57Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "lean",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36392338668/job/108830771230"
+                            },
+                            {
+                              "name": "lean",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36392334556/job/108830757446"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36392339224/job/108830773370"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36392335142/job/108830760139"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": [
+                  {
+                    "id": "PRR_kwDOUukVxs8AAAABPcuBgw",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-27T19:31:13Z",
+                    "url": "https://github.com/lijiabao1998/FrontierMath/pull/4#pullrequestreview-5331714435",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `2cdd482e7b`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "2cdd482e7b970bb1491d805b53698fdc14c6ba44"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukVxs8AAAABPc1SiA",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-27T20:03:26Z",
+                    "url": "https://github.com/lijiabao1998/FrontierMath/pull/4#pullrequestreview-5331833480",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `5daf325f3e`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "5daf325f3ee5fc001a9b5281d20a150f23db398c"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukVxs8AAAABPfUB-g",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T05:43:01Z",
+                    "url": "https://github.com/lijiabao1998/FrontierMath/pull/4#pullrequestreview-5334434298",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `3926d7161a`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "3926d7161a62b9be61f9560fc2c3ccf873d14db8"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  }
+                ]
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": [
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/4#discussion_r4116640522",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Provide a platform-compatible SAT solver dependency**\n\nThe unconditional import uses the vendored `.deps`, but the only native solver module committed there is `pysolvers.cp313-win_amd64.pyd`. Consequently, running this bench on Linux, macOS, or even Windows with a non-3.13 Python fails immediately with `ModuleNotFoundError: No module named 'pysolvers'`; even the solver-independent `--estimate` path is unusable. Provide a reproducible dependency setup for supported platforms or defer this import until an actual solve is requested.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T19:31:13Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPcuBgw",
+                            "commit": {
+                              "oid": "2cdd482e7b970bb1491d805b53698fdc14c6ba44"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/4#discussion_r4116640528",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Encode the row-one cap as at most one**\n\nWhen `row1_cap=1`, this branch adds a negative unit clause for every cell, enforcing an empty first row rather than a capacity of one. Together with the at-least-one clause emitted above, the control is UNSAT by an immediate contradiction, so C3 passes without exercising the intended pigeonhole/cardinality behavior and the reported `BENCH_SOUND` verdict relies on a broken negative control. Encode at-most-one with pairwise or sequential constraints instead.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierMath/blob/2cdd482e7b970bb1491d805b53698fdc14c6ba44/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T19:31:13Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPcuBgw",
+                            "commit": {
+                              "oid": "2cdd482e7b970bb1491d805b53698fdc14c6ba44"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/4#discussion_r4116640533",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Keep triples results when selecting sequential mode**\n\nWhen the documented CLI is invoked with `--mode seq`, n=2 and n=5 are run only in sequential mode, but C1 later unconditionally reads `by[(n, \"triples\")]` for every n=2..5. The command therefore terminates with `KeyError: (2, 'triples')` instead of producing a benchmark result; either always generate the triples controls or make the checks use the selected mode.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T19:31:13Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPcuBgw",
+                            "commit": {
+                              "oid": "2cdd482e7b970bb1491d805b53698fdc14c6ba44"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/4#discussion_r4116640535",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Subtract one auxiliary variable per sequential counter**\n\nFor a line of length `m`, `at_most_2_sinz` creates `m` `ge1` variables and only `m-1` `ge2` variables, so the total is `2m-1`, not `2m`. At n=75 this field reports 10,174,938 line auxiliaries instead of 8,838,035, overstating the planned DIMACS size by 1,336,903 variables and propagating the inaccurate ~10.2M estimate into the round report.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T19:31:13Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPcuBgw",
+                            "commit": {
+                              "oid": "2cdd482e7b970bb1491d805b53698fdc14c6ba44"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/4#discussion_r4116750836",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Emit checkable certificates for UNSAT results**\n\nWhen the n=1 or pigeonhole controls return UNSAT, this code preserves only CaDiCaL's Boolean result; it neither enables proof logging nor stores the CNF and a proof trace for independent checking. The resulting `sat: false` records and `BENCH_SOUND` report therefore make uncertified SAT-based UNSAT claims; emit and verify a DRAT/LRAT-style certificate (or otherwise persist a checkable derivation) before recording them as evidence.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierMath/blob/5daf325f3ee5fc001a9b5281d20a150f23db398c/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:03:26Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPc1SiA",
+                            "commit": {
+                              "oid": "5daf325f3ee5fc001a9b5281d20a150f23db398c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/4#discussion_r4116750842",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Regenerate the two stale artifact hashes**\n\nFrom the directory implied by these relative paths, `sha256sum -c ../../results/r2/hashes.txt` reports failures for `ntil_cnf.py` and `n75_bench_results.json`: their committed digests are respectively `02d89ef1...` and `86a7f849...`, not `b8560577...` and `262ad689...`. Consumers therefore cannot validate the remediated generator or its regenerated evidence using this manifest.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:03:26Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPc1SiA",
+                            "commit": {
+                              "oid": "5daf325f3ee5fc001a9b5281d20a150f23db398c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/4#discussion_r4116750847",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Exclude duplicate horizontal constraints from the estimate**\n\nFor `dy == 0`, both primitive directions `(1, 0)` and `(-1, 0)` pass this exact-tuple check, so every horizontal line is emitted twice even though the earlier row cardinality constraints already enforce at-most-two on the same cells. At n=75 those two redundant copies add `2 * 75 * C(75,3) = 10,128,750` clauses in triples mode, materially inflating the proposed 48.6M-clause attack; skip horizontal lines here or canonicalize directions and avoid lines already covered by row constraints.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:03:26Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPc1SiA",
+                            "commit": {
+                              "oid": "5daf325f3ee5fc001a9b5281d20a150f23db398c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/4#discussion_r4116750850",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Update the report with the corrected auxiliary count**\n\nFresh evidence in this revision is that `ntil_cnf.py --estimate 75` now reports `seq_aux_vars_lines_only: 8838035`, but the round report still publishes the previously flagged `~10.2M` value. This leaves the remediation internally inconsistent and continues to overstate the sequential encoding by about 1.34M variables; replace this figure with approximately 8.84M.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:03:26Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPc1SiA",
+                            "commit": {
+                              "oid": "5daf325f3ee5fc001a9b5281d20a150f23db398c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/4#discussion_r4118941756",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Use the extended alphabet when decoding frontier configurations**\n\nFor configurations above n=62, the committed source uses an explicit extended alphabet where `#` maps to 62, but this fallback maps it to 36; moreover, every committed n=71–76 line contains `@` and is rejected by the check below. Consequently the reported “own decoder” reproduction could not have decoded or verifier-checked any of those five frontier configurations. Implement the documented 90-character lookup and stop treating `@` as a legacy marker before claiming independent reproduction.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierMath/blob/3926d7161a62b9be61f9560fc2c3ccf873d14db8/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T05:43:01Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPfUB-g",
+                            "commit": {
+                              "oid": "3926d7161a62b9be61f9560fc2c3ccf873d14db8"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/4#discussion_r4118941762",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Regenerate the still-stale r2 manifest**\n\nFresh evidence in this revision is that running the newly added `verify_manifest.py` at commit 07dae6f reports `MISMATCH` for `ntil_cnf.py`, `tests_regression.py`, `verify_manifest.py`, `n75_bench_results.json`, and `deepseek_path1_verification.json`; only `environment.txt` verifies. Thus the manifest still cannot authenticate the remediated bench despite the report saying verification is green, so regenerate it after all final artifact edits.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T05:43:01Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPfUB-g",
+                            "commit": {
+                              "oid": "3926d7161a62b9be61f9560fc2c3ccf873d14db8"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/4#discussion_r4118941766",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Refresh hashes for the r1 generated evidence**\n\nRunning `sha256sum -c results/r1/hashes.txt` from `problems/MATH-001` reports failures for all nine `self_n02`–`self_n10` certificates and `negative/tamper_summary.json`, while the remaining script and data entries verify. Consumers therefore cannot validate the generated positive and adversarial evidence using this manifest; recompute these ten digests from the committed files.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T05:43:01Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPfUB-g",
+                            "commit": {
+                              "oid": "3926d7161a62b9be61f9560fc2c3ccf873d14db8"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/4#discussion_r4118941770",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Update the canonical round result summary**\n\nThe final machine-readable `result.summary` still publishes the pre-remediation values of 4 checks and approximately 48.6M triples clauses, although this same revision records 5 checks and the corrected approximately 33.5M total after line canonicalization. Consumers reading the canonical result field rather than the later remediation object will receive obsolete experiment metadata, so synchronize this summary with the final results.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T05:43:01Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPfUB-g",
+                            "commit": {
+                              "oid": "3926d7161a62b9be61f9560fc2c3ccf873d14db8"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "number": 2,
+              "title": "MATH-001 r1 (glm): evaluator v1/v2 + n=2..10 certificates + 36,912-config reproduction + literature update",
+              "url": "https://github.com/lijiabao1998/FrontierMath/pull/2",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "glm/MATH-001-baseline-r1",
+              "headRefOid": "0578fc743e3c1b57ce9b2caf2290dcbdd38b9db9",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-27T20:01:56Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "lean",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36341249610/job/108681650100"
+                            },
+                            {
+                              "name": "lean",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36341246113/job/108681640066"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36341249948/job/108681651194"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36341246566/job/108681641586"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": [
+                  {
+                    "id": "PRR_kwDOUukVxs8AAAABPckJFA",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-27T18:40:26Z",
+                    "url": "https://github.com/lijiabao1998/FrontierMath/pull/2#pullrequestreview-5331552532",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `0578fc743e`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "0578fc743e3c1b57ce9b2caf2290dcbdd38b9db9"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  }
+                ]
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": [
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/2#discussion_r4116482798",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Re-admit only after completing preflight**\n\nThe committed audit record says `admitted_at` was 17:55:50 UTC, while `preflight.checked_at` is 17:56:30 UTC, so it records the round as admitted 40 seconds before the mandatory checks were completed. This contradicts the documented start → fresh verification → admit ordering and prevents the record from demonstrating that the gate evaluated the finalized preflight; correct the timestamps from the actual run or rerun admission after finalizing the record.\n\nAGENTS.md reference: [AGENTS.md:L8-L8](https://github.com/lijiabao1998/FrontierMath/blob/0578fc743e3c1b57ce9b2caf2290dcbdd38b9db9/AGENTS.md#L8-L8)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T18:40:26Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPckJFA",
+                            "commit": {
+                              "oid": "0578fc743e3c1b57ce9b2caf2290dcbdd38b9db9"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/2#discussion_r4116482802",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Fail reproduction when archive lines are skipped**\n\nFor an archive containing malformed or unsupported lines, the verdict ignores `skipped`; an input where every line is undecodable therefore exits 0 with `decoded_configs: 0` and `REPRODUCTION_SUCCESS`. This can turn a failed or partial decode into positive reproduction evidence, so success should require a nonempty decoded set and zero unexpected skipped lines.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierMath/blob/0578fc743e3c1b57ce9b2caf2290dcbdd38b9db9/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T18:40:27Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPckJFA",
+                            "commit": {
+                              "oid": "0578fc743e3c1b57ce9b2caf2290dcbdd38b9db9"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/2#discussion_r4116482804",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Decode the extension alphabet by its declared ordering**\n\nWhen decoding post-February-2026 configurations with columns above 61, `ord(c) + 1` does not implement the archived 90-character alphabet: for example `#` should map to 62 but maps to 36, colliding with `a`; additionally, the later `\"@\" in line` check rejects `@` even though it is now an alphabet symbol. Thus the decoder cannot reproduce the n>61 records targeted by the next round; use the published alphabet string as an index map while handling legacy records separately.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierMath/blob/0578fc743e3c1b57ce9b2caf2290dcbdd38b9db9/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T18:40:27Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPckJFA",
+                            "commit": {
+                              "oid": "0578fc743e3c1b57ce9b2caf2290dcbdd38b9db9"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/2#discussion_r4116482807",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Regenerate the hash manifest after finalizing artifacts**\n\nRunning `sha256sum -c results/r1/hashes.txt` from `problems/MATH-001` fails for every self-generated certificate on lines 1–9 and for `negative/tamper_summary.json` on line 10, while only the program and source-data entries pass. Because the round report presents this manifest as the integrity record for its certificates and adversarial result, the stale hashes make those committed artifacts unverifiable; regenerate the manifest from the exact files being committed.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T18:40:27Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPckJFA",
+                            "commit": {
+                              "oid": "0578fc743e3c1b57ce9b2caf2290dcbdd38b9db9"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "number": 3,
+              "title": "MATH-001 grok r1: finite checkers and public reproduction",
+              "url": "https://github.com/lijiabao1998/FrontierMath/pull/3",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "grok/MATH-001-baseline-r1",
+              "headRefOid": "3f263076321619c191173ae0bf2c5989568527fc",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-27T19:18:32Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "lean",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36343375963/job/108687673494"
+                            },
+                            {
+                              "name": "lean",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36343364241/job/108687643515"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36343376450/job/108687674706"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36343364543/job/108687644081"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": [
+                  {
+                    "id": "PRR_kwDOUukVxs8AAAABPcq2UQ",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-27T19:14:47Z",
+                    "url": "https://github.com/lijiabao1998/FrontierMath/pull/3#pullrequestreview-5331662417",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `3f26307632`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "3f263076321619c191173ae0bf2c5989568527fc"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  }
+                ]
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": [
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/3#discussion_r4116591011",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Fail incomplete all-known verification**\n\nThe committed `summary.json` demonstrates this path: the all-known scan stopped at 412,675 records with `stopped: \"time_limit\"`, but this gate checks only `disagree`, so the documented runner still exits 0. The same false success occurs for any all-known decode or mathematical failure; include `stopped`, `decode_fail`, and `math_fail` in the failure condition so incomplete validation is not reported as a successful round.\n\nAGENTS.md reference: [AGENTS.md:L14-L14](https://github.com/lijiabao1998/FrontierMath/blob/3f263076321619c191173ae0bf2c5989568527fc/AGENTS.md#L14-L14)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T19:14:48Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPcq2UQ",
+                            "commit": {
+                              "oid": "3f263076321619c191173ae0bf2c5989568527fc"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/3#discussion_r4116591016",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Verify the skipped n=54 tail**\n\nWhen the initial 300-second scan stops partway through n=54, this follow-up decodes but never mathematically verifies any record below 55. The committed artifacts report 431,008 total records and 12,007 at n>=55, so there are 419,001 low-n records, while the initial run checked only 412,675; consequently 6,326 n=54 certificates have no verification in the committed reproduction path even though STATUS and the round report say all 431,008 passed. The follow-up must cover that tail (or all records) before making the full-dataset claim.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierMath/blob/3f263076321619c191173ae0bf2c5989568527fc/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T19:14:48Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPcq2UQ",
+                            "commit": {
+                              "oid": "3f263076321619c191173ae0bf2c5989568527fc"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierMath/pull/3#discussion_r4116591018",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Hash the executed code before the run begins**\n\nThese hashes are captured only after every long-running experiment, so editing a module while the process is running attributes old in-memory behavior to the new source. The committed artifact already exhibits this: `summary.json` contains the reason `legacy @ record not in this decoder`, which is absent from the `decode_flam.py` whose current SHA-256 the same summary records. Capture and freeze hashes at the start, and associate preserved historical failures with the code version that actually produced them.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierMath/blob/3f263076321619c191173ae0bf2c5989568527fc/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T19:14:48Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukVxs8AAAABPcq2UQ",
+                            "commit": {
+                              "oid": "3f263076321619c191173ae0bf2c5989568527fc"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "number": 1,
+              "title": "Add lake-manifest.json to fix Lean CI",
+              "url": "https://github.com/lijiabao1998/FrontierMath/pull/1",
+              "state": "CLOSED",
+              "isDraft": false,
+              "headRefName": "grok/infra-lake-manifest-ci",
+              "headRefOid": "f4e613e53fedf45ff758b9497a59a0fb9ede1bdc",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-27T15:59:17Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "lean",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36331368725/job/108653825147"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMath/actions/runs/36331369047/job/108653826444"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": []
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": []
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

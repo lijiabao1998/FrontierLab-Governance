@@ -87,7 +87,7 @@ class GateTests(unittest.TestCase):
 
     def test_extended_problem_prefixes_accepted(self):
         for pid in ('CS-001','STAT-001','MAT-001','ASTRO-001','EARTH-001','NEURO-001','ECON-001','ENG-001','MED-001','SOC-001','META-001'):
-            self.assertTrue(str(f.problem_path(Path('.'), pid)).endswith(pid + '/problem.json'))
+            self.assertEqual(f.problem_path(Path('.'), pid).parts[-2:], (pid, 'problem.json'))
 
     def test_incomplete_repo_rejected(self):
         with tempfile.TemporaryDirectory() as d:

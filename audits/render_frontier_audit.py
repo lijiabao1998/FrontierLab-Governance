@@ -2,7 +2,7 @@
 """Render audits/frontier_audit_2026-09-28.md from the JSON truth source.
 
 The markdown is GENERATED — hand edits will be overwritten and CI treats a
-dirty diff after rendering as a failure. Run from repo root:
+renderer mismatch as a failure via tests/test_convergence.py. Run from repo root:
     python3 audits/render_frontier_audit.py
     git diff --exit-code audits/frontier_audit_2026-09-28.md
 """
@@ -21,7 +21,7 @@ def render(a: dict) -> str:
     L.append("")
     L.append("**單一真相源**：`frontier_audit_2026-09-28.json`；本檔由 "
              "`audits/render_frontier_audit.py` 自動生成——**請勿手改**，"
-             "CI 以 render 後 `git diff --exit-code` 防 drift。")
+             "治理 CI 的 `test_committed_markdown_matches_renderer` 比對生成內容；本表是歷史搜尋紀錄，不是本輪新檢索。")
     L.append("")
     L.append(f"- 條目數：{len(a['problems'])}（15 個 repo primaries＋8 個 priority-A screening 題）")
     L.append(f"- 時間戳政策：{a['timestamp_policy']}")
@@ -101,6 +101,6 @@ def render(a: dict) -> str:
 
 if __name__ == "__main__":
     audit = json.loads(JSON_PATH.read_text(encoding="utf-8"))
-    MD_PATH.write_text(render(audit), encoding="utf-8")
+    MD_PATH.write_text(render(audit), encoding="utf-8", newline="\n")
     print(f"rendered {MD_PATH.name} from {JSON_PATH.name} "
           f"({len(audit['problems'])} entries)")

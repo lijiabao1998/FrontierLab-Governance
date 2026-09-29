@@ -1,0 +1,81 @@
+{
+  "acquired_started_at": "2026-09-29T13:37:29.541672+00:00",
+  "acquired_completed_at": "2026-09-29T13:37:30.630059+00:00",
+  "repository": "FrontierComputerScience",
+  "response": {
+    "data": {
+      "repository": {
+        "name": "FrontierComputerScience",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "02c84fa77c3cee2e4b90c37d4c089ed67eff4c13"
+          }
+        },
+        "pullRequests": {
+          "pageInfo": {
+            "hasNextPage": false
+          },
+          "nodes": [
+            {
+              "number": 1,
+              "title": "Fix onboarding governance pin in README/AGENTS (091d6a26 → lock f40beb16)",
+              "url": "https://github.com/lijiabao1998/FrontierComputerScience/pull/1",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "claude/frontiercomputerscience-governance-pin-fix",
+              "headRefOid": "7e5937da2b1ab4785a7f166de4f3c2a1bb06918f",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-27T19:42:37Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierComputerScience/actions/runs/36345192747/job/108692839287"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierComputerScience/actions/runs/36342577593/job/108685424383"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": []
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": []
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
