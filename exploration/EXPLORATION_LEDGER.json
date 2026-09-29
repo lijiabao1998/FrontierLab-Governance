@@ -51,6 +51,23 @@
         "Gilmer 熵界之數值重現"
       ],
       "timestamp": "2026-09-29T17:04:24+00:00"
+    },
+    {
+      "action": "MATH-006 r2 admitted+finished: BFS enumerator validated against OEIS A102896 (2/7/61/2480 exact) after closure bit-test fix; m=4 Frankl ALL PASS, min ratio exactly 0.5 (tight)",
+      "evidence": [
+        {
+          "repo": "lijiabao1998/FrontierMath",
+          "commit_sha": "BRANCH_HEAD",
+          "path": "problems/MATH-006/results/r2/enum_a102896_results.json"
+        }
+      ],
+      "adversarial_catch": "closure missing-union test u&~bits conflated number u with bit u — near-identity closure exposed ONLY by the A102896 external cross-check",
+      "new_unknowns": [
+        "m=5 full enumeration (1,385,552 families; needs optimized enumerator or C port)",
+        "Gilmer entropy-bound numeric reproduction",
+        "m=4 tight families structure analysis"
+      ],
+      "timestamp": "2026-09-29T18:26:45+00:00"
     }
   ]
 }

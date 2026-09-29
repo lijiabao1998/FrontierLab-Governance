@@ -48,7 +48,7 @@
       "info_gain": "中",
       "cost": "低",
       "dependencies": "無",
-      "status": "RESULT — r1 complete (m≤4 exhaustive Frankl ALL pass; counts 2/13/121/4959; Gilmer numeric exploration HYPOTHESIS_LEVEL)",
+      "status": "RESULT — r1 (m≤4 Frankl ALL pass) + r2 (A102896 enumerator validation 2/7/61/2480 exact); m=5 queued",
       "rank": 5
     },
     {

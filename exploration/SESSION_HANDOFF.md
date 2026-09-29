@@ -18,3 +18,9 @@
 - 結果：m≤4 窮舉 Frankl 全成立；V4 數值探索 HYPOTHESIS_LEVEL（min 0.5079）
 - 下一 session：m=5 closure enumeration、Gilmer 熵界數值重現、族計數文獻對照
 - FrontierLab 生態現況：MATH-001/004/006 三題有 admitted rounds + evaluators；PHYS r3 Sabra 待做
+
+
+## Frontier expansion checkpoint｜2026-09-29T18:26:45+00:00
+- MATH-006 r2 完成：BFS 列舉器經 OEIS A102896 對照驗證（m=1..4 = 2/7/61/2480 精確）；m=4 Frankl 全成立且 min ratio = 0.5（緊界）；m=5（1,385,552 族）列下一輪
+- 對抗式收穫：closure 缺漏檢查語義 bug 由外部計數對照暴露——單行修復
+- 下一 session 首選：m=5 完整列舉（需最佳化 closure——增量式或 C 移植）或 PHYS Sabra

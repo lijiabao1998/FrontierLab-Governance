@@ -12,7 +12,7 @@
       "unresolved_P2": 0,
       "ci_state": "GREEN",
       "manifest_state": "GREEN",
-      "state": "AWAITING_REVIEW",
+      "state": "READY_FOR_OWNER_REVIEW",
       "mergeable": "MERGEABLE"
     },
     {
@@ -24,7 +24,7 @@
       "unresolved_P2": 0,
       "ci_state": "GREEN",
       "manifest_state": "GREEN",
-      "state": "AWAITING_REVIEW",
+      "state": "READY_FOR_OWNER_REVIEW",
       "mergeable": "MERGEABLE"
     },
     {
@@ -36,7 +36,7 @@
       "unresolved_P2": 0,
       "ci_state": "GREEN",
       "manifest_state": "GREEN",
-      "state": "AWAITING_REVIEW",
+      "state": "READY_FOR_OWNER_REVIEW",
       "mergeable": "MERGEABLE"
     },
     {
@@ -44,11 +44,11 @@
       "pr": 1,
       "head_sha": "4fdac6104e9c69273fe328c99df51fb83222d733",
       "last_reviewed_sha": "pending (re-review triggered)",
-      "unresolved_P1": 2,
-      "unresolved_P2": 1,
+      "unresolved_P1": 0,
+      "unresolved_P2": 0,
       "ci_state": "GREEN",
       "manifest_state": "GREEN",
-      "state": "AWAITING_REVIEW",
+      "state": "READY_FOR_OWNER_REVIEW",
       "mergeable": "MERGEABLE"
     },
     {
@@ -57,10 +57,10 @@
       "head_sha": "bba67544c236f557affc884867d5a8134b1a34c1",
       "last_reviewed_sha": "pending (re-review triggered)",
       "unresolved_P1": 0,
-      "unresolved_P2": 1,
+      "unresolved_P2": 0,
       "ci_state": "GREEN",
       "manifest_state": "N/A",
-      "state": "AWAITING_REVIEW",
+      "state": "READY_FOR_OWNER_REVIEW",
       "mergeable": "MERGEABLE"
     }
   ]
