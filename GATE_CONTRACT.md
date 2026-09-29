@@ -22,10 +22,10 @@
 | `.github/workflows/research.yml` | `uses: <owner>/FrontierLab-Governance/.github/workflows/<file>@<ref>` | 至少一處；`<owner>/FrontierLab-Governance` 必須等於 lock 的 `repository`；`<ref>` 必須完整等於 lock `commit`（`main`、tag、短 SHA 都是 RED） |
 | 同上 | `governance_ref: <ref>` | 至少一處；完整等於 lock `commit` |
 | `README.md`、`AGENTS.md` | 網址 `https://github.com/lijiabao1998/FrontierLab-Governance/{tree,blob,commit,commits,raw}/<ref>` 或 `https://raw.githubusercontent.com/lijiabao1998/FrontierLab-Governance/<ref>/…`（不分大小寫） | 每一處都完整等於 lock `commit` |
-| 同上 | 顯式標記 `<!-- governance-pin: <40 hex> -->` | 完整等於 lock `commit` |
+| 同上 | 顯式標記 `<!-- governance-pin: <40 hex> -->`（不分大小寫） | 完整等於 lock `commit` |
 | 同上 | 文字「治理」或 `governance`，可接 `commit`／`pin`／`ref`／`版本`，再接空白、冒號或反引號，緊跟 7–40 位 hex（關鍵字與 hex 都不分大小寫） | 必須是 lock `commit` 的前綴 |
 
-workflow 逐行解析：`#` 之後的 YAML 註解不算宣告；key 與值可加引號。block scalar（例如 `run: |`、`key: >-`）的內容是資料，不算宣告；內容若提到 `FrontierLab-Governance` 或 `governance_ref` 一律 RED。任何其他非註解行若提到這兩者，卻不是上述兩種寫法（例如 flow mapping），也一律 RED，不跳過。
+workflow 逐行解析：`#` 之後的 YAML 註解不算宣告；key 與值可加引號。block scalar（例如 `run: |`、`key: >-`、帶 tag／anchor 的 `run: !!str |`、沒有 key 的 `- |`）的內容是資料，不算宣告，內容以縮排超過該 key（或 `-`）所在欄位為準；內容若提到 `FrontierLab-Governance` 或 `governance_ref` 一律 RED。任何其他非註解行若提到這兩者，卻不是上述兩種寫法（例如 flow mapping），也一律 RED，不跳過。
 
 `README.md` 與 `AGENTS.md` 各自至少要有一處宣告。缺宣告與宣告不一致都是 RED：onboarding 文件必須把 agent 指向 CI 實際使用的治理版本。
 
@@ -50,7 +50,7 @@ workflow 逐行解析：`#` 之後的 YAML 註解不算宣告；key 與值可加
 
 **輪次紀錄** `runs/<round_id>/round.json`：必須在本次變更中新增或修改；`round_id` 等於目錄名；`problem_id` 等於被改的題；`state` 不是 `DRAFT`；通過 `validate_preflight`。空白或 DRAFT 輪次不授權任何東西；別題輪次不能掩護本題。
 
-輪次一旦以非 DRAFT 狀態合併，`round_id`、`problem_id`、`agent`、`branch`、`base_sha`、`started_at`、`admitted_at`、`acceptance`、`budget`、`preflight` 就固定；之後的 PR 只能改 `state` 與結果類欄位（例如 `result`、`artifacts`、`not_done`）。這避免把舊輪次改寫成別題或別的 verdict，再當作新的授權。已完成（`COMPLETED_EXTERNAL`／`COMPLETED_INTERNAL`）的題不能新增輪次，也不能新增研究產物，與 `admit` 一致；要重做就開 replication 題，或先以決策退回狀態。
+輪次一旦以非 DRAFT 狀態合併，`round_id`、`problem_id`、`agent`、`branch`、`base_sha`、`started_at`、`admitted_at`、`acceptance`、`budget`、`preflight` 就固定；之後的 PR 只能改 `state` 與結果類欄位（例如 `result`、`artifacts`、`not_done`）。這避免把舊輪次改寫成別題或別的 verdict，再當作新的授權。合併時已是 `FINISHED`、`PAUSED` 或 `CLOSED_EXTERNAL` 的輪次已經結束：`state` 也不能再改，之後也不再授權任何新的產物、附件或題卡欄位；要做新工作就開新輪次。merge base 上仍是 DRAFT（或不存在）的輪次，在本次變更中算新輪次。已完成（`COMPLETED_EXTERNAL`／`COMPLETED_INTERNAL`）的題不能新增輪次（包括把先前合併的 DRAFT 補成非 DRAFT），也不能新增研究產物或輪次附件，它的既有輪次也不再授權任何新內容，與 `admit` 一致；要重做就開 replication 題，或先以決策退回狀態。
 
 **決策紀錄** `decisions/<decision_id>/decision.json`：必須在本次變更中**新增**；已合併的決策紀錄不可修改或刪除。格式：
 
@@ -68,7 +68,7 @@ workflow 逐行解析：`#` 之後的 YAML 註解不算宣告；key 與值可加
 ```
 
 - `spec-change` 另需 `impact`：`narrows`／`broadens`／`rescopes`／`clarifies` 之一，強迫明說是否弱化或改寫題目。
-- `status-change` 另需 `from`、`to`，且必須等於題卡實際的舊／新狀態；同一次變更中任何一筆 `from`／`to` 不符的 `status-change` 都是 RED，即使狀態轉移另有輪次依據。狀態有改變時 `fields` 必須包含 `status`；只修正 `resolution` 時，`fields` 只列 `resolution`，`from` 與 `to` 都填目前狀態。目標 `COMPLETED_INTERNAL` 還需 `rounds` 與 `verifier`：`rounds` 必須是 merge base 已存在（先前 PR 已審）、head 為 `FINISHED`、verdict 為 `NO_RESOLUTION_FOUND` 或 `PARTIAL_PROGRESS` 的同題輪次；`verifier` 不得是這些輪次的 agent，也不得是決策的 `author`。
+- `status-change` 另需 `from`、`to`，且必須等於題卡實際的舊／新狀態；同一次變更中任何一筆 `from`／`to` 不符的 `status-change` 都是 RED，即使狀態轉移另有輪次依據。狀態有改變時 `fields` 必須包含 `status`；只修正 `resolution` 時，`fields` 只列 `resolution`，`from` 與 `to` 都填目前狀態；`CLAIMED_RESOLVED` 題卡也用這條路徑更正 `resolution`（決策不能把狀態改成 `CLAIMED_RESOLVED`）。目標 `COMPLETED_INTERNAL` 還需 `rounds` 與 `verifier`：`rounds` 必須是 merge base 上已以非 DRAFT 狀態存在（先前 PR 已審）、head 為 `FINISHED`、verdict 為 `NO_RESOLUTION_FOUND` 或 `PARTIAL_PROGRESS` 的同題輪次；`verifier` 不得是這些輪次的 agent，也不得是決策的 `author`。
 - `fields` 列了沒改的欄位是 RED（避免預先寫好萬用紀錄）；決策對應的題卡本次沒有改動也是 RED。
 - 可附 `sources`，格式同題卡來源。
 
@@ -157,3 +157,4 @@ python3 tools/frontier.py decide ../FrontierMedicine MED-001 --kind hygiene --fi
 5. **文件內容（例如 `STATUS.md`）仍可能寫入過度宣稱**；路徑檢查不讀語意。
 6. **workflow 只做逐行解析，不是完整的 YAML／Actions 語意**：例如 `if: false` 停用的 job、用 shell 拼接出來的 repo 名稱，都無法可靠判斷；仍需人工審 `.github/` 改動（見 1）。
 7. **文件 pin 只讀 §1 列出的寫法**；其他寫法（例如只寫在連結文字裡、沒有「治理／governance」字樣的短 SHA）不算宣告，也不被檢查。
+8. **`check-diff` 以 merge base 判斷，`validate` 看不到歷史**：兩個從同一 base 分出的 PR 可以各自通過（例如一個宣告外部完成、另一個在同題交新結果），合併後 `validate` 也無從分辨產物是在完成前還是完成後加入。要關掉這個競態，需要伺服器端要求 PR 合併前先跟上最新 main（#4 提案的 `strict_required_status_checks_policy`），讓 `check-diff` 對最新 base 重跑。

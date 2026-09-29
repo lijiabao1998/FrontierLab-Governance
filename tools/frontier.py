@@ -25,6 +25,8 @@ RESEARCH_VERDICTS = frozenset({'NO_RESOLUTION_FOUND', 'PARTIAL_PROGRESS'})
 # move its state or record results (GATE_CONTRACT.md §2.2).
 ROUND_FROZEN_FIELDS = ('round_id', 'problem_id', 'agent', 'branch', 'base_sha', 'started_at', 'admitted_at',
                        'acceptance', 'budget', 'preflight')
+# A merged round in one of these states is over: its state no longer moves and it authorizes nothing new.
+CLOSED_ROUND_STATES = frozenset({'FINISHED', 'PAUSED', 'CLOSED_EXTERNAL'})
 UTC = dt.timezone.utc
 PROBLEM_ID_RE = re.compile(r'(?:MATH|PHYS|BIO|CHEM|CS|STAT|MAT|ASTRO|EARTH|NEURO|ECON|ENG|MED|SOC|META)-\d{3}')
 
@@ -35,10 +37,12 @@ WORKFLOW_KEY_RE = re.compile(r'''\s*(?:-\s+)?(["']?)(uses|governance_ref)\1\s*:\
 WORKFLOW_USES_VALUE_RE = re.compile(r'([\w.-]+/FrontierLab-Governance)/\.github/workflows/[\w.-]+@(\S+)')
 DOC_URL_RE = re.compile(r'https://(?:github\.com/lijiabao1998/FrontierLab-Governance/(?:tree|blob|commit|commits|raw)/'
                         r'|raw\.githubusercontent\.com/lijiabao1998/FrontierLab-Governance/)([^/\s)\]>#?"\'`]+)', re.I)
-DOC_MARKER_RE = re.compile(r'<!--\s*governance-pin:\s*(\S+?)\s*-->')
+DOC_MARKER_RE = re.compile(r'<!--\s*governance-pin:\s*(\S+?)\s*-->', re.I)
 DOC_PROSE_RE = re.compile(r'(?:治理|governance)(?:[ \t]*(?:commit|pin|ref|版本))?[ \t:：`]*([0-9a-f]{7,40})(?![0-9a-z])', re.I)
-# A YAML block scalar opener (`run: |`, `key: >-`); its body is data, never a pin declaration.
-BLOCK_SCALAR_RE = re.compile(r'(\s*).*:\s*[|>][-+1-9]*')
+# YAML block scalar openers (`run: |`, `key: !!str >-`, `- |`); their body is data, never a pin declaration.
+BLOCK_PROPS = r'(?:[!&]\S*\s+)*'
+BLOCK_KEYED_RE = re.compile(rf'.*?:\s*{BLOCK_PROPS}[|>][-+1-9]*')
+BLOCK_BARE_RE = re.compile(rf'{BLOCK_PROPS}[|>][-+1-9]*')
 
 # GATE_CONTRACT.md §2: protected problem specification.
 IMMUTABLE_FIELDS = frozenset({'id', 'domain'})
@@ -224,7 +228,9 @@ def validate_decision(d: dict, decision_id: str | None = None) -> None:
     if d['kind'] == 'spec-change':
         require(d.get('impact') in SPEC_IMPACTS, f'spec-change must declare impact: {sorted(SPEC_IMPACTS)}')
     if d['kind'] == 'status-change':
-        require(d.get('from') in STATUSES and d.get('to') in DECISION_STATUS_TARGETS,
+        # A resolution-only correction keeps the status, so a CLAIMED_RESOLVED card can also fix its resolution.
+        correction = d.get('to') == d.get('from') == 'CLAIMED_RESOLVED' and fields == ['resolution']
+        require(d.get('from') in STATUSES and (d.get('to') in DECISION_STATUS_TARGETS or correction),
                 f'status-change needs from and to; decisions can target {sorted(DECISION_STATUS_TARGETS)}')
         if d['to'] == 'COMPLETED_INTERNAL':
             rounds = d.get('rounds')
@@ -245,6 +251,16 @@ def strip_yaml_comment(line: str) -> str:
     return line.rstrip()
 
 
+def block_scalar_indent(line: str) -> int | None:
+    """If `line` opens a block scalar, the column its body must be indented beyond; else None."""
+    lead, dashes, rest = re.fullmatch(r'(\s*)((?:-\s+)*)(.*)', line).groups()
+    if BLOCK_BARE_RE.fullmatch(rest):  # `- |`: the body belongs to the sequence entry (column of the last dash)
+        return len(lead) + dashes.rstrip().rfind('-') if dashes else len(lead)
+    if BLOCK_KEYED_RE.fullmatch(rest):  # `- run: |`: the body belongs to the key (column after the dashes)
+        return len(lead) + len(dashes)
+    return None
+
+
 def workflow_pins(text: str) -> tuple[list[tuple[str, str]], list[str], list[int]]:
     """Operative `uses:` / `governance_ref:` declarations (comments ignored, quoted keys and values accepted).
     Any other non-comment line that mentions the governance workflow or governance_ref is returned as unknown."""
@@ -258,9 +274,7 @@ def workflow_pins(text: str) -> tuple[list[tuple[str, str]], list[str], list[int
                 continue
             block = None
         line = strip_yaml_comment(raw)
-        opener = BLOCK_SCALAR_RE.fullmatch(line)
-        if opener:
-            block = len(opener.group(1))
+        block = block_scalar_indent(line)
         m = WORKFLOW_KEY_RE.fullmatch(line)
         value = m.group(3).strip().strip('"\'') if m else ''
         if m and m.group(2) == 'governance_ref':
@@ -273,7 +287,7 @@ def workflow_pins(text: str) -> tuple[list[tuple[str, str]], list[str], list[int
 
 
 def doc_pins(text: str) -> list[tuple[str, str]]:
-    return ([('url', x.lower()) for x in DOC_URL_RE.findall(text)] + [('marker', x) for x in DOC_MARKER_RE.findall(text)]
+    return ([('url', x.lower()) for x in DOC_URL_RE.findall(text)] + [('marker', x.lower()) for x in DOC_MARKER_RE.findall(text)]
             + [('prose', x.lower()) for x in DOC_PROSE_RE.findall(text)])
 
 
@@ -454,9 +468,9 @@ def status_basis_errors(pid: str, old: dict, new: dict, rounds: list, decisions:
     stray = [f'{pid}: status-change decision says {d.get("from")} -> {d.get("to")}, but the card moves {old_s} -> {new_s}'
              for d in moves if (d.get('from'), d.get('to')) != (old_s, new_s)]
     same_resolution = old.get('resolution') == new.get('resolution')
-    if old_s in TERMINAL and new_s != old_s:
-        pass  # leaving a completed status is a status-change decision, never a round verdict
-    elif new_s == 'COMPLETED_EXTERNAL':
+    # Round verdicts may move a status, but never out of a completed status and never to rewrite a resolution alone.
+    by_round = new_s != old_s and old_s not in TERMINAL
+    if by_round and new_s == 'COMPLETED_EXTERNAL':
         if moves:
             return [f'{pid}: external completion comes from a RESOLVED_EXTERNAL round, not a status-change decision']
         if not any(r['preflight']['verdict'] == 'RESOLVED_EXTERNAL' and r.get('state') == 'CLOSED_EXTERNAL'
@@ -464,11 +478,11 @@ def status_basis_errors(pid: str, old: dict, new: dict, rounds: list, decisions:
             return [f'{pid}: COMPLETED_EXTERNAL needs a {pid} round in this change with verdict RESOLVED_EXTERNAL, '
                     'state CLOSED_EXTERNAL and the same resolution as the card']
         return []
-    elif new_s == 'CLAIMED_RESOLVED':
+    if by_round and new_s == 'CLAIMED_RESOLVED':
         if 'CLAIMED_RESOLVED' not in verdicts:
             return [f'{pid}: CLAIMED_RESOLVED needs a {pid} round with that verdict']
         return stray if same_resolution else [f'{pid}: a round verdict does not change resolution']
-    elif new_s == 'PARTIAL' and 'PARTIAL_PROGRESS' in verdicts and same_resolution:
+    if by_round and new_s == 'PARTIAL' and 'PARTIAL_PROGRESS' in verdicts and same_resolution:
         return stray
     match = [d for d in moves if d.get('from') == old_s and d.get('to') == new_s]
     if not match:
@@ -491,8 +505,10 @@ def status_basis_errors(pid: str, old: dict, new: dict, rounds: list, decisions:
             if r is None or r.get('problem_id') != pid or r.get('state') != 'FINISHED':
                 errors.append(f'{pid}: COMPLETED_INTERNAL cites runs/{rid}, which is not a FINISHED {pid} round')
                 continue
-            if not exists(root, mb, f'runs/{rid}/round.json'):
-                errors.append(f'{pid}: COMPLETED_INTERNAL cites runs/{rid}, which is not merged yet; cite rounds reviewed earlier')
+            merged = show_json(root, mb, f'runs/{rid}/round.json')
+            if not merged or merged.get('state') == 'DRAFT':
+                errors.append(f'{pid}: COMPLETED_INTERNAL cites runs/{rid}, which was not merged as an admitted round '
+                              'before this change; cite rounds reviewed earlier')
                 continue
             verdict = (r.get('preflight') or {}).get('verdict')
             if verdict not in RESEARCH_VERDICTS:
@@ -596,7 +612,7 @@ def check_diff(root: Path, base: str, head: str) -> None:
     head_roots = artifact_roots(lab)
     raw = [x for x in git(root, 'diff', '--name-status', '--no-renames', '-z', f'{base}...{head}').split('\0') if x]
     changes = list(zip(raw[0::2], raw[1::2]))
-    rounds, decisions, problems = {}, defaultdict(list), []
+    rounds, closed, decisions, problems = {}, {}, defaultdict(list), []
     artifacts, attachments = defaultdict(list), defaultdict(list)
     for change, path in changes:
         kind, key = classify(path, lab['domain'], roots)
@@ -628,16 +644,21 @@ def check_diff(root: Path, base: str, head: str) -> None:
                 r = show_json(root, head, path)
                 require(r.get('round_id') == key, 'round_id must match its directory name')
                 old = show_json(root, mb, path) if change == 'M' else None
-                if old and old.get('state') != 'DRAFT':
-                    frozen = sorted(k for k in ROUND_FROZEN_FIELDS if old.get(k) != r.get(k))
-                    require(not frozen, f'an admitted round keeps its identity and search; changed {frozen}')
+                merged = old is not None and old.get('state') != 'DRAFT'  # admitted and merged before this change
+                if merged:
+                    frozen = [k for k in ROUND_FROZEN_FIELDS if old.get(k) != r.get(k)]
+                    if old.get('state') in CLOSED_ROUND_STATES and r.get('state') != old.get('state'):
+                        frozen.append('state')
+                    require(not frozen, f'an admitted round keeps its identity and search; changed {sorted(frozen)}')
                 if r.get('state') == 'DRAFT':
                     continue
                 validate_preflight(r)
-                if change == 'A':
-                    base_status = terminal_status(root, mb, r['problem_id'])
-                    require(base_status is None, f"{r['problem_id']} is {base_status}; completed problems take no new rounds "
-                            '(admit refuses them): open a replication problem or retract first')
+                base_status = terminal_status(root, mb, r['problem_id'])
+                require(merged or base_status is None, f"{r['problem_id']} is {base_status}; completed problems take no new "
+                        'rounds (admit refuses them): open a replication problem or retract first')
+                if base_status or (merged and old.get('state') in CLOSED_ROUND_STATES):
+                    closed[key] = base_status or f"closed ({old['state']})"  # kept as a record; authorizes nothing new
+                    continue
                 rounds[key] = r
             except (ValueError, KeyError, TypeError, AttributeError) as e:
                 errors.append(f'{path}: {e}')
@@ -648,6 +669,9 @@ def check_diff(root: Path, base: str, head: str) -> None:
     for rid, paths in attachments.items():
         if rid in rounds:
             research.add(rounds[rid]['problem_id'])
+        elif rid in closed:
+            errors.append(f'runs/{rid}/: {len(paths)} new file(s) on a round whose problem or state is {closed[rid]}; '
+                          'new work needs a new round')
         else:
             errors.append(f'runs/{rid}/: {len(paths)} attachment(s) need runs/{rid}/round.json changed in this PR and admitted (not DRAFT)')
     for pid, paths in sorted(artifacts.items()):

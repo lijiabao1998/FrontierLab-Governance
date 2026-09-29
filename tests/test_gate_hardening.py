@@ -281,6 +281,17 @@ class PinContractTests(LabCase):
                 with self.assertRaisesRegex(ValueError, r'README\.md: governance (prose|url) pin ab'):
                     self.pins()
 
+    def test_marker_is_case_insensitive(self):
+        # Second review: an uppercase marker was a false RED, an uppercase keyword hid a stale pin.
+        self.lab.write('README.md', f'<!-- governance-pin: {"AB" * 20} -->\n治理 {PIN}\n')
+        with self.assertRaisesRegex(ValueError, r'README\.md: governance marker pin abab'):
+            self.pins()
+        self.lab.write('README.md', f'治理 {PIN}\n<!-- GOVERNANCE-PIN: {OTHER} -->\n')
+        with self.assertRaisesRegex(ValueError, r'README\.md: governance marker pin 2{40}'):
+            self.pins()
+        self.lab.write('README.md', f'<!-- Governance-Pin: {PIN} -->\n')
+        self.assertEqual(self.pins(), PIN)
+
     def test_boundary_uppercase_pin_matches_lock(self):
         lock = 'ab' * 20
         self.lab.write('GOVERNANCE.lock.json', {'repository': f.GOVERNANCE_REPO, 'commit': lock, 'protocol_version': f.PROTOCOL_VERSION})
@@ -302,6 +313,27 @@ class PinContractTests(LabCase):
 """)
         with self.assertRaisesRegex(ValueError, r'(?s)research\.yml:6: unrecognized.*research\.yml:7: unrecognized.*no uses:.*no governance_ref'):
             self.pins()
+
+    def test_red_block_scalars_with_properties_or_without_key(self):
+        # Second review: tags, anchors and key-less `- |` entries also open block scalars.
+        decoy = (f'uses: lijiabao1998/FrontierLab-Governance/.github/workflows/research.yml@{PIN}', f'governance_ref: {PIN}')
+        for opener, body in (('      - run: !!str |', '          '), ('      - run: &script |', '          '),
+                             ('    branches:\n      - |', '        ')):
+            with self.subTest(opener=opener):
+                self.lab.write('.github/workflows/research.yml', 'jobs:\n  records:\n    steps:\n' + opener + '\n'
+                               + ''.join(body + x + '\n' for x in decoy))
+                with self.assertRaisesRegex(ValueError, r'(?s)unrecognized governance reference.*no uses:'):
+                    self.pins()
+
+    def test_boundary_block_scalar_body_is_indented_from_the_key(self):
+        # Second review: siblings of `run` in the same step are keys, not script text.
+        uses, refs, unknown = f.workflow_pins(f"""    steps:
+      - run: |
+          echo hi
+        with:
+          governance_ref: {PIN}
+""")
+        self.assertEqual((refs, unknown), ([PIN], []))
 
     def test_boundary_block_scalar_ends_at_dedent(self):
         self.lab.write('.github/workflows/research.yml', WORKFLOW.format(uses=PIN, ref=PIN).replace(
@@ -565,7 +597,17 @@ class StatusTransitionTests(LabCase):
         self.lab.edit_card('MED-001', status='COMPLETED_INTERNAL', resolution=resolution('MED-001'))
         self.lab.add_decision('MED-001', 'status-change', ['status', 'resolution'],
                               **{'from': 'OPEN', 'to': 'COMPLETED_INTERNAL', 'rounds': [rid], 'verifier': 'claude-verifier'})
-        self.red(rf'cites runs/{rid}, which is not merged yet')
+        self.red(rf'cites runs/{rid}, which was not merged as an admitted round before this change')
+
+    def test_red_completed_internal_cites_merged_draft_stub(self):
+        # Second review: a DRAFT stub merged earlier is not a reviewed round.
+        rid, r = self.lab.add_round('MED-001', agent='gpt', state='DRAFT')
+        self.lab.base = self.lab.commit('draft stub merged')
+        self.lab.add_round('MED-001', rid=rid, agent='gpt', state='FINISHED')
+        self.lab.edit_card('MED-001', status='COMPLETED_INTERNAL', resolution=resolution('MED-001'))
+        self.lab.add_decision('MED-001', 'status-change', ['status', 'resolution'],
+                              **{'from': 'OPEN', 'to': 'COMPLETED_INTERNAL', 'rounds': [rid], 'verifier': 'claude-verifier'})
+        self.red(rf'cites runs/{rid}, which was not merged as an admitted round')
 
     def test_red_completed_internal_verified_by_decision_author(self):
         self.internal('claude')
@@ -582,13 +624,32 @@ class StatusTransitionTests(LabCase):
         self.lab.add_round('MED-001', verdict='CLAIMED_RESOLVED', state='PAUSED')
         self.green()
 
-    def test_red_claimed_resolved_round_rewrites_resolution(self):
+    def test_red_claimed_resolved_round_writes_resolution(self):
         self.lab.edit_card('MED-001', status='CLAIMED_RESOLVED', resolution=resolution('MED-001'))
-        self.lab.base = self.lab.commit('claimed earlier')
-        forged = resolution('MED-001'); forged['scope_statement'] = 'a much broader scope'
-        self.lab.edit_card('MED-001', resolution=forged)
         self.lab.add_round('MED-001', verdict='CLAIMED_RESOLVED', state='PAUSED')
         self.red(r'MED-001: a round verdict does not change resolution')
+
+    def claimed_base(self):
+        self.lab.edit_card('MED-001', status='CLAIMED_RESOLVED', resolution=resolution('MED-001'))
+        self.lab.base = self.lab.commit('claimed earlier')
+        fixed = resolution('MED-001'); fixed['scope_statement'] = 'the narrower scope actually claimed'
+        self.lab.edit_card('MED-001', resolution=fixed)
+
+    def test_red_claimed_resolved_round_rewrites_resolution(self):
+        self.claimed_base()
+        self.lab.add_round('MED-001', verdict='CLAIMED_RESOLVED', state='PAUSED')
+        self.red(r'status CLAIMED_RESOLVED -> CLAIMED_RESOLVED needs a status-change decision')
+
+    def test_green_claimed_resolved_resolution_fixed_by_decision(self):
+        # Second review: a resolution-only correction must also exist for CLAIMED_RESOLVED cards.
+        self.claimed_base()
+        self.lab.add_decision('MED-001', 'status-change', ['resolution'], **{'from': 'CLAIMED_RESOLVED', 'to': 'CLAIMED_RESOLVED'})
+        self.green()
+
+    def test_red_decision_cannot_move_to_claimed_resolved(self):
+        self.lab.edit_card('MED-001', status='CLAIMED_RESOLVED')
+        self.lab.add_decision('MED-001', 'status-change', ['status'], **{'from': 'OPEN', 'to': 'CLAIMED_RESOLVED'})
+        self.red(r'decisions can target')
 
     def completed_external_base(self):
         res = resolution('MED-001')
@@ -609,6 +670,26 @@ class StatusTransitionTests(LabCase):
         self.lab.add_round('MED-001')
         self.lab.write('problems/MED-001/results/r2/metrics.json', '{}')
         self.red(r'(?s)runs/.*MED-001 is COMPLETED_EXTERNAL.*problems/MED-001/results/r2/metrics\.json: MED-001 is COMPLETED_EXTERNAL')
+
+    def test_red_draft_round_admitted_after_completion(self):
+        # Second review: a DRAFT merged before completion must not become a new round on the completed problem.
+        rid, _ = self.lab.add_round('MED-001', state='DRAFT')
+        self.lab.base = self.lab.commit('draft merged')
+        self.completed_external_base()
+        self.lab.add_round('MED-001', rid=rid)
+        self.lab.write(f'runs/{rid}/new_experiment.py', 'print(1)\n')
+        self.red(rf'runs/{rid}/round\.json: MED-001 is COMPLETED_EXTERNAL; completed problems take no new rounds')
+
+    def test_red_open_round_used_after_completion(self):
+        # Second review: an ADMITTED round merged before completion authorizes nothing once the problem is completed.
+        rid, r = self.lab.add_round('MED-001')
+        self.lab.base = self.lab.commit('admitted round merged')
+        self.completed_external_base()
+        r['state'] = 'FINISHED'
+        self.lab.write(f'runs/{rid}/round.json', r)
+        self.lab.write(f'runs/{rid}/experiment/train.py', 'print(1)\n')
+        self.lab.edit_card('MED-001', open_gap='Rewritten after completion.')
+        self.red(rf"(?s)runs/{rid}/: 1 new file\(s\) on a round whose problem or state is COMPLETED_EXTERNAL.*\['open_gap'\] changed without")
 
     def test_green_retract_completed_problem_by_decision(self):
         self.completed_external_base()
@@ -702,7 +783,7 @@ class PathContractTests(LabCase):
         r['state'] = 'ADMITTED'
         self.lab.write(f'runs/{rid}/round.json', r)
         self.lab.write('problems/MED-002/results/r1/metrics.json', '{}')
-        self.red(rf'runs/{rid}/round\.json: an admitted round keeps its identity and search; changed \[\'preflight\', \'problem_id\'\]')
+        self.red(rf"runs/{rid}/round\.json: an admitted round keeps its identity and search; changed \['preflight', 'problem_id', 'state'\]")
 
     def test_green_merged_round_finished_later(self):
         rid, r = self.lab.add_round('MED-001')
@@ -711,6 +792,18 @@ class PathContractTests(LabCase):
         self.lab.write(f'runs/{rid}/round.json', r)
         self.lab.write('problems/MED-001/results/r1/metrics.json', '{}')
         self.green()
+
+    def test_red_finished_round_reopened_or_reused(self):
+        # Second review: a FINISHED round cannot be reopened or touched to authorize new work on an old search.
+        rid, r = self.lab.add_round('MED-001', state='FINISHED')
+        self.lab.base = self.lab.commit('finished round merged')
+        self.lab.write('problems/MED-001/results/r9/m.json', '{}')
+        r['state'] = 'ADMITTED'
+        self.lab.write(f'runs/{rid}/round.json', r)
+        self.red(r"changed \['state'\]")
+        r['state'] = 'FINISHED'; r['result'] = {'summary': 'tweaked'}
+        self.lab.write(f'runs/{rid}/round.json', r)
+        self.red(r'MED-001: research changes lack a completed per-round search record')
 
     def test_green_merged_draft_round_admitted_later(self):
         rid, r = self.lab.add_round('MED-001', state='DRAFT')
