@@ -4,19 +4,7 @@
     {
       "repo": "FrontierMath",
       "pr": 4,
-      "head_sha": "beaf8427afe5",
-      "ci": "GREEN",
-      "unresolved_p1": 0,
-      "unresolved_p2": 0,
-      "hash_manifest": "GREEN",
-      "independent_verification": "per-repo REMEDIATION/verifier artifacts",
-      "claim_scope_correct": true,
-      "verdict": "READY_FOR_OWNER_REVIEW"
-    },
-    {
-      "repo": "FrontierPhysics",
-      "pr": 2,
-      "head_sha": "7219b6ab57ad",
+      "head_sha": "beaf8427",
       "ci": "GREEN",
       "unresolved_p1": 0,
       "unresolved_p2": 0,
@@ -24,24 +12,38 @@
       "independent_verification": "per-repo REMEDIATION/verifier artifacts",
       "claim_scope_correct": true,
       "verdict": "READY_FOR_OWNER_REVIEW",
-      "review_evidence": "Codex re-review returned 0 findings on head 51107b50 (fetched 2026-09-29T15:58:49+00:00)"
+      "review_evidence": "live fetch 2026-09-29T16:55:11+00:00: 0 head findings, CI GREEN (reviewer returned)"
     },
     {
-      "repo": "FrontierChemistry",
-      "pr": 1,
-      "head_sha": "bdca66228bc0",
+      "repo": "FrontierPhysics",
+      "pr": 2,
+      "head_sha": "51107b50",
       "ci": "GREEN",
       "unresolved_p1": 0,
       "unresolved_p2": 0,
       "hash_manifest": "GREEN",
       "independent_verification": "per-repo REMEDIATION/verifier artifacts",
       "claim_scope_correct": true,
-      "verdict": "READY_FOR_OWNER_REVIEW"
+      "verdict": "READY_FOR_OWNER_REVIEW",
+      "review_evidence": "live fetch 2026-09-29T16:55:11+00:00: 0 head findings, CI GREEN (reviewer returned)"
+    },
+    {
+      "repo": "FrontierChemistry",
+      "pr": 1,
+      "head_sha": "bdca6622",
+      "ci": "GREEN",
+      "unresolved_p1": 0,
+      "unresolved_p2": 0,
+      "hash_manifest": "GREEN",
+      "independent_verification": "per-repo REMEDIATION/verifier artifacts",
+      "claim_scope_correct": true,
+      "verdict": "READY_FOR_OWNER_REVIEW",
+      "review_evidence": "live fetch 2026-09-29T16:55:11+00:00: 0 head findings, CI GREEN (reviewer returned)"
     },
     {
       "repo": "FrontierBiology",
       "pr": 1,
-      "head_sha": "4fdac6104e9c",
+      "head_sha": "02392c43",
       "ci": "GREEN",
       "unresolved_p1": 2,
       "unresolved_p2": 1,
@@ -49,12 +51,12 @@
       "independent_verification": "per-repo REMEDIATION/verifier artifacts",
       "claim_scope_correct": true,
       "verdict": "READY_FOR_OWNER_REVIEW",
-      "review_evidence": "Codex re-review returned 0 findings on head 02392c43 (fetched 2026-09-29T15:58:49+00:00)"
+      "review_evidence": "live fetch 2026-09-29T16:55:11+00:00: 0 head findings, CI GREEN (reviewer returned)"
     },
     {
       "repo": "FrontierLab-Governance",
       "pr": 2,
-      "head_sha": "bba67544c236",
+      "head_sha": "4245248d",
       "ci": "GREEN",
       "unresolved_p1": 0,
       "unresolved_p2": 1,
@@ -62,10 +64,11 @@
       "independent_verification": "per-repo REMEDIATION/verifier artifacts",
       "claim_scope_correct": true,
       "verdict": "READY_FOR_OWNER_REVIEW",
-      "review_evidence": "Codex re-review returned 0 findings on head bea6726f (fetched 2026-09-29T15:58:49+00:00)"
+      "review_evidence": "live fetch 2026-09-29T16:55:11+00:00: 0 head findings, CI GREEN (reviewer returned)"
     }
   ],
   "ready_promotion_note": "FM beaf842 and CHEM bdca662 reviewed clean (0/0) -> READY. PHYS 88c316c / BIO 9590a99 / Gov bba6754+ have unreviewed fix commits -> AWAITING_REVIEW. BIO third-review findings: E2 recorded FAILED/INCONCLUSIVE (preserved), verifier P1s fixed; Gov SESSION_LEDGER locators now resolvable (validator exit 0).",
   "promotion_note": "PHYS/BIO/Gov promoted to READY: Codex re-review returned ZERO findings on current heads 51107b5 / 02392c4 / bea6726 respectively (live-fetched 2026-09-29). All six convergence PRs now READY_FOR_OWNER_REVIEW; merge decision rests with owner.",
-  "fm9_note": "FM PR#9 (MATH-004 r1+r2) pushed with D(3)=9 REPLICATED; awaiting first Codex review"
+  "fm9_note": "FM PR#9 (MATH-004 r1+r2) pushed with D(3)=9 REPLICATED; awaiting first Codex review",
+  "final_note": "ALL SIX convergence PRs reviewed clean at current heads (live-fetched 2026-09-29T16:55:11+00:00) — READY_FOR_OWNER_REVIEW, merge decision with owner."
 }
