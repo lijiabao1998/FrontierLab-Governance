@@ -1,0 +1,67 @@
+{
+  "generated_at": "2026-09-28T17:35:22+00:00",
+  "session": "convergence-2",
+  "source": "fresh GitHub API fetch",
+  "prs": [
+    {
+      "repo": "FrontierMath",
+      "pr": 4,
+      "head_sha": "beaf8427afe541361a577d21428edbafafdec0d9",
+      "last_reviewed_sha": "pending (re-review triggered)",
+      "unresolved_P1": 0,
+      "unresolved_P2": 0,
+      "ci_state": "GREEN",
+      "manifest_state": "GREEN",
+      "state": "READY_FOR_OWNER_REVIEW",
+      "mergeable": "MERGEABLE"
+    },
+    {
+      "repo": "FrontierPhysics",
+      "pr": 2,
+      "head_sha": "7219b6ab57ada9e324ddf1d508ea1d13e931f84c",
+      "last_reviewed_sha": "pending (re-review triggered)",
+      "unresolved_P1": 0,
+      "unresolved_P2": 0,
+      "ci_state": "GREEN",
+      "manifest_state": "GREEN",
+      "state": "READY_FOR_OWNER_REVIEW",
+      "mergeable": "MERGEABLE"
+    },
+    {
+      "repo": "FrontierChemistry",
+      "pr": 1,
+      "head_sha": "bdca66228bc05ac51a20404d3028c4cc05aa2079",
+      "last_reviewed_sha": "pending (re-review triggered)",
+      "unresolved_P1": 0,
+      "unresolved_P2": 0,
+      "ci_state": "GREEN",
+      "manifest_state": "GREEN",
+      "state": "READY_FOR_OWNER_REVIEW",
+      "mergeable": "MERGEABLE"
+    },
+    {
+      "repo": "FrontierBiology",
+      "pr": 1,
+      "head_sha": "4fdac6104e9c69273fe328c99df51fb83222d733",
+      "last_reviewed_sha": "pending (re-review triggered)",
+      "unresolved_P1": 0,
+      "unresolved_P2": 0,
+      "ci_state": "GREEN",
+      "manifest_state": "GREEN",
+      "state": "READY_FOR_OWNER_REVIEW",
+      "mergeable": "MERGEABLE"
+    },
+    {
+      "repo": "FrontierLab-Governance",
+      "pr": 2,
+      "head_sha": "bba67544c236f557affc884867d5a8134b1a34c1",
+      "last_reviewed_sha": "pending (re-review triggered)",
+      "unresolved_P1": 0,
+      "unresolved_P2": 0,
+      "ci_state": "GREEN",
+      "manifest_state": "N/A",
+      "state": "READY_FOR_OWNER_REVIEW",
+      "mergeable": "MERGEABLE"
+    }
+  ]
+}

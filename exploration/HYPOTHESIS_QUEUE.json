@@ -1,0 +1,89 @@
+{
+  "generated": "2026-09-28T18:10:00Z",
+  "queue": [
+    {
+      "id": "H-MATH-001-75SAT",
+      "problem": "MATH-001",
+      "hypothesis": "n=75 之 2n 構造存在（SAT 可滿足）或可產生可檢查 UNSAT 證書",
+      "info_gain": "極高（新有限前沿或首個 UNSAT 證書方向）",
+      "cost": "高（~20M clauses 需串流+分散式）",
+      "dependencies": "seq DIMACS 串流產生器、CaDiCaL/Kissat、DRAT 校驗",
+      "status": "SPECULATIVE→ADMITTED候選",
+      "rank": 1
+    },
+    {
+      "id": "H-MATH-004-VERIF",
+      "problem": "MATH-004",
+      "hypothesis": "r₃(F₃ⁿ) 小 n 精確值可由 stdlib 窮舉重現並建永久驗證器",
+      "info_gain": "中高（建立 MATH-004 第一個 evaluator）",
+      "cost": "低（n≤6 窮舉可行）",
+      "dependencies": "無",
+      "status": "RESULT — r1 evaluator + r2 D(3)=9 REPLICATED (slice-DP)",
+      "rank": 2
+    },
+    {
+      "id": "H-PHYS-001-SABRA",
+      "problem": "PHYS-001",
+      "hypothesis": "Sabra shell model 在三 guards（能量收支/stationarity/k^-5/3 帶）下可重現慣性區標度",
+      "info_gain": "高（第一個動力學系統基線）",
+      "cost": "中（RK4 + N殼=22 stdlib 可行）",
+      "dependencies": "r2 凍結帶",
+      "status": "ADMITTED候選",
+      "rank": 3
+    },
+    {
+      "id": "H-BIO-001-REALDATA",
+      "problem": "BIO-001",
+      "hypothesis": "真實 Norman 資料上 frozen-vs-random split 的洩漏 gap 可量化",
+      "info_gain": "高（把合成示範升級為真實證據）",
+      "cost": "中（1.1GB mtx 串流）",
+      "dependencies": "numpy/scipy in-repo",
+      "status": "BLOCKED(依賴安裝)",
+      "rank": 4
+    },
+    {
+      "id": "H-MATH-006-ENUM",
+      "problem": "MATH-006",
+      "hypothesis": "m≤12 union-closed 族之枚舉可重現 Gilmer 熵界之數值",
+      "info_gain": "中",
+      "cost": "低",
+      "dependencies": "無",
+      "status": "RESULT — r1 (m≤4 Frankl ALL pass) + r2 (A102896 enumerator validation 2/7/61/2480 exact); m=5 queued",
+      "rank": 5
+    },
+    {
+      "id": "H-CHEM-010-CROSS",
+      "problem": "CHEM-010 × MAT-003",
+      "hypothesis": "uMLIP hull 假陽性率可由公開資料之 frozen split 對照量化（跨 repo 交叉）",
+      "info_gain": "中高（兩庫共享一個 evaluator）",
+      "cost": "中（MP 授權審計先行）",
+      "dependencies": "Materials Project 授權",
+      "status": "SPECULATIVE",
+      "rank": 6
+    },
+    {
+      "id": "H-GOV-METHOD",
+      "problem": "Governance",
+      "hypothesis": "兩段式預登記模板（floor 規則+座標 raw rows+persisted-bands judging）可泛化為全庫 evaluator 標準",
+      "info_gain": "中（治理改進）",
+      "cost": "低",
+      "dependencies": "PHYS r2 已示範",
+      "status": "SPECULATIVE",
+      "rank": 7
+    },
+    {
+      "id": "H-MATH-006-M6ENUM",
+      "problem": "MATH-006",
+      "hypothesis": "m=6 全枚舉可行（AG(6,3) 729 cells；Potechin 2008 已算 D(6)=112）——BFS 規模待估",
+      "info_gain": "高（m=6 窮舉若完成即重現文獻最大已驗證維度）",
+      "cost": "高（族數可能 10^8+，需最佳化）",
+      "dependencies": "記憶體/CPU 預算",
+      "status": "SPECULATIVE",
+      "rank": 3
+    }
+  ],
+  "negative_results_feeding_queue": [
+    "BIO E2 INCONCLUSIVE → H-BIO-001-REALDATA 需 re-admit 設計",
+    "CHEM C4 retraction → H-CHEM-004-r2 需新凍結 key"
+  ]
+}
