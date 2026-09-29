@@ -18,7 +18,7 @@
       "info_gain": "中高（建立 MATH-004 第一個 evaluator）",
       "cost": "低（n≤6 窮舉可行）",
       "dependencies": "無",
-      "status": "RESULT (r1 complete: evaluator built, D(1)=2 D(2)=4 exact, LB 8/18/35/72)",
+      "status": "RESULT — r1 evaluator + r2 D(3)=9 REPLICATED (slice-DP)",
       "rank": 2
     },
     {

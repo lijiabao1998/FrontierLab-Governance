@@ -66,5 +66,6 @@
     }
   ],
   "ready_promotion_note": "FM beaf842 and CHEM bdca662 reviewed clean (0/0) -> READY. PHYS 88c316c / BIO 9590a99 / Gov bba6754+ have unreviewed fix commits -> AWAITING_REVIEW. BIO third-review findings: E2 recorded FAILED/INCONCLUSIVE (preserved), verifier P1s fixed; Gov SESSION_LEDGER locators now resolvable (validator exit 0).",
-  "promotion_note": "PHYS/BIO/Gov promoted to READY: Codex re-review returned ZERO findings on current heads 51107b5 / 02392c4 / bea6726 respectively (live-fetched 2026-09-29). All six convergence PRs now READY_FOR_OWNER_REVIEW; merge decision rests with owner."
+  "promotion_note": "PHYS/BIO/Gov promoted to READY: Codex re-review returned ZERO findings on current heads 51107b5 / 02392c4 / bea6726 respectively (live-fetched 2026-09-29). All six convergence PRs now READY_FOR_OWNER_REVIEW; merge decision rests with owner.",
+  "fm9_note": "FM PR#9 (MATH-004 r1+r2) pushed with D(3)=9 REPLICATED; awaiting first Codex review"
 }

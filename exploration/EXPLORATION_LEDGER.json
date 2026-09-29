@@ -5,6 +5,22 @@
     {
       "action": "exploration scaffolding created",
       "evidence": "exploration/*"
+    },
+    {
+      "action": "MATH-004 r2 admitted+finished: D(3)=9 REPLICATED via complete slice-DP",
+      "evidence": [
+        {
+          "repo": "lijiabao1998/FrontierMath",
+          "commit_sha": "BRANCH_HEAD",
+          "path": "problems/MATH-004/results/r2/slice_dp_d3_results.json"
+        }
+      ],
+      "info_gained": "D(3)=9 精確重現（mod-3 語意、完整窮舉 367,525 valid triples）；消除了『r1 驗證器語意是否正確』之殘餘未知",
+      "new_unknowns": [
+        "D(4)=20 之同法重現需 4 層 DP（3D caps 列舉）",
+        "greedy 下界與文獻值之差距（n=6: 72 vs 112）之結構性原因"
+      ],
+      "timestamp": "2026-09-29T16:48:19+00:00"
     }
   ]
 }
