@@ -70,6 +70,16 @@
       "dependencies": "PHYS r2 已示範",
       "status": "SPECULATIVE",
       "rank": 7
+    },
+    {
+      "id": "H-MATH-006-M6ENUM",
+      "problem": "MATH-006",
+      "hypothesis": "m=6 全枚舉可行（AG(6,3) 729 cells；Potechin 2008 已算 D(6)=112）——BFS 規模待估",
+      "info_gain": "高（m=6 窮舉若完成即重現文獻最大已驗證維度）",
+      "cost": "高（族數可能 10^8+，需最佳化）",
+      "dependencies": "記憶體/CPU 預算",
+      "status": "SPECULATIVE",
+      "rank": 3
     }
   ],
   "negative_results_feeding_queue": [
