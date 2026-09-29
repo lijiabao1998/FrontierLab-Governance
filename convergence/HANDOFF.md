@@ -43,3 +43,9 @@ READY 僅在：head 已 review + P1=0 + P2=0 + CI 綠 + manifest 綠 + 無 stale
 - AWAITING_REVIEW：PHYS PR#2（88c316c：environment.txt runtime P1 修復）、BIO PR#1（9590a99：E2 FAILED/INCONCLUSIVE 誠實記錄＋MODEL_ABLATION 新 admitted round PASS＋verifier v4）、Gov PR#2（ledger locator 化＋validate_ledger.py 11/11 exit 0）
 - E2 負結果已保存：CLEAN train=0、verdict=E2_INCONCLUSIVE_SIBLING_FREE_CLEAN_NOT_CONSTRUCTIBLE——未調切分救 PASS
 - 殘餘：等 Codex 對最新 heads 的 re-review；BIO donor-gap estimator 差異（0.905 vs 0.1616）已列 documented discrepancy
+
+
+## DISCOVERY MODE checkpoint｜2026-09-29T15:52:49+00:00
+- 新 admitted round 完成：MATH-004 r1（PR #9）——第一個 evaluator、窮舉 D(1)=2/D(2)=4、greedy LB 8/18/35/72、對抗式發現並修正 unwrapped-AP 定義 bug
+- exploration/ 目錄建置：FRONTIER_MAP、HYPOTHESIS_QUEUE（7 項排序）、NEGATIVE_RESULTS（10 項）、CROSS_REPO_LINKS（6 條）、EXPLORATION_LEDGER
+- 下一 session 建議：H-MATH-004 n=3 精確窮舉（含對稱剪枝）→ H-MATH-006 enum → PHYS Sabra → BIO 真資料
