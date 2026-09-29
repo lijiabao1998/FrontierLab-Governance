@@ -11,6 +11,9 @@ import subprocess
 import sys
 from urllib.parse import urlparse
 
+# Version of the research contract implemented by this commit; see PROTOCOL_VERSIONS.md.
+PROTOCOL_VERSION = '1.2.0'
+BRANCH_TOPIC_RE = re.compile(r'[a-z0-9]+(?:-[a-z0-9]+)*')
 STATUSES = {'OPEN', 'PARTIAL', 'CLAIMED_RESOLVED', 'COMPLETED_EXTERNAL', 'COMPLETED_INTERNAL', 'PAUSED', 'RETRACTED'}
 TERMINAL = {'COMPLETED_EXTERNAL', 'COMPLETED_INTERNAL'}
 VERDICTS = {'NO_RESOLUTION_FOUND', 'PARTIAL_PROGRESS', 'CLAIMED_RESOLVED', 'RESOLVED_EXTERNAL', 'BLOCKED'}
@@ -36,10 +39,21 @@ def save(path: Path, obj: dict) -> None:
     path.write_text(json.dumps(obj, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
 
-def stamp(value: str) -> dt.datetime:
-    t = dt.datetime.fromisoformat(value.replace('Z', '+00:00'))
-    require(t.tzinfo is not None, 'timestamp must include UTC offset')
+def stamp(value: object, field: str = 'timestamp') -> dt.datetime:
+    require(isinstance(value, str) and bool(value.strip()), f'{field}: missing ISO 8601 timestamp')
+    try:
+        t = dt.datetime.fromisoformat(value.replace('Z', '+00:00'))
+    except ValueError as e:
+        raise ValueError(f'{field}: not an ISO 8601 timestamp ({value!r})') from e
+    require(t.tzinfo is not None, f'{field}: timestamp must include UTC offset')
     return t.astimezone(UTC)
+
+
+def branch_ok(branch: str, agent: str, problem_id: str) -> bool:
+    """<agent>/<problem-id>-<topic>[-<round>]; the problem id is case-insensitive, the topic is a lowercase slug."""
+    head, cut = f'{agent}/', len(agent) + 1 + len(problem_id) + 1
+    return (branch.startswith(head) and branch[len(head):cut].upper() == problem_id + '-'
+            and BRANCH_TOPIC_RE.fullmatch(branch[cut:]) is not None)
 
 
 def nonempty(obj: dict, keys: tuple[str, ...], context: str) -> None:
@@ -69,11 +83,19 @@ def validate_resolution(obj: dict, problem_id: str) -> None:
 
 def validate_preflight(r: dict, fresh: bool = False) -> str:
     nonempty(r, ('round_id', 'problem_id', 'agent', 'branch', 'base_sha', 'acceptance', 'not_done'), 'round')
-    require(re.fullmatch(r'[a-z0-9-]+/.+', r['branch']) is not None, 'work on an agent branch, not main')
+    if fresh:
+        # Admission of a new round follows the full branch contract. Records admitted by older tools keep the
+        # original rule below, so upgrading the governance pin does not invalidate existing history.
+        require(re.fullmatch(r'[a-z0-9-]+', r['agent']) is not None, 'round: agent must be a lowercase slug')
+        require(branch_ok(r['branch'], r['agent'], r['problem_id']),
+                f"work on an agent branch <agent>/<problem-id>-<topic>[-<round>], not {r['branch']!r}")
+    else:
+        require(re.fullmatch(r'[a-z0-9-]+/.+', r['branch']) is not None, 'work on an agent branch, not main')
     require(re.fullmatch(r'[0-9a-f]{40}', r['base_sha']) is not None, 'record exact base commit SHA')
-    started = stamp(r['started_at'])
-    p = r.get('preflight', {})
-    checked = stamp(p['checked_at'])
+    started = stamp(r.get('started_at'), 'round.started_at')
+    p = r.get('preflight')
+    require(isinstance(p, dict), 'round: missing preflight object')
+    checked = stamp(p.get('checked_at'), 'preflight.checked_at')
     require(started <= checked <= started + dt.timedelta(hours=24), 'each round needs its own start-time search')
     if fresh:
         now = dt.datetime.now(UTC)
@@ -127,8 +149,12 @@ def validate_repo(root: Path) -> None:
     for filename in ('README.md', 'AGENTS.md', 'STATUS.md'):
         require((root / filename).is_file(), f'missing {filename}')
     if lab['domain'] == 'governance':
+        require(lab.get('protocol_version') == PROTOCOL_VERSION, f'lab.json protocol_version must be {PROTOCOL_VERSION}')
         print('Governance documents present; run unit tests separately.')
         return
+    declared = load(root / 'GOVERNANCE.lock.json').get('protocol_version')
+    require(declared == PROTOCOL_VERSION, f'GOVERNANCE.lock.json declares protocol {declared}, but this governance checkout '
+            f'implements {PROTOCOL_VERSION}; check out the locked governance commit (PROTOCOL_VERSIONS.md)')
     files = sorted((root / 'problems').glob('*/problem.json'))
     require(len(files) == lab['expected_problem_count'], 'problem count does not match lab.json')
     seen = set()
@@ -170,16 +196,19 @@ def check_diff(root: Path, base: str, head: str) -> None:
     print(f'PASS: preflight coverage for {len(affected)} changed research scopes.')
 
 
-def start(root: Path, pid: str, agent: str) -> None:
+def start(root: Path, pid: str, agent: str, topic: str = 'round') -> None:
     p = load(problem_path(root, pid))
     require(p['status'] not in TERMINAL, 'already completed: select another problem or open a replication task')
     require(re.fullmatch(r'[a-z0-9-]+', agent) is not None, 'use an agent slug')
+    require(BRANCH_TOPIC_RE.fullmatch(topic) is not None and len(topic) <= 40, 'topic must be a lowercase slug, e.g. baseline')
     now = dt.datetime.now(UTC)
     rid = now.strftime('%Y%m%dT%H%M%S%fZ') + '-' + agent + '-' + pid
-    record = {'round_id': rid, 'problem_id': pid, 'agent': agent, 'branch': agent + '/' + pid.lower(), 'base_sha': git(root, 'rev-parse', 'HEAD'), 'started_at': now.isoformat(), 'state': 'DRAFT', 'acceptance': '', 'not_done': '尚未檢索、尚未實驗；本記錄不是研究成果。', 'budget': {'wall_minutes': 30, 'usd': 0, 'max_trials': 100}, 'preflight': {'checked_at': None, 'verdict': 'BLOCKED', 'queries': [], 'sources': [], 'limitations': '', 'scope_comparison': '', 'baseline': ''}, 'artifacts': [], 'result': None}
+    branch = f"{agent}/{pid}-{topic}-{now.strftime('%Y%m%dt%H%M%S%fz')}"
+    record = {'round_id': rid, 'problem_id': pid, 'agent': agent, 'branch': branch, 'base_sha': git(root, 'rev-parse', 'HEAD'), 'started_at': now.isoformat(), 'state': 'DRAFT', 'acceptance': '', 'not_done': '尚未檢索、尚未實驗；本記錄不是研究成果。', 'budget': {'wall_minutes': 30, 'usd': 0, 'max_trials': 100}, 'preflight': {'checked_at': None, 'verdict': 'BLOCKED', 'queries': [], 'sources': [], 'limitations': '', 'scope_comparison': '', 'baseline': ''}, 'artifacts': [], 'result': None}
     path = root / 'runs' / rid / 'round.json'
     save(path, record)
     print(path)
+    print(f'branch: git switch -c {branch}')
     print('BLOCKED: browse now, read primary sources, complete preflight, then run admit. No autonomous search has occurred.')
 
 
@@ -213,16 +242,16 @@ def main() -> int:
     sub = parser.add_subparsers(dest='cmd', required=True)
     v = sub.add_parser('validate'); v.add_argument('root', type=Path)
     d = sub.add_parser('check-diff'); d.add_argument('root', type=Path); d.add_argument('base'); d.add_argument('head')
-    s = sub.add_parser('start'); s.add_argument('root', type=Path); s.add_argument('problem'); s.add_argument('--agent', required=True)
+    s = sub.add_parser('start'); s.add_argument('root', type=Path); s.add_argument('problem'); s.add_argument('--agent', required=True); s.add_argument('--topic', default='round')
     a = sub.add_parser('admit'); a.add_argument('root', type=Path); a.add_argument('record', type=Path)
     args = parser.parse_args()
     try:
         if args.cmd == 'validate': validate_repo(args.root)
         elif args.cmd == 'check-diff': check_diff(args.root, args.base, args.head)
-        elif args.cmd == 'start': start(args.root, args.problem, args.agent)
+        elif args.cmd == 'start': start(args.root, args.problem, args.agent, args.topic)
         elif args.cmd == 'admit': admit(args.root, args.record)
         return 0
-    except (ValueError, KeyError, TypeError, OSError, subprocess.CalledProcessError) as e:
+    except (ValueError, KeyError, TypeError, AttributeError, OSError, subprocess.CalledProcessError) as e:
         print(f'BLOCKED: {e}', file=sys.stderr)
         return 1
 
