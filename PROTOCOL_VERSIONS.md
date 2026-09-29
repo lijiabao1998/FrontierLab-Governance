@@ -10,7 +10,15 @@
 |---|---|---|---|
 | 1.0.0 | `07d2b13051b83215182e411e1612f92f1912d8fb` | bootstrap：每輪四路檢索 gate、證據與安全政策、MATH/PHYS/BIO/CHEM 題號 | FrontierMath、FrontierPhysics、FrontierBiology、FrontierChemistry |
 | 1.1.0 | `091d6a26a4af8522683711483f2b97afd90efa7f`（有缺陷）→ 修正於 `f40beb161b6c87201d8082ecbc29c7e0b3eaa402` | 向後相容擴充：新增 CS/STAT/MAT/ASTRO/EARTH/NEURO/ECON/ENG/MED/SOC/META 題號；`checked_on` 容許 UTC 前方一日。規則文件未改。 | 其餘 11 個研究庫（固定 `f40beb16`） |
-| 1.2.0 | `claude/governance-hygiene` 合併後的 main commit（合併時補登） | 向後相容擴充：時間戳缺漏改為乾淨的 `BLOCKED:`；`start --topic` 產生 `<agent>/<ID>-<topic>-<UTC>` 分支；`admit` 對新輪次要求此分支契約，舊版工具已登記的輪次沿用原規則；`validate` 要求 lock 的 `protocol_version` 等於執行中治理版本。 | 無（升 pin 時一併把 lock 改為 1.2.0） |
+| 1.2.0 | `1c577661890e52e9e34197ba8f86d076ad2d3b06`（PR #1 合併） | 向後相容擴充：時間戳缺漏改為乾淨的 `BLOCKED:`；`start --topic` 產生 `<agent>/<ID>-<topic>-<UTC>` 分支；`admit` 對新輪次要求此分支契約，舊版工具已登記的輪次沿用原規則；`validate` 要求 lock 的 `protocol_version` 等於執行中治理版本。 | 無（升 pin 時一併把 lock 改為 1.2.0） |
+| 2.0.0 | `claude/governance-gate-hardening`（PR #5）合併後的 main commit（合併時補登） | **Breaking**（見 [GATE_CONTRACT.md](GATE_CONTRACT.md)）：規則文件包含 PR #3（`9af72f82553d337271d2b13bc8abcfd00770d199`）把 RESEARCH_PROTOCOL §5 的完成界線推廣到所有經驗、計算與應用學科；lock、workflow、README、AGENTS 的治理 pin 必須一致且 README/AGENTS 必須宣告；題卡欄位分級，改動需同題輪次或決策紀錄；研究路徑採 allowlist，未登記路徑 RED；輪次紀錄不可刪除、已合併輪次的身分與檢索不可改寫，決策紀錄不可刪改；已完成的題不再收新輪次與研究產物；repo 可在 `lab.json` 登記額外研究根路徑。既有合規的 repo 升 pin 後可能變 RED，例如 README 沒有治理 pin 宣告、有未登記路徑。 | 無。業主決定：先升 11 個新研究庫；原始四庫等現有研究 PR 收束後再升 |
+
+## 升到 2.0.0 的檢查清單
+
+1. 同一個 PR 內改 `GOVERNANCE.lock.json`（`commit` 與 `protocol_version: 2.0.0`）、workflow 的 `uses:…@<commit>` 與 `governance_ref`，以及 README.md、AGENTS.md 的治理 pin 宣告。
+2. 用新治理版本跑 `validate`：README/AGENTS 缺宣告、未登記路徑、沒有同題輪次的研究產物都會 RED，先處理再升。
+3. 需要額外研究根路徑的 repo（例如 FrontierMath 的 Lean 模組），先用單獨的 PR 在 `lab.json` 登記 `artifact_roots`，合併後再交研究產物。
+4. FrontierMath 另建議在 `lakefile.toml` 的 lean_lib 設定 `globs = ["FrontierMath.+"]`，讓 root 下沒被 import 的模組也會被 `lake build --wfail` 編譯；否則未 import 的檔案（包括含 `sorry` 的）不會被 build。
 
 ## 1.1.0 的釐清紀錄（2026-09-28）
 
