@@ -1,0 +1,81 @@
+{
+  "acquired_started_at": "2026-09-29T13:37:30.630106+00:00",
+  "acquired_completed_at": "2026-09-29T13:37:31.738489+00:00",
+  "repository": "FrontierAstronomy",
+  "response": {
+    "data": {
+      "repository": {
+        "name": "FrontierAstronomy",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "796d97763a4957a1124cc0ed997a75eb5d6d1571"
+          }
+        },
+        "pullRequests": {
+          "pageInfo": {
+            "hasNextPage": false
+          },
+          "nodes": [
+            {
+              "number": 1,
+              "title": "Fix onboarding governance pin in README/AGENTS (091d6a26 → lock f40beb16)",
+              "url": "https://github.com/lijiabao1998/FrontierAstronomy/pull/1",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "claude/frontierastronomy-governance-pin-fix",
+              "headRefOid": "658827487f6f25b307ec1d70cd14647a340ee32e",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-27T19:42:42Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierAstronomy/actions/runs/36345218462/job/108692911897"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierAstronomy/actions/runs/36342584589/job/108685443879"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": []
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": []
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

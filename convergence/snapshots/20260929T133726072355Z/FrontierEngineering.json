@@ -1,0 +1,81 @@
+{
+  "acquired_started_at": "2026-09-29T13:37:31.738541+00:00",
+  "acquired_completed_at": "2026-09-29T13:37:33.259766+00:00",
+  "repository": "FrontierEngineering",
+  "response": {
+    "data": {
+      "repository": {
+        "name": "FrontierEngineering",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "6ee2083b403070d2a5942d735684117c7548c50c"
+          }
+        },
+        "pullRequests": {
+          "pageInfo": {
+            "hasNextPage": false
+          },
+          "nodes": [
+            {
+              "number": 1,
+              "title": "Fix onboarding governance pin in README/AGENTS (091d6a26 → lock f40beb16)",
+              "url": "https://github.com/lijiabao1998/FrontierEngineering/pull/1",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "claude/frontierengineering-governance-pin-fix",
+              "headRefOid": "ff74a80d589412bd093eebb5e1b809a25649a137",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-27T19:43:19Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierEngineering/actions/runs/36345259129/job/108693028378"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierEngineering/actions/runs/36342595161/job/108685472645"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": []
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": []
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

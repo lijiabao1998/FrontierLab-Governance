@@ -1,0 +1,81 @@
+{
+  "acquired_started_at": "2026-09-29T13:37:29.882590+00:00",
+  "acquired_completed_at": "2026-09-29T13:37:31.019523+00:00",
+  "repository": "FrontierStatistics",
+  "response": {
+    "data": {
+      "repository": {
+        "name": "FrontierStatistics",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "d81eaadfa16134d0f744ea0256db756a557e3769"
+          }
+        },
+        "pullRequests": {
+          "pageInfo": {
+            "hasNextPage": false
+          },
+          "nodes": [
+            {
+              "number": 1,
+              "title": "Fix onboarding governance pin in README/AGENTS (091d6a26 → lock f40beb16)",
+              "url": "https://github.com/lijiabao1998/FrontierStatistics/pull/1",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "claude/frontierstatistics-governance-pin-fix",
+              "headRefOid": "995d6e03a372dd6094601e012c1e1cd2f4387b35",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-27T19:42:54Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierStatistics/actions/runs/36345202037/job/108692865223"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierStatistics/actions/runs/36342579920/job/108685431365"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": []
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": []
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

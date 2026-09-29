@@ -1,0 +1,674 @@
+{
+  "acquired_started_at": "2026-09-29T13:37:26.075233+00:00",
+  "acquired_completed_at": "2026-09-29T13:37:29.882544+00:00",
+  "repository": "FrontierBiology",
+  "response": {
+    "data": {
+      "repository": {
+        "name": "FrontierBiology",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "e0c162b2705760eee8cc22c1400da2370984fac4"
+          }
+        },
+        "pullRequests": {
+          "pageInfo": {
+            "hasNextPage": false
+          },
+          "nodes": [
+            {
+              "number": 1,
+              "title": "BIO-001 r1 (glm): Norman metadata audit + frozen/leaky split evaluator + leakage negative controls (PASS); expression matrix BLOCKED documented",
+              "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "glm/BIO-001-baseline-r1",
+              "headRefOid": "9590a99939b7e54f48f6aa3f8e31c540e6fe1c4f",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-28T17:39:54Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierBiology/actions/runs/36459043155/job/109052663847"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierBiology/actions/runs/36459034257/job/109052635430"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": [
+                  {
+                    "id": "PRR_kwDOUukWb88AAAABPcqMSw",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-27T19:12:16Z",
+                    "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#pullrequestreview-5331651659",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `33e190de5a`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "33e190de5a4f5174a66e2fc712027452ee083528"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWb88AAAABPc8oDw",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-27T20:35:37Z",
+                    "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#pullrequestreview-5331953679",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `870029980e`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "870029980e4c750ea653d9a777244b8c6d59558d"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWb88AAAABPf6LUg",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T07:09:10Z",
+                    "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#pullrequestreview-5335059282",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `46592446b6`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "46592446b67f50ccf13e84f069e6857b258fa70a"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWb88AAAABPgK5Iw",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T07:40:35Z",
+                    "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#pullrequestreview-5335333155",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `500ecfa64f`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "500ecfa64f0abf1fdccab4199241601a7318fb12"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWb88AAAABPmUK7w",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T16:38:37Z",
+                    "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#pullrequestreview-5341776623",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `4fdac6104e`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "4fdac6104e9c69273fe328c99df51fb83222d733"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWb88AAAABPm_53g",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T17:39:50Z",
+                    "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#pullrequestreview-5342493150",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `9590a99939`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "9590a99939b7e54f48f6aa3f8e31c540e6fe1c4f"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  }
+                ]
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": [
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4116580612",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Parse both targets from each guide identity**\n\nFor Norman identities such as `SET_KLF1__SET_KLF1`, `rsplit(\"_\", 1)[0]` returns only `SET`, so a genuine two-gene perturbation is reported as a single; conversely, `NegCtrl0_BAK1__NegCtrl0_BAK1` becomes `NegCtrl0` and is reported as a control. This corrupts the committed class counts, perturbation counts, fold assignments, and downstream dataset audit; parse all non-control target tokens from the construct identity instead.\n\nAGENTS.md reference: [AGENTS.md:L15-L15](https://github.com/lijiabao1998/FrontierBiology/blob/33e190de5a4f5174a66e2fc712027452ee083528/AGENTS.md#L15-L15)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T19:12:16Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPcqMSw",
+                            "commit": {
+                              "oid": "33e190de5a4f5174a66e2fc712027452ee083528"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4116580615",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Compare donor leakage against a donor-held-out split**\n\nThe `frozen` and `donorleak` calls use the identical group-based train/test rows, with every donor represented on both sides; the only change is whether the estimator consumes donor means. Thus `dl_p - frozen_p` measures the benefit of a donor feature, not inflation relative to the preregistered donor-clean holdout, and E3 can pass without the evaluator ever detecting a donor split leak. Add an actual donor-held-out comparison before reporting this negative control as passed.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T19:12:16Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPcqMSw",
+                            "commit": {
+                              "oid": "33e190de5a4f5174a66e2fc712027452ee083528"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4116580617",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Complete independent verification before finishing the round**\n\nThis record marks the round `ROUND_FINISHED`, but neither its artifact list nor the accompanying round report records an independent Verifier/Skeptic check; a repository-wide search finds only the requirement itself. Closing the round without that check bypasses the mandated research workflow, especially significant here because the committed metadata audit and leakage control contain result-affecting errors.\n\nAGENTS.md reference: [AGENTS.md:L9-L9](https://github.com/lijiabao1998/FrontierBiology/blob/33e190de5a4f5174a66e2fc712027452ee083528/AGENTS.md#L9-L9)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T19:12:16Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPcqMSw",
+                            "commit": {
+                              "oid": "33e190de5a4f5174a66e2fc712027452ee083528"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4116580620",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Regenerate the stale results checksum**\n\nThe committed `bio001_r1_results.json` hashes to `945f8cfdc9ede4472eee7d6a7bf410d75dbbc60f90dab3a7b36714f549da9bd1`, not the recorded `912743...`, so integrity verification of the preserved result fails even on an untouched checkout. Regenerate this entry after finalizing the result file.\n\nAGENTS.md reference: [AGENTS.md:L15-L15](https://github.com/lijiabao1998/FrontierBiology/blob/33e190de5a4f5174a66e2fc712027452ee083528/AGENTS.md#L15-L15)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T19:12:16Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPcqMSw",
+                            "commit": {
+                              "oid": "33e190de5a4f5174a66e2fc712027452ee083528"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4116858559",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Compare donor regimes on identical test rows**\n\nHere `dl_p` is computed over all held-group cells from all four donors, while `dc_p` is computed after `donor_holdout=True` filters the test set to donor 3 only. Subtracting correlations from different test populations confounds donor leakage with test composition; on donor-3 rows alone, both predictors are constant and both Pearson values are zero. Build the leaky and clean training regimes around the same multi-donor test rows before using this gap to pass E3.\n\nAGENTS.md reference: [AGENTS.md:L9-L9](https://github.com/lijiabao1998/FrontierBiology/blob/870029980e4c750ea653d9a777244b8c6d59558d/AGENTS.md#L9-L9)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:35:37Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPc8oDw",
+                            "commit": {
+                              "oid": "870029980e4c750ea653d9a777244b8c6d59558d"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4116858562",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Stop calling post-hoc checks preregistered**\n\nThe admitted `acceptance` field freezes only `leaky_pearson - frozen_pearson >= 0.2`; it specifies no numeric criterion for frozen low signal, donor gap, or MSE. Nevertheless, the evaluator labels E1, E3, and E4 `pre_registered_checks`, and this report claims all four were preregistered. Mark those checks as post-hoc or evaluate them in a newly admitted round with their thresholds frozen in advance.\n\nAGENTS.md reference: [AGENTS.md:L9-L9](https://github.com/lijiabao1998/FrontierBiology/blob/870029980e4c750ea653d9a777244b8c6d59558d/AGENTS.md#L9-L9)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:35:37Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPc8oDw",
+                            "commit": {
+                              "oid": "870029980e4c750ea653d9a777244b8c6d59558d"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4116858564",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Verify the leakage verdict independently**\n\nThe new independent check only recomputes metadata counts and fold assignments; it never invokes or independently reimplements `run_split`, E1–E4, or the donor comparison that determines `LEAKAGE_DEMO_PASS`. Thus the recorded check cannot detect result-affecting evaluator defects such as the mismatched donor test cohorts, so the round still lacks independent verification of its main verdict.\n\nAGENTS.md reference: [AGENTS.md:L9-L9](https://github.com/lijiabao1998/FrontierBiology/blob/870029980e4c750ea653d9a777244b8c6d59558d/AGENTS.md#L9-L9)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:35:37Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPc8oDw",
+                            "commit": {
+                              "oid": "870029980e4c750ea653d9a777244b8c6d59558d"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4116858566",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Repair and complete the checksum manifest**\n\nFresh verification of the remediated tree still fails: the committed results file hashes to `577f82760fdceef385ce06cc84cef190398eadc58dcd92aed4c4d683abd5e414`, not the recorded `6c931e...`, contradicting the report's claim that `sha256sum -c` passes. The manifest also omits both downloaded `.gz` inputs, so their source versions cannot be integrity-checked; regenerate the result digest after finalization and include the input hashes.\n\nAGENTS.md reference: [AGENTS.md:L15-L15](https://github.com/lijiabao1998/FrontierBiology/blob/870029980e4c750ea653d9a777244b8c6d59558d/AGENTS.md#L15-L15)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:35:37Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPc8oDw",
+                            "commit": {
+                              "oid": "870029980e4c750ea653d9a777244b8c6d59558d"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4116858571",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Correct the stale perturbation count in the summary**\n\nThis machine-readable result summary still reports `103 singles`, although the remediated audit and `corrected_counts` record 105. Consumers that use the round summary rather than the nested remediation block will retain the superseded dataset scope, so update this summary to the corrected value.\n\nAGENTS.md reference: [AGENTS.md:L15-L15](https://github.com/lijiabao1998/FrontierBiology/blob/870029980e4c750ea653d9a777244b8c6d59558d/AGENTS.md#L15-L15)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:35:37Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPc8oDw",
+                            "commit": {
+                              "oid": "870029980e4c750ea653d9a777244b8c6d59558d"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4119443963",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Actually hold out donors in the clean comparison**\n\nWhen the donor diagnostic runs, fresh evidence in `fe2924c` is that both calls omit `donor_holdout=True`, so the exclusion branch at lines 173–183 never executes. Consequently, `donorclean` trains on every test donor and merely disables the donor-mean feature, meaning the reported 0.1869 gap remains feature benefit rather than donor-split leakage despite the JSON and report claiming test donors were unseen; construct clean and leaky training sets with different donor exposure while retaining identical test rows.\n\nAGENTS.md reference: [AGENTS.md:L9-L9](https://github.com/lijiabao1998/FrontierBiology/blob/46592446b67f50ccf13e84f069e6857b258fa70a/AGENTS.md#L9-L9)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:09:10Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPf6LUg",
+                            "commit": {
+                              "oid": "46592446b67f50ccf13e84f069e6857b258fa70a"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4119443972",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Regenerate the checksum manifest after final edits**\n\nFresh verification of exact commit `fe2924c` with `verify_manifest.py` reports `MISMATCH` for six of eight entries, including this evaluator entry, whose actual SHA-256 is `18eeed...` rather than `032467...`; the verifier itself, both result artifacts, and the leakage verifier also mismatch. This makes the report's claim that the final manifest is all green false and prevents integrity verification of the committed experiment, so regenerate the manifest only after all scripts and results are finalized.\n\nAGENTS.md reference: [AGENTS.md:L15-L15](https://github.com/lijiabao1998/FrontierBiology/blob/46592446b67f50ccf13e84f069e6857b258fa70a/AGENTS.md#L15-L15)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:09:10Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPf6LUg",
+                            "commit": {
+                              "oid": "46592446b67f50ccf13e84f069e6857b258fa70a"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4119443977",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Replace superseded audit metrics in current summaries**\n\nAlthough `round.json` now records 105 single perturbations, this delivery section still presents the withdrawn 81,542/29,273/630/103 audit as the current result; `LITERATURE_MAP.md:16` likewise calls 103/630 rigorously known, and `dataset_map.md:28` still scopes the next run to 103 targets. Consumers of these primary summaries therefore receive results contradicted by the corrected artifact (57,831/11,855/41,759 and 105), so update every active summary rather than relying on a remediation warning.\n\nAGENTS.md reference: [AGENTS.md:L15-L15](https://github.com/lijiabao1998/FrontierBiology/blob/46592446b67f50ccf13e84f069e6857b258fa70a/AGENTS.md#L15-L15)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:09:10Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPf6LUg",
+                            "commit": {
+                              "oid": "46592446b67f50ccf13e84f069e6857b258fa70a"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4119443982",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Reconcile the repository status counters**\n\nAfter the preceding status line declares BIO-001 r1 complete and this commit adds its evaluator, this line still says there have been zero research rounds and that no evaluator has been implemented. Update these counters so `STATUS.md` provides a single coherent current state rather than simultaneously advertising both bootstrap and completed-r1 states.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:09:10Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPf6LUg",
+                            "commit": {
+                              "oid": "46592446b67f50ccf13e84f069e6857b258fa70a"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4119664335",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Use identical targets for the primary leakage gap**\n\nFor the preregistered E2 comparison, `frozen` tests every cell in groups 6–7, whereas `leaky` tests selected genes from every group (the committed result confirms 1,496 versus 770 test cells). Since the synthetic group effects differ, subtracting these Pearson values confounds leakage with target-cohort difficulty; the donor diagnostic now enforces same-T, but the primary verdict does not. Select one held-gene test set and vary only whether its functional siblings enter training before using the gap to declare `LEAKAGE_DEMO_PASS`.\n\nAGENTS.md reference: [AGENTS.md:L9-L9](https://github.com/lijiabao1998/FrontierBiology/blob/500ecfa64f0abf1fdccab4199241601a7318fb12/AGENTS.md#L9-L9)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:40:35Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPgK5Iw",
+                            "commit": {
+                              "oid": "500ecfa64f0abf1fdccab4199241601a7318fb12"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4119664341",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Make verifier output reproduce its committed hash**\n\nOn this checkout, running `independent_leakage_verifier.py` and then `verify_manifest.py` changes the verification JSON hash from the recorded `121c6e...` to `c9a481...` and reports `MISMATCH`: the committed artifact uses CRLF, while this `write_text` call emits LF on Linux. Thus the documented verification workflow invalidates its own manifest immediately after a successful verifier run; write canonical bytes/newlines or commit the bytes the generator actually emits.\n\nAGENTS.md reference: [AGENTS.md:L15-L15](https://github.com/lijiabao1998/FrontierBiology/blob/500ecfa64f0abf1fdccab4199241601a7318fb12/AGENTS.md#L15-L15)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:40:35Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPgK5Iw",
+                            "commit": {
+                              "oid": "500ecfa64f0abf1fdccab4199241601a7318fb12"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4119664347",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Add the downloaded source files to the manifest**\n\nFresh evidence in exact commit `a8b8824` is that this manifest still ends after five script/output entries and omits both downloaded GEO inputs, `GSE133344_filtered_cell_identities.csv.gz` and `GSE133344_filtered_genes.tsv.gz`, even though they are listed as round artifacts. Consequently `verify_manifest.py` can report all green without checking the source dataset versions from which the audit was derived; record both input digests as required for preserved data-source hashes.\n\nAGENTS.md reference: [AGENTS.md:L15-L15](https://github.com/lijiabao1998/FrontierBiology/blob/500ecfa64f0abf1fdccab4199241601a7318fb12/AGENTS.md#L15-L15)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:40:35Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPgK5Iw",
+                            "commit": {
+                              "oid": "500ecfa64f0abf1fdccab4199241601a7318fb12"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4119664358",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Report only the one preregistered check**\n\nFresh evidence in this exact commit is that the report still declares a 4/4 preregistered pass, although `round.json` froze only the group-gap threshold, the result artifact now labels D1/D3/D4 post hoc, and this report itself acknowledges that fact at line 34. Readers of the headline therefore receive a materially stronger evidentiary claim than the admitted protocol supports; change it to the single preregistered E2 result and present the remaining diagnostics separately.\n\nAGENTS.md reference: [AGENTS.md:L9-L9](https://github.com/lijiabao1998/FrontierBiology/blob/500ecfa64f0abf1fdccab4199241601a7318fb12/AGENTS.md#L9-L9)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:40:35Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPgK5Iw",
+                            "commit": {
+                              "oid": "500ecfa64f0abf1fdccab4199241601a7318fb12"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4119664367",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Replace the withdrawn audit values in the literature map**\n\nFresh evidence in exact commit `a8b8824` is that this active “rigorously known” summary still publishes the withdrawn `630 duals` and `126–3,824` range; the corrected artifact reports 41,759 dual cells and a 113–1,960 single-perturbation range, and `ROUND_REPORT.md:9` likewise retains the old values. Consumers of these summaries will therefore cite results contradicted by the preserved audit, so replace the superseded metrics rather than merely marking the single count corrected.\n\nAGENTS.md reference: [AGENTS.md:L15-L15](https://github.com/lijiabao1998/FrontierBiology/blob/500ecfa64f0abf1fdccab4199241601a7318fb12/AGENTS.md#L15-L15)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:40:35Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPgK5Iw",
+                            "commit": {
+                              "oid": "500ecfa64f0abf1fdccab4199241601a7318fb12"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4119664376",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Align the donor summary with the implemented regimes**\n\nThe current implementation deliberately gives CLEAN only non-T-donor training rows while LEAKY retains all non-held rows, and the committed result/verifier measure a 0.1616 gap; this remediation summary instead says the training rows are identical and reports 0.1869. In the exact follow-up commit this is fresh contradictory evidence about both the method and metric, so update the report to describe the donor-exposure difference and the reproduced 0.1616 result.\n\nAGENTS.md reference: [AGENTS.md:L15-L15](https://github.com/lijiabao1998/FrontierBiology/blob/500ecfa64f0abf1fdccab4199241601a7318fb12/AGENTS.md#L15-L15)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:40:36Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPgK5Iw",
+                            "commit": {
+                              "oid": "500ecfa64f0abf1fdccab4199241601a7318fb12"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4124702478",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Remove functional siblings from the CLEAN training set**\n\nBoth `run_same_T` calls build the identical training set containing every non-held gene, so CLEAN still has all functional-sibling rows; `siblings=False` merely ignores the computed group means and substitutes a constant predictor. Consequently the reported 0.8776 gap measures a group-aware estimator versus a global-mean estimator, not inflation caused by sibling exposure under different splits, and cannot support `LEAKAGE_DEMO_PASS`. Filter sibling rows from CLEAN training while retaining the same test rows, or describe this as a model ablation rather than leakage.\n\nAGENTS.md reference: [AGENTS.md:L9-L9](https://github.com/lijiabao1998/FrontierBiology/blob/4fdac6104e9c69273fe328c99df51fb83222d733/AGENTS.md#L9-L9)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T16:38:37Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPmUK7w",
+                            "commit": {
+                              "oid": "4fdac6104e9c69273fe328c99df51fb83222d733"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4124702488",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Compare the independently recomputed top-level verdict**\n\nFresh evidence in exact commit `afa303d` is that the new verifier reads only `synthetic_demo` and never reads the committed top-level `verdict` or `pre_registered_checks`. It therefore returns `INDEPENDENT_VERIFICATION_MATCH` even if `bio001_r1_results.json` declares the opposite verdict or the production verdict logic is wrong, despite `round.json` claiming full main-verdict reproduction; recompute the expected verdict and compare it explicitly with the committed one.\n\nAGENTS.md reference: [AGENTS.md:L9-L9](https://github.com/lijiabao1998/FrontierBiology/blob/4fdac6104e9c69273fe328c99df51fb83222d733/AGENTS.md#L9-L9)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T16:38:37Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPmUK7w",
+                            "commit": {
+                              "oid": "4fdac6104e9c69273fe328c99df51fb83222d733"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4124702500",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Emit bytes matching the committed verification artifact**\n\nFresh reproduction on exact commit `afa303d` still shows that running this verifier changes `independent_leakage_verification.json` from the manifest's `2483901e...` to `d75bbca8...`, after which `verify_manifest.py` reports `MISMATCH`. The committed blob remains CRLF while `write_text` emits LF on Linux, and `* -text` prevents Git from normalizing it, so the claimed canonical-LF remediation does not work; commit the generator's LF bytes or write an explicitly canonical byte sequence and regenerate the manifest.\n\nAGENTS.md reference: [AGENTS.md:L15-L15](https://github.com/lijiabao1998/FrontierBiology/blob/4fdac6104e9c69273fe328c99df51fb83222d733/AGENTS.md#L15-L15)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T16:38:37Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPmUK7w",
+                            "commit": {
+                              "oid": "4fdac6104e9c69273fe328c99df51fb83222d733"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4125243861",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Freeze the ablation pass threshold before evaluation**\n\nThe admitted r2 acceptance text defines A1 only as a gap that will be recorded and never freezes `0.2` as a success cutoff, but this line applies that threshold to declare `MODEL_ABLATION_PASS`. Because the cutoff appears only in the evaluator, the observed result can receive a post-hoc pass label; report the gap descriptively or evaluate a threshold frozen in a newly admitted round.\n\nAGENTS.md reference: [AGENTS.md:L9-L9](https://github.com/lijiabao1998/FrontierBiology/blob/9590a99939b7e54f48f6aa3f8e31c540e6fe1c4f/AGENTS.md#L9-L9)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T17:39:50Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPm_53g",
+                            "commit": {
+                              "oid": "9590a99939b7e54f48f6aa3f8e31c540e6fe1c4f"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4125243872",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Add an independent verifier for the r2 ablation**\n\nThe only purported verification command for this finished r2 round invokes the r1 leakage verifier, which reads `results/r1` and never checks the r2 split, metrics, threshold, or `MODEL_ABLATION_PASS` verdict. Consequently the new ablation result is closed without the required independent Verifier/Skeptic check; add an independent r2 implementation and record its outcome before marking the round finished.\n\nAGENTS.md reference: [AGENTS.md:L9-L9](https://github.com/lijiabao1998/FrontierBiology/blob/9590a99939b7e54f48f6aa3f8e31c540e6fe1c4f/AGENTS.md#L9-L9)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T17:39:50Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPm_53g",
+                            "commit": {
+                              "oid": "9590a99939b7e54f48f6aa3f8e31c540e6fe1c4f"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4125243883",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Perform the four required searches for r2**\n\nThis r2 `general` route is explicitly a reuse of r1 rather than a current-round online search; the `discipline` entry likewise reuses an r1 probe and the `criticism` entry names governance docs rather than an external search. Thus the round was admitted and finished without the mandated four-route current-round retrieval and original-source reading, so perform and record those searches instead of marking `sources_read` from session reuse.\n\nAGENTS.md reference: [AGENTS.md:L9-L9](https://github.com/lijiabao1998/FrontierBiology/blob/9590a99939b7e54f48f6aa3f8e31c540e6fe1c4f/AGENTS.md#L9-L9)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T17:39:50Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPm_53g",
+                            "commit": {
+                              "oid": "9590a99939b7e54f48f6aa3f8e31c540e6fe1c4f"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4125243893",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Record the current verifier mismatch in r1**\n\nFresh evidence in this commit is that running the committed `independent_leakage_verifier.py` exits 1 with `INDEPENDENT_VERIFICATION_MISMATCH` because V3 is false, and the committed verification JSON records the same mismatch; nevertheless this machine-readable round field still reports `6/6 + 5/5` and `INDEPENDENT_VERIFICATION_MATCH`. Update the primary result to preserve the failed check, or reconcile the estimator discrepancy before claiming a match.\n\nAGENTS.md reference: [AGENTS.md:L9-L9](https://github.com/lijiabao1998/FrontierBiology/blob/9590a99939b7e54f48f6aa3f8e31c540e6fe1c4f/AGENTS.md#L9-L9)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T17:39:50Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPm_53g",
+                            "commit": {
+                              "oid": "9590a99939b7e54f48f6aa3f8e31c540e6fe1c4f"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4125243905",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Make the r2 result artifact deterministic**\n\nThe documented r2 evaluator command regenerates this field from the current clock, so replaying the command on the exact commit changes `bio001_r2_ablation_results.json`; the subsequent manifest check then reports `MISMATCH` for that result even though all scientific values reproduce. Use a frozen round timestamp or omit the volatile field so the preserved result hash remains reproducible.\n\nAGENTS.md reference: [AGENTS.md:L15-L15](https://github.com/lijiabao1998/FrontierBiology/blob/9590a99939b7e54f48f6aa3f8e31c540e6fe1c4f/AGENTS.md#L15-L15)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T17:39:50Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWb88AAAABPm_53g",
+                            "commit": {
+                              "oid": "9590a99939b7e54f48f6aa3f8e31c540e6fe1c4f"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

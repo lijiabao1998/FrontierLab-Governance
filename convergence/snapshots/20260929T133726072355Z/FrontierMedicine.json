@@ -1,0 +1,81 @@
+{
+  "acquired_started_at": "2026-09-29T13:37:32.265558+00:00",
+  "acquired_completed_at": "2026-09-29T13:37:34.377365+00:00",
+  "repository": "FrontierMedicine",
+  "response": {
+    "data": {
+      "repository": {
+        "name": "FrontierMedicine",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "5b693a6bc4baa2647530833d046a1f0528dab90c"
+          }
+        },
+        "pullRequests": {
+          "pageInfo": {
+            "hasNextPage": false
+          },
+          "nodes": [
+            {
+              "number": 1,
+              "title": "Fix onboarding governance pin in README/AGENTS (091d6a26 → lock f40beb16)",
+              "url": "https://github.com/lijiabao1998/FrontierMedicine/pull/1",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "claude/frontiermedicine-governance-pin-fix",
+              "headRefOid": "cd2421477eea5bd450cfbf467e3395dfb36f7651",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-27T19:42:26Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMedicine/actions/runs/36345173914/job/108692784760"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierMedicine/actions/runs/36342597844/job/108685479613"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": []
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": []
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

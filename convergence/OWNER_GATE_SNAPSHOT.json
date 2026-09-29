@@ -1,0 +1,7 @@
+{
+  "generated_at": "2026-09-29T13:37:35.087618+00:00",
+  "superseded": true,
+  "authoritative_current_status": "CURRENT_STATUS.json",
+  "historical_snapshot": "history/before_gpt_20260929/OWNER_GATE_SNAPSHOT.json",
+  "scope": "Legacy snapshot retired; consult CURRENT_STATUS.json and MERGE_DECISIONS.md. No READY approval."
+}

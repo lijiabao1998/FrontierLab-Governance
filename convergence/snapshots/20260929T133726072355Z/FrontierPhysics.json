@@ -1,0 +1,1477 @@
+{
+  "acquired_started_at": "2026-09-29T13:37:26.074783+00:00",
+  "acquired_completed_at": "2026-09-29T13:37:29.541549+00:00",
+  "repository": "FrontierPhysics",
+  "response": {
+    "data": {
+      "repository": {
+        "name": "FrontierPhysics",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "bca6b6c16efc5d2e04ff95cdfda5bea522160371"
+          }
+        },
+        "pullRequests": {
+          "pageInfo": {
+            "hasNextPage": false
+          },
+          "nodes": [
+            {
+              "number": 2,
+              "title": "PHYS-001 r2 (glm): two-stage calibration (cycle2 PASS: floor-augmented frozen bands, 0/90 violations) + sensitivity quantification",
+              "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/2",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "glm/PHYS-001-calib-r2",
+              "headRefOid": "88c316ce666af63c7e6b9eedbb975e3dbf6dc20e",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-28T17:39:58Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierPhysics/actions/runs/36457567642/job/109047688842"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierPhysics/actions/runs/36457563158/job/109047685496"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": [
+                  {
+                    "id": "PRR_kwDOUukWH88AAAABPf_1pw",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T07:20:22Z",
+                    "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/2#pullrequestreview-5335152039",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `e22a993feb`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "e22a993feb072ec8a575c44ed0f9328571b4e2bb"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWH88AAAABPgOYZA",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T07:45:29Z",
+                    "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/2#pullrequestreview-5335390308",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `81c7c3723b`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "81c7c3723b98615c44990a58f438401bfb2dfcae"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWH88AAAABPmQ4lA",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T16:33:25Z",
+                    "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/2#pullrequestreview-5341722772",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `be50ecfebd`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "be50ecfebd47dc2ea79985ad83eb2de2e5532e7a"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWH88AAAABPmaqLA",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T16:47:48Z",
+                    "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/2#pullrequestreview-5341882924",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `7219b6ab57`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "7219b6ab57ada9e324ddf1d508ea1d13e931f84c"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWH88AAAABPm3cHQ",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T17:27:15Z",
+                    "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/2#pullrequestreview-5342354461",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `88c316ce66`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "88c316ce666af63c7e6b9eedbb975e3dbf6dc20e"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWH88AAAABPm_8Og",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T17:39:54Z",
+                    "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/2#pullrequestreview-5342493754",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `88c316ce66`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "88c316ce666af63c7e6b9eedbb975e3dbf6dc20e"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  }
+                ]
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": [
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/2#discussion_r4119520762",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Re-admit the changed cycle-2 acceptance rule**\n\nThe admitted protocol in `runs/20260927T192740433960Z-glm-PHYS-001/round.json:9` freezes seeds 1–8/11–20 and `mean ± 4·std`, explicitly forbidding threshold changes after Stage B, but this code was added after cycle 1 failed and substitutes seeds 21–28/31–40 plus a `0.01` floor without a new admitted round. Consequently, the reported cycle-2 PASS is post-hoc rather than the claimed pre-registered confirmation; start and admit a new round containing this rule before using its result.\n\nAGENTS.md reference: [AGENTS.md:L8-L8](https://github.com/lijiabao1998/FrontierPhysics/blob/e22a993feb072ec8a575c44ed0f9328571b4e2bb/AGENTS.md#L8-L8)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:20:22Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPf_1pw",
+                            "commit": {
+                              "oid": "e22a993feb072ec8a575c44ed0f9328571b4e2bb"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/2#discussion_r4119520765",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Enforce the frozen B3 energy criterion**\n\nFor every cycle-2 Stage B sample, this loop checks only the structure-function and spectrum bands; it neither constructs an energy threshold nor compares `m[\"energy_rel_residual\"]`. The frozen acceptance contract at `runs/20260927T192740433960Z-glm-PHYS-001/round.json:9` requires B3 (`energy residual <= 2× Stage A maximum`), while the report claims the energy residuals passed, so `CALIBRATED_BASELINE_PASS` can be emitted without establishing that required conservation check.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierPhysics/blob/e22a993feb072ec8a575c44ed0f9328571b4e2bb/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:20:22Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPf_1pw",
+                            "commit": {
+                              "oid": "e22a993feb072ec8a575c44ed0f9328571b4e2bb"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/2#discussion_r4119520772",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Regenerate the stale artifact hashes**\n\nRunning the newly supplied `verify_manifest.py` at this exact commit reports mismatches for 7 of the 9 manifest entries, including this first script hash, both result JSON files, both band files, the baseline script, and the amplitude guard. Thus the committed evidence fails its own integrity verifier before any reproduction attempt and cannot authenticate the reported results; regenerate the manifest from the final committed artifacts.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierPhysics/blob/e22a993feb072ec8a575c44ed0f9328571b4e2bb/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:20:22Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPf_1pw",
+                            "commit": {
+                              "oid": "e22a993feb072ec8a575c44ed0f9328571b4e2bb"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/2#discussion_r4119708069",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Use the frozen geometric lag grid for W3**\n\nWhen W3 is evaluated, the final lags 152 and 156 nearly duplicate one endpoint while the preceding values follow an approximately 1.25 ratio, so this is not the admitted “13 geometric points” specified in `round.json:9`. The extra endpoint weight changes every reported W3 slope, window-sensitivity statistic, and W3 separation check relative to the frozen design; use a genuinely geometric 13-point grid or re-admit this exact list before reporting those results.\n\nAGENTS.md reference: [AGENTS.md:L8-L8](https://github.com/lijiabao1998/FrontierPhysics/blob/81c7c3723b98615c44990a58f438401bfb2dfcae/AGENTS.md#L8-L8)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:45:29Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPgOYZA",
+                            "commit": {
+                              "oid": "81c7c3723b98615c44990a58f438401bfb2dfcae"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/2#discussion_r4119708079",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Persist the raw Stage A and Stage B measurements**\n\nFor the cycle-2 PASS, this output retains only row counts and up to ten violations; because the violation list is empty, none of the 72 calibration or 90 confirmation measurements—including the raw B3 energy residuals—are preserved. This prevents an independent audit of the claimed 0/90 result or numerical-error behavior without rerunning the experiment and violates `VALIDATION.md:7`'s raw-residual requirement; save the Stage A/B rows with beta, seed, and window metadata in the result or a hashed raw artifact.\n\nAGENTS.md reference: [AGENTS.md:L4-L4](https://github.com/lijiabao1998/FrontierPhysics/blob/81c7c3723b98615c44990a58f438401bfb2dfcae/AGENTS.md#L4-L4)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:45:29Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPgOYZA",
+                            "commit": {
+                              "oid": "81c7c3723b98615c44990a58f438401bfb2dfcae"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/2#discussion_r4119708092",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Freeze the exact bounds that Stage B evaluates**\n\nThe purported frozen `bands2.json` rounds every SF and spectrum boundary to four decimals, while Stage B evaluates the unrounded in-memory `bands` values on lines 75–82. A measurement within roughly 5e-5 of a boundary can therefore receive a different verdict when checked against the committed frozen artifact, so the artifact is not the acceptance contract actually used; serialize the full-precision bounds and use those persisted values for Stage B.\n\nAGENTS.md reference: [AGENTS.md:L8-L8](https://github.com/lijiabao1998/FrontierPhysics/blob/81c7c3723b98615c44990a58f438401bfb2dfcae/AGENTS.md#L8-L8)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:45:29Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPgOYZA",
+                            "commit": {
+                              "oid": "81c7c3723b98615c44990a58f438401bfb2dfcae"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/2#discussion_r4124657002",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Regenerate every stale evidence hash**\n\nFresh evidence in this squashed commit is that running `sha256sum -c results/r1/hashes.txt` from `problems/PHYS-001` fails both r1 entries, while `verify_manifest.py` still reports mismatches for `r2_calibration_results.json`, `amplitude_guard_check.json`, and `bands.json`. Consequently, the committed manifests still cannot authenticate several reported results despite `round.json` claiming hashes were regenerated after the final edits; regenerate both manifests from the committed bytes.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierPhysics/blob/be50ecfebd47dc2ea79985ad83eb2de2e5532e7a/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T16:33:25Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPmQ4lA",
+                            "commit": {
+                              "oid": "be50ecfebd47dc2ea79985ad83eb2de2e5532e7a"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/2#discussion_r4124657011",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Include run coordinates in every raw row**\n\nFresh evidence after the raw-row persistence change is that each Stage B entry appends only `m`, omitting its beta, window, and seed; the newly persisted Stage A rows likewise omit the seed. The 90 claimed confirmation measurements therefore cannot be associated with their experimental coordinates without reconstructing loop ordering from this implementation, preventing the independent per-seed/window audit required for B1/B3 and by `VALIDATION.md:7`; persist those identifiers alongside every measurement.\n\nAGENTS.md reference: [AGENTS.md:L4-L4](https://github.com/lijiabao1998/FrontierPhysics/blob/be50ecfebd47dc2ea79985ad83eb2de2e5532e7a/AGENTS.md#L4-L4)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T16:33:25Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPmQ4lA",
+                            "commit": {
+                              "oid": "be50ecfebd47dc2ea79985ad83eb2de2e5532e7a"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/2#discussion_r4124657023",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Record exact execution commands in round metadata**\n\nBoth newly added round records list artifacts and result summaries but contain no execution command at all (a repository-wide search of the added run records finds no command field). Without the exact invocation and working-directory context, a verifier cannot reproduce which scripts generated the committed evidence, and the round record is missing provenance explicitly required by the repository protocol; add the commands used for the baseline, both calibration cycles, guards, and verification.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierPhysics/blob/be50ecfebd47dc2ea79985ad83eb2de2e5532e7a/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T16:33:25Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPmQ4lA",
+                            "commit": {
+                              "oid": "be50ecfebd47dc2ea79985ad83eb2de2e5532e7a"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/2#discussion_r4124783278",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Record the runtime that produced the r2 evidence**\n\nThis environment artifact records only the governance pin, base, and branch, omitting the Python version and platform even though the cycle-1 verdict depends on last-bit floating-point behavior: replaying this exact commit under Python 3.14.4 produced 0 violations and `CALIBRATED_BASELINE_PASS`, while the committed result reports 3 violations and `CALIBRATED_BASELINE_FAIL` against bands only about 1e-14 wide. Without the producer runtime, the failure that motivates cycle 2 cannot be reproduced; record at least the interpreter and platform used for r2.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierPhysics/blob/7219b6ab57ada9e324ddf1d508ea1d13e931f84c/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T16:47:48Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPmaqLA",
+                            "commit": {
+                              "oid": "7219b6ab57ada9e324ddf1d508ea1d13e931f84c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/2#discussion_r4125130911",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Use the frozen B3 energy bound**\n\nThe cycle-1 acceptance contract in `round.json` fixes B3 at no more than twice the Stage A maximum, but this applies a `1e-10` floor; with the committed Stage A residuals around `1e-14`, that relaxes the limit by roughly three orders of magnitude and can report an energy pass that the admitted rule rejects. Unlike the previously flagged cycle-2 omission, this defect remains in the cycle-1 evaluator; remove the floor or formally admit it before execution.\n\nAGENTS.md reference: [AGENTS.md:L8-L8](https://github.com/lijiabao1998/FrontierPhysics/blob/88c316ce666af63c7e6b9eedbb975e3dbf6dc20e/AGENTS.md#L8-L8)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T17:27:15Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPm3cHQ",
+                            "commit": {
+                              "oid": "88c316ce666af63c7e6b9eedbb975e3dbf6dc20e"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/2#discussion_r4125130921",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Provide a runnable amplitude-guard command**\n\nFresh evidence after the commands-list remediation is that this entry is still descriptive prose rather than a valid invocation: `python (inline: ...)` cannot be executed, and a repo-wide search finds no checked-in generator for `amplitude_guard_check.json`. A verifier therefore cannot regenerate that evidence; record the actual heredoc/`python -c` invocation or add a script and reference it here.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierPhysics/blob/88c316ce666af63c7e6b9eedbb975e3dbf6dc20e/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T17:27:15Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPm3cHQ",
+                            "commit": {
+                              "oid": "88c316ce666af63c7e6b9eedbb975e3dbf6dc20e"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/2#discussion_r4125244378",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Compare matching physical lag windows across N**\n\nFor the implemented field `cos(2πkj/N)`, a lag index `r` represents the normalized separation `r/N`; reusing the same integer `WINDOWS` for `N=2048` and `N=4096` therefore halves every physical fitting interval. Consequently, the reported `m4096 - m2048` values conflate resolution sensitivity with a factor-of-two window shift and cannot support the claimed N-sensitivity analysis. Scale the lag indices with N (or otherwise hold the physical interval fixed) before comparing the slopes.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierPhysics/blob/88c316ce666af63c7e6b9eedbb975e3dbf6dc20e/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T17:39:54Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPm_8Og",
+                            "commit": {
+                              "oid": "88c316ce666af63c7e6b9eedbb975e3dbf6dc20e"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "number": 4,
+              "title": "PHYS-001 canonical evidence (dsk): exact estimator reproduction (1.1e-14), frozen E3 FAIL, corrected finite-band interpretation, retraction list",
+              "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/4",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "dsk/PHYS-001-canonical-evidence",
+              "headRefOid": "e3c93deb54384c93e039cd3330602d0a0d08c604",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-28T08:30:06Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierPhysics/actions/runs/36395824015/job/108841845706"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierPhysics/actions/runs/36395818947/job/108841828329"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": [
+                  {
+                    "id": "PRR_kwDOUukWH88AAAABPgMdng",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T07:42:50Z",
+                    "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/4#pullrequestreview-5335358878",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `537561c42f`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "537561c42f168e8d3426d3c6a8e13ea9d3c0496e"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWH88AAAABPgcEHQ",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T08:05:28Z",
+                    "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/4#pullrequestreview-5335614493",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `7321f2af07`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "7321f2af077cb832786ea87b7aec4233885baccd"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWH88AAAABPgtdbA",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T08:30:02Z",
+                    "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/4#pullrequestreview-5335899500",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `e3c93deb54`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "e3c93deb54384c93e039cd3330602d0a0d08c604"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  }
+                ]
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": [
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/4#discussion_r4119684397",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Include the UV cutoff before rejecting the β=3 window**\n\nThe logarithmic formula also requires `k_hi*r >> 1`, but in the claimed regime `r < 0.0248` one instead has `k_hi*r < 0.035`, where the finite sum is in its analytic UV `r²` regime. Calling the script's exact `local_exponent` gives 1.974 at `r=1` and 1.912 at `r=2`, while an OLS fit over integer lags `[1,4]` gives 1.906, directly contradicting the statement that no `r >= 1` reaches 1.9. The audit should distinguish this cutoff-induced `r²` behavior from marginal inertial-range scaling rather than applying the continuum approximation outside its validity domain.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierPhysics/blob/537561c42f168e8d3426d3c6a8e13ea9d3c0496e/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:42:50Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPgMdng",
+                            "commit": {
+                              "oid": "537561c42f168e8d3426d3c6a8e13ea9d3c0496e"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/4#discussion_r4119684408",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Report the numerical method that was actually executed**\n\nThis says the value was computed with `mpmath` at 40 digits, but the committed script imports no `mpmath`, performs ordinary double-precision Simpson integration, and ignores its `--dps` argument. Because this document is the canonical evidence record, the current wording falsely attributes the result to a calculation that was not run; either execute and preserve that multiprecision check or describe the standard-library computation consistently here.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierPhysics/blob/537561c42f168e8d3426d3c6a8e13ea9d3c0496e/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:42:50Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPgMdng",
+                            "commit": {
+                              "oid": "537561c42f168e8d3426d3c6a8e13ea9d3c0496e"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/4#discussion_r4119684423",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Record the artifact hashes claimed by the round**\n\nThis note says hashes identify the regenerated outputs, but this `round.json` contains no data or result hashes for either committed evidence JSON or the baseline result. Deferring hash automation does not supply the required static provenance: without the values, the canonical artifacts cannot be bound to the recorded run, so the hashes should be recorded here or the regeneration claim should not be made.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierPhysics/blob/537561c42f168e8d3426d3c6a8e13ea9d3c0496e/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:42:50Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPgMdng",
+                            "commit": {
+                              "oid": "537561c42f168e8d3426d3c6a8e13ea9d3c0496e"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/4#discussion_r4119864342",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Correct the reversed UV/IR cutoff logic**\n\nFresh evidence after `7321f2a` shows that the replacement explanation still reverses both conditions: at `r = 15`, `k_hi·r = 20.7` and `k_lo·r = 0.069`, so the window satisfies the document's own UV/IR gates rather than violating the UV condition, while `r < 0.025` satisfies the IR condition but fails the UV one. Consequently, the claim that the marginal regime is squeezed out entirely does not follow; moreover, `s2_local_exponent.py` and its generated JSON still retain the explicitly disproven statement that no `r >= 1` reaches 1.9. The cutoff interpretation and generated evidence need to be corrected consistently.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierPhysics/blob/7321f2af077cb832786ea87b7aec4233885baccd/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T08:05:28Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPgcEHQ",
+                            "commit": {
+                              "oid": "7321f2af077cb832786ea87b7aec4233885baccd"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/4#discussion_r4119864351",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Record failure of the frozen high-precision criterion**\n\nThe frozen B4 criterion above requires a high-precision evaluation plus the sweep, but the committed implementation explicitly performs ordinary double-precision Simpson integration, ignores `--dps`, and the audit acknowledges that no multiprecision check is reproduced by a committed command. Marking `all_criteria_passed` true therefore silently relaxes the frozen criterion after execution; either preserve and run a reproducible high-precision check or record B4 as failed.\n\nAGENTS.md reference: [AGENTS.md:L8-L8](https://github.com/lijiabao1998/FrontierPhysics/blob/7321f2af077cb832786ea87b7aec4233885baccd/AGENTS.md#L8-L8)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T08:05:28Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPgcEHQ",
+                            "commit": {
+                              "oid": "7321f2af077cb832786ea87b7aec4233885baccd"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/4#discussion_r4119864359",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Add the committed baseline result to the artifact manifest**\n\nFresh evidence after `7321f2a` is that the seven new entries still omit `problems/PHYS-001/experiments/results/r1/k41_baseline_results.json`. That committed file is produced by the reference execution and supplies the values used for the decisive comparison, so omitting its hash leaves a result artifact unbound to this round despite the new provenance claim.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierPhysics/blob/7321f2af077cb832786ea87b7aec4233885baccd/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T08:05:29Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPgcEHQ",
+                            "commit": {
+                              "oid": "7321f2af077cb832786ea87b7aec4233885baccd"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/4#discussion_r4120053857",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Apply both cutoffs in the companion audit**\n\nFresh evidence after `e3c93de` is that the companion audit still applies the marginal formula without its UV condition and says the `>1.9` regime is unreachable merely because `r < 0.0248` lies below the lattice spacing. For this band, that range has `k_hi·r ≪ 1`, so the marginal formula is invalid and the exact exponent instead exceeds 1.9 at integer lags 1 and 2 because of the analytic `r²` regime; meanwhile the actual marginal window is `[15,21]` with exponent ≈1.72. This leaves the two canonical reports with contradictory cutoff interpretations, so this paragraph needs the same UV/IR correction as `CANONICAL_FACTS.md`.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierPhysics/blob/e3c93deb54384c93e039cd3330602d0a0d08c604/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T08:30:02Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPgtdbA",
+                            "commit": {
+                              "oid": "e3c93deb54384c93e039cd3330602d0a0d08c604"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/4#discussion_r4120053861",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Fail when stale-output deletion fails**\n\nIf the pre-existing result cannot be removed—for example, a read-only result on Windows—this exception is silently ignored. If the subsequent reference process exits before replacing the file, the old JSON still exists, lines 213–217 load it, and the run is marked `results_fresh`, allowing stale data to support the reproduction verdict. Return an unusable result when deletion fails, or otherwise verify that the output was replaced before reading it.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T08:30:02Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPgtdbA",
+                            "commit": {
+                              "oid": "e3c93deb54384c93e039cd3330602d0a0d08c604"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "number": 3,
+              "title": "PHYS-001 independent audit (dsk): E3 FAIL is a finite-window effect — estimator reproduced exactly (1.3e-14), saturation and window-gate claims retracted",
+              "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3",
+              "state": "CLOSED",
+              "isDraft": false,
+              "headRefName": "dsk/PHYS-001-independent-audit-r1",
+              "headRefOid": "e4c303820b8455256af91cf7008515f6d3f1e4a9",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-28T07:37:38Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierPhysics/actions/runs/36392653867/job/108831742909"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierPhysics/actions/runs/36392648680/job/108831725526"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": [
+                  {
+                    "id": "PRR_kwDOUukWH88AAAABPc1ymA",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-27T20:05:51Z",
+                    "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#pullrequestreview-5331841688",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `73584dc80a`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "73584dc80ad7c3a079de3bd73163b172b301dd77"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWH88AAAABPfS3_A",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T05:40:32Z",
+                    "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#pullrequestreview-5334415356",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `efd6d8af1e`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "efd6d8af1e38e2b0efb9c561c953842d3fb3a1bc"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWH88AAAABPflafA",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T06:24:39Z",
+                    "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#pullrequestreview-5334719100",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `2a478b2bf6`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "2a478b2bf62298cfe9d918a1f0f9ab8cef962b0e"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWH88AAAABPfoonQ",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T06:32:41Z",
+                    "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#pullrequestreview-5334771869",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `d07e998940`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "d07e99894069eeeb583c30097f0bc166b40bd4e8"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWH88AAAABPft1RA",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T06:44:12Z",
+                    "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#pullrequestreview-5334857028",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `888e431faf`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "888e431faff66d218085ff273b5d304df4721478"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWH88AAAABPfyQCg",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T06:53:36Z",
+                    "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#pullrequestreview-5334929418",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `888e431faf`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "888e431faff66d218085ff273b5d304df4721478"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWH88AAAABPf3HRA",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T07:02:54Z",
+                    "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#pullrequestreview-5335009092",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `73993d368c`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "73993d368cf7ffb7cdb694317d9d81336b81b607"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  }
+                ]
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": [
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4116758639",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Do not claim implementation verification from an arbitrary tolerance**\n\nThe deterministic mode sum differs from the reported GLM value by 0.0489 and is declared a match only because this line introduces an unexplained 0.05 cutoff. Since the audit explicitly did not run GLM's random-phase generator or structure-function estimator and provides no seed distribution or uncertainty for that difference, this establishes model-level consistency but cannot exclude an implementation error; reproduce the reviewed estimator or quantify the statistical and numerical errors before emitting `true` and concluding “NOT B.”\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierPhysics/blob/73584dc80ad7c3a079de3bd73163b172b301dd77/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:05:51Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPc1ymA",
+                            "commit": {
+                              "oid": "73584dc80ad7c3a079de3bd73163b172b301dd77"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4116758640",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Recompute the saturation behavior before using it as the verdict**\n\nThe window only reaches `k_lo*r = 1.146`, whereas saturation was derived for `k_lo*r >> 1`, so the local exponent has not dropped to zero at this boundary. Differentiating this script's own exact mode sum gives a local exponent of about 1.16 at `r=217` and 1.07 at `r=249`; consequently the asserted saturated plateau and the claimed necessity of a second saturation mechanism are not established by this calculation and should not drive the audit verdict or PR recommendations.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierPhysics/blob/73584dc80ad7c3a079de3bd73163b172b301dd77/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:05:51Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPc1ymA",
+                            "commit": {
+                              "oid": "73584dc80ad7c3a079de3bd73163b172b301dd77"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4116758643",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Choose a window that satisfies both proposed gates**\n\nThe recommended `[4, 20]` window violates the immediately preceding high-wavenumber gate: for the stated GLM band, `k_hi = 2π·900/4096 ≈ 1.381`, so `k_hi*r_a ≈ 5.52`, not at least 20. Following this recommendation therefore does not produce the claimed pre-registered valid window and still yields a substantially biased β=5/3 slope; the example needs `r_a ≥ 14.49` as well as `r_b ≤ 21.73` (and the resulting narrow window must be validated).\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierPhysics/blob/73584dc80ad7c3a079de3bd73163b172b301dd77/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:05:51Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPc1ymA",
+                            "commit": {
+                              "oid": "73584dc80ad7c3a079de3bd73163b172b301dd77"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4116758646",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Verify the advertised precision of the log constant**\n\nA clean run prints and records `C0 = 0.461336`, while the report and conclusion use `0.461390`; the roughly `5.4e-5` discrepancy is over two orders of magnitude larger than the claimed `5e-7` stability. Moreover, the function evaluates only `x=1e-10`, so this line does not actually test the advertised range `1e-1 .. 1e-20`; use converged quadrature or the analytic constant and explicitly sweep the range before making this precision claim.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierPhysics/blob/73584dc80ad7c3a079de3bd73163b172b301dd77/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:05:51Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPc1ymA",
+                            "commit": {
+                              "oid": "73584dc80ad7c3a079de3bd73163b172b301dd77"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4118928132",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Remove the retracted saturation diagnosis from the review**\n\nFresh evidence in this commit is that the revision-2 audit explicitly retracts the saturation explanation after finding local exponents of 1.163 and 1.072 at the upper lags, yet this root-facing review still tells readers that the window straddles a saturation edge and recommends changing the PR on that basis. Update or mark this review as superseded so downstream reviewers do not act on a finite-limit interpretation that the accompanying analysis disproves.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierPhysics/blob/efd6d8af1e38e2b0efb9c561c953842d3fb3a1bc/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T05:40:33Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPfS3_A",
+                            "commit": {
+                              "oid": "efd6d8af1e38e2b0efb9c561c953842d3fb3a1bc"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4118928136",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Declare or remove the mpmath dependency**\n\nIn a clean checkout using the repository's documented environment, importing this script fails with `ModuleNotFoundError: No module named 'mpmath'`: there is no requirements file, pyproject, environment file, or setup instruction declaring this dependency. Consequently the advertised B2–B4 reproduction command cannot run, despite the provenance describing the audit as standard-library-only; declare and provision the dependency or replace it with a reproducible standard-library/analytic calculation.\n\nAGENTS.md reference: [AGENTS.md:L8-L8](https://github.com/lijiabao1998/FrontierPhysics/blob/efd6d8af1e38e2b0efb9c561c953842d3fb3a1bc/AGENTS.md#L8-L8)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T05:40:33Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPfS3_A",
+                            "commit": {
+                              "oid": "efd6d8af1e38e2b0efb9c561c953842d3fb3a1bc"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4118928140",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Reject reference scripts whose expected hash does not match**\n\nThis computes a digest but never compares it with the claimed GLM hash, so any existing or modified file is executed and accepted as the “verbatim” reference. The problem is already observable on a clean Linux checkout: the committed file hashes to `b1070ea49ec142addeda3be51092eaa92624199bcf788c78013cad0c172d5a70`, while the report and round evidence claim `5244be1d...`; nevertheless the function proceeds normally. Normalize the bytes if necessary and fail unless the resulting digest equals a pinned expected hash before using the run to exclude an implementation error.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierPhysics/blob/efd6d8af1e38e2b0efb9c561c953842d3fb3a1bc/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T05:40:33Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPfS3_A",
+                            "commit": {
+                              "oid": "efd6d8af1e38e2b0efb9c561c953842d3fb3a1bc"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4118928146",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Correct the reversed lag bound for the 1.9 exponent**\n\nThe stated implication reverses the inequality: with `k_lo = 2π·3/4096 ≈ 0.004602`, `k_lo*r < 3e-4` implies `r < 0.065`, not `r > 3300`. Solving the displayed exponent formula more precisely requires `ln(1/(k_lo*r)) > 10-2C0 ≈ 9.08`, or `r < 0.025`; thus the regime is inaccessible because it lies below one sample, not beyond the domain. Correct this explanation and the copied JSON/report text so the UV/IR limit is not misidentified.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierPhysics/blob/efd6d8af1e38e2b0efb9c561c953842d3fb3a1bc/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T05:40:33Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPfS3_A",
+                            "commit": {
+                              "oid": "efd6d8af1e38e2b0efb9c561c953842d3fb3a1bc"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4118928153",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Record the round's commands and artifact hashes**\n\nThe finished round leaves `artifacts` empty and contains no executed-command list or hashes for the committed B1/B2/B3/B4 outputs, so the values embedded under `result` cannot be tied to the checked-in JSON and logs. Populate this round record with the actual commands and result hashes rather than relying on unlinked copies elsewhere; these fields are required for a reproducible research round.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierPhysics/blob/efd6d8af1e38e2b0efb9c561c953842d3fb3a1bc/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T05:40:33Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPfS3_A",
+                            "commit": {
+                              "oid": "efd6d8af1e38e2b0efb9c561c953842d3fb3a1bc"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4119172057",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Regenerate the recorded outputs with the remediated scripts**\n\nFresh evidence in this pass is that this newly recorded command does not describe the committed artifact it claims to have produced: rerunning the current script yields `C0 = 0.4613921675492818` and the corrected bound `r < 0.0248`, while `B2_B3_B4_local_exponent.json`, `round.json`, `RERUN_EVIDENCE.json`, and the authoritative audit still contain the retracted `0.4613932125...` value and reversed `r > 3300` explanation. Likewise, the recorded B1 artifact lacks the new hash-verification fields. Thus the added hashes preserve pre-remediation outputs while `all_criteria_passed` presents them as results of the remediated commands; rerun both commands and update the artifacts, hashes, result fields, and report together.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierPhysics/blob/2a478b2bf62298cfe9d918a1f0f9ab8cef962b0e/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:24:40Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPflafA",
+                            "commit": {
+                              "oid": "2a478b2bf62298cfe9d918a1f0f9ab8cef962b0e"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4119172063",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Compare against the full-precision reference values**\n\nFresh evidence beyond the earlier tolerance finding is the newly introduced `ROUND_BOUND`: the loaded GLM results JSON actually stores full-precision slopes such as `0.6383646079612384`, so the comment's premise that it rounds them to four decimals is false. In any run where the independent result regresses by up to `5e-5`, both checks still pass and the script exits successfully while claiming implementation agreement limited only by roughly `1e-14`; use a justified floating-point error bound against the full values instead.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierPhysics/blob/2a478b2bf62298cfe9d918a1f0f9ab8cef962b0e/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:24:40Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPflafA",
+                            "commit": {
+                              "oid": "2a478b2bf62298cfe9d918a1f0f9ab8cef962b0e"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4119172066",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Reject stale output after a failed reference execution**\n\nWhen this verifier is run more than once, `cand` can exist from an earlier successful execution; if the current reference process then fails before rewriting it, these lines load that stale JSON without checking `p.returncode` or output freshness, and the later comparisons can still return success. Exit 1 is expected for the reference's scientific FAIL, so the robust fix is to remove or timestamp the prior artifact before launching and require a newly produced, valid result rather than treating any existing path as current evidence.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierPhysics/blob/2a478b2bf62298cfe9d918a1f0f9ab8cef962b0e/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:24:40Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPflafA",
+                            "commit": {
+                              "oid": "2a478b2bf62298cfe9d918a1f0f9ab8cef962b0e"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4119216128",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Regenerate hashes from the committed bytes**\n\nFresh evidence at `d07e998` is that none of the 12 advertised SHA-256 values matches the corresponding committed file on this Linux checkout; for example, this entry records `4d08c8...`, while both the worktree file and `git show HEAD:<path>` hash to `3287e8...`. The hashes were taken from a CRLF Windows worktree, as the note at the end of `round.json` acknowledges, so they cannot identify the repository artifacts on other checkouts; the manifest also attempts to hash itself, which is already mismatched. Hash normalized or Git-blob bytes and exclude the self-referential entry so the round evidence can actually be verified.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierPhysics/blob/d07e99894069eeeb583c30097f0bc166b40bd4e8/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:32:41Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPfoonQ",
+                            "commit": {
+                              "oid": "d07e99894069eeeb583c30097f0bc166b40bd4e8"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4119216134",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Replace the remaining pre-remediation result fields**\n\nFresh evidence after `d07e998` is that the authoritative round remains internally contradictory: this field still says the supported value is the now-retracted `0.4613932125491026`, while line 299 and the regenerated B2 artifact report `0.4613921675492818`; the adjacent sweep endpoints and `precision_claim` are likewise from the old output. `RERUN_EVIDENCE.json` still carries the old constant and reversed `r >~ 3300` explanation as well, yet both records declare all criteria passed, so consumers can still read the pre-remediation result despite the new summary.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierPhysics/blob/d07e99894069eeeb583c30097f0bc166b40bd4e8/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:32:41Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPfoonQ",
+                            "commit": {
+                              "oid": "d07e99894069eeeb583c30097f0bc166b40bd4e8"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4119216141",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Execute the claimed independent quadrature checks**\n\nA clean execution only evaluates `f_tail_stdlib()` with its default `Q=1000`; repo-wide search finds no implementation of the claimed `Q=2000/5000` comparison or the independent `A_3(1)` route. Consequently this output hard-codes a `~1e-12` validation that neither recorded command reproduces, so the corrected constant's numerical-error claim is unsupported even though the primary calculation runs. Implement and record both checks, or weaken the validation statement to what the executed calculation establishes.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierPhysics/blob/d07e99894069eeeb583c30097f0bc166b40bd4e8/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:32:41Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPfoonQ",
+                            "commit": {
+                              "oid": "d07e99894069eeeb583c30097f0bc166b40bd4e8"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4119285808",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Recompute hashes after finalizing the commit**\n\nFresh evidence at `888e431` is that four entries still hash the previous revision rather than the advertised Git blobs: for example, this entry records `3287e89b...`, while `git show 888e431:<path> | sha256sum` gives `998397a2...`; the B1 log, B2 result, and `s2_local_exponent.py` entries likewise differ. Because both this manifest and `round.json` label these values `hash_of: git_blob`, they cannot identify the committed artifacts until generated after all same-commit changes are finalized.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierPhysics/blob/888e431faff66d218085ff273b5d304df4721478/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:44:12Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPft1RA",
+                            "commit": {
+                              "oid": "888e431faff66d218085ff273b5d304df4721478"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4119285813",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Regenerate the remaining aggregate evidence**\n\nFresh evidence at `888e431` is that this active `ROUND_FINISHED` record was not updated with the regenerated result: it still presents the retracted `0.4613932125...` as `C0_high_precision`, repeats the reversed `r >~ 3300` explanation, and summarizes the old value while declaring `all_criteria_passed: true`. This now contradicts both the corrected `round.json` and the executed B2 artifact, so consumers can still select the pre-remediation numerical result; regenerate this record or explicitly supersede it.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierPhysics/blob/888e431faff66d218085ff273b5d304df4721478/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:44:12Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPft1RA",
+                            "commit": {
+                              "oid": "888e431faff66d218085ff273b5d304df4721478"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4119285820",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Fail closed when stale-output deletion fails**\n\nFresh evidence in the stale-output remediation is that an `OSError` from deleting the prior result is silently ignored. When that file cannot be unlinked—for example in a read-only directory or while locked on Windows—and the reference run then fails before replacing it, the old file remains; lines 190–202 load it and mark it `results_fresh`, allowing the comparison to succeed on stale evidence. Treat deletion failure as an unusable reference or independently require that the post-run file was newly created.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierPhysics/blob/888e431faff66d218085ff273b5d304df4721478/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:44:12Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPft1RA",
+                            "commit": {
+                              "oid": "888e431faff66d218085ff273b5d304df4721478"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4119343076",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Replace the remaining reversed UV/IR result**\n\nFresh evidence at current HEAD is that the corrected `uv_ir_direction` at line 225 and the regenerated script both derive `r < 0.0248`, but this nested result still records `r >~ 3300`; meanwhile the same round declares all findings addressed and `all_criteria_passed`. Consumers of `B3_window_gate_validated_or_retracted.gate_assessment` therefore still receive the retracted physical explanation, so regenerate this field from the current output before treating the round as complete.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierPhysics/blob/888e431faff66d218085ff273b5d304df4721478/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:53:36Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPfyQCg",
+                            "commit": {
+                              "oid": "888e431faff66d218085ff273b5d304df4721478"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4119343085",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Regenerate the exploratory output before labeling it current**\n\nThis manifest labels `B2_B3_B4_exploratory_copy.json` as an in-round regenerated output, but it remains the pre-fix artifact: unlike the canonical B2 file produced by the recorded command, it lacks `F_tail_validation_executed` entirely. Thus the two purported copies no longer carry the same evidence and a consumer selecting the exploratory artifact cannot reproduce the newly claimed quadrature validation; regenerate/copy it or mark it explicitly superseded rather than current.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierPhysics/blob/888e431faff66d218085ff273b5d304df4721478/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:53:36Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPfyQCg",
+                            "commit": {
+                              "oid": "888e431faff66d218085ff273b5d304df4721478"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4119343092",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Fail the quadrature validation when routes disagree**\n\nThe newly executed validation only returns the observed spread; it never compares that spread with an acceptance bound, and `main()` subsequently writes the hard-coded agreement claim and exits successfully regardless of the values. If either quadrature route regresses or behaves differently on another platform, the recorded command will still present the result as validated, so add an explicit numerical-error threshold and fail or record a failed criterion when it is exceeded.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierPhysics/blob/888e431faff66d218085ff273b5d304df4721478/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T06:53:36Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPfyQCg",
+                            "commit": {
+                              "oid": "888e431faff66d218085ff273b5d304df4721478"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4119403503",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Recompute the manifest after regenerating artifacts**\n\nFresh evidence after the fifth-pass regeneration is that this still does not identify the committed Git blob: `git show 80c2a6860ed014b7deae9180b567e797c8c7b16f:<path> | sha256sum` gives `b7a82916...` and 7415 bytes for this file, rather than the recorded `cdc9af36...` and 7236 bytes. The two B2 outputs and `s2_local_exponent.py` are likewise mismatched, and the duplicate artifact list in `round.json` repeats those values, so the round's required hashes cannot verify the evidence until they are computed from the final committed bytes.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierPhysics/blob/73993d368cf7ffb7cdb694317d9d81336b81b607/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:02:54Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPf3HRA",
+                            "commit": {
+                              "oid": "73993d368cf7ffb7cdb694317d9d81336b81b607"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/3#discussion_r4119403512",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Mark the stale aggregate file itself superseded**\n\nFresh evidence in the fifth-pass tree is that the superseding marker was added only inside `round.json`; this aggregate still presents itself as `ROUND_FINISHED`, declares `all_criteria_passed`, and actively reports both the reversed `r >~ 3300` conclusion at line 125 and the retracted `0.4613932125...` constant at lines 138–146. A consumer opening this run-level record therefore still receives the incorrect UV/IR limit and numerical result with no indication that they are obsolete; regenerate this file or place the explicit superseded status in this file itself.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierPhysics/blob/73993d368cf7ffb7cdb694317d9d81336b81b607/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:02:54Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPf3HRA",
+                            "commit": {
+                              "oid": "73993d368cf7ffb7cdb694317d9d81336b81b607"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "number": 5,
+              "title": "PHYS-001 audit tooling (dsk): hash automation, rerun-evidence generator, stale-file guards, convergence tooling [follow-up] (draft: not merge-blocking)",
+              "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/5",
+              "state": "OPEN",
+              "isDraft": true,
+              "headRefName": "dsk/PHYS-001-audit-tooling",
+              "headRefOid": "73993d368cf7ffb7cdb694317d9d81336b81b607",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-28T07:37:00Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierPhysics/actions/runs/36389125963/job/108820825181"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierPhysics/actions/runs/36392623506/job/108831644945"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierPhysics/actions/runs/36389122493/job/108820814224"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierPhysics/actions/runs/36392588840/job/108831538844"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": []
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": []
+              }
+            },
+            {
+              "number": 1,
+              "title": "PHYS-001 r1 (glm): K41 synthetic baseline + evaluator (2/3 law, k^-5/3 & k^-3 spectra, energy budget; frozen E3 threshold FAIL recorded)",
+              "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/1",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "glm/PHYS-001-baseline-r1",
+              "headRefOid": "3740370457e32f64b22ac1bce8a8ea3467f198f8",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-27T20:02:05Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierPhysics/actions/runs/36342141199/job/108684171530"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierPhysics/actions/runs/36342112194/job/108684092815"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": [
+                  {
+                    "id": "PRR_kwDOUukWH88AAAABPcmpDQ",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-27T18:54:07Z",
+                    "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/1#pullrequestreview-5331593485",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `3740370457`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "3740370457e32f64b22ac1bce8a8ea3467f198f8"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  }
+                ]
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": [
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/1#discussion_r4116525799",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Regenerate the checksum for the committed result**\n\nThe recorded digest `88dd5b...` does not match the committed `k41_baseline_results.json`, whose SHA-256 is `bd9e814...`; consequently, running `sha256sum -c results/r1/hashes.txt` from `problems/PHYS-001` reports `FAILED`. This breaks the integrity evidence for the principal result artifact and must be corrected before the round can be treated as reproducible.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierPhysics/blob/3740370457e32f64b22ac1bce8a8ea3467f198f8/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T18:54:07Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPcmpDQ",
+                            "commit": {
+                              "oid": "3740370457e32f64b22ac1bce8a8ea3467f198f8"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/1#discussion_r4116525802",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Complete independent verification before finishing the round**\n\nThe record marks this round `ROUND_FINISHED`, but a repository-wide search finds only the report's self-described “Skeptic” loop and no independent verifier or skeptic result; the commit message likewise explicitly says there was no independent session. Finalizing the experimental record at this point skips the required independent verification stage, so an independent check and its outcome must be recorded first.\n\nAGENTS.md reference: [AGENTS.md:L8-L8](https://github.com/lijiabao1998/FrontierPhysics/blob/3740370457e32f64b22ac1bce8a8ea3467f198f8/AGENTS.md#L8-L8)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T18:54:07Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPcmpDQ",
+                            "commit": {
+                              "oid": "3740370457e32f64b22ac1bce8a8ea3467f198f8"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/1#discussion_r4116525807",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Record the execution command in round.json**\n\nThe finished result contains no execution-command field anywhere in `round.json`; the only rerun command is in commit metadata, which is not part of the archived round artifacts. Without the working directory and command needed to produce the JSON result, this round does not satisfy the repository's required reproducibility record.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierPhysics/blob/3740370457e32f64b22ac1bce8a8ea3467f198f8/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T18:54:08Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPcmpDQ",
+                            "commit": {
+                              "oid": "3740370457e32f64b22ac1bce8a8ea3467f198f8"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/1#discussion_r4116525811",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Test amplitude inflation against the reference amplitudes**\n\nThe amplitude guard discards the amplitudes returned by `make_field` and compares the field against `[1.0]`, so its analytic reference energy is unrelated to `u_ref`. In fact, the unmodified `u_ref` already yields a relative residual of about 0.208 against `[1.0]`, above the 0.10 threshold, meaning this check reports success even without the 1.5× corruption and therefore does not validate that amplitude inflation is detected.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T18:54:08Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPcmpDQ",
+                            "commit": {
+                              "oid": "3740370457e32f64b22ac1bce8a8ea3467f198f8"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierPhysics/pull/1#discussion_r4116525818",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Avoid treating phase-only seeds as statistical uncertainty**\n\nFor this full-period sum of integer Fourier modes, the periodic full-domain `S2` calculation cancels cross terms, making the quadratic structure function independent of the randomly seeded phases. The five slopes are consequently identical up to roundoff, so this computed `sf_std` cannot measure seed-to-seed statistical error or support the frozen uncertainty criterion; use genuinely independent sampled realizations/subwindows or classify this as an analytic/numerical check instead.\n\nAGENTS.md reference: [AGENTS.md:L10-L10](https://github.com/lijiabao1998/FrontierPhysics/blob/3740370457e32f64b22ac1bce8a8ea3467f198f8/AGENTS.md#L10-L10)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T18:54:08Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWH88AAAABPcmpDQ",
+                            "commit": {
+                              "oid": "3740370457e32f64b22ac1bce8a8ea3467f198f8"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

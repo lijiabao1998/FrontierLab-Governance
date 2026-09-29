@@ -1,0 +1,471 @@
+{
+  "acquired_started_at": "2026-09-29T13:37:26.075918+00:00",
+  "acquired_completed_at": "2026-09-29T13:37:28.791601+00:00",
+  "repository": "FrontierChemistry",
+  "response": {
+    "data": {
+      "repository": {
+        "name": "FrontierChemistry",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "6edd379003c880e5c3e5b1ade556dff21e9a7591"
+          }
+        },
+        "pullRequests": {
+          "pageInfo": {
+            "hasNextPage": false
+          },
+          "nodes": [
+            {
+              "number": 1,
+              "title": "CHEM-004 r1 (glm): FreeSolv validator + GAFF anchor reproduction (1.114) + split/unit controls; C4/C5 frozen thresholds FAIL recorded",
+              "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "glm/CHEM-004-baseline-r1",
+              "headRefOid": "bdca66228bc05ac51a20404d3028c4cc05aa2079",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-28T16:36:10Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierChemistry/actions/runs/36452235600/job/109029585625"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierChemistry/actions/runs/36452225459/job/109029551418"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": [
+                  {
+                    "id": "PRR_kwDOUukWlc8AAAABPcr8dQ",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-27T19:20:27Z",
+                    "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#pullrequestreview-5331680373",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `9d60995e91`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "9d60995e9127da39a3ebf43325028beb6a6c5dec"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWlc8AAAABPc9b6w",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-27T20:38:23Z",
+                    "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#pullrequestreview-5331966955",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `f25bfd9524`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "f25bfd9524556d96fb57fbd0b28d921f038fe6f1"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWlc8AAAABPf97TQ",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T07:16:35Z",
+                    "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#pullrequestreview-5335120717",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `20ec1b3314`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "20ec1b331426be3c89a1db7259dbf150c445d7f3"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWlc8AAAABPgLHgA",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T07:41:00Z",
+                    "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#pullrequestreview-5335336832",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `e2f07e7fc2`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "e2f07e7fc21dd984c24ce4f83fd6fccbe7763e7c"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  },
+                  {
+                    "id": "PRR_kwDOUukWlc8AAAABPgLMQQ",
+                    "state": "COMMENTED",
+                    "submittedAt": "2026-09-28T07:41:08Z",
+                    "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#pullrequestreview-5335338049",
+                    "body": "\n### 💡 Codex Review\n\nHere are some automated review suggestions for this pull request.\n\n**Reviewed commit:** `e2f07e7fc2`\n    \n\n<details> <summary>ℹ️ About Codex in GitHub</summary>\n<br/>\n\n[Your team has set up Codex to review pull requests in this repo](https://chatgpt.com/codex/cloud/settings/general). Reviews are triggered when you\n- Open a pull request for review\n- Mark a draft as ready\n- Comment \"@codex review\".\n\nIf Codex has suggestions, it will comment; otherwise it will react with 👍.\n\n\n\n\nCodex can also answer questions or update the PR. Try commenting \"@codex address that feedback\".\n            \n</details>",
+                    "commit": {
+                      "oid": "e2f07e7fc21dd984c24ce4f83fd6fccbe7763e7c"
+                    },
+                    "author": {
+                      "login": "chatgpt-codex-connector"
+                    }
+                  }
+                ]
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": [
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#discussion_r4116607586",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Count aromatic atoms when constructing scaffold keys**\n\nFor aromatic SMILES in this dataset, the lowercase atoms never match this regex, and the fallback `heavy_atoms` regex also ignores lowercase atoms; for example, benzene (`c1ccccc1`) is therefore classified as `acyclic:2`. This collapses 483 of 642 records into the single held-out key shown in the committed results, so the reported split is not a meaningful scaffold holdout and its C4/leakage conclusions need to be recomputed with a key that handles aromatic atoms and complete ring systems.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T19:20:27Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWlc8AAAABPcr8dQ",
+                            "commit": {
+                              "oid": "9d60995e9127da39a3ebf43325028beb6a6c5dec"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#discussion_r4116607589",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Use the actual training mean for unseen scaffolds**\n\nWhen a scaffold is absent from training, this computes an unweighted mean of per-scaffold means rather than the global mean claimed by the report. In the committed scaffold split every test record uses this fallback: the value is about -6.133, whereas the actual training-label mean is about -4.644; using the latter changes the reported scaffold MAE from 3.759 to 3.025 and eliminates the claimed +0.656 degradation. The supplementary leakage conclusion is therefore an artifact of the fallback calculation.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T19:20:27Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWlc8AAAABPcr8dQ",
+                            "commit": {
+                              "oid": "9d60995e9127da39a3ebf43325028beb6a6c5dec"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#discussion_r4116607592",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Do not mark the dataset license as checked prematurely**\n\nThis field marks the license gate complete even though the same record at line 72 and the round report explicitly say the FreeSolv LICENSE terms were not reviewed and were deferred. Because the full external database is committed as an artifact, this false preflight value allows the round to be admitted without establishing redistribution authorization; leave the gate false and stop, or review and record the applicable terms first.\n\nAGENTS.md reference: [AGENTS.md:L8-L8](https://github.com/lijiabao1998/FrontierChemistry/blob/9d60995e9127da39a3ebf43325028beb6a6c5dec/AGENTS.md#L8-L8)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T19:20:27Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWlc8AAAABPcr8dQ",
+                            "commit": {
+                              "oid": "9d60995e9127da39a3ebf43325028beb6a6c5dec"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#discussion_r4116607594",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Record the hash of the committed results file**\n\nThe listed digest is not the digest of the committed results JSON: running `sha256sum -c results/r1/hashes.txt` from `problems/CHEM-004` fails for this entry (the committed file hashes to `b4883c29...`, not `4b355943...`). This breaks the evidence-integrity check for the primary result artifact, so the manifest should be regenerated from the exact file being committed.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T19:20:27Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWlc8AAAABPcr8dQ",
+                            "commit": {
+                              "oid": "9d60995e9127da39a3ebf43325028beb6a6c5dec"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#discussion_r4116866234",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Build scaffold keys from all ring atoms**\n\nAlthough this revision recognizes lowercase aromatic tokens, it only records atoms immediately followed by a ring-closure digit. Ring digits identify closure bonds rather than every atom in a ring, so `c1ccccc1` and `c1ccncc1` both become `ring:CC:1:aro`, while equivalent placements of the digit can change a heterocycle's key; in the committed dataset this still collapses 174 structurally different aromatics into the sole held-out key. This is fresh evidence that the attempted fix does not yet produce a meaningful scaffold holdout, so the C4 and leakage results remain invalid.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:38:23Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWlc8AAAABPc9b6w",
+                            "commit": {
+                              "oid": "f25bfd9524556d96fb57fbd0b28d921f038fe6f1"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#discussion_r4116866237",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Include aromatic atoms in OLS feature counts**\n\nThe new scaffold tokenizer handles lowercase atoms, but the separate regex used by `heavy_atoms` still accepts only uppercase symbols. Consequently `heavy_atoms(\"c1ccccc1\")` returns 0, and all 267 records containing aromatic lowercase atoms are undercounted when constructing the OLS2 features. Because C4 is decided from the random and scaffold OLS2 MAEs, those reported values do not represent the advertised heavy-atom baseline; this is the remaining concrete failure after the earlier aromatic-token fix.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:38:23Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWlc8AAAABPc9b6w",
+                            "commit": {
+                              "oid": "f25bfd9524556d96fb57fbd0b28d921f038fe6f1"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#discussion_r4116866239",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Make the fallback regression test runnable**\n\nRunning `python3 problems/CHEM-004/experiments/chem004_r1/tests_regression.py` stops here with `TypeError: object of type 'float' has no len()` because `gm[k]` is a scalar mean. T3 and T4 consequently never execute, despite the remediation note claiming all four regression tests pass; use the corresponding group lengths from `grp` when calculating the weighted mean.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:38:23Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWlc8AAAABPc9b6w",
+                            "commit": {
+                              "oid": "f25bfd9524556d96fb57fbd0b28d921f038fe6f1"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#discussion_r4116866241",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Replace the pre-remediation C4 results**\n\nThis report still publishes the pre-fix values `2.361`, `3.103`, `3.759`, and degradation `+0.656`, whereas the remediated results JSON contains `2.035`, `2.327`, `2.85`, and a stored gap of `-0.523`; `round.json` also says the `+0.656` claim was retracted. The fresh remediated artifact therefore directly contradicts the primary round report, leaving readers with the invalid leakage conclusion that the fallback fix was intended to remove.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:38:23Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWlc8AAAABPc9b6w",
+                            "commit": {
+                              "oid": "f25bfd9524556d96fb57fbd0b28d921f038fe6f1"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#discussion_r4116866243",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Regenerate manifest hashes from final artifacts**\n\nFresh evidence after the attempted hash remediation is that `sha256sum -c results/r1/hashes.txt` still reports both `freesolv_validator.py` and `chem004_r1_results.json` as failed: their committed digests are `5abcacee...` and `8e5efc69...`, rather than the listed `71b468ac...` and `c4b4af64...`. Thus the evidence-integrity check remains broken, and T4 would fail even after the preceding test crash is repaired.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-27T20:38:23Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWlc8AAAABPc9b6w",
+                            "commit": {
+                              "oid": "f25bfd9524556d96fb57fbd0b28d921f038fe6f1"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#discussion_r4119495190",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Keep acyclic compounds in distinct scaffold groups**\n\nFresh evidence after the RDKit remediation is that `MolToSmiles(sc) or \"EMPTY_SCAFFOLD\"` maps every acyclic molecule to one key: the committed dataset has 320 ring-free records, exactly matching the 320-record test set with only one held-out key. The accumulation loop therefore jumps from a target of about 161 records to 320, and the reported +0.635 C4 result compares cyclic training molecules against all acyclic molecules rather than measuring a representative scaffold holdout. Preserve an acyclic structural/count key or use a size-controlled grouped split before treating C4 as passed; the current behavior also departs from the preregistered ring-system-plus-composition key after results were known.\n\nAGENTS.md reference: [AGENTS.md:L8-L8](https://github.com/lijiabao1998/FrontierChemistry/blob/20ec1b331426be3c89a1db7259dbf150c445d7f3/AGENTS.md#L8-L8)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:16:35Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWlc8AAAABPf97TQ",
+                            "commit": {
+                              "oid": "20ec1b331426be3c89a1db7259dbf150c445d7f3"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#discussion_r4119495199",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Avoid forcing the Windows-only RDKit bundle**\n\nOn Linux/macOS or any Python other than CPython 3.13, prepending `.deps` makes both the validator and regression runner fail during import: the committed RDKit and NumPy wheels are tagged `cp313-cp313-win_amd64`, contain `.pyd` binaries, and the bundled `rdkit/__init__.py` immediately calls the Windows-only `os.add_dll_directory`. Because this path also shadows a compatible system installation, the experiment cannot be reproduced on the repository's current Linux environment; use a dependency lock/install step or select a platform-compatible environment instead of unconditionally forcing this bundle.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:16:36Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWlc8AAAABPf97TQ",
+                            "commit": {
+                              "oid": "20ec1b331426be3c89a1db7259dbf150c445d7f3"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#discussion_r4119495209",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Reconcile the round summary with the remediated C4 result**\n\nFresh evidence after the report synchronization is that this summary still says only 3/5 checks passed and both C4/C5 failed, while the same report later labels C4 as a valid PASS and the committed results JSON stores `C4_scaffold_split_degrades: true`. The overall verdict remains failed because of C5, but the pass count and failed-check list are now wrong, and the same stale C4-failed status persists in `round.json` and `STATUS.md`; update the active round summaries to one consistent post-remediation state.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:16:36Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWlc8AAAABPf97TQ",
+                            "commit": {
+                              "oid": "20ec1b331426be3c89a1db7259dbf150c445d7f3"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#discussion_r4119667141",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Include acyclic keys in the scaffold holdout**\n\nFresh evidence after the acyclic-key remediation is that the results now contain 382 keys but hold out only 2 keys/174 records: because each of the 320 acyclic molecules is now a singleton key, sorting strictly by descending group size reaches the 25% target using the two largest cyclic scaffolds before any acyclic key can be selected. The resulting test set therefore still does not exercise acyclic scaffold generalization; use a size-controlled/group-stratified selection that can include singleton acyclic keys rather than always taking the largest groups.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:41:00Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWlc8AAAABPgLHgA",
+                            "commit": {
+                              "oid": "e2f07e7fc21dd984c24ce4f83fd6fccbe7763e7c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#discussion_r4119667151",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Replace the stale C4 pass conclusion**\n\nFresh evidence from the v2 rerun is that the committed results now report scaffold OLS2 MAE 2.647 versus random 2.883 and `C4_scaffold_split_degrades: false`, but this active report still publishes 3.518, +0.635, and a PASS; `round.json` repeats the same obsolete pass. This reverses the recorded experimental outcome, so synchronize the report and round record with the latest failed C4 result rather than retaining the pre-acyclic-fix conclusion.\n\nAGENTS.md reference: [AGENTS.md:L12-L12](https://github.com/lijiabao1998/FrontierChemistry/blob/e2f07e7fc21dd984c24ce4f83fd6fccbe7763e7c/AGENTS.md#L12-L12)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:41:00Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWlc8AAAABPgLHgA",
+                            "commit": {
+                              "oid": "e2f07e7fc21dd984c24ce4f83fd6fccbe7763e7c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#discussion_r4119667157",
+                          "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Regenerate the regression-test digest**\n\nFresh evidence after adding `* -text` is that `sha256sum -c results/r1/hashes.txt` still fails for this entry: the committed LF file hashes to `1f71a833...`, while the listed `1b3a5dcb...` is the hash of its CRLF-transformed contents. Consequently both the manifest verifier and regression T4 fail on the committed checkout; regenerate this digest from the actual committed bytes.\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:41:01Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWlc8AAAABPgLHgA",
+                            "commit": {
+                              "oid": "e2f07e7fc21dd984c24ce4f83fd6fccbe7763e7c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": false,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#discussion_r4119667988",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Group acyclic analogues under a real scaffold key**\n\nFresh evidence after the empty-scaffold remediation is that this revision now uses the entire canonical molecular SMILES as the key. Distinct acyclic analogues therefore become singleton groups rather than sharing a scaffold; because the holdout subsequently selects the largest groups, the committed “scaffold” test contains only 174 records from two keys and cannot evaluate transfer across acyclic families, while related chains may still span training and evaluation. This also replaces the preregistered ring-system-plus-composition key after results were available, so group acyclic structures by a frozen structural key or re-register the split before interpreting C4.\n\nAGENTS.md reference: [AGENTS.md:L8-L8](https://github.com/lijiabao1998/FrontierChemistry/blob/e2f07e7fc21dd984c24ce4f83fd6fccbe7763e7c/AGENTS.md#L8-L8)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:41:08Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWlc8AAAABPgLMQQ",
+                            "commit": {
+                              "oid": "e2f07e7fc21dd984c24ce4f83fd6fccbe7763e7c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "isResolved": false,
+                    "isOutdated": true,
+                    "comments": {
+                      "nodes": [
+                        {
+                          "url": "https://github.com/lijiabao1998/FrontierChemistry/pull/1#discussion_r4119667998",
+                          "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Require independent verification before finishing the round**\n\nWhen this round is marked `ROUND_FINISHED`, the reviewed tree contains no independent Verifier record or artifact and no identified independent Skeptic; the only regression runner imports the same validator, while `skeptic_bugs_found` merely lists a bug without documenting who independently checked the work. Consequently the published baseline and split conclusions have skipped the repository’s mandatory independent verification stage; keep the round pending or record the independent verifier and skeptic evidence before declaring it finished.\n\nAGENTS.md reference: [AGENTS.md:L8-L8](https://github.com/lijiabao1998/FrontierChemistry/blob/e2f07e7fc21dd984c24ce4f83fd6fccbe7763e7c/AGENTS.md#L8-L8)\n\nUseful? React with 👍 / 👎.",
+                          "createdAt": "2026-09-28T07:41:08Z",
+                          "pullRequestReview": {
+                            "id": "PRR_kwDOUukWlc8AAAABPgLMQQ",
+                            "commit": {
+                              "oid": "e2f07e7fc21dd984c24ce4f83fd6fccbe7763e7c"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

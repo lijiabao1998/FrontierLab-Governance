@@ -1,0 +1,36 @@
+{
+  "FrontierBiology": {
+    "head": "4fdac6104e9c69273fe328c99df51fb83222d733",
+    "findings": [
+      {
+        "path": "problems/BIO-001/experiments/bio001_r1/independent_leakage_verifier.py",
+        "line": 142,
+        "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4124702500",
+        "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Emit bytes matching the committed verification artifact**\n\nFresh reproduction on exact commit `afa303d` still shows that running this verifier changes `independent_leakage_verification.json` from the manifest's `2483901e...` to `d75bbca8...`, after which `verify_manifest.py` reports `MISMATCH`. The committed blob remains CRLF while `write_text` emits LF on Linux, and `* -text` prevents Git from normalizing it, so the claimed canonical-LF remediation does not work; commit the generator's LF bytes or write an explicitly canonical byte sequence and regenerate the manifest.\n\nAGENTS.md reference: [AGENTS.md:L15-L15](https://github.com/lijiabao1998/FrontierBiology/blob/4fdac6104e9c69273fe328c99df51fb83222d733/AGENTS.md#L15-L15)\n\nUseful? React with 👍 / 👎."
+      },
+      {
+        "path": "problems/BIO-001/experiments/bio001_r1/independent_leakage_verifier.py",
+        "line": 115,
+        "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4124702488",
+        "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Compare the independently recomputed top-level verdict**\n\nFresh evidence in exact commit `afa303d` is that the new verifier reads only `synthetic_demo` and never reads the committed top-level `verdict` or `pre_registered_checks`. It therefore returns `INDEPENDENT_VERIFICATION_MATCH` even if `bio001_r1_results.json` declares the opposite verdict or the production verdict logic is wrong, despite `round.json` claiming full main-verdict reproduction; recompute the expected verdict and compare it explicitly with the committed one.\n\nAGENTS.md reference: [AGENTS.md:L9-L9](https://github.com/lijiabao1998/FrontierBiology/blob/4fdac6104e9c69273fe328c99df51fb83222d733/AGENTS.md#L9-L9)\n\nUseful? React with 👍 / 👎."
+      },
+      {
+        "path": "problems/BIO-001/experiments/bio001_r1/bio001_split_evaluator.py",
+        "line": 234,
+        "url": "https://github.com/lijiabao1998/FrontierBiology/pull/1#discussion_r4124702478",
+        "body": "**<sub><sub>![P1 Badge](https://img.shields.io/badge/P1-orange?style=flat)</sub></sub>  Remove functional siblings from the CLEAN training set**\n\nBoth `run_same_T` calls build the identical training set containing every non-held gene, so CLEAN still has all functional-sibling rows; `siblings=False` merely ignores the computed group means and substitutes a constant predictor. Consequently the reported 0.8776 gap measures a group-aware estimator versus a global-mean estimator, not inflation caused by sibling exposure under different splits, and cannot support `LEAKAGE_DEMO_PASS`. Filter sibling rows from CLEAN training while retaining the same test rows, or describe this as a model ablation rather than leakage.\n\nAGENTS.md reference: [AGENTS.md:L9-L9](https://github.com/lijiabao1998/FrontierBiology/blob/4fdac6104e9c69273fe328c99df51fb83222d733/AGENTS.md#L9-L9)\n\nUseful? React with 👍 / 👎."
+      }
+    ]
+  },
+  "FrontierLab-Governance": {
+    "head": "bba67544c236f557affc884867d5a8134b1a34c1",
+    "findings": [
+      {
+        "path": "convergence/SESSION_LEDGER.json",
+        "line": 104,
+        "url": "https://github.com/lijiabao1998/FrontierLab-Governance/pull/2#discussion_r4124703278",
+        "body": "**<sub><sub>![P2 Badge](https://img.shields.io/badge/P2-yellow?style=flat)</sub></sub>  Commit the evidence referenced by the ledger**\n\nWhen a reviewer follows this evidence path to verify the recorded PR heads, CI states, and review counts, it matches no file: a repo-wide tree search at this target finds only the four top-level `convergence` documents and no `convergence/live` directory. Commit the raw API results or point each entry to evidence that actually exists so these governance snapshots are reproducible.\n\nAGENTS.md reference: [AGENTS.md:L16-L16](https://github.com/lijiabao1998/FrontierLab-Governance/blob/bba67544c236f557affc884867d5a8134b1a34c1/AGENTS.md#L16-L16)\n\nUseful? React with 👍 / 👎."
+      }
+    ]
+  }
+}

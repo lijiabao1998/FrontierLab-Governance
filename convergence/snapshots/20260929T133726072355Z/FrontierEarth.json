@@ -1,0 +1,81 @@
+{
+  "acquired_started_at": "2026-09-29T13:37:31.019575+00:00",
+  "acquired_completed_at": "2026-09-29T13:37:32.490128+00:00",
+  "repository": "FrontierEarth",
+  "response": {
+    "data": {
+      "repository": {
+        "name": "FrontierEarth",
+        "defaultBranchRef": {
+          "name": "main",
+          "target": {
+            "oid": "39ade8c1dbb507aed17ef9b29f8537d09fe08b6a"
+          }
+        },
+        "pullRequests": {
+          "pageInfo": {
+            "hasNextPage": false
+          },
+          "nodes": [
+            {
+              "number": 1,
+              "title": "Fix onboarding governance pin in README/AGENTS (091d6a26 → lock f40beb16)",
+              "url": "https://github.com/lijiabao1998/FrontierEarth/pull/1",
+              "state": "OPEN",
+              "isDraft": false,
+              "headRefName": "claude/frontierearth-governance-pin-fix",
+              "headRefOid": "19fe1ca2a09146b47a5b22951e0fdc8d86b12e87",
+              "baseRefName": "main",
+              "mergedAt": null,
+              "mergeCommit": null,
+              "updatedAt": "2026-09-27T19:43:13Z",
+              "reviewDecision": null,
+              "commits": {
+                "nodes": [
+                  {
+                    "commit": {
+                      "statusCheckRollup": {
+                        "state": "SUCCESS",
+                        "contexts": {
+                          "pageInfo": {
+                            "hasNextPage": false
+                          },
+                          "nodes": [
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierEarth/actions/runs/36345225725/job/108692932563"
+                            },
+                            {
+                              "name": "records / records",
+                              "status": "COMPLETED",
+                              "conclusion": "SUCCESS",
+                              "detailsUrl": "https://github.com/lijiabao1998/FrontierEarth/actions/runs/36342586754/job/108685450537"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "reviews": {
+                "pageInfo": {
+                  "hasPreviousPage": false
+                },
+                "nodes": []
+              },
+              "reviewThreads": {
+                "pageInfo": {
+                  "hasNextPage": false
+                },
+                "nodes": []
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
